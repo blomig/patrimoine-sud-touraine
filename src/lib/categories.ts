@@ -59,8 +59,7 @@ export const MODELES: Categorie[] = [
     id: 'agenda',
     titre: 'Animations',
     court: 'Animations',
-    resume:
-      'Visites, ateliers et rendez-vous. Les animations « à valider » s’affichent avec la mention « en attente de validation ». Celles dont la date est passée ne s’affichent plus.',
+    resume: 'Visites, ateliers et rendez-vous. Une animation dont la date est passée ne s’affiche plus.',
     frise: false,
   },
 ];

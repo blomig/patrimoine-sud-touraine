@@ -4,7 +4,7 @@ Cahier documentaire statique sur le patrimoine de la communauté de communes Loc
 
 Adresse prévue : <https://blomig.github.io/patrimoine-sud-touraine/>. Un nom de domaine propre pourra remplacer cette adresse plus tard.
 
-La démonstration est prévue le 11 décembre 2026. Le corpus actuel est un jeu pilote : 59 fiches sur quatre rubriques, 12 animations, les thèmes et l’annuaire. Cinq communes sont couvertes en priorité : Loches, La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves. Les fiches sont au statut « à vérifier ». Les animations « à valider » s’affichent avec la mention « en attente de validation » tant que leur date n’est pas passée.
+La démonstration est prévue le 11 décembre 2026. Le corpus actuel est un jeu pilote : 59 fiches sur quatre rubriques, 12 animations, les thèmes et l’annuaire. Cinq communes sont couvertes en priorité : Loches, La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves. Le statut d’une fiche reste un champ interne : il n’est pas affiché.
 
 ## Stack
 
@@ -85,7 +85,7 @@ Champs utiles :
 
 Le corps du fichier, sous les `---`, est le texte de la fiche. Il ne faut pas le réécrire à la légère : c’est le corpus.
 
-Pour une animation, le dossier est `contenu/agenda/`, la catégorie `agenda`, et le statut de départ `à valider`. Elle apparaît tout de même, avec la mention « en attente de validation », jusqu’au dernier jour de `date_fin` (ou de `date_debut` s’il n’y a pas de fin). Le lendemain, elle disparaît des listes au prochain build. Une animation `publié` s’affiche sans cette mention.
+Pour une animation, le dossier est `contenu/agenda/`, la catégorie `agenda`, et le statut de départ `à valider`. Elle apparaît jusqu’au dernier jour de `date_fin` (ou de `date_debut` s’il n’y a pas de fin), que le statut soit `à valider` ou `publié`. Le lendemain, elle disparaît des listes au prochain build. Le statut n’est pas affiché.
 
 ## Thèmes et annuaire
 
@@ -140,7 +140,7 @@ Le mode d’emploi du worker est celui de Sveltia CMS (« GitHub backend » / OA
 
 - Accueil : territoire, cinq rubriques, communes pilotes, prochaines animations
 - Liste, thèmes et frise pour chaque rubrique hors agenda
-- Fiche : sources, crédit d’image, badge « à vérifier » ou « en attente de validation »
+- Fiche : sources et crédit d’image. Le statut reste dans le fichier, il n’est pas affiché.
 - Une page par commune citée
 - Carte des fiches qui ont des coordonnées
 - Recherche plein texte

@@ -88,7 +88,7 @@ Le corps Markdown, sous le second `---`, est le texte. Pas de champ `resume` : l
 Statuts acceptés par le schéma : `à vérifier`, `à valider`, `validé`, `publié`.
 
 - Fiche de patrimoine (bâtiment, personne, événement historique) : partir de `à vérifier`. `validé` seulement après relecture de François.
-- Animation : partir de `à valider`. Elle s’affiche quand même, avec la mention « en attente de validation », tant que `date_fin` (ou `date_debut`) n’est pas passée. `publié` enlève cette mention. Une animation terminée disparaît des listes au build suivant, le fichier reste.
+- Animation : partir de `à valider`. Elle s’affiche comme les autres tant que `date_fin` (ou `date_debut`) n’est pas passée. Le statut n’est pas montré sur le site, ni indexé par la recherche. Une animation terminée disparaît des listes au build suivant, le fichier reste.
 
 Exemple minimal, à adapter. Ne pas le copier tel quel dans `contenu/` : les faits et l’URL sont des emplacements.
 
@@ -181,7 +181,7 @@ Les trois apparences sont dans `src/styles/global.css`, sous `[data-design="revu
 - Ne jamais inventer un fait, une date, un lieu, un nom ou un chiffre. Si la source est muette, l’écrire (« non précisé dans la source ») ou laisser le champ `null`.
 - Chaque fiche a au moins une source consultée, avec son titre et son URL. L’annuaire aussi.
 - Ne jamais recopier un article de presse, une page d’office de tourisme ou une notice. Reformuler en peu de phrases, et s’arrêter où la source s’arrête (y compris si la suite est derrière un abonnement).
-- Statut par défaut : `à vérifier` pour le patrimoine, `à valider` pour l’agenda. Ne pas passer à `validé` ou `publié` sans l’accord de François.
+- Statut par défaut : `à vérifier` pour le patrimoine, `à valider` pour l’agenda. Ne pas passer à `validé` ou `publié` sans l’accord de François. Le champ reste dans le schéma et le CMS. Il n’apparaît pas sur le site public.
 - Images : uniquement des fichiers libres (Wikimedia Commons ou équivalent), avec auteur et licence, ou des photos prises par François avec son accord explicite. Télécharger une copie de taille raisonnable dans `public/media/` et garder l’URL d’origine. Pas d’image dont les droits sont inconnus.
 - Pas d’information personnelle sur une personne vivante (adresse, téléphone, état de santé, vie privée). Un nom public d’association ou d’organisateur cité par la source peut rester. En cas de doute, ne pas l’écrire.
 - Ne pas présenter le site comme le site de la communauté de communes, d’une mairie ou d’une association. La page « À propos » le dit déjà.

@@ -497,7 +497,7 @@ collections:
           - "à valider"
           - "publié"
         default: "à valider"
-        hint: "« à valider » s'affiche quand même, avec la mention en attente de validation, tant que la date n'est pas passée."
+        hint: "Champ interne, absent du site public. « à valider » et « publié » restent listés tant que la date n'est pas passée."
       - label: Sources
         name: sources
         widget: list

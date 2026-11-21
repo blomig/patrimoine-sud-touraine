@@ -2,7 +2,6 @@
 import { render } from 'astro:content';
 import Fil from '../../components/Fil.astro';
 import MiniCarte from '../../components/MiniCarte.astro';
-import Statut from '../../components/Statut.astro';
 import Base from '../../layouts/Base.astro';
 import { estCategorieFiche } from '../../lib/categories';
 import { extrait, hrefFiche, plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
@@ -59,7 +58,6 @@ const aCoordonnees = typeof fiche.data.latitude === 'number' && typeof fiche.dat
     <header class="entete-fiche">
       <p class="sur-titre">{categorie.titre}</p>
       <h1>{fiche.data.titre}</h1>
-      <Statut statut={fiche.data.statut} />
       <p class="chapo">{fiche.data.periode}</p>
       <dl class="faits">
         <div>
