@@ -46,6 +46,9 @@ categories:
         libelle: Résistance et guerres
       - id: figures-locales
         libelle: Figures locales de la Riolle
+      # Ligueil n'est pas dans la vallée de la Riolle : identifiant distinct.
+      - id: figures-locales-ligueillois
+        libelle: Figures locales du Ligueillois
 
   evenements-historiques:
     libelle: Événements historiques documentés
@@ -60,6 +63,9 @@ categories:
         libelle: Époques moderne et contemporaine
       - id: epidemies-et-vie-quotidienne
         libelle: Épidémies et vie quotidienne
+      # Même identifiant que pour les personnes, ajouté ici pour les faits de guerre.
+      - id: resistance-et-guerres
+        libelle: Résistance et guerres
 
   agenda:
     libelle: Animations à venir
@@ -72,3 +78,5 @@ categories:
         libelle: Fêtes et saisons
       - id: spectacles-et-rencontres
         libelle: Spectacles et rencontres
+      - id: musiques-anciennes-et-patrimoine
+        libelle: Musiques anciennes et animations dans le patrimoine
