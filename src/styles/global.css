@@ -644,9 +644,17 @@ button:hover {
   background: #f6ecdf;
 }
 
-.plan-communes,
-.plan-communes.leaflet-container {
+.plan.plan-communes,
+.plan.plan-communes.leaflet-container {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
   background: #efe6d8;
+}
+
+.plan-communes .leaflet-control-container {
+  display: none;
 }
 
 .plan-communes .leaflet-interactive {

@@ -17,7 +17,6 @@ const meta = Object.fromEntries(
 );
 const donnees = {
   communes: withBase('/data/communes-loches-sud-touraine.geojson'),
-  departement: withBase('/data/indre-et-loire.geojson'),
   meta,
 };
 const sourceId = `donnees-carte-${identifiant}`;
@@ -25,7 +24,6 @@ const conteneurId = `carte-${identifiant}`;
 ---
 
 <ul class="legende-carte">
-  <li><span class="pastille pastille-departement"></span> Indre-et-Loire</li>
   <li><span class="pastille pastille-active"></span> Commune avec des fiches</li>
   <li><span class="pastille pastille-vide"></span> Fiches à venir</li>
 </ul>
@@ -33,12 +31,12 @@ const conteneurId = `carte-${identifiant}`;
   id={conteneurId}
   class="plan plan-communes"
   role="region"
-  aria-label="Carte des communes de Loches Sud Touraine, dans l’Indre-et-Loire"
+  aria-label="Carte fixe des 67 communes de Loches Sud Touraine"
   data-source={sourceId}
 ></div>
 <p class="mention-carte">
-  Fond : Indre-et-Loire et tuiles OpenStreetMap. Contours des 67 communes simplifiés, issus de
-  geo.api.gouv.fr (EPCI 200071587), conservés dans le dépôt.
+  Contours des 67 communes simplifiés, issus de geo.api.gouv.fr (EPCI 200071587), conservés dans
+  le dépôt. La carte ne se déplace pas : survolez une commune, ou cliquez pour ouvrir sa page.
 </p>
 <script type="application/json" id={sourceId} set:html={JSON.stringify(donnees)} />
 
@@ -62,42 +60,34 @@ const conteneurId = `carte-${identifiant}`;
   for (const conteneur of blocs) {
     const source = document.getElementById(conteneur.dataset.source ?? '');
     if (!source?.textContent) continue;
-    const { communes, departement, meta } = JSON.parse(source.textContent) as {
+    const { communes, meta } = JSON.parse(source.textContent) as {
       communes: string;
-      departement: string;
       meta: Record<string, { href: string; count: number; nom: string }>;
     };
-    const plan = L.map(conteneur, { scrollWheelZoom: true });
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(plan);
-    plan.attributionControl.addAttribution(
-      'Contours : <a href="https://geo.api.gouv.fr/">geo.api.gouv.fr</a>',
-    );
+    const plan = L.map(conteneur, {
+      zoomControl: false,
+      attributionControl: false,
+      scrollWheelZoom: false,
+      dragging: false,
+      doubleClickZoom: false,
+      boxZoom: false,
+      keyboard: false,
+      touchZoom: false,
+      zoomSnap: 0,
+      fadeAnimation: false,
+      zoomAnimation: false,
+      inertia: false,
+    });
 
-    const [reponseDepartement, reponseCommunes] = await Promise.all([fetch(departement), fetch(communes)]);
-    if (!reponseDepartement.ok || !reponseCommunes.ok) {
+    const reponseCommunes = await fetch(communes);
+    if (!reponseCommunes.ok) {
       conteneur.insertAdjacentHTML(
         'beforeend',
         '<p class="carte-erreur">La carte n’a pas pu être chargée.</p>',
       );
       continue;
     }
-    const [donneesDepartement, donneesCommunes] = await Promise.all([
-      reponseDepartement.json(),
-      reponseCommunes.json(),
-    ]);
-
-    L.geoJSON(donneesDepartement, {
-      interactive: false,
-      style: {
-        color: '#4e4944',
-        weight: 1.6,
-        fillColor: '#9a948c',
-        fillOpacity: 0.45,
-      },
-    }).addTo(plan);
+    const donneesCommunes = await reponseCommunes.json();
 
     const couche = L.geoJSON(donneesCommunes, {
       style: (feature) => {
@@ -128,7 +118,17 @@ const conteneurId = `carte-${identifiant}`;
       },
     }).addTo(plan);
 
-    plan.fitBounds(couche.getBounds().pad(0.18));
-    requestAnimationFrame(() => plan.invalidateSize());
+    const bornes = couche.getBounds();
+    const cadrer = () => {
+      plan.invalidateSize({ animate: false });
+      plan.setMinZoom(0);
+      plan.setMaxZoom(22);
+      plan.fitBounds(bornes, { padding: [8, 8], animate: false });
+      const zoom = plan.getZoom();
+      plan.setMinZoom(zoom);
+      plan.setMaxZoom(zoom);
+    };
+    cadrer();
+    window.addEventListener('resize', cadrer);
   }
 </script>
