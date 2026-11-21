@@ -1,0 +1,798 @@
+:root {
+  color-scheme: light;
+  --fond: #f3ecdf;
+  --encre: #1c2430;
+  --encre-douce: #3a4553;
+  --lien: #1a365d;
+  --regle: #b7a48a;
+  --carte: #fbf7f0;
+  --accent: #5c4a3a;
+  --titre: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --texte: "Source Sans 3", "Segoe UI", sans-serif;
+  --mesure: 46rem;
+  --espace: 1.25rem;
+}
+
+[data-design="carnet"] {
+  --fond: #f6efe2;
+  --encre: #2a2118;
+  --encre-douce: #4a3b2a;
+  --lien: #7a2e12;
+  --regle: #c9a27a;
+  --carte: #fffaf3;
+  --accent: #1d5c4c;
+  --titre: Fraunces, Georgia, serif;
+  --texte: "Nunito Sans", "Segoe UI", sans-serif;
+  --mesure: 52rem;
+}
+
+[data-design="musee"] {
+  --fond: #f7f6f3;
+  --encre: #141414;
+  --encre-douce: #2f2f2f;
+  --lien: #0d3a5f;
+  --regle: #d5d1c8;
+  --carte: #ffffff;
+  --accent: #102a43;
+  --titre: Outfit, "Segoe UI", sans-serif;
+  --texte: Outfit, "Segoe UI", sans-serif;
+  --mesure: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--texte);
+  font-size: 1.1875rem;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--lien);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--lien);
+  outline-offset: 3px;
+}
+
+.eviter {
+  position: absolute;
+  left: 0.75rem;
+  top: -4rem;
+  background: var(--encre);
+  color: var(--fond);
+  padding: 0.6rem 1rem;
+  z-index: 20;
+}
+
+.eviter:focus {
+  top: 0.75rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--titre);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  margin: 0 0 0.6rem;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  margin: 2rem 0 0.7rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+  margin: 0 0 0.35rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+.chapo {
+  font-size: 1.35rem;
+  line-height: 1.5;
+}
+
+.entete,
+main,
+.pied {
+  padding-inline: 1.1rem;
+}
+
+main {
+  max-width: var(--mesure);
+  margin: 0 auto;
+  padding-block: 1.5rem 3rem;
+}
+
+.entete {
+  max-width: var(--mesure);
+  margin: 0 auto;
+  padding-block: 1.25rem 0.5rem;
+  border-bottom: 1px solid var(--regle);
+}
+
+.marque {
+  display: none;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.nom-site {
+  color: inherit;
+  text-decoration: none;
+  font-family: var(--titre);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.sous-titre {
+  margin: 0.35rem 0 0.8rem;
+  color: var(--encre-douce);
+}
+
+.menu summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+  width: max-content;
+  padding-inline: 0.2rem;
+}
+
+.nav-principal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-bottom: 0.8rem;
+}
+
+.nav-principal a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nav-principal a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 64rem) {
+  .menu > summary {
+    display: none;
+  }
+
+  /* Le style du navigateur cache le contenu d'un <details> fermé. */
+  .menu > .nav-principal {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.1rem;
+  }
+}
+
+.pied {
+  max-width: var(--mesure);
+  margin: 0 auto;
+  padding-block: 1.5rem 2.5rem;
+  border-top: 1px solid var(--regle);
+  color: var(--encre-douce);
+}
+
+.pied nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.pied a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mention-carte {
+  font-size: 1rem;
+}
+
+.fil ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem;
+  color: var(--encre-douce);
+}
+
+.fil li:not(:last-child)::after {
+  content: " / ";
+}
+
+.entete-page {
+  margin-bottom: 1.5rem;
+}
+
+.sur-titre {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+.tuiles,
+.liste-fiches,
+.liste-agenda,
+.liste-associations,
+.liste-communes,
+.liste-points,
+.choix-designs,
+.nav-themes ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tuile,
+.carte-fiche,
+.liste-agenda li,
+.liste-associations li,
+.nav-themes a,
+.liste-communes a {
+  color: inherit;
+}
+
+.tuile {
+  display: block;
+  text-decoration: none;
+  padding: 1rem 0;
+  border-top: 1px solid var(--regle);
+}
+
+.tuile:hover .tuile-titre,
+.liste-communes a:hover span,
+.nav-themes a:hover span {
+  text-decoration: underline;
+}
+
+.tuile-numero {
+  display: block;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.tuile-titre {
+  display: block;
+  font-family: var(--titre);
+  font-size: 1.55rem;
+  margin: 0.15rem 0;
+}
+
+.tuile-texte,
+.nav-themes small,
+.liste-communes small,
+.liste-points span {
+  display: block;
+  color: var(--encre-douce);
+}
+
+.carte-fiche {
+  padding: 1rem 0 1.15rem;
+  border-top: 1px solid var(--regle);
+}
+
+.carte-meta,
+.carte-plage,
+.carte-lieu,
+.carte-themes {
+  color: var(--encre-douce);
+  margin: 0 0 0.25rem;
+}
+
+.carte-meta {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.carte-plage {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.carte-fiche h3 a {
+  color: inherit;
+}
+
+.badge-statut {
+  margin: 0.45rem 0 0;
+}
+
+.badge-statut span {
+  display: inline-block;
+  border: 1px solid var(--encre-douce);
+  color: var(--encre-douce);
+  border-radius: 999px;
+  padding: 0.05rem 0.6rem;
+  font-size: 0.95rem;
+}
+
+.badge-attente span {
+  border-style: dashed;
+}
+
+.nav-themes a {
+  display: block;
+  text-decoration: none;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--regle);
+  min-height: 44px;
+}
+
+.nav-themes a span {
+  font-weight: 700;
+}
+
+.barre-tri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+}
+
+.barre-tri a,
+.lien-suite a,
+button {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+}
+
+button {
+  font: inherit;
+  font-size: 1.05rem;
+  background: var(--encre);
+  color: var(--fond);
+  border: 2px solid var(--encre);
+  border-radius: 4px;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--lien);
+  border-color: var(--lien);
+}
+
+.faits {
+  display: grid;
+  gap: 0.7rem;
+  margin: 1rem 0 1.2rem;
+}
+
+.faits div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.4rem 1rem;
+}
+
+.faits dt {
+  font-weight: 700;
+}
+
+.faits dd {
+  margin: 0;
+}
+
+.figure-fiche {
+  margin: 1.2rem 0 1.6rem;
+}
+
+.figure-fiche img {
+  display: block;
+  width: 100%;
+  background: var(--carte);
+}
+
+.figure-fiche figcaption {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: 0.55rem;
+  color: var(--encre-douce);
+  font-size: 1.05rem;
+}
+
+.texte :is(h2, h3) {
+  margin-top: 1.8rem;
+}
+
+.bloc-sources {
+  margin-top: 2rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--regle);
+}
+
+.bloc-sources ol {
+  padding-left: 1.3rem;
+}
+
+.theme-inconnu,
+.vide {
+  color: var(--encre-douce);
+}
+
+.sources-intro {
+  margin-top: 0.5rem;
+}
+
+.sources-intro summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.liens-larges {
+  list-style: none;
+  padding: 0;
+}
+
+.liens-larges a {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  font-weight: 700;
+}
+
+.liste-agenda li,
+.liste-associations li {
+  padding: 1rem 0;
+  border-top: 1px solid var(--regle);
+}
+
+.liste-communes a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  text-decoration: none;
+  min-height: 48px;
+  border-top: 1px solid var(--regle);
+  padding: 0.7rem 0;
+}
+
+.plan {
+  height: 70vh;
+  min-height: 28rem;
+  margin: 1rem 0 1.5rem;
+  background: #d9e2df;
+  border: 1px solid var(--regle);
+}
+
+.legende-carte {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+  list-style: none;
+  padding: 0;
+}
+
+.legende-carte li,
+.pastille {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.pastille {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--encre);
+}
+
+.marker-pin {
+  background: transparent;
+  border: 0;
+}
+
+.marker-pin span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px #1c2430;
+}
+
+.liste-points li {
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--regle);
+}
+
+.pagefind-ui {
+  --pagefind-ui-scale: 1.05;
+  --pagefind-ui-primary: var(--lien);
+  --pagefind-ui-text: var(--encre);
+  --pagefind-ui-background: var(--carte);
+  --pagefind-ui-border: var(--regle);
+  --pagefind-ui-font: var(--texte);
+  margin: 1rem 0 2rem;
+}
+
+.pagefind-ui input {
+  font-size: 1.2rem;
+  min-height: 52px;
+}
+
+.choix-designs {
+  display: grid;
+  gap: 1rem;
+}
+
+.choix-designs li {
+  background: var(--carte);
+  border: 1px solid var(--regle);
+  padding: 1rem 1.1rem;
+}
+
+.comparaison {
+  display: grid;
+  gap: 1rem;
+}
+
+.comparaison iframe {
+  width: 100%;
+  height: 36rem;
+  border: 1px solid var(--regle);
+  background: #fff;
+}
+
+.comparaison figcaption {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+code {
+  font-size: 0.95em;
+}
+
+@media (min-width: 52rem) {
+  .choix-designs,
+  .comparaison {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .faits {
+    max-width: 40rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .faits div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
+/* Revue savante : colonne étroite, filet double, liste d'index. */
+[data-design="revue"] body {
+  background:
+    linear-gradient(180deg, rgb(255 252 246 / 70%), transparent 18rem),
+    var(--fond);
+}
+
+[data-design="revue"] .marque-revue {
+  display: block;
+}
+
+[data-design="revue"] .entete {
+  text-align: center;
+  border-bottom: 4px double var(--regle);
+}
+
+[data-design="revue"] .nav-principal {
+  justify-content: center;
+}
+
+[data-design="revue"] .nom-site {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+[data-design="revue"] .texte > p:first-of-type::first-letter {
+  font-family: var(--titre);
+  float: left;
+  font-size: 3.3rem;
+  line-height: 0.8;
+  padding-right: 0.45rem;
+  color: var(--accent);
+}
+
+[data-design="revue"] .figure-fiche img {
+  border: 1px solid var(--regle);
+}
+
+/* Carnet : papier, lavis, cartes aux coins inégaux. */
+[data-design="carnet"] body {
+  background:
+    radial-gradient(42rem 24rem at 0% -10%, rgb(196 122 74 / 22%), transparent 60%),
+    radial-gradient(36rem 22rem at 100% 0%, rgb(47 107 92 / 16%), transparent 55%),
+    var(--fond);
+}
+
+[data-design="carnet"] .marque-carnet {
+  display: inline-block;
+  border: 2px solid var(--accent);
+  padding: 0.15rem 0.55rem;
+  transform: rotate(-1.5deg);
+}
+
+[data-design="carnet"] .entete {
+  border: 0;
+  border-left: 10px solid var(--accent);
+  padding-left: 1rem;
+}
+
+[data-design="carnet"] .tuiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  gap: 0.9rem;
+}
+
+[data-design="carnet"] .tuile,
+[data-design="carnet"] .carte-fiche,
+[data-design="carnet"] .liste-agenda li,
+[data-design="carnet"] .liste-associations li {
+  background: var(--carte);
+  border: 1px solid var(--regle);
+  border-radius: 2px 16px 10px 3px;
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 5px 5px 0 rgb(29 92 76 / 10%);
+}
+
+[data-design="carnet"] .nom-site {
+  font-weight: 700;
+}
+
+/* Musée : bandeau sombre, grands cartels, grille aérée. */
+[data-design="musee"] .entete {
+  max-width: none;
+  background: var(--accent);
+  color: #f7f6f3;
+  border: 0;
+  padding: 1.4rem 6vw 1.1rem;
+}
+
+[data-design="musee"] .entete a,
+[data-design="musee"] .sous-titre,
+[data-design="musee"] .menu summary {
+  color: #f7f6f3;
+}
+
+[data-design="musee"] .marque-musee {
+  display: block;
+  color: #f3d48a;
+}
+
+[data-design="musee"] .nom-site {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+[data-design="musee"] main,
+[data-design="musee"] .pied {
+  max-width: var(--mesure);
+}
+
+[data-design="musee"] .tuiles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+[data-design="musee"] .tuile {
+  background: #fff;
+  border: 0;
+  border-top: 6px solid var(--accent);
+  min-height: 10.5rem;
+  padding: 1.2rem 1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+[data-design="musee"] .tuile-numero {
+  font-size: 1.8rem;
+  letter-spacing: 0.08em;
+}
+
+[data-design="musee"] .figure-fiche {
+  background: #fff;
+  padding: 0.6rem 0.6rem 0.8rem;
+}
+
+[data-design="musee"] .figure-fiche figcaption {
+  border-top: 1px solid var(--regle);
+  padding-top: 0.55rem;
+  text-transform: none;
+}
+
+[data-design="musee"] .carte-fiche {
+  background: #fff;
+  border: 0;
+  border-left: 6px solid var(--accent);
+  padding: 1rem 1rem 1.1rem 1.15rem;
+  margin-bottom: 0.75rem;
+}
+
+[data-design="musee"] h1 {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 52rem) {
+  [data-design="musee"] .tuiles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  [data-design="musee"] .tuiles li:first-child {
+    grid-column: 1 / -1;
+  }
+
+  [data-design="musee"] .tuiles li:first-child .tuile {
+    min-height: 14rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-design="carnet"] .marque-carnet {
+    transform: none;
+  }
+}

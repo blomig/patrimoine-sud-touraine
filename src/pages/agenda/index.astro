@@ -1,0 +1,19 @@
+---
+import Fil from '../../components/Fil.astro';
+import ListeFiches from '../../components/ListeFiches.astro';
+import Base from '../../layouts/Base.astro';
+import { agendaVisibleMaintenant } from '../../lib/contenu';
+import { categorieParId } from '../../lib/site';
+
+const categorie = categorieParId('agenda')!;
+const evenements = await agendaVisibleMaintenant();
+---
+
+<Base titre={categorie.titre} description={categorie.resume}>
+  <Fil crumbs={[{ label: categorie.titre }]} />
+  <header class="entete-page">
+    <h1>{categorie.titre}</h1>
+    <p class="chapo">{categorie.resume}</p>
+  </header>
+  <ListeFiches fiches={evenements} />
+</Base>

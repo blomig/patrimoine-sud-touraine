@@ -1,0 +1,693 @@
+# Interface Sveltia CMS. Les libellés sont en français.
+# Aucun proxy OAuth n'est branché : la connexion se fait avec un jeton personnel.
+# Voir le README, section Administration.
+backend:
+  name: github
+  repo: blomig/patrimoine-sud-touraine
+  branch: main
+locale: fr
+site_url: https://blomig.github.io/patrimoine-sud-touraine
+display_url: https://blomig.github.io/patrimoine-sud-touraine
+media_folder: public/media
+public_folder: /patrimoine-sud-touraine/media
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+collections:
+  - name: batiments-anciens-disparus
+    label: Bâtiments anciens disparus
+    label_singular: Bâtiment disparu
+    folder: contenu/batiments-anciens-disparus
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{commune}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: batiments-anciens-disparus
+
+      - label: Identifiant
+        name: id
+        widget: string
+        hint: Minuscules et tirets, sans accent. Sert de nom de fichier.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        hint: Identifiants présents dans themes.yml. Un identifiant inconnu n'empêche pas la construction du site.
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        required: false
+        hint: "Année (973 ou -2400), année et mois (1429-05) ou date complète (2026-12-12). Laisser vide si inconnue."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à vérifier"
+          - "validé"
+        default: "à vérifier"
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        hint: Une seule image, libre de droits. Laisser vide s'il n'y en a pas.
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
+  - name: batiments-anciens-existants
+    label: Bâtiments anciens encore existants
+    label_singular: Bâtiment existant
+    folder: contenu/batiments-anciens-existants
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{commune}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: batiments-anciens-existants
+
+      - label: Identifiant
+        name: id
+        widget: string
+        hint: Minuscules et tirets, sans accent. Sert de nom de fichier.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        hint: Identifiants présents dans themes.yml. Un identifiant inconnu n'empêche pas la construction du site.
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        required: false
+        hint: "Année (973 ou -2400), année et mois (1429-05) ou date complète (2026-12-12). Laisser vide si inconnue."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à vérifier"
+          - "validé"
+        default: "à vérifier"
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        hint: Une seule image, libre de droits. Laisser vide s'il n'y en a pas.
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
+  - name: personnes
+    label: Personnes
+    label_singular: Personne
+    folder: contenu/personnes
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{commune}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: personnes
+
+      - label: Identifiant
+        name: id
+        widget: string
+        hint: Minuscules et tirets, sans accent. Sert de nom de fichier.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        hint: Identifiants présents dans themes.yml. Un identifiant inconnu n'empêche pas la construction du site.
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        required: false
+        hint: "Année (973 ou -2400), année et mois (1429-05) ou date complète (2026-12-12). Laisser vide si inconnue."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à vérifier"
+          - "validé"
+        default: "à vérifier"
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        hint: Une seule image, libre de droits. Laisser vide s'il n'y en a pas.
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
+  - name: evenements-historiques
+    label: Événements historiques
+    label_singular: Événement
+    folder: contenu/evenements-historiques
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{commune}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: evenements-historiques
+
+      - label: Identifiant
+        name: id
+        widget: string
+        hint: Minuscules et tirets, sans accent. Sert de nom de fichier.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        hint: Identifiants présents dans themes.yml. Un identifiant inconnu n'empêche pas la construction du site.
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        required: false
+        hint: "Année (973 ou -2400), année et mois (1429-05) ou date complète (2026-12-12). Laisser vide si inconnue."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à vérifier"
+          - "validé"
+        default: "à vérifier"
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        hint: Une seule image, libre de droits. Laisser vide s'il n'y en a pas.
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
+  - name: agenda
+    label: Agenda des animations
+    label_singular: Animation
+    folder: contenu/agenda
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{date_debut}} — {{statut}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: agenda
+      - label: Identifiant
+        name: id
+        widget: string
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        hint: "Date complète de préférence, par exemple 2026-12-12. Une année ou un mois suffisent."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Lieu
+        name: lieu
+        widget: string
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à valider"
+          - "publié"
+        default: "à valider"
+        hint: "« à valider » s'affiche quand même, avec la mention en attente de validation, tant que la date n'est pas passée."
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
+  - name: reglages
+    label: Réglages et listes
+    files:
+      - label: Design publié
+        name: site
+        file: contenu/site.yml
+        fields:
+          - label: Titre du site
+            name: titre
+            widget: string
+          - label: Design
+            name: design
+            widget: select
+            hint: Le seul réglage de l'apparence publiée. Comparer les trois sur la page Designs.
+            options:
+              - label: Revue savante
+                value: revue
+              - label: Carnet de voyage
+                value: carnet
+              - label: Musée
+                value: musee
+      - label: Thèmes
+        name: themes
+        file: contenu/themes.yml
+        fields:
+          - label: Catégories
+            name: categories
+            widget: object
+            fields:
+            - label: Bâtiments anciens disparus
+              name: batiments-anciens-disparus
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+            - label: Bâtiments anciens encore existants
+              name: batiments-anciens-existants
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+            - label: Personnes
+              name: personnes
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+            - label: Événements historiques
+              name: evenements-historiques
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+            - label: Agenda
+              name: agenda
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+      - label: Associations
+        name: associations
+        file: contenu/associations.yml
+        fields:
+          - label: Associations
+            name: associations
+            widget: list
+            summary: "{{nom}}"
+            fields:
+              - label: Identifiant
+                name: id
+                widget: string
+              - label: Nom
+                name: nom
+                widget: string
+              - label: Commune
+                name: commune
+                widget: string
+              - label: Code INSEE
+                name: insee
+                widget: string
+                required: false
+              - label: Site
+                name: site
+                widget: string
+                required: false
+              - label: Notes
+                name: notes
+                widget: text
+              - label: Sources
+                name: sources
+                widget: list
+                hint: Une adresse web par ligne.
+                field:
+                  label: Adresse web
+                  name: source
+                  widget: string

@@ -1,0 +1,27 @@
+---
+import Statut from './Statut.astro';
+
+type Props = {
+  href: string;
+  titre: string;
+  extrait: string;
+  commune: string;
+  periode: string;
+  plage: string;
+  statut: string;
+  themes?: string[];
+};
+const { href, titre, extrait, commune, periode, plage, statut, themes = [] } = Astro.props;
+---
+
+<article class="carte-fiche">
+  <p class="carte-meta">
+    <span class="carte-plage">{plage}</span>
+    <span>{periode}</span>
+  </p>
+  <h3><a href={href}>{titre}</a></h3>
+  <p class="carte-lieu">{commune}</p>
+  {themes.length > 0 && <p class="carte-themes">{themes.join(' · ')}</p>}
+  <p>{extrait}</p>
+  <Statut statut={statut} />
+</article>

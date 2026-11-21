@@ -1,0 +1,61 @@
+---
+import '@fontsource/source-serif-4/400.css';
+import '@fontsource/source-serif-4/600.css';
+import '@fontsource/source-serif-4/700.css';
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '@fontsource/source-sans-3/700.css';
+import '@fontsource/fraunces/500.css';
+import '@fontsource/fraunces/700.css';
+import '@fontsource/nunito-sans/400.css';
+import '@fontsource/nunito-sans/700.css';
+import '@fontsource/outfit/400.css';
+import '@fontsource/outfit/500.css';
+import '@fontsource/outfit/700.css';
+import '../styles/global.css';
+import Entete from '../components/Entete.astro';
+import Pied from '../components/Pied.astro';
+import { chargerSite } from '../lib/site';
+import { withBase } from '../lib/urls';
+
+type Props = {
+  titre: string;
+  description?: string;
+};
+const { titre, description = '' } = Astro.props;
+const site = chargerSite();
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const titreComplet = titre === site.titre ? titre : `${titre} — ${site.titre}`;
+---
+
+<!doctype html>
+<html lang="fr" data-design={site.design} data-base={import.meta.env.BASE_URL}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{titreComplet}</title>
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <script is:inline>
+      (function () {
+        var allowed = { revue: 1, carnet: 1, musee: 1 };
+        var apercu = new URLSearchParams(location.search).get('apercu');
+        var stored = null;
+        try {
+          stored = localStorage.getItem('pst-design');
+        } catch (e) {}
+        var choix = apercu && allowed[apercu] ? apercu : stored && allowed[stored] ? stored : null;
+        if (choix) document.documentElement.setAttribute('data-design', choix);
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="eviter" href="#contenu">Aller au contenu</a>
+    <Entete />
+    <main id="contenu" data-pagefind-body>
+      <slot />
+    </main>
+    <Pied />
+  </body>
+</html>

@@ -1,0 +1,64 @@
+---
+import Fil from '../components/Fil.astro';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/urls';
+---
+
+<Base
+  titre="À propos"
+  description="Ce site n’est pas le site officiel de la communauté de communes Loches Sud Touraine."
+>
+  <Fil crumbs={[{ label: 'À propos' }]} />
+  <header class="entete-page">
+    <h1>À propos</h1>
+  </header>
+  <div class="texte page-simple">
+    <p>
+      Ce site n’est pas le site officiel de la communauté de communes Loches Sud Touraine.
+      Il ne parle pas au nom de la collectivité, des communes, ni des associations citées
+      dans l’annuaire. Le site de la communauté de communes est
+      <a href="https://www.lochessudtouraine.com/">lochessudtouraine.com</a>.
+    </p>
+    <p>
+      Il s’agit d’une maquette publique, préparée pour être montrée le 11 décembre 2026
+      à une association patrimoniale. Le corpus de départ couvre surtout cinq communes pilotes : Loches,
+      La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves.
+      Les fiches portent le badge «&nbsp;à vérifier&nbsp;». Les animations
+      «&nbsp;à valider&nbsp;» restent visibles, avec la mention
+      «&nbsp;en attente de validation&nbsp;», tant que leur date n’est pas passée.
+    </p>
+    <h2>Ce que l’on y trouve</h2>
+    <p>
+      Cinq rubriques : les bâtiments disparus, les bâtiments existants (y compris le petit
+      patrimoine et les vestiges ; un musée est rattaché au bâtiment qui l’abrite), les
+      personnages, les événements historiques, et l’agenda des animations à venir. Une page
+      rassemble les fiches d’une même commune. Une carte montre celles qui ont des coordonnées.
+      L’annuaire des associations est un fichier à part.
+    </p>
+    <p>
+      L’agenda affiche les animations dont la date n’est pas passée. Celles qui sont
+      encore «&nbsp;à valider&nbsp;» portent la mention «&nbsp;en attente de validation&nbsp;».
+      Une animation terminée reste dans les fichiers, mais elle n’est plus listée.
+    </p>
+    <h2>Images, carte, textes</h2>
+    <p>
+      Les photographies viennent de Wikimedia Commons, sous licence libre. Le crédit, la
+      licence et le lien vers le fichier d’origine sont sous chaque image. Le fond de carte
+      est fourni par OpenStreetMap. Les faits d’une fiche s’arrêtent à ses sources : rien
+      n’a été ajouté pour «&nbsp;faire vrai&nbsp;».
+    </p>
+    <h2>Trois présentations</h2>
+    <p>
+      Le même contenu peut être lu de trois façons. Le choix publié se règle dans un seul
+      fichier, sans toucher au reste du site. La page <a href={withBase('/designs/')}>Trois designs</a>
+      les montre côte à côte.
+    </p>
+    <h2>Pour corriger une fiche</h2>
+    <p>
+      Chaque fiche est un fichier de texte, dans le dossier <code>contenu</code>, classé
+      par rubrique. On peut le modifier à la main, ou passer par l’interface
+      <a href={withBase('/admin/')}>/admin</a> une fois l’accès au dépôt réglé. Le détail
+      est dans le fichier README du projet, écrit pour une personne qui n’écrit pas de code.
+    </p>
+  </div>
+</Base>

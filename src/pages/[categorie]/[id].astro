@@ -1,0 +1,138 @@
+---
+import { render } from 'astro:content';
+import Fil from '../../components/Fil.astro';
+import Statut from '../../components/Statut.astro';
+import Base from '../../layouts/Base.astro';
+import { estCategorieFiche } from '../../lib/categories';
+import { plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
+import { slugifier } from '../../lib/slug';
+import { categorieParId, themesDe } from '../../lib/site';
+import { urlLicence, withBase } from '../../lib/urls';
+
+export async function getStaticPaths() {
+  const fiches = await toutesLesFiches();
+  return fiches
+    .filter((fiche) => estCategorieFiche(fiche.data.categorie))
+    .map((fiche) => ({
+      params: { categorie: fiche.data.categorie, id: fiche.data.id },
+    }));
+}
+
+const fiches = await toutesLesFiches();
+const fiche = fiches.find(
+  (entree) => entree.data.categorie === Astro.params.categorie && entree.data.id === Astro.params.id,
+);
+if (!fiche || !estCategorieFiche(fiche.data.categorie)) throw new Error('Fiche introuvable');
+const { Content } = await render(fiche);
+const categorie = categorieParId(fiche.data.categorie)!;
+const { connus, inconnus } = themesConnus(fiche, themesDe(fiche.data.categorie));
+const communeHref = withBase(`/communes/${slugifier(fiche.data.commune)}/`);
+const image = fiche.data.image;
+const licenceHref = image ? urlLicence(image.licence) : null;
+const noticeMerimee = fiche.data.merimee
+  ? `https://www.pop.culture.gouv.fr/notice/merimee/${fiche.data.merimee}`
+  : null;
+---
+
+<Base titre={fiche.data.titre} description={fiche.data.periode}>
+  <Fil
+    crumbs={[
+      { href: withBase(`/${fiche.data.categorie}/`), label: categorie.titre },
+      { label: fiche.data.titre },
+    ]}
+  />
+  <article class="fiche">
+    <header class="entete-fiche">
+      <p class="sur-titre">{categorie.titre}</p>
+      <h1>{fiche.data.titre}</h1>
+      <Statut statut={fiche.data.statut} />
+      <p class="chapo">{fiche.data.periode}</p>
+      <dl class="faits">
+        <div>
+          <dt>Commune</dt>
+          <dd>
+            <a href={communeHref}>{fiche.data.commune}</a>
+            <span class="carte-lieu"> · INSEE {fiche.data.insee}</span>
+          </dd>
+        </div>
+        <div>
+          <dt>Repère chronologique</dt>
+          <dd>{plage(fiche)}</dd>
+        </div>
+        {
+          fiche.data.merimee && (
+            <div>
+              <dt>Mérimée</dt>
+              <dd>
+                {noticeMerimee ? <a href={noticeMerimee}>{fiche.data.merimee}</a> : fiche.data.merimee}
+              </dd>
+            </div>
+          )
+        }
+        {
+          connus.length > 0 && (
+            <div>
+              <dt>Thèmes</dt>
+              <dd>
+                {connus.map((theme, index) => (
+                  <>
+                    {index > 0 ? ', ' : ''}
+                    <a href={withBase(`/${fiche.data.categorie}/themes/${theme.id}/`)}>{theme.libelle}</a>
+                  </>
+                ))}
+              </dd>
+            </div>
+          )
+        }
+      </dl>
+      {
+        inconnus.length > 0 && (
+          <p class="theme-inconnu">
+            Thème non répertorié, conservé sans interrompre la page : {inconnus.join(', ')}.
+          </p>
+        )
+      }
+    </header>
+
+    {
+      image && (
+        <figure class="figure-fiche">
+          <img src={image.url} alt={fiche.data.titre} loading="lazy" decoding="async" />
+          <figcaption>
+            <span>
+              {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+            </span>
+            {
+              image.page_commons && (
+                <span>
+                  <a href={image.page_commons}>Fichier d’origine sur Wikimedia Commons</a>.
+                </span>
+              )
+            }
+          </figcaption>
+        </figure>
+      )
+    }
+
+    <div class="texte">
+      <Content />
+    </div>
+
+    <section class="bloc-sources" aria-labelledby="titre-sources">
+      <h2 id="titre-sources">Sources</h2>
+      <ol>
+        {
+          fiche.data.sources.map((source) => (
+            <li>
+              <a href={source.url}>{source.titre}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+
+    <p class="lien-suite">
+      <a href={withBase(`/${fiche.data.categorie}/frise/`)}>Voir cette catégorie sur la frise</a>
+    </p>
+  </article>
+</Base>

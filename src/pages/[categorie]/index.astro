@@ -1,0 +1,64 @@
+---
+import Fil from '../../components/Fil.astro';
+import ListeFiches from '../../components/ListeFiches.astro';
+import Base from '../../layouts/Base.astro';
+import { CATEGORIES_FICHES, estCategorieFiche } from '../../lib/categories';
+import { fichesDe, themesConnus } from '../../lib/contenu';
+import { categorieParId, themesDe } from '../../lib/site';
+import { withBase } from '../../lib/urls';
+
+export function getStaticPaths() {
+  return CATEGORIES_FICHES.map((categorie) => ({ params: { categorie } }));
+}
+
+const { categorie: id } = Astro.params;
+if (!id || !estCategorieFiche(id)) throw new Error('Catégorie inconnue');
+const categorie = categorieParId(id)!;
+const fiches = await fichesDe(id);
+const themes = themesDe(id);
+const themesInconnus = [
+  ...new Set(fiches.flatMap((fiche) => themesConnus(fiche, themes).inconnus)),
+];
+---
+
+<Base titre={categorie.titre} description={categorie.resume}>
+  <Fil crumbs={[{ label: categorie.titre }]} />
+  <header class="entete-page">
+    <h1>{categorie.titre}</h1>
+    <p class="chapo">{categorie.resume}</p>
+  </header>
+
+  <div class="barre-tri">
+    <a href={withBase(`/${id}/frise/`)}>Voir la frise chronologique</a>
+  </div>
+
+  <nav class="nav-themes" aria-label="Thèmes">
+    <h2>Thèmes</h2>
+    {
+      themes.length === 0 ? (
+        <p>Aucun thème n’est défini pour cette catégorie. Les fiches restent listées ci-dessous.</p>
+      ) : (
+        <ul>
+          {themes.map((theme) => (
+            <li>
+              <a href={withBase(`/${id}/themes/${theme.id}/`)}>
+                <span>{theme.libelle}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </nav>
+  {
+    themesInconnus.length > 0 && (
+      <p class="theme-inconnu">
+        Thèmes cités par une fiche mais absents du catalogue : {themesInconnus.join(', ')}. Les fiches
+        restent publiées.
+      </p>
+    )
+  }
+
+  <h2>Toutes les fiches</h2>
+  <ListeFiches fiches={fiches} />
+</Base>

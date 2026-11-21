@@ -1,0 +1,87 @@
+# Annuaire des associations patrimoniales repérées sur le territoire de la CCLST.
+# Les sites officiels n'ont pas tous été identifiés ; les champs vides sont volontairement
+# laissés à null plutôt que devinés. Statut : à vérifier.
+
+associations:
+  - id: mpl-ligueil
+    nom: Mémoire et Patrimoine en Ligueillois (MPL)
+    commune: Ligueil
+    insee: "37130"
+    site: null
+    notes: >
+      Association présentée par valleedelariolle.fr comme créée il y a près de 50 ans
+      autour du docteur Delaune, à Ligueil. Le même site lui attribue l'idée de
+      ne pas laisser détruire les matériels de la laiterie après sa fermeture, et
+      la restauration d'un lavoir près de La Chapelle-Blanche-Saint-Martin. Une
+      fiche associative (net1901.org) mentionne un objet d'étude, collecte,
+      protection, valorisation et sauvegarde du patrimoine, avec une date
+      associée au 14 septembre 1978. Pas de site web officiel identifié au
+      moment de la collecte.
+    sources:
+      - https://valleedelariolle.fr/a-la-chapelle-blanche-journee-de-decouverte-proposee-par-mpl/
+      - https://www.net1901.org/association/MEMOIRE-ET-PATRIMOINE-EN-LIGUEILLOIS,2440981.html
+
+  - id: amis-du-pays-lochois
+    nom: Amis du Pays Lochois
+    commune: Loches
+    insee: "37132"
+    site: null
+    notes: >
+      Association déclarée à Loches, date d'apparition indiquée au 15 septembre 1947
+      (identifiant WALDEC/RNA W373001970). Objet rapporté : recherche, étude,
+      conservation, reproduction, protection et mise en valeur de documents,
+      monuments et sites se rattachant au pays lochois. Site officiel non identifié.
+    sources:
+      - https://www.assoce.fr/waldec/W373001970/AMIS-DU-PAYS-LOCHOIS
+
+  - id: foulques-nerra-amis-de-montresor
+    nom: Association internationale Foulques Nerra – Les Amis de Montrésor
+    commune: Montrésor
+    insee: "37157"
+    site: null
+    notes: >
+      Association loi 1901 recensée à Montrésor (fiche net1901.org). Site officiel
+      non identifié lors de la collecte.
+    sources:
+      - https://www.net1901.org/association/ASSOCIATION-INTERNATIONALE-FOULQUES-NERRA-LES-AMIS-DE-MONTRESOR,1905863.html
+
+  - id: amis-musee-prehistoire-grand-pressigny
+    nom: Association des Amis du Musée de Préhistoire du Grand-Pressigny
+    commune: Le Grand-Pressigny
+    insee: "37113"
+    site: null
+    notes: >
+      Association liée au musée de la Préhistoire du Grand-Pressigny (établissement
+      dont le site est https://www.prehistoiregrandpressigny.fr/). Fiche associative
+      sur net1901.org. Le site propre de l'association n'a pas été distingué de
+      celui du musée.
+    sources:
+      - https://www.net1901.org/association/ASSOCIATION-DES-AMIS-DU-MUSEE-DE-PREHISTOIRE-DU-GRAND-PRESSIGNY,1001032621.html
+      - https://www.prehistoiregrandpressigny.fr/
+
+  - id: societe-archeologique-preuilly
+    nom: Société archéologique de Preuilly-sur-Claise
+    commune: Preuilly-sur-Claise
+    insee: "37189"
+    site: null
+    notes: >
+      Existence confirmée par un article de La Nouvelle République daté du
+      4 novembre 2025, évoquant le bilan de l'association et ses projets vers 2026.
+      Le contenu de l'article n'a pas été recopié (titre et lien seulement).
+      Site officiel non identifié.
+    sources:
+      - https://www.lanouvellerepublique.fr/indre-et-loire/commune/preuilly-sur-claise/la-societe-archeologique-de-preuilly-sur-claise-dresse-le-bilan-et-se-projette-vers-2026-1762279805
+
+  - id: societe-archeologique-de-touraine
+    nom: Société archéologique de Touraine
+    commune: Tours
+    insee: "37261"
+    site: https://www.societe-archeologique-touraine.fr/
+    notes: >
+      Société savante historique dont le siège est à Tours, donc hors CCLST, mais
+      dont les travaux et publications concernent souvent le Sud Touraine
+      (Loches, Riolle, etc.). À n'inscrire dans l'annuaire « local » qu'avec
+      un libellé clair, pour ne pas laisser croire qu'il s'agit d'une association
+      de la communauté de communes.
+    sources:
+      - https://www.societe-archeologique-touraine.fr/

@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/urls';
+---
+
+<Base titre="Page introuvable" description="Cette adresse ne correspond à aucune page du site.">
+  <header class="entete-page">
+    <h1>Page introuvable</h1>
+    <p class="chapo">Cette adresse ne correspond à aucune page. Le menu ramène aux rubriques.</p>
+  </header>
+  <p><a class="lien-suite" href={withBase('/')}>Retour à l’accueil</a></p>
+</Base>

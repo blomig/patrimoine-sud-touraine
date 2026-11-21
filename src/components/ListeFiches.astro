@@ -1,0 +1,34 @@
+---
+import CarteFiche from './CarteFiche.astro';
+import { extrait, hrefFiche, plage, themesConnus, type Fiche } from '../lib/contenu';
+import { themesDe } from '../lib/site';
+import { withBase } from '../lib/urls';
+
+const { fiches } = Astro.props as { fiches: Fiche[] };
+---
+
+{
+  fiches.length === 0 ? (
+    <p class="vide">Aucune fiche dans cette sélection.</p>
+  ) : (
+    <ul class="liste-fiches">
+      {fiches.map((fiche) => {
+        const { connus } = themesConnus(fiche, themesDe(fiche.data.categorie));
+        return (
+            <li>
+            <CarteFiche
+              href={withBase(hrefFiche(fiche))}
+              titre={fiche.data.titre}
+              extrait={extrait(fiche.body)}
+              commune={fiche.data.commune}
+              periode={fiche.data.periode}
+              plage={plage(fiche)}
+              statut={fiche.data.statut}
+              themes={connus.map((theme) => theme.libelle)}
+            />
+          </li>
+        );
+      })}
+    </ul>
+  )
+}

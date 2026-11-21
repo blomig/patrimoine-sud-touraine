@@ -1,0 +1,72 @@
+# Thèmes proposés pour le POC — à réorganiser ou supprimer par François
+# dans l'interface d'administration.
+# Tous les identifiants sont stables ; les libellés sont modifiables.
+
+categories:
+  batiments-anciens-disparus:
+    libelle: Bâtiments anciens disparus
+    themes:
+      - id: edifices-religieux-disparus
+        libelle: Édifices religieux disparus
+      - id: fortifications-demolies
+        libelle: Fortifications démolies
+      - id: demeures-et-dependances-perdues
+        libelle: Demeures et dépendances perdues
+
+  batiments-anciens-existants:
+    libelle: Bâtiments anciens encore existants
+    themes:
+      - id: chateaux-et-forteresses
+        libelle: Châteaux et forteresses
+      - id: eglises-et-chapelles
+        libelle: Églises et chapelles
+      - id: portes-et-enceintes
+        libelle: Portes et enceintes
+      - id: demeures-et-hotels
+        libelle: Demeures et hôtels
+      - id: petit-patrimoine
+        libelle: Petit patrimoine (lavoirs, moulins, calvaires, fontaines, vestiges)
+      - id: musees-et-lieux-de-conservation
+        libelle: Musées et lieux de conservation
+      - id: memoire-et-monuments-aux-morts
+        libelle: Mémoire et monuments aux morts
+
+  personnes:
+    libelle: Personnes ayant vécu et leur histoire
+    themes:
+      - id: souverains-et-cour
+        libelle: Souverains et cour
+      - id: batisseurs-et-seigneurs
+        libelle: Bâtisseurs et seigneurs
+      - id: artistes-et-ecrivains
+        libelle: Artistes et écrivains
+      - id: savants-et-voyageurs
+        libelle: Savants et voyageurs
+      - id: resistance-et-guerres
+        libelle: Résistance et guerres
+      - id: figures-locales
+        libelle: Figures locales de la Riolle
+
+  evenements-historiques:
+    libelle: Événements historiques documentés
+    themes:
+      - id: moyen-age-et-plantegenets
+        libelle: Moyen Âge et Plantagenêts
+      - id: guerre-de-cent-ans
+        libelle: Guerre de Cent Ans
+      - id: renaissance-et-guerres-d-italie
+        libelle: Renaissance et guerres d'Italie
+      - id: epoques-moderne-et-contemporaine
+        libelle: Époques moderne et contemporaine
+      - id: epidemies-et-vie-quotidienne
+        libelle: Épidémies et vie quotidienne
+
+  agenda:
+    libelle: Animations à venir
+    themes:
+      - id: visites-et-animations-monumentales
+        libelle: Visites et animations dans les monuments
+      - id: prehistoire-et-musees
+        libelle: Préhistoire et musées
+      - id: fetes-et-saisons
+        libelle: Fêtes et saisons

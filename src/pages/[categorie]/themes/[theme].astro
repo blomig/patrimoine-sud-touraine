@@ -1,0 +1,46 @@
+---
+import Fil from '../../../components/Fil.astro';
+import ListeFiches from '../../../components/ListeFiches.astro';
+import Base from '../../../layouts/Base.astro';
+import { CATEGORIES_FICHES, estCategorieFiche, type CategorieFiche } from '../../../lib/categories';
+import { comparerChrono, fichesDe } from '../../../lib/contenu';
+import { categorieParId, themesDe } from '../../../lib/site';
+import { withBase } from '../../../lib/urls';
+
+export function getStaticPaths() {
+  const chemins = [];
+  for (const categorie of CATEGORIES_FICHES) {
+    for (const theme of themesDe(categorie)) {
+      chemins.push({ params: { categorie, theme: theme.id } });
+    }
+  }
+  return chemins;
+}
+
+const { categorie: id, theme: slug } = Astro.params;
+if (!id || !slug || !estCategorieFiche(id)) throw new Error('Thème inconnu');
+const categorie = categorieParId(id)!;
+const theme = themesDe(id as CategorieFiche).find((entree) => entree.id === slug);
+if (!theme) throw new Error('Thème inconnu');
+const fiches = (await fichesDe(id))
+  .filter((fiche) => fiche.data.themes.includes(theme.id))
+  .sort(comparerChrono);
+---
+
+<Base titre={`${theme.libelle} · ${categorie.titre}`} description={theme.libelle}>
+  <Fil
+    crumbs={[
+      { href: withBase(`/${id}/`), label: categorie.titre },
+      { label: theme.libelle },
+    ]}
+  />
+  <header class="entete-page">
+    <p class="sur-titre">{categorie.titre}</p>
+    <h1>{theme.libelle}</h1>
+  </header>
+  <p class="barre-tri">
+    <a href={withBase(`/${id}/`)}>Tous les thèmes</a>
+    <a href={withBase(`/${id}/frise/`)}>Frise de la catégorie</a>
+  </p>
+  <ListeFiches fiches={fiches} />
+</Base>

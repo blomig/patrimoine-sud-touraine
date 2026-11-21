@@ -1,0 +1,39 @@
+---
+import Fil from '../../components/Fil.astro';
+import ListeFiches from '../../components/ListeFiches.astro';
+import Base from '../../layouts/Base.astro';
+import { CATEGORIES_FICHES, estCategorieFiche } from '../../lib/categories';
+import { comparerChrono, fichesDe } from '../../lib/contenu';
+import { categorieParId } from '../../lib/site';
+import { withBase } from '../../lib/urls';
+
+export function getStaticPaths() {
+  return CATEGORIES_FICHES.map((categorie) => ({ params: { categorie } }));
+}
+
+const { categorie: id } = Astro.params;
+if (!id || !estCategorieFiche(id)) throw new Error('Catégorie inconnue');
+const categorie = categorieParId(id)!;
+const fiches = (await fichesDe(id)).sort(comparerChrono);
+---
+
+<Base titre={`Frise · ${categorie.titre}`} description={`Ordre chronologique : ${categorie.titre}.`}>
+  <Fil
+    crumbs={[
+      { href: withBase(`/${id}/`), label: categorie.titre },
+      { label: 'Frise' },
+    ]}
+  />
+  <header class="entete-page">
+    <h1>Frise · {categorie.titre}</h1>
+    <p class="chapo">
+      Les fiches suivent l’année, le mois ou le jour indiqué dans <code>date_debut</code>. Une fiche
+      sans date est placée à la fin. Le champ « période » reste le libellé rédigé, parfois plus
+      précis que l’année seule.
+    </p>
+  </header>
+  <p class="barre-tri"><a href={withBase(`/${id}/`)}>Revenir aux thèmes</a></p>
+  <div class="frise">
+    <ListeFiches fiches={fiches} />
+  </div>
+</Base>
