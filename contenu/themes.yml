@@ -4,7 +4,7 @@
 
 categories:
   batiments-anciens-disparus:
-    libelle: Bâtiments anciens disparus
+    libelle: Bâtiments disparus
     themes:
       - id: edifices-religieux-disparus
         libelle: Édifices religieux disparus
@@ -14,7 +14,7 @@ categories:
         libelle: Demeures et dépendances perdues
 
   batiments-anciens-existants:
-    libelle: Bâtiments anciens encore existants
+    libelle: Bâtiments existants
     themes:
       - id: chateaux-et-forteresses
         libelle: Châteaux et forteresses
@@ -32,7 +32,7 @@ categories:
         libelle: Mémoire et monuments aux morts
 
   personnes:
-    libelle: Personnes ayant vécu et leur histoire
+    libelle: Personnages
     themes:
       - id: souverains-et-cour
         libelle: Souverains et cour
@@ -51,7 +51,7 @@ categories:
         libelle: Figures locales du Ligueillois
 
   evenements-historiques:
-    libelle: Événements historiques documentés
+    libelle: Événements
     themes:
       - id: moyen-age-et-plantegenets
         libelle: Moyen Âge et Plantagenêts
@@ -68,7 +68,7 @@ categories:
         libelle: Résistance et guerres
 
   agenda:
-    libelle: Animations à venir
+    libelle: Animations
     themes:
       - id: visites-et-animations-monumentales
         libelle: Visites et animations dans les monuments

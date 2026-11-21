@@ -192,11 +192,27 @@ main {
 
 .barre-menu {
   display: flex;
-  align-items: center;
-  gap: 0.75rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  min-width: 0;
 }
 
-a.nav-communes {
+.nav-rubriques {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.45rem;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  padding: 4px 2px 0.45rem;
+  scroll-snap-type: x proximity;
+}
+
+a.nav-communes,
+a.nav-pastille {
   background: var(--accent);
   color: #f7f4ee;
   padding: 0.35rem 0.9rem;
@@ -208,18 +224,24 @@ a.nav-communes {
   align-items: center;
 }
 
-a.nav-communes:hover {
+a.nav-pastille {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: start;
+}
+
+a.nav-pastille-animations {
+  background: #1f4e79;
+}
+
+a.nav-communes:hover,
+a.nav-pastille:hover {
   text-decoration: underline;
 }
 
-.nav-communes-mobile {
-  display: inline-flex;
-}
-
-@media (min-width: 64rem) {
-  .nav-communes-mobile {
-    display: none;
-  }
+a.nav-pastille[aria-current="page"] {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }
 
 .nav-principal a:hover {
@@ -227,6 +249,14 @@ a.nav-communes:hover {
 }
 
 @media (min-width: 64rem) {
+  .entete {
+    max-width: 76rem;
+  }
+
+  .nav-rubriques {
+    justify-content: safe center;
+  }
+
   .menu > summary {
     display: none;
   }
@@ -880,8 +910,19 @@ code {
   color: #f7f6f3;
 }
 
-[data-design="musee"] .entete a.nav-communes {
+[data-design="carnet"] a.nav-pastille-animations {
+  background: #7a2e12;
+  color: #fff8f0;
+}
+
+[data-design="musee"] .entete a.nav-communes,
+[data-design="musee"] .entete a.nav-pastille {
   background: #f3d48a;
+  color: #102a43;
+}
+
+[data-design="musee"] .entete a.nav-pastille-animations {
+  background: #d6e8f8;
   color: #102a43;
 }
 

@@ -28,37 +28,37 @@ export type Categorie = {
 export const MODELES: Categorie[] = [
   {
     id: 'batiments-anciens-disparus',
-    titre: 'Bâtiments anciens disparus',
-    court: 'Disparus',
+    titre: 'Bâtiments disparus',
+    court: 'Bâtiments disparus',
     resume: 'Édifices détruits ou arasés, connus par les textes, les images ou les fouilles.',
     frise: true,
   },
   {
     id: 'batiments-anciens-existants',
-    titre: 'Bâtiments anciens encore existants',
-    court: 'Existants',
+    titre: 'Bâtiments existants',
+    court: 'Bâtiments existants',
     resume:
       'Monuments encore en élévation, y compris le petit patrimoine. Les musées sont rattachés au bâtiment qui les abrite.',
     frise: true,
   },
   {
     id: 'personnes',
-    titre: 'Personnes ayant vécu et leur histoire',
-    court: 'Personnes',
+    titre: 'Personnages',
+    court: 'Personnages',
     resume: 'Femmes et hommes dont la vie éclaire l’histoire du territoire.',
     frise: true,
   },
   {
     id: 'evenements-historiques',
-    titre: 'Événements historiques documentés',
+    titre: 'Événements',
     court: 'Événements',
     resume: 'Épisodes datés, appuyés sur des sources.',
     frise: true,
   },
   {
     id: 'agenda',
-    titre: 'Animations à venir',
-    court: 'Agenda',
+    titre: 'Animations',
+    court: 'Animations',
     resume:
       'Visites, ateliers et rendez-vous. Les animations « à valider » s’affichent avec la mention « en attente de validation ». Celles dont la date est passée ne s’affichent plus.',
     frise: false,
