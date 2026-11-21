@@ -1,6 +1,6 @@
 ---
-id: "evt-razement-donjon-grillemont-1739"
-titre: "Razement du donjon de Grillemont (1739)"
+id: "evt-rasement-donjon-grillemont-1739"
+titre: "Rasement du donjon de Grillemont (1739)"
 categorie: "evenements-historiques"
 themes:
   - "epoques-moderne-et-contemporaine"

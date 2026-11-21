@@ -15,11 +15,11 @@ categories:
     auteur: Christophe Finot (Wikimedia Commons, Christophe.Finot)
     licence: CC BY-SA 2.5
   personnes:
-    legende: Le logis royal de Loches.
-    fichier: /media/categories/logis-royal.jpg
-    url: https://commons.wikimedia.org/wiki/File:Logis_royal_Loches.jpg
-    auteur: Christophe Finot (Wikimedia Commons, Christophe.Finot)
-    licence: CC BY-SA 2.5
+    legende: Portrait de René Descartes, peint par Frans Hals en 1649.
+    fichier: /media/categories/descartes-frans-hals.jpg
+    url: https://commons.wikimedia.org/wiki/File:Frans_Hals,_Portrait_of_René_Descartes.jpg
+    auteur: Frans Hals
+    licence: Domaine public
   evenements-historiques:
     legende: La cité royale de Loches, donjon et enceinte.
     fichier: /media/categories/cite-royale.jpg
@@ -27,8 +27,8 @@ categories:
     auteur: Zairon
     licence: CC BY-SA 4.0
   agenda:
-    legende: Le château de Montrésor.
-    fichier: /media/categories/chateau-montresor.jpg
-    url: https://commons.wikimedia.org/wiki/File:Castle_of_Montresor_10.jpg
-    auteur: Krzysztof Golik
+    legende: Char du comice rural de Saint-Nicolas-de-Bourgueil, en 2016, sur le thème des vendanges à l'ancienne.
+    fichier: /media/categories/comice-saint-nicolas.jpg
+    url: https://commons.wikimedia.org/wiki/File:Comice_agricole_Char.jpg
+    auteur: SNB Communication Garcia
     licence: CC BY-SA 4.0
