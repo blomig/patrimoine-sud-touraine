@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/12/Fig-1-facade-logement.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Comme Sepmes, La Chapelle-Blanche-Saint-Martin et Bournan, Civray-sur-Esves a édifié une école neuve au tournant des années 1900, d'après valleedelariolle.fr (15 décembre 2024). L'article décrit la fermeture de cette école en 1985, dans un contexte de baisse démographique (400 habitants vers 1900, 167 en 1982, un peu plus de 200 au moment de la rédaction). Le bâtiment, un petit édifice à rez-de-chaussée et étage, se trouve à l'angle de la rue Principale et de la rue Solange-Grégoire (route de Cussay). Un enclos délimitait un jardin devant le logement des instituteurs, au sud, une cour de récréation à l'ouest et un jardin plus grand à l'est. Le logement, dans la partie sud, communiquait directement avec la classe donnant sur la cour.

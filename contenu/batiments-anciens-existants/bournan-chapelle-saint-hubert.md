@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/08/Fig-2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 La chapelle Saint-Hubert se trouve en ruine sur la rive gauche de la Riolle, à la pente septentrionale de Bagneux, au nord-ouest du château, sur le territoire actuel de Bournan, d'après valleedelariolle.fr. Carré de Busserolle (1878) la mentionne à la rubrique de Sepmes et indique qu'elle était desservie par le curé de Bournan et fut vendue nationalement le 4 pluviôse an VI (1798). L'article de 2021 interroge soit une erreur de localisation de cet auteur, soit une modification ultérieure des limites communales. Des sources secondaires citées (Tourainissime, « World of ruins », André Montoux) la rattachent à la paroisse de Bournan et au château de Bagneux, comme chapelle castrale ou sanctuaire domestique, hors les murs, d'origine parfois dite du XIIIe siècle et remaniée au XVIe. Ces datations, non reprises d'une notice Mérimée, restent à vérifier. Le cadastre de Bournan achevé par Alizon en 1832 la figure en pointillés, comme ruine, au cœur d'une parcelle dite « pièce de la Chapelle », attenante aux « Grandes Fontaines ».

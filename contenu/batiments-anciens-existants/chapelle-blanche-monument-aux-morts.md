@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/la-chapelle-blanche2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Le monument aux morts de La Chapelle-Blanche-Saint-Martin a été érigé en 1920 dans le cimetière communal, d'après valleedelariolle.fr. De même facture que celui de Bournan, mais un peu plus grand, il se présente comme une colonne de pierre calcaire à section légèrement pyramidale, posée sur un socle au sommet de trois degrés entourés de rambardes métalliques ouvertes sur la face est. La colonne est coiffée d'un casque de poilu. Une palme est gravée dans le calcaire sur la face sud, et non rapportée en bronze.

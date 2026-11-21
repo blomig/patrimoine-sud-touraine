@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2022/08/Fig2.jpgbournan-croix-stationnales	https://valleedelariolle.fr/wp-content/uploads/2022/10/Fig-8-croix-hosannière.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 valleedelariolle.fr (11 septembre 2022) décrit les croix encore visibles à Civray-sur-Esves, en bois et de dimensions à peu près équivalentes. La « croix de Civray », la mieux entretenue, se trouve en sortie de village sur la route de Descartes, à l'embranchement de la route de Marcé-sur-Esves ; elle mesure près de 2,50 m. Elle figurait au cadastre de 1822, mais du côté gauche de la route sortant du bourg.

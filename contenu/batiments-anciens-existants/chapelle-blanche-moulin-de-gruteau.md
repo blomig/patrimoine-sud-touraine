@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/01/Fig-7-vue-generale-1900.2-1.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Le moulin de Gruteau se trouve à La Chapelle-Blanche-Saint-Martin, sur le cours historique de la Ligoire, qui reçoit la Riolle et limite au sud la commune et Ligueil. valleedelariolle.fr (26 janvier 2025), s'appuyant sur un dépouillement d'archives mené par Henri Detroussel, en retrace l'histoire à partir des années précédant la Révolution. En 2025, le moulin n'est plus sur le lit actuel de la Ligoire, vraisemblablement détourné ; l'article observe que rien, dans les bâtiments restants, n'indique d'emblée un moulin. La comparaison du cadastre napoléonien (l'article écrit 1832, avec une légende portant par erreur « 1932 ») et des vues actuelles montre le déport du cours d'eau. Le cours actif passe désormais à distance, puis sous le pont de la D59 entre Ligueil et Bournan.

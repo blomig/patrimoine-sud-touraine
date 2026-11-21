@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/11/Fig-7.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 L'école actuelle de Bournan a été construite en 1905, d'après valleedelariolle.fr (5 décembre 2021), qui s'appuie notamment sur des travaux de Michel Lhéritier, de Josiane Schoenstein et des Nouvelles Éditions Sutton. Le bâtiment, typique de l'apogée de la IIIe République, présente une symétrie entre les espaces des garçons et des filles, des locaux centraux pour les enseignants, de grandes verrières et une cour spacieuse.

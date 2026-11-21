@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2022/03/Fig7.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Sepmes conserve, d'après valleedelariolle.fr (17 avril 2022), plusieurs croix le long des routes ou à leurs carrefours, ainsi qu'un grand calvaire. L'article, qui s'appuie notamment sur le travail de mémoire d'Eliane Fontaine, en recense dix (sept encore visibles, trois connues par le cadastre de 1832). Ces monuments sont en pierre ou en métal, alors qu'à La Chapelle-Blanche-Saint-Martin les croix sont plus volontiers en bois. Aucune coordonnée sûre n'est inscrite ici.

@@ -26,7 +26,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/04/fig6.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Le château de Grillemont, à La Chapelle-Blanche-Saint-Martin, est protégé au titre des monuments historiques (classement et inscription, protection totale selon la typologie de la notice). La châtellenie relevait de Ligueil. Une importante forteresse y fut construite entre 1460 et 1470 par Bertrand de Lescost (aussi écrit Lescoët dans les articles du blog), gouverneur de la ville et du château de Loches ; elle était primitivement défendue par des douves et des étangs.

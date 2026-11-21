@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/11/fig2-site-global3.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 La fontaine Saint-Martin se trouve aujourd'hui, d'après valleedelariolle.fr (1er décembre 2024), dans une prairie du côté de Montfouet, sur la commune de La Chapelle-Blanche-Saint-Martin, en limite de Vou et de Ligueil. Le site est signalé par un petit panneau près de la source, une sorte de petit dolmen, un panneau rappelant le rattachement du lieu à l'histoire de saint Martin, une borne d'itinéraire saint-martinien et, à proximité immédiate, un grand calvaire au croisement des deux chemins qui y conduisent. Aucune notice Mérimée ni coordonnées sûres n'ont été rattachées à ce stade.

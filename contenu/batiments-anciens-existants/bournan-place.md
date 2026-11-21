@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/04/Fig6-2023-NB.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 La place publique de Bournan, auprès de l'église, a été documentée par valleedelariolle.fr (30 avril 2023) à partir de cartes postales anciennes, notamment communiquées par Claude Destouches, comparées à des vues de 2023. Sur les clichés les plus anciens, datés par l'article d'environ un siècle (vêtements, chariots à cheval, absence de branchements électriques), on distingue un puits, une croix encore présente au-dessus de l'entrée du bâtiment qui deviendra la mairie (alors pourvu de deux cheminées), la pancarte du café de l'Agriculture, et plusieurs épiceries aux enseignes visibles. Une vue prise dos à l'église montre dix-sept personnes, dont six enfants.

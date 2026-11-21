@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/bournan2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Le monument aux morts de Bournan se trouve, d'après l'article publié sur valleedelariolle.fr, auprès de l'église Saint-Martin, sur sa façade nord, le long de la route départementale 59. Il se présente comme une colonne de pierre calcaire à quatre côtés, de forme légèrement pyramidale, haute d'environ trois mètres, posée sur un socle parallélépipédique et une dalle entourée de chaînes, l'ensemble clos d'une grille de fer forgé. La colonne est surmontée d'une couronne de tuffeau coiffant, sur chaque face, une médaille militaire sculptée. Une palme de bronze est fixée sur la face nord, avec les supports destinés aux drapeaux lors des cérémonies.

@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/04/fig-7-la-tour-du-moulin.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 Le moulin de Civray se situe à proximité immédiate du bourg de Civray-sur-Esves, à l'endroit où l'Esves n'est distante que de quelques dizaines de mètres de son affluent la Ligoire. D'après valleedelariolle.fr (27 avril 2025), les archives diocésaines de Touraine font remonter son origine à l'année 1336. L'article s'appuie sur des cotes des Archives départementales d'Indre-et-Loire, rassemblées notamment par Henri Detroussel, et sur l'autorisation des propriétaires actuels pour photographier le site.

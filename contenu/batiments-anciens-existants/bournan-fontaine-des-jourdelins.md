@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/fontaine-jourdelin4.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "François Unger — valleedelariolle.fr"
+  auteur: "Vallée de la Riolle"
 ---
 
 La fontaine des Jourdelins se trouve à Bournan, dans un fond de vallon emprunté par le chemin rural CR1, avant que le ru ne passe sous le chemin vicinal CV7 pour gagner la Riolle, du côté des Bergeonnières. valleedelariolle.fr (article de 2021) indique que le lieu figure sur la carte IGN. En 2020, une pancarte artisanale puis un panneau de bois gravé ont signalé la fontaine et la source, après des travaux d'élagage et de nettoyage.
