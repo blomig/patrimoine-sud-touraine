@@ -85,3 +85,34 @@ associations:
       de la communauté de communes.
     sources:
       - https://www.societe-archeologique-touraine.fr/
+
+  - id: amis-eglise-patrimoine-bournan
+    nom: Les Amis de l'église et du patrimoine de Bournan
+    commune: Bournan
+    insee: "37032"
+    site: null
+    notes: >
+      Association nommée dans un article de La Renaissance Lochoise publié le
+      24 septembre 2026, à propos de l'ouverture de l'église Saint-Martin lors
+      des 43es Journées européennes du patrimoine. Le texte de l'article n'a
+      pas été recopié (titre, commune et lien seulement). Site officiel non
+      identifié lors de la collecte.
+    sources:
+      - https://www.renaissancelochoise.com/actualite-7578-bournan-une-eglise-millenaire-a-sauver
+
+  - id: betz-stioles-et-cie
+    nom: Betz-Stioles & Cie (également écrite Betz-Stioles et Compagnie)
+    commune: Betz-le-Château
+    insee: "37026"
+    site: null
+    notes: >
+      Association mentionnée par La Renaissance Lochoise pour une balade-visite
+      à Betz-le-Château (vendredi 11 septembre 2026) et pour une rencontre sur
+      l'alimentation néolithique (31 octobre 2026 à 18 h 30, salle des fêtes),
+      avec Guillaume Parpaite-Larguier, archéologue et médiateur scientifique
+      au musée de la Préhistoire du Grand-Pressigny. Un article la dit
+      « chère à Joël Joubert ». Le contenu des articles n'a pas été recopié.
+      Site officiel non identifié lors de la collecte.
+    sources:
+      - https://www.renaissancelochoise.com/actualite-7592-betz-le-chateau-betz-se-balade-avec-betz-stioles-cie
+      - https://www.renaissancelochoise.com/actualite-7732-betz-le-chateau-betz-stioles-cie-evoque-l-alimentation-neolithique
