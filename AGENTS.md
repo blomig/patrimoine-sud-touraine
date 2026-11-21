@@ -31,7 +31,7 @@ npm run preview
 
 ```text
 contenu/
-  site.yml                  design publié : revue, carnet ou musee
+  site.yml                  design publié, titre, sous-titre (`{n}` = nombre de fiches hors agenda)
   themes.yml                libellés des rubriques et thèmes
   categories.yml            image de chaque rubrique, et nom affiché (champ titre)
   associations.yml          annuaire

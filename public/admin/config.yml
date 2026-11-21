@@ -794,6 +794,10 @@ collections:
           - label: Titre du site
             name: titre
             widget: string
+          - label: Sous-titre
+            name: sous_titre
+            widget: string
+            hint: "Garder {n} : il est remplacé à chaque construction par le nombre de fiches (hors agenda). Ne pas écrire le nombre à la main."
           - label: Design
             name: design
             widget: select

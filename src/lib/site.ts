@@ -26,6 +26,12 @@ const themesSchema = z
 
 const siteSchema = z.object({
   titre: z.string().min(1),
+  sous_titre: z
+    .string()
+    .min(1)
+    .refine((texte) => texte.includes('{n}'), {
+      message: 'Le sous-titre doit contenir {n} : ce jeton est remplacé par le nombre de fiches à chaque construction.',
+    }),
   design: z.enum(['revue', 'carnet', 'musee', 'contemporain']),
 });
 
