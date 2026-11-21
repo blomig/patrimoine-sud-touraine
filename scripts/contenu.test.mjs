@@ -74,6 +74,15 @@ test('le nombre de fiches s’écrit avec une espace insécable', () => {
   assert.equal(appliquerNombre('{n} fiches sur le Sud Touraine', 143), '143 fiches sur le Sud Touraine');
 });
 
+test('le retour arrière ne passe pas par le routeur de transitions', () => {
+  const base = readFileSync('src/layouts/Base.astro', 'utf8');
+  const css = readFileSync('src/styles/global.css', 'utf8');
+  assert.equal(base.includes('ClientRouter'), false);
+  assert.equal(base.includes('astro:transitions'), false);
+  assert.match(css, /@view-transition\s*\{\s*navigation:\s*auto;/);
+  assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)\s*\{\s*@view-transition\s*\{\s*navigation:\s*none;/);
+});
+
 test('les noms de communes pilotes deviennent des adresses stables', () => {
   assert.equal(slugifier('La Chapelle-Blanche-Saint-Martin'), 'la-chapelle-blanche-saint-martin');
   assert.equal(slugifier('Civray-sur-Esves'), 'civray-sur-esves');

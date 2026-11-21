@@ -1445,7 +1445,17 @@ code {
   }
 }
 
+/* Transition entre pages, sans routeur client : le retour arrière recharge
+   le document complet, donc les feuilles de style restent en place. */
+@view-transition {
+  navigation: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
