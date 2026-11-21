@@ -53,8 +53,8 @@ export const MODELES: Categorie[] = [
   },
   {
     id: 'evenements-historiques',
-    titre: 'Événements',
-    court: 'Événements',
+    titre: 'Événements historiques',
+    court: 'Événement historique',
     resume: 'Épisodes datés, appuyés sur des sources.',
     frise: true,
   },
