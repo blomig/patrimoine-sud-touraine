@@ -3,40 +3,14 @@
   --fond: #f3ecdf;
   --encre: #1c2430;
   --encre-douce: #3a4553;
-  --lien: #1a365d;
-  --regle: #b7a48a;
+  --lien: #1f3a6b;
+  --regle: #c5d0dc;
   --carte: #fbf7f0;
-  --accent: #5c4a3a;
+  --accent: #1f3a6b;
   --titre: "Source Serif 4", Georgia, "Times New Roman", serif;
   --texte: "Source Sans 3", "Segoe UI", sans-serif;
   --mesure: 46rem;
   --espace: 1.25rem;
-}
-
-[data-design="carnet"] {
-  --fond: #f6efe2;
-  --encre: #2a2118;
-  --encre-douce: #4a3b2a;
-  --lien: #7a2e12;
-  --regle: #c9a27a;
-  --carte: #fffaf3;
-  --accent: #1d5c4c;
-  --titre: Fraunces, Georgia, serif;
-  --texte: "Nunito Sans", "Segoe UI", sans-serif;
-  --mesure: 52rem;
-}
-
-[data-design="musee"] {
-  --fond: #f7f6f3;
-  --encre: #141414;
-  --encre-douce: #2f2f2f;
-  --lien: #0d3a5f;
-  --regle: #d5d1c8;
-  --carte: #ffffff;
-  --accent: #102a43;
-  --titre: Outfit, "Segoe UI", sans-serif;
-  --texte: Outfit, "Segoe UI", sans-serif;
-  --mesure: 72rem;
 }
 
 *,
@@ -149,12 +123,6 @@ main {
   font-size: 0.95rem;
   color: var(--accent);
   font-weight: 700;
-}
-
-.nom-site-marine,
-.pied-marine,
-.accueil-agenda-visuel {
-  display: none;
 }
 
 .nom-site {
@@ -420,7 +388,6 @@ a.nav-pastille[aria-current="page"] {
 .liste-associations,
 .liste-communes,
 .liste-points,
-.choix-designs,
 .nav-themes ul {
   list-style: none;
   padding: 0;
@@ -850,44 +817,11 @@ button:hover {
   min-height: 52px;
 }
 
-.choix-designs {
-  display: grid;
-  gap: 1rem;
-}
-
-.choix-designs li {
-  background: var(--carte);
-  border: 1px solid var(--regle);
-  padding: 1rem 1.1rem;
-}
-
-.comparaison {
-  display: grid;
-  gap: 1rem;
-}
-
-.comparaison iframe {
-  width: 100%;
-  height: 36rem;
-  border: 1px solid var(--regle);
-  background: #fff;
-}
-
-.comparaison figcaption {
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-
 code {
   font-size: 0.95em;
 }
 
 @media (min-width: 52rem) {
-  .choix-designs,
-  .comparaison {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .faits {
     max-width: 40rem;
   }
@@ -900,915 +834,60 @@ code {
   }
 }
 
-/* Revue savante : colonne étroite, filet double, liste d'index. */
-[data-design="revue"] body {
+body {
   background:
     linear-gradient(180deg, rgb(255 252 246 / 70%), transparent 18rem),
     var(--fond);
 }
 
-[data-design="revue"] .marque-revue {
-  display: block;
-}
-
-[data-design="revue"] .entete {
-  text-align: center;
-  border-bottom: 4px double var(--regle);
-}
-
-[data-design="revue"] .nav-principal {
-  justify-content: center;
-}
-
-[data-design="revue"] .nom-site {
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
-
-[data-design="revue"] .texte > p:first-of-type::first-letter {
-  font-family: var(--titre);
-  float: left;
-  font-size: 3.3rem;
-  line-height: 0.8;
-  padding-right: 0.45rem;
-  color: var(--accent);
-}
-
-[data-design="revue"] .figure-fiche img {
-  border: 1px solid var(--regle);
-}
-
-/* Carnet : papier, lavis, cartes aux coins inégaux. */
-[data-design="carnet"] body {
-  background:
-    radial-gradient(42rem 24rem at 0% -10%, rgb(196 122 74 / 22%), transparent 60%),
-    radial-gradient(36rem 22rem at 100% 0%, rgb(47 107 92 / 16%), transparent 55%),
-    var(--fond);
-}
-
-[data-design="carnet"] .marque-carnet {
-  display: inline-block;
-  border: 2px solid var(--accent);
-  padding: 0.15rem 0.55rem;
-  transform: rotate(-1.5deg);
-}
-
-[data-design="carnet"] .entete {
-  border: 0;
-  border-left: 10px solid var(--accent);
-  padding-left: 1rem;
-}
-
-[data-design="revue"] .tuile {
-  display: grid;
-  grid-template-columns: 12rem 1fr;
-  gap: 0.35rem 1rem;
-  align-items: center;
-}
-
-[data-design="revue"] .tuile-image {
-  height: 8.2rem;
-}
-
-[data-design="carnet"] .tuiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 0.9rem;
-}
-
-[data-design="carnet"] .tuile-bloc {
-  border-top: 0;
-  padding: 0;
-  background: var(--carte);
-  border: 1px solid var(--regle);
-  border-radius: 2px 16px 10px 3px;
-  box-shadow: 5px 5px 0 rgb(29 92 76 / 10%);
-  overflow: hidden;
-}
-
-[data-design="carnet"] .tuile {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-}
-
-[data-design="carnet"] .tuile-texte-bloc,
-[data-design="carnet"] .credit-tuile {
-  padding-inline: 1rem;
-}
-
-[data-design="carnet"] .credit-tuile {
-  padding-bottom: 0.85rem;
-}
-
-[data-design="carnet"] .carte-fiche,
-[data-design="carnet"] .liste-agenda li,
-[data-design="carnet"] .liste-associations li {
-  background: var(--carte);
-  border: 1px solid var(--regle);
-  border-radius: 2px 16px 10px 3px;
-  padding: 1rem 1rem 1.1rem;
-  box-shadow: 5px 5px 0 rgb(29 92 76 / 10%);
-}
-
-[data-design="carnet"] .nom-site {
-  font-weight: 700;
-}
-
-/* Musée : bandeau sombre, grands cartels, grille aérée. */
-[data-design="musee"] .entete {
-  max-width: none;
-  background: var(--accent);
-  color: #f7f6f3;
-  border: 0;
-  padding: 1.4rem 6vw 1.1rem;
-}
-
-[data-design="musee"] .entete a,
-[data-design="musee"] .sous-titre,
-[data-design="musee"] .menu summary {
-  color: #f7f6f3;
-}
-
-[data-design="musee"] .entete a.nav-communes,
-[data-design="musee"] .entete a.nav-pastille {
-  background: #f3d48a;
-  color: #102a43;
-}
-
-[data-design="carnet"] a.nav-pastille-animations,
-[data-design="musee"] .entete a.nav-pastille-animations {
-  background: #c62828;
-  color: #ffffff;
-}
-
-[data-design="musee"] .marque-musee {
-  display: block;
-  color: #f3d48a;
-}
-
-[data-design="musee"] .nom-site {
-  font-weight: 500;
-  letter-spacing: -0.03em;
-}
-
-[data-design="musee"] main,
-[data-design="musee"] .pied {
-  max-width: var(--mesure);
-}
-
-[data-design="musee"] .tuiles {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.75rem;
-}
-
-[data-design="musee"] .tuile-bloc {
-  border-top: 0;
-  padding: 0;
-  background: #fff;
-}
-
-[data-design="musee"] .tuile {
-  background: #fff;
-  border: 0;
-  border-top: 6px solid var(--accent);
-  min-height: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow: hidden;
-}
-
-[data-design="musee"] .tuile-image {
-  height: 12rem;
-}
-
-[data-design="musee"] .tuile-texte-bloc,
-[data-design="musee"] .credit-tuile {
-  padding-inline: 1.1rem;
-}
-
-[data-design="musee"] .tuile-texte-bloc {
-  padding-top: 0.85rem;
-}
-
-[data-design="musee"] .credit-tuile {
-  padding-bottom: 0.9rem;
-  background: #fff;
-}
-
-[data-design="musee"] .tuile-numero {
-  font-size: 1.8rem;
-  letter-spacing: 0.08em;
-}
-
-[data-design="musee"] .figure-fiche {
-  background: #fff;
-  padding: 0.6rem 0.6rem 0.8rem;
-}
-
-[data-design="musee"] .figure-fiche figcaption {
-  border-top: 1px solid var(--regle);
-  padding-top: 0.55rem;
-  text-transform: none;
-}
-
-[data-design="musee"] .carte-fiche {
-  background: #fff;
-  border: 0;
-  border-left: 6px solid var(--accent);
-  padding: 1rem 1rem 1.1rem 1.15rem;
-  margin-bottom: 0.75rem;
-}
-
-[data-design="musee"] h1 {
-  font-weight: 500;
-  letter-spacing: -0.03em;
-}
-
-@media (min-width: 52rem) {
-  [data-design="musee"] .tuiles {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  [data-design="musee"] .tuiles li:first-child {
-    grid-column: 1 / -1;
-  }
-
-  [data-design="musee"] .tuiles li:first-child .tuile-image {
-    height: 18rem;
-  }
-}
-
-@media (max-width: 40rem) {
-  [data-design="revue"] .tuile {
-    grid-template-columns: 1fr;
-  }
-}
-
-.edition,
-.mini-carte-bloc,
-.voisines,
-.barre-bas {
-  display: none;
-}
-
-[data-design="contemporain"] {
-  --fond: #f6f3ec;
-  --encre: #2c3540;
-  --encre-douce: #5c6b7a;
-  --lien: #2c3540;
-  --regle: #e6e1d8;
-  --carte: #fffcf8;
-  --accent: #2c3540;
-  --titre: "Bricolage Grotesque", "Segoe UI", sans-serif;
-  --texte: "Bricolage Grotesque", "Segoe UI", sans-serif;
-  --mesure: 68rem;
-  color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  [data-design="contemporain"] {
-    --fond: #1b232c;
-    --encre: #f3efe6;
-    --encre-douce: #c5ced6;
-    --lien: #f3efe6;
-    --regle: #31404e;
-    --carte: #24303b;
-    --accent: #e7e2d8;
-    color-scheme: dark;
-  }
-
-  [data-design="contemporain"] .recherche-menu input::placeholder {
-    color: #b7c3cc;
-  }
-}
-
-[data-design="contemporain"] body {
-  background: var(--fond);
-  font-family: var(--texte);
-}
-
-[data-design="contemporain"] .entete,
-[data-design="contemporain"] .pied,
-[data-design="contemporain"] .tuile-bloc,
-[data-design="contemporain"] .liste-communes a,
-[data-design="contemporain"] .bloc-sources,
-[data-design="contemporain"] .choix-designs li {
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-[data-design="contemporain"] .marque-contemporain {
-  display: block;
-  letter-spacing: 0.14em;
-  color: #c62828;
-}
-
-[data-design="contemporain"] h1,
-[data-design="contemporain"] h2 {
-  letter-spacing: -0.045em;
-  line-height: 0.96;
-  font-weight: 700;
-}
-
-[data-design="contemporain"] h1 {
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  margin-bottom: 1rem;
-}
-
-[data-design="contemporain"] a.nav-pastille {
-  background: var(--accent);
-  color: var(--fond);
-}
-
-[data-design="contemporain"] a.nav-pastille-animations,
-[data-design="contemporain"] .barre-bas-accent {
-  background: #c62828;
-  color: #ffffff;
-}
-
-[data-design="contemporain"] main a:hover {
-  color: #c62828;
-}
-
-[data-design="contemporain"] .tuiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 1.75rem 1.25rem;
-}
-
-[data-design="contemporain"] .tuile {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  background: transparent;
-  transition: transform 0.35s ease;
-}
-
-[data-design="contemporain"] .tuile:hover {
-  transform: translateY(-4px);
-}
-
-[data-design="contemporain"] .tuile-image {
-  height: 9.5rem;
-  border-radius: 1.1rem;
-}
-
-[data-design="contemporain"] .tuile-numero,
-[data-design="contemporain"] .tuile-texte {
-  display: none;
-}
-
-[data-design="contemporain"] .tuile-titre {
-  font-size: 1.25rem;
-  letter-spacing: -0.03em;
-}
-
-[data-design="contemporain"] .plan,
-[data-design="contemporain"] .mini-carte {
-  border: 0;
-  border-radius: 1.15rem;
-  overflow: hidden;
-}
-
-[data-design="contemporain"] .fiche {
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
-}
-
-[data-design="contemporain"] .edition {
-  display: contents;
-}
-
-[data-design="contemporain"] .edition-image { order: 0; }
-[data-design="contemporain"] .entete-fiche { order: 1; }
-[data-design="contemporain"] .edition-phrase { order: 2; }
-[data-design="contemporain"] .en-bref { order: 3; }
-[data-design="contemporain"] .texte { order: 4; }
-[data-design="contemporain"] .galerie { order: 5; }
-[data-design="contemporain"] .bloc-sources { order: 6; }
-[data-design="contemporain"] .mini-carte-bloc { order: 7; display: block; }
-[data-design="contemporain"] .voisines { order: 8; display: block; }
-[data-design="contemporain"] .lien-suite { order: 9; }
-
-[data-design="contemporain"] .fiche .figure-fiche,
-[data-design="contemporain"] .fiche .faits,
-[data-design="contemporain"] .fiche .chapo {
-  display: none;
-}
-
-[data-design="contemporain"] .edition-image img {
-  width: 100%;
-  max-height: 22rem;
-  object-fit: cover;
-  border-radius: 1.25rem;
-}
-
-[data-design="contemporain"] .edition-phrase {
-  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-  max-width: 38rem;
-  margin: 0;
-}
-
-[data-design="contemporain"] .en-bref {
-  display: block;
-  background: var(--carte);
-  border-radius: 1.1rem;
-  padding: 1.1rem 1.3rem 1.2rem;
-}
-
-[data-design="contemporain"] .en-bref h2 {
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #c62828;
-  margin: 0 0 0.8rem;
-}
-
-[data-design="contemporain"] .en-bref dl {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
-  gap: 0.8rem 1.2rem;
-  margin: 0;
-}
-
-[data-design="contemporain"] .en-bref dt {
-  font-size: 0.85rem;
-  color: var(--encre-douce);
-}
-
-[data-design="contemporain"] .en-bref dd {
-  margin: 0.15rem 0 0;
-  font-weight: 600;
-}
-
-[data-design="contemporain"] .mini-carte {
-  height: 16rem;
-}
-
-[data-design="contemporain"] .voisines ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  gap: 0.35rem;
-}
-
-[data-design="contemporain"] .voisines a {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 48px;
-  align-items: center;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-[data-design="contemporain"] .voisines span {
-  color: var(--encre-douce);
-  font-weight: 400;
-}
-
-[data-design="contemporain"] .illustration img,
-[data-design="contemporain"] .galerie img {
-  max-height: 16rem;
-  border-radius: 1.15rem;
-  object-fit: cover;
-}
-
-@media (max-width: 48rem) {
-  [data-design="contemporain"] .barre-bas {
-    display: flex;
-    position: fixed;
-    z-index: 25;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    justify-content: space-around;
-    gap: 0.2rem;
-    padding: 0.35rem 0.4rem calc(0.35rem + env(safe-area-inset-bottom));
-    background: color-mix(in srgb, var(--fond) 92%, transparent);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid var(--regle);
-  }
-
-  [data-design="contemporain"] .barre-bas a {
-    flex: 1 1 0;
-    min-width: 0;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.78rem;
-    line-height: 1.1;
-    padding: 0.2rem;
-    border-radius: 999px;
-    color: var(--encre);
-  }
-
-  [data-design="contemporain"] .barre-bas a.barre-bas-accent {
-    background: transparent;
-    color: #c62828;
-  }
-
-  [data-design="contemporain"] body {
-    padding-bottom: 5.2rem;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  [data-design="contemporain"] .tuile-bloc,
-  [data-design="contemporain"] .bloc-carte,
-  [data-design="contemporain"] .edition-phrase,
-  [data-design="contemporain"] .en-bref {
-    animation: monter 0.7s ease both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 22%;
-  }
-}
-
-@keyframes monter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* Transition entre pages, sans routeur client : le retour arrière recharge
-   le document complet, donc les feuilles de style restent en place. */
-@view-transition {
-  navigation: auto;
-}
-
-/* Minimal : blanc, JetBrains Mono, noir et gris, jaune en surlignage. */
-[data-design="minimal"] {
-  --fond: #ffffff;
-  --encre: #161616;
-  --encre-douce: #595959;
-  --lien: #161616;
-  --regle: #e6e6e6;
-  --carte: #ffffff;
-  --accent: #161616;
-  --titre: "JetBrains Mono", ui-monospace, monospace;
-  --texte: "JetBrains Mono", ui-monospace, monospace;
-  --mesure: 72rem;
-  --jaune: #ffe14a;
-}
-
-[data-design="minimal"] body {
-  background: #ffffff;
-  font-size: 1rem;
-  line-height: 1.55;
-}
-
-[data-design="minimal"] .entete,
-[data-design="minimal"] main,
-[data-design="minimal"] .pied {
-  max-width: 72rem;
-}
-
-[data-design="minimal"] .entete {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  column-gap: 1.5rem;
-  row-gap: 0.3rem;
-  border-bottom: 0;
-  padding-top: 1.1rem;
-}
-
-[data-design="minimal"] .entete-haut,
-[data-design="minimal"] .barre-menu {
-  display: contents;
-}
-
-[data-design="minimal"] .marque,
-[data-design="minimal"] .nav-rubriques,
-[data-design="minimal"] .lien-accueil,
-[data-design="minimal"] .bloc-carte,
-[data-design="minimal"] .accueil-agenda,
-[data-design="minimal"] #titre-categories {
-  display: none;
-}
-
-[data-design="minimal"] .nom-site {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
-  letter-spacing: -0.04em;
-  text-decoration: none;
-}
-
-[data-design="minimal"] .sous-titre {
-  grid-column: 1;
-  grid-row: 2;
-  margin: 0;
-  font-size: 0.75rem;
-  color: #595959;
-}
-
-[data-design="minimal"] .menu {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  justify-self: end;
-  align-self: center;
-}
-
-[data-design="minimal"] .menu > summary {
-  display: none;
-}
-
-[data-design="minimal"] .menu > .nav-principal {
-  display: flex !important;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.15rem 0.9rem;
-  padding: 0;
-}
-
-[data-design="minimal"] .nav-principal a:not(.lien-accueil) {
-  display: inline-flex;
-  min-height: 44px;
-  font-size: 0.78rem;
-  font-weight: 400;
-  color: #3a3a3a;
-}
-
-[data-design="minimal"] .recherche-menu {
-  grid-column: 1 / -1;
-  grid-row: 3;
-  width: 100%;
-  max-width: none;
-  margin: 0.7rem 0 0;
-  border: 2px solid #161616;
-  border-radius: 2px;
-  background: #ffffff;
-}
-
-[data-design="minimal"] .recherche-menu input {
-  font-size: 1rem;
-  min-height: 52px;
-}
-
-[data-design="minimal"] .recherche-menu input::placeholder {
-  color: #595959;
-}
-
-[data-design="minimal"] .recherche-menu:focus-within {
-  outline: 3px solid #161616;
-  outline-offset: 3px;
-}
-
-[data-design="minimal"] .recherche-menu button:hover,
-[data-design="minimal"] .recherche-menu button:focus-visible {
-  background: var(--jaune);
-  color: #161616;
-}
-
-[data-design="minimal"] a {
-  color: #161616;
-  text-decoration-line: underline;
-  text-decoration-color: #161616;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.18em;
-}
-
-[data-design="minimal"] a:hover,
-[data-design="minimal"] a:focus-visible {
-  background: var(--jaune);
-  text-decoration-color: #161616;
-}
-
-[data-design="minimal"] :focus-visible {
-  outline: 3px solid #161616;
-  outline-offset: 2px;
-}
-
-[data-design="minimal"] h1 {
-  font-size: clamp(1.55rem, 3vw, 2.3rem);
-  letter-spacing: -0.04em;
-  line-height: 1.15;
-}
-
-[data-design="minimal"] h2 {
-  font-size: 1.2rem;
-  letter-spacing: -0.03em;
-}
-
-[data-design="minimal"] .tuiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-  gap: 1.4rem 1rem;
-  margin-top: 1.4rem;
-}
-
-[data-design="minimal"] .tuile-bloc {
-  border: 0;
-  padding: 0;
-  background: transparent;
-}
-
-[data-design="minimal"] .tuile {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  background: transparent;
-  border: 0;
-  padding: 0;
-  min-height: 0;
-}
-
-[data-design="minimal"] .tuile-image {
-  width: 100%;
-  height: 10.5rem;
-  object-fit: cover;
-  background: #f2f2f2;
-}
-
-[data-design="minimal"] .tuile-numero,
-[data-design="minimal"] .tuile-texte {
-  display: none;
-}
-
-[data-design="minimal"] .tuile-titre {
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-
-[data-design="minimal"] .tuile-bloc[data-categorie="agenda"] .tuile-titre {
-  text-decoration: underline;
-  text-decoration-color: #c62828;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 0.18em;
-}
-
-[data-design="minimal"] .credit-tuile,
-[data-design="minimal"] .illustration figcaption,
-[data-design="minimal"] .figure-fiche figcaption,
-[data-design="minimal"] .edition-image figcaption,
-[data-design="minimal"] .galerie figcaption {
-  color: #595959;
-}
-
-[data-design="minimal"] .illustration img,
-[data-design="minimal"] .figure-fiche img,
-[data-design="minimal"] .galerie img {
-  max-height: 20rem;
-  width: 100%;
-  object-fit: cover;
-}
-
-[data-design="minimal"] .pied {
-  border-top: 0;
-  font-size: 0.75rem;
-  color: #595959;
-  padding-top: 0.4rem;
-}
-
-[data-design="minimal"] .pied p a {
-  display: inline;
-  min-height: 0;
-}
-
-[data-design="minimal"] .pied a {
-  color: #595959;
-  min-height: 44px;
-}
-
-[data-design="minimal"] .pied a:hover,
-[data-design="minimal"] .pied a:focus-visible {
-  color: #161616;
-  background: var(--jaune);
-}
-
-[data-design="minimal"] .mention-carte {
-  font-size: 0.75rem;
-  color: #595959;
-}
-
-[data-design="minimal"] .liste-communes a,
-[data-design="minimal"] .carte-fiche,
-[data-design="minimal"] .bloc-sources,
-[data-design="minimal"] .choix-designs li {
-  border-color: #e6e6e6;
-  box-shadow: none;
-  background: transparent;
-}
-
-@media (max-width: 52rem) {
-  [data-design="minimal"] .entete {
-    grid-template-columns: 1fr;
-  }
-
-  [data-design="minimal"] .menu {
-    grid-column: 1;
-    grid-row: 3;
-    justify-self: start;
-  }
-
-  [data-design="minimal"] .menu > .nav-principal {
-    justify-content: flex-start;
-  }
-
-  [data-design="minimal"] .recherche-menu {
-    grid-row: 4;
-  }
-
-  [data-design="minimal"] .tuiles {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  [data-design="minimal"] .tuile-image {
-    height: 8rem;
-  }
-}
-
-/* Revue marine : la revue savante, en bleu marine. L'original « revue » n'est pas modifié. */
-[data-design="revue-marine"] {
-  --fond: #f3ecdf;
-  --encre: #1c2430;
-  --encre-douce: #3a4553;
-  --lien: #0c2340;
-  --regle: #c5d0dc;
-  --carte: #fbf7f0;
-  --accent: #0c2340;
-  --titre: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --texte: "Source Sans 3", "Segoe UI", sans-serif;
-  --mesure: 46rem;
-}
-
-[data-design="revue-marine"] body {
-  background:
-    linear-gradient(180deg, rgb(255 252 246 / 70%), transparent 18rem),
-    var(--fond);
-}
-
-[data-design="revue-marine"] .entete,
-[data-design="revue-marine"] .pied {
+.entete,
+.pied {
   max-width: 90rem;
 }
 
-[data-design="revue-marine"] .entete {
+.entete {
   text-align: center;
-  border-bottom: 4px double #0c2340;
+  border-bottom: 4px double #1f3a6b;
   padding-block: 0.65rem 0.5rem;
 }
 
-[data-design="revue-marine"] .nom-site:not(.nom-site-marine) {
-  display: none;
-}
-
-[data-design="revue-marine"] .nom-site-marine {
+.nom-site {
   display: inline;
   font-size: clamp(2.45rem, 4.4vw, 3.6rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  color: #0c2340;
+  color: #1f3a6b;
 }
 
-[data-design="revue-marine"] .sous-titre {
+.sous-titre {
   margin: 0.15rem 0 0.55rem;
 }
 
-[data-design="revue-marine"] .barre-menu {
+.barre-menu {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
   gap: 0.4rem 0.45rem;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
   text-align: left;
 }
 
-[data-design="revue-marine"] .nav-rubriques {
+.nav-rubriques {
   display: contents;
 }
 
-[data-design="revue-marine"] [data-rubrique="communes"] {
+[data-rubrique="communes"] {
   display: none;
 }
 
-[data-design="revue-marine"] [data-rubrique="batiments-anciens-disparus"] { order: 1; }
-[data-design="revue-marine"] [data-rubrique="batiments-anciens-existants"] { order: 2; }
-[data-design="revue-marine"] [data-rubrique="personnes"] { order: 3; }
-[data-design="revue-marine"] [data-rubrique="evenements-historiques"] {
+[data-rubrique="batiments-anciens-disparus"] { order: 1; }
+[data-rubrique="batiments-anciens-existants"] { order: 2; }
+[data-rubrique="personnes"] { order: 3; }
+[data-rubrique="evenements-historiques"] {
   order: 4;
   max-width: 9.2rem;
   white-space: normal;
@@ -1816,33 +895,33 @@ code {
   line-height: 1.15;
   justify-content: center;
 }
-[data-design="revue-marine"] [data-rubrique="vie-economique"] { order: 5; }
-[data-design="revue-marine"] [data-rubrique="documents"] { order: 6; }
+[data-rubrique="vie-economique"] { order: 5; }
+[data-rubrique="documents"] { order: 6; }
 
-[data-design="revue-marine"] .barre-menu::after {
+.barre-menu::after {
   content: "";
   order: 7;
   flex-basis: 100%;
   height: 0;
 }
 
-[data-design="revue-marine"] [data-rubrique="agenda"] {
+[data-rubrique="agenda"] {
   order: 8;
 }
 
-[data-design="revue-marine"] a.nav-pastille {
-  background: #0c2340;
+a.nav-pastille {
+  background: #1f3a6b;
   color: #ffffff;
   padding: 0.28rem 0.7rem;
   font-size: 0.95rem;
 }
 
-[data-design="revue-marine"] a.nav-pastille-animations {
+a.nav-pastille-animations {
   background: #1a4fbf;
   color: #ffffff;
 }
 
-[data-design="revue-marine"] .recherche-menu {
+.recherche-menu {
   order: 9;
   flex: 1 1 14rem;
   width: auto;
@@ -1850,11 +929,11 @@ code {
   margin: 0;
 }
 
-[data-design="revue-marine"] .menu {
+.menu {
   display: none;
 }
 
-[data-design="revue-marine"] .texte > p:first-of-type::first-letter {
+.texte > p:first-of-type::first-letter {
   font-family: var(--titre);
   float: left;
   font-size: 3.3rem;
@@ -1863,26 +942,22 @@ code {
   color: var(--accent);
 }
 
-[data-design="revue-marine"] .figure-fiche img {
+.figure-fiche img {
   border: 1px solid var(--regle);
 }
 
-[data-design="revue-marine"] .pied-marine {
-  display: inline-flex;
-}
-
-[data-design="revue-marine"] .pied,
-[data-design="revue-marine"] .pied a,
-[data-design="revue-marine"] .mention-carte {
+.pied,
+.pied a,
+.mention-carte {
   font-size: 0.85rem;
 }
 
-[data-design="revue-marine"] .pied a {
+.pied a {
   min-height: 36px;
 }
 
 @media (min-width: 64rem) {
-  [data-design="revue-marine"] main.accueil {
+  main.accueil {
     display: grid;
     grid-template-columns: minmax(16rem, 34rem) minmax(0, 1fr);
     gap: 0.4rem 1.2rem;
@@ -1891,49 +966,49 @@ code {
     padding-top: 0.6rem;
   }
 
-  [data-design="revue-marine"] main.accueil .bloc-carte {
+  main.accueil .bloc-carte {
     grid-column: 1;
     grid-row: 1;
     margin: 0;
   }
 
-  [data-design="revue-marine"] main.accueil .accueil-rubriques {
+  main.accueil .accueil-rubriques {
     grid-column: 2;
     grid-row: 1;
   }
 
-  [data-design="revue-marine"] main.accueil .accueil-agenda {
+  main.accueil .accueil-agenda {
     grid-column: 1 / -1;
   }
 
-  [data-design="revue-marine"] .plan.plan-communes {
+  .plan.plan-communes {
     width: min(100%, calc(100vh - 19.5rem));
     max-height: calc(100vh - 19.5rem);
     margin: 0;
   }
 }
 
-[data-design="revue-marine"] .accueil-carte-titre,
-[data-design="revue-marine"] .bloc-carte > p,
-[data-design="revue-marine"] .bloc-carte .mention-carte,
-[data-design="revue-marine"] .accueil-rubriques h2,
-[data-design="revue-marine"] .accueil-rubriques .tuile-bloc[data-categorie="agenda"] {
+.accueil-carte-titre,
+.bloc-carte > p,
+.bloc-carte .mention-carte,
+.accueil-rubriques h2,
+.accueil-rubriques .tuile-bloc[data-categorie="agenda"] {
   display: none;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuiles {
+.accueil-rubriques .tuiles {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.7rem 0.65rem;
   margin: 0;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuile-bloc {
+.accueil-rubriques .tuile-bloc {
   border: 0;
   padding: 0;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuile {
+.accueil-rubriques .tuile {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1942,7 +1017,7 @@ code {
   min-height: 0;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuile-image {
+.accueil-rubriques .tuile-image {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
@@ -1950,59 +1025,67 @@ code {
   object-fit: cover;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuile-numero {
+.accueil-rubriques .tuile-numero {
   display: none;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuile-titre {
+.accueil-rubriques .tuile-titre {
   font-size: 1.02rem;
   margin: 0.2rem 0 0;
 }
 
-[data-design="revue-marine"] .accueil-rubriques .tuile-texte {
+.accueil-rubriques .tuile-texte {
   font-size: 0.8rem;
   line-height: 1.3;
 }
 
-[data-design="revue-marine"] .accueil-agenda {
+.accueil-agenda {
   margin-top: 1.4rem;
 }
 
-[data-design="revue-marine"] .accueil-agenda-visuel {
+.accueil-agenda-visuel {
   display: block;
 }
 
-[data-design="revue-marine"] .accueil-agenda .illustration img {
+.accueil-agenda .illustration img {
   width: 100%;
   max-height: 20rem;
   object-fit: cover;
 }
 
-[data-design="revue-marine"] .accueil-agenda h2 {
+.accueil-agenda h2 {
   font-size: clamp(2rem, 3.5vw, 2.8rem);
   margin: 0.5rem 0 0.4rem;
 }
 
 @media (max-width: 63.99rem) {
-  [data-design="revue-marine"] .accueil-rubriques .tuiles {
+  .accueil-rubriques .tuiles {
     grid-template-columns: 1fr 1fr;
   }
 
-  [data-design="revue-marine"] .plan.plan-communes {
+  .plan.plan-communes {
     width: 100%;
     max-height: none;
   }
 }
 
 @media (max-width: 40rem) {
-  [data-design="revue-marine"] .recherche-menu {
+  .barre-menu {
+    width: 100%;
+  }
+
+  .recherche-menu {
     flex-basis: 100%;
     max-width: none;
   }
 
-  [data-design="revue-marine"] .accueil-rubriques .tuile-image {
+  .accueil-rubriques .tuile-image {
     max-height: 6.5rem;
   }
+}
+
+@view-transition {
+  navigation: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2012,9 +1095,5 @@ code {
 
   html {
     scroll-behavior: auto;
-  }
-
-  [data-design="carnet"] .marque-carnet {
-    transform: none;
   }
 }
