@@ -49,6 +49,8 @@ categories:
       # Ligueil n'est pas dans la vallée de la Riolle : identifiant distinct.
       - id: figures-locales-ligueillois
         libelle: Figures locales du Ligueillois
+      - id: figures-locales-descartes
+        libelle: Figures locales de Descartes
 
   evenements-historiques:
     libelle: Événements

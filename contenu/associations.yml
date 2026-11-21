@@ -121,3 +121,48 @@ associations:
     sources:
       - https://www.renaissancelochoise.com/actualite-7592-betz-le-chateau-betz-se-balade-avec-betz-stioles-cie
       - https://www.renaissancelochoise.com/actualite-7732-betz-le-chateau-betz-stioles-cie-evoque-l-alimentation-neolithique
+
+  - id: amis-rene-boylesve
+    nom: Les Amis de René Boylesve
+    commune: Descartes
+    insee: "37115"
+    site: null
+    notes: >
+      Association déclarée à Descartes (identifiant RNA W373000481, SIREN
+      823714340), siège indiqué 5 place de l'Hôtel de Ville. La fiche Assoce,
+      qui reprend les données RNA/SIRENE, donne une création le 19 octobre 1951
+      et un enregistrement INSEE le 3 juillet 1978 (d'où un écart apparent de
+      dates, à ne pas confondre avec une seconde fondation). Objet rapporté :
+      publications et diffusion de textes ou documents ayant trait à la vie et
+      à l'œuvre de René Boylesve, manifestations littéraires, culturelles ou
+      artistiques tendant à illustrer sa mémoire, hommages aux œuvres s'en
+      inspirant. Un article de La Nouvelle République du 22 septembre 2021
+      indique que l'association, créée en 1951, meuble le musée qui lui est
+      consacré (dont le bureau de Passy), en assure des visites, notamment
+      durant les Journées du patrimoine, publie une revue annuelle et réédite
+      certains romans. Site officiel non identifié lors de la collecte. Un
+      « Groupe Loches-Descartes des Amis de René Boylesve » (W373001740) existe
+      également dans le répertoire ; il n'a pas été fusionné ici.
+    sources:
+      - https://www.assoce.fr/waldec/W373000481/ASSOCIATION-LES-AMIS-DE-RENE-BOYLESVE
+      - https://www.lanouvellerepublique.fr/indre-et-loire/commune/descartes/les-amis-de-rene-boylesves-a-la-fete
+
+  - id: loisir-amitie-claise-creuse
+    nom: Loisirs et Amitié entre Claise et Creuse (LACC)
+    commune: Descartes
+    insee: "37115"
+    site: "https://www.lacc37160.com"
+    notes: >
+      Association déclarée à Descartes (RNA W373002108), créée en 2015 selon
+      la fiche Assoce. L'objet déclaré porte sur des activités culturelles,
+      sportives, traditionnelles et conviviales (balades, rencontres, jeux,
+      conférences, sorties et visites), « en dehors de tout esprit de
+      compétition ». Elle n'est donc pas, au vu de cet objet, une association
+      patrimoniale au sens strict. Le programme culturel municipal 2026-2027
+      de Descartes lui attribue toutefois la mise en avant de Gustave Trouvé
+      au sein de l'Espace muséal. Site indiqué sur la fiche Assoce :
+      https://www.lacc37160.com (non relu page à page ici).
+    sources:
+      - https://www.assoce.fr/waldec/W373002108/LOISIRS-ET-AMITIE-ENTRE-CLAISE-ET-CREUSE
+      - https://www.ville-descartes.fr/medias/Culture/Programme_saison_culturelle_26-27_publi.pdf
+
