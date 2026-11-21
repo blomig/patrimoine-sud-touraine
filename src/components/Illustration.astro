@@ -4,7 +4,7 @@ import type { Illustration } from '../lib/site';
 
 const { image, compact = false } = Astro.props as { image: Illustration; compact?: boolean };
 const src = image.fichier ? withBase(image.fichier) : image.url;
-const licenceHref = urlLicence(image.licence);
+const licenceHref = image.licence ? urlLicence(image.licence) : null;
 ---
 
 <figure class:list={['illustration', compact && 'illustration-compacte']}>
@@ -12,9 +12,20 @@ const licenceHref = urlLicence(image.licence);
   <figcaption>
     <span>{image.legende}</span>
     <span>
-      {image.auteur}.{' '}
-      {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.{' '}
-      <a href={image.url}>Wikimedia Commons</a>.
+      {image.auteur}
+      {image.licence ? (
+        <>
+          . {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}
+        </>
+      ) : null}
+      {image.url ? (
+        <>
+          .{' '}
+          <a href={image.url}>Wikimedia Commons</a>.
+        </>
+      ) : (
+        '.'
+      )}
     </span>
   </figcaption>
 </figure>

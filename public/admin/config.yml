@@ -574,13 +574,16 @@ collections:
                   - label: Page Wikimedia Commons
                     name: url
                     widget: string
+                    required: false
+                    hint: Laisser vide pour une photo de la collection, sans lien Commons.
                   - label: Auteur
                     name: auteur
                     widget: string
                   - label: Licence
                     name: licence
                     widget: string
-                    hint: Par exemple CC BY-SA 4.0 ou Domaine public.
+                    required: false
+                    hint: Par exemple CC BY-SA 4.0 ou Domaine public. Vide pour une photo de la collection.
               - label: Bâtiments existants
                 name: batiments-anciens-existants
                 widget: object
