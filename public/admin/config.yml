@@ -16,7 +16,7 @@ slug:
   sanitize_replacement: "-"
 collections:
   - name: batiments-anciens-disparus
-    label: Bâtiments anciens disparus
+    label: Bâtiments disparus
     label_singular: Bâtiment disparu
     folder: contenu/batiments-anciens-disparus
     create: true
@@ -120,7 +120,7 @@ collections:
         widget: markdown
 
   - name: batiments-anciens-existants
-    label: Bâtiments anciens encore existants
+    label: Bâtiments existants
     label_singular: Bâtiment existant
     folder: contenu/batiments-anciens-existants
     create: true
@@ -224,7 +224,7 @@ collections:
         widget: markdown
 
   - name: personnes
-    label: Personnes
+    label: Personnages
     label_singular: Personne
     folder: contenu/personnes
     create: true
@@ -328,7 +328,7 @@ collections:
         widget: markdown
 
   - name: evenements-historiques
-    label: Événements historiques
+    label: Événements
     label_singular: Événement
     folder: contenu/evenements-historiques
     create: true
@@ -432,7 +432,7 @@ collections:
         widget: markdown
 
   - name: agenda
-    label: Agenda des animations
+    label: Animations
     label_singular: Animation
     folder: contenu/agenda
     create: true
@@ -559,7 +559,7 @@ collections:
             name: categories
             widget: object
             fields:
-              - label: Bâtiments anciens disparus
+              - label: Bâtiments disparus
                 name: batiments-anciens-disparus
                 widget: object
                 fields: &image_rubrique
@@ -581,19 +581,19 @@ collections:
                     name: licence
                     widget: string
                     hint: Par exemple CC BY-SA 4.0 ou Domaine public.
-              - label: Bâtiments anciens encore existants
+              - label: Bâtiments existants
                 name: batiments-anciens-existants
                 widget: object
                 fields: *image_rubrique
-              - label: Personnes
+              - label: Personnages
                 name: personnes
                 widget: object
                 fields: *image_rubrique
-              - label: Événements historiques
+              - label: Événements
                 name: evenements-historiques
                 widget: object
                 fields: *image_rubrique
-              - label: Agenda
+              - label: Animations
                 name: agenda
                 widget: object
                 fields: *image_rubrique
@@ -605,7 +605,7 @@ collections:
             name: categories
             widget: object
             fields:
-            - label: Bâtiments anciens disparus
+            - label: Bâtiments disparus
               name: batiments-anciens-disparus
               widget: object
               fields:
@@ -624,7 +624,7 @@ collections:
                     - label: Libellé
                       name: libelle
                       widget: string
-            - label: Bâtiments anciens encore existants
+            - label: Bâtiments existants
               name: batiments-anciens-existants
               widget: object
               fields:
@@ -643,7 +643,7 @@ collections:
                     - label: Libellé
                       name: libelle
                       widget: string
-            - label: Personnes
+            - label: Personnages
               name: personnes
               widget: object
               fields:
@@ -662,7 +662,7 @@ collections:
                     - label: Libellé
                       name: libelle
                       widget: string
-            - label: Événements historiques
+            - label: Événements
               name: evenements-historiques
               widget: object
               fields:
@@ -681,7 +681,7 @@ collections:
                     - label: Libellé
                       name: libelle
                       widget: string
-            - label: Agenda
+            - label: Animations
               name: agenda
               widget: object
               fields:

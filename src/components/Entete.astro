@@ -3,19 +3,26 @@ import { chargerSite, listeCategories } from '../lib/site';
 import { withBase } from '../lib/urls';
 
 const site = chargerSite();
-const liens = [
-  { href: withBase('/'), label: 'Accueil' },
-  { href: withBase('/communes/'), label: 'Communes', classe: 'nav-communes' },
-  { href: withBase('/qu-est-ce-que-ce-site/'), label: 'Qu’est-ce que ce site ?' },
+const ici = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const rubriques = [
+  { href: withBase('/communes/'), label: 'Communes', animations: false },
   ...listeCategories().map((categorie) => ({
     href: withBase(`/${categorie.id}/`),
-    label: categorie.court,
-    titre: categorie.titre,
+    label: categorie.titre,
+    animations: categorie.id === 'agenda',
   })),
+];
+const liens = [
+  { href: withBase('/'), label: 'Accueil' },
+  { href: withBase('/qu-est-ce-que-ce-site/'), label: 'Qu’est-ce que ce site ?' },
   { href: withBase('/carte/'), label: 'Carte des fiches' },
   { href: withBase('/associations/'), label: 'Annuaire' },
   { href: withBase('/recherche/'), label: 'Recherche' },
 ];
+
+function estIci(href: string): boolean {
+  return ici === href || ici.startsWith(href);
+}
 ---
 
 <header class="entete" data-pagefind-ignore>
@@ -27,18 +34,39 @@ const liens = [
     <p class="sous-titre">Communauté de communes Loches Sud Touraine</p>
   </div>
   <div class="barre-menu">
-    <a class="nav-communes nav-communes-mobile" href={withBase('/communes/')}>Communes</a>
+    <nav class="nav-rubriques" aria-label="Communes et rubriques">
+      {
+        rubriques.map((rubrique) => (
+          <a
+            class:list={['nav-pastille', rubrique.animations && 'nav-pastille-animations']}
+            href={rubrique.href}
+            aria-current={estIci(rubrique.href) ? 'page' : undefined}
+          >
+            {rubrique.label}
+          </a>
+        ))
+      }
+    </nav>
     <details class="menu">
       <summary>Menu</summary>
       <nav class="nav-principal" aria-label="Navigation principale">
-        {
-          liens.map((lien) => (
-            <a class={'classe' in lien ? lien.classe : undefined} href={lien.href} title={'titre' in lien ? lien.titre : undefined}>
-              {lien.label}
-            </a>
-          ))
-        }
+        {liens.map((lien) => (
+          <a href={lien.href} aria-current={ici === lien.href ? 'page' : undefined}>
+            {lien.label}
+          </a>
+        ))}
       </nav>
     </details>
   </div>
 </header>
+
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.menu');
+  const large = window.matchMedia('(min-width: 64rem)');
+  const ajuster = () => {
+    if (!menu) return;
+    if (large.matches) menu.open = true;
+  };
+  ajuster();
+  large.addEventListener('change', ajuster);
+</script>

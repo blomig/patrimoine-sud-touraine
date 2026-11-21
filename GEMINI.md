@@ -14,7 +14,7 @@ Le site public est https://blomig.github.io/patrimoine-sud-touraine/. Ce n’est
 
 ## Objectif
 
-Cahier documentaire, en français, sur le patrimoine de la communauté de communes Loches Sud Touraine (Indre-et-Loire, EPCI SIREN 200071587, 67 communes). Cinq rubriques : bâtiments disparus, bâtiments existants, personnes, événements historiques, agenda. Une page par commune, une carte du territoire, une recherche plein texte.
+Cahier documentaire, en français, sur le patrimoine de la communauté de communes Loches Sud Touraine (Indre-et-Loire, EPCI SIREN 200071587, 67 communes). Cinq rubriques : Bâtiments disparus, Bâtiments existants, Personnages, Événements, Animations. Une page par commune, une carte du territoire, une recherche plein texte.
 
 Une fiche = un fichier Markdown. Le texte ne dit que ce que les sources permettent de dire.
 
