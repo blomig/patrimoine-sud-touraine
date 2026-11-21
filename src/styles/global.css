@@ -230,6 +230,7 @@ a.nav-pastille {
   scroll-snap-align: start;
 }
 
+/* #c62828 sur blanc : contraste 5,6:1, au-dessus du seuil AA. */
 a.nav-pastille-animations {
   background: #c62828;
   color: #ffffff;
