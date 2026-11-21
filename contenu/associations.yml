@@ -7,7 +7,7 @@ associations:
     nom: Mémoire et Patrimoine en Ligueillois (MPL)
     commune: Ligueil
     insee: "37130"
-    site: null
+    site: "https://memoire-patrimoine-ligueillois.fr/"
     notes: >
       Association présentée par valleedelariolle.fr comme créée il y a près de 50 ans
       autour du docteur Delaune, à Ligueil. Le même site lui attribue l'idée de
@@ -15,11 +15,16 @@ associations:
       la restauration d'un lavoir près de La Chapelle-Blanche-Saint-Martin. Une
       fiche associative (net1901.org) mentionne un objet d'étude, collecte,
       protection, valorisation et sauvegarde du patrimoine, avec une date
-      associée au 14 septembre 1978. Pas de site web officiel identifié au
-      moment de la collecte.
+      associée au 14 septembre 1978. Le 17 mai 2025, l'association a organisé
+      à Grillemont une journée de découverte comprenant la première visite
+      commentée d'une collection de matériels agricoles anciens présentée dans
+      une grange de la propriété, ainsi qu'une visite du château. Un site
+      officiel est désormais indiqué par le blog : https://memoire-patrimoine-ligueillois.fr/
+      (adresse postale indiquée : Mairie de Ligueil, 37240).
     sources:
       - https://valleedelariolle.fr/a-la-chapelle-blanche-journee-de-decouverte-proposee-par-mpl/
       - https://www.net1901.org/association/MEMOIRE-ET-PATRIMOINE-EN-LIGUEILLOIS,2440981.html
+      - https://memoire-patrimoine-ligueillois.fr/
 
   - id: amis-du-pays-lochois
     nom: Amis du Pays Lochois
