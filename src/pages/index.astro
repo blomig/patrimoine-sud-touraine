@@ -5,7 +5,7 @@ import Illustration from '../components/Illustration.astro';
 import ListeAgenda from '../components/ListeAgenda.astro';
 import { agendaVisibleMaintenant } from '../lib/contenu';
 import { chargerSite, listeCategories } from '../lib/site';
-import { urlLicence, withBase } from '../lib/urls';
+import { withBase } from '../lib/urls';
 
 const site = chargerSite();
 const categories = listeCategories();
@@ -32,7 +32,6 @@ const evenements = await agendaVisibleMaintenant();
       {
         categories.map((categorie, index) => {
           const image = categorie.illustration;
-          const licence = image?.licence ? urlLicence(image.licence) : null;
           return (
             <li class="tuile-bloc" data-categorie={categorie.id}>
               <a class="tuile" href={withBase(`/${categorie.id}/`)}>
@@ -51,24 +50,6 @@ const evenements = await agendaVisibleMaintenant();
                   <span class="tuile-texte">{categorie.resume}</span>
                 </span>
               </a>
-              {image && (
-                <p class="credit-tuile">
-                  {image.auteur}
-                  {image.licence ? (
-                    <>
-                      . {licence ? <a href={licence}>{image.licence}</a> : image.licence}
-                    </>
-                  ) : null}
-                  {image.url ? (
-                    <>
-                      .{' '}
-                      <a href={image.url}>Wikimedia Commons</a>.
-                    </>
-                  ) : (
-                    '.'
-                  )}
-                </p>
-              )}
             </li>
           );
         })
