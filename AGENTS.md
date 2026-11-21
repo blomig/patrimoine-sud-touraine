@@ -192,5 +192,5 @@ Les trois apparences sont dans `src/styles/global.css`, sous `[data-design="revu
 - `npm run dev` et `npm run preview` utilisent ce même préfixe.
 - Pagefind enregistre des URL sans le préfixe ; l’interface les recolle à partir de l’emplacement du script. Ne pas casser `data-base` ni `BASE_URL`.
 - Un nom de domaine propre remplacera plus tard `blomig.github.io`. Il faudra alors, ensemble : `site` et `base: '/'` dans `astro.config.mjs`, puis `site_url`, `display_url` et `public_folder` dans `public/admin/config.yml`.
-- Leaflet a besoin d’une hauteur sur le conteneur (`.plan` dans `global.css`) et du CSS du paquet. Après un changement de carte, vérifier tuiles, contours, survol et clic, y compris sur un écran étroit.
+- La carte des communes (accueil et `/communes/`) est fixe : ni zoom, ni déplacement, ni boutons. Le cadre est celui des 67 communes, sans tuiles OpenStreetMap et sans le contour de l’Indre-et-Loire. Le conteneur `.plan-communes` a un ratio carré. La carte des fiches (`/carte/`) garde, elle, les tuiles. Après un changement, vérifier contours, survol et clic, sur grand écran et sur écran étroit.
 - L’administration (`/admin`) parle au dépôt GitHub. Elle n’est pas branchée à un proxy OAuth : François s’y connecte avec un jeton personnel. Ne pas en créer un, et ne pas le déposer dans le dépôt.
