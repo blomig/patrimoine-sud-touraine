@@ -9,19 +9,19 @@ commune: "Loches"
 insee: "37132"
 latitude: 47.1268
 longitude: 0.9975
-periode: "Du 28 novembre 2026 au 12 décembre 2026 (autres dates éventuellement en janvier 2027)"
+periode: "Du 28 novembre 2026 au 3 janvier 2027, de 10 h à 17 h (fermé le 25 décembre et le 1er janvier)"
 date_debut: "2026-11-28"
-date_fin: "2026-12-12"
-lieu: "Cité royale de Loches"
+date_fin: "2027-01-03"
+lieu: "Logis royal, Cité royale de Loches, 5 place Charles VII, 37600 Loches"
 statut: "à valider"
 sources:
   - titre: "Fiche agenda de l'office de tourisme"
     url: "https://loches-valdeloire.com/sit/noel-au-pays-des-chateaux-les-contes-de-la-cite-royale-la-belle-et-la-bete-fmacen037v50d6w4/"
-  - titre: "Cité royale de Loches"
-    url: "https://www.citeroyaleloches.fr/"
+  - titre: "Cité royale de Loches — Noël au pays des châteaux 2026"
+    url: "https://citeroyaleloches.fr/agenda/npdc_2026"
 image: null
 ---
 
-À l'occasion de « Noël au pays des châteaux », la Cité royale de Loches propose un parcours autour du conte de La Belle et la Bête, paru pour la première fois en 1740. Le texte de présentation de l'office de tourisme invite à une déambulation dans le monument.
+À l'occasion de « Noël au pays des châteaux », le logis royal de la Cité royale de Loches (voir la fiche du logis) propose un parcours autour du conte de La Belle et la Bête. Le site officiel indique une ouverture tous les jours du 28 novembre 2026 au 3 janvier 2027, de 10 h à 17 h, sauf le 25 décembre et le 1er janvier. Tarifs indiqués : 12,50 € et 10,50 €.
 
-Des dates ont également été relevées début janvier 2027 sur les mêmes pages d'agenda : le créneau exact (fermeture éventuelle, prolongation) doit être confirmé sur le site de la Cité royale. Ne pas confondre avec le parcours parallèle organisé à la forteresse de Chinon, hors territoire de la CCLST.
+Une nocturne est prévue le 29 décembre 2026 (fiche séparée). Ne pas confondre avec le parcours parallèle organisé à la forteresse de Chinon, hors territoire de la CCLST.
