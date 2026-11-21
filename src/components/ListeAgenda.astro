@@ -1,0 +1,25 @@
+---
+import { hrefFiche, type Fiche } from '../lib/contenu';
+import { formatPlage } from '../lib/dates';
+import { withBase } from '../lib/urls';
+
+const { evenements } = Astro.props as { evenements: Fiche[] };
+---
+
+{
+  evenements.length === 0 ? (
+    <p class="vide">Aucune animation à venir.</p>
+  ) : (
+    <ul class="liste-agenda">
+      {evenements.map((evenement) => (
+        <li>
+          <a class="ligne-agenda" href={withBase(hrefFiche(evenement))}>
+            <span class="carte-plage">{formatPlage(evenement.data.date_debut, evenement.data.date_fin)}</span>
+            <span class="ligne-agenda-titre">{evenement.data.titre}</span>
+            <span class="ligne-agenda-lieu">{evenement.data.lieu || evenement.data.commune}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

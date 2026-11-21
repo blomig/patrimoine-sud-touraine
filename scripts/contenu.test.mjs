@@ -50,6 +50,13 @@ test('l’agenda montre « à valider » tant que la date n’est pas passée', 
   assert.equal(periodeTerminee('2026-11-20', null, maintenant), true);
 });
 
+test('le contour de l’Indre-et-Loire est dans le dépôt', () => {
+  const data = JSON.parse(readFileSync('public/data/indre-et-loire.geojson', 'utf8'));
+  assert.equal(data.features.length, 1);
+  assert.equal(data.features[0].properties.code, '37');
+  assert.ok(data.features[0].geometry.coordinates.length > 0);
+});
+
 test('le territoire compte 67 communes aux codes uniques', () => {
   const data = JSON.parse(readFileSync('public/data/communes-loches-sud-touraine.geojson', 'utf8'));
   assert.equal(data.features.length, 67);

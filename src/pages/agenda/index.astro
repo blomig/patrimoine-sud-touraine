@@ -1,7 +1,7 @@
 ---
 import Fil from '../../components/Fil.astro';
 import Illustration from '../../components/Illustration.astro';
-import ListeFiches from '../../components/ListeFiches.astro';
+import ListeAgenda from '../../components/ListeAgenda.astro';
 import Base from '../../layouts/Base.astro';
 import { agendaVisibleMaintenant } from '../../lib/contenu';
 import { categorieParId } from '../../lib/site';
@@ -17,5 +17,5 @@ const evenements = await agendaVisibleMaintenant();
     <h1>{categorie.titre}</h1>
     <p class="chapo">{categorie.resume}</p>
   </header>
-  <ListeFiches fiches={evenements} />
+  <ListeAgenda evenements={evenements} />
 </Base>

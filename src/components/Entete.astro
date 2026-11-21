@@ -5,15 +5,15 @@ import { withBase } from '../lib/urls';
 const site = chargerSite();
 const liens = [
   { href: withBase('/'), label: 'Accueil' },
+  { href: withBase('/communes/'), label: 'Communes', classe: 'nav-communes' },
   { href: withBase('/qu-est-ce-que-ce-site/'), label: 'Qu’est-ce que ce site ?' },
   ...listeCategories().map((categorie) => ({
     href: withBase(`/${categorie.id}/`),
     label: categorie.court,
     titre: categorie.titre,
   })),
-  { href: withBase('/carte/'), label: 'Carte' },
+  { href: withBase('/carte/'), label: 'Carte des fiches' },
   { href: withBase('/associations/'), label: 'Annuaire' },
-  { href: withBase('/communes/'), label: 'Communes' },
   { href: withBase('/recherche/'), label: 'Recherche' },
 ];
 ---
@@ -26,16 +26,19 @@ const liens = [
     <a class="nom-site" href={withBase('/')}>{site.titre}</a>
     <p class="sous-titre">Communauté de communes Loches Sud Touraine</p>
   </div>
-  <details class="menu">
-    <summary>Menu</summary>
-    <nav class="nav-principal" aria-label="Navigation principale">
-      {
-        liens.map((lien) => (
-          <a href={lien.href} title={'titre' in lien ? lien.titre : undefined}>
-            {lien.label}
-          </a>
-        ))
-      }
-    </nav>
-  </details>
+  <div class="barre-menu">
+    <a class="nav-communes nav-communes-mobile" href={withBase('/communes/')}>Communes</a>
+    <details class="menu">
+      <summary>Menu</summary>
+      <nav class="nav-principal" aria-label="Navigation principale">
+        {
+          liens.map((lien) => (
+            <a class={'classe' in lien ? lien.classe : undefined} href={lien.href} title={'titre' in lien ? lien.titre : undefined}>
+              {lien.label}
+            </a>
+          ))
+        }
+      </nav>
+    </details>
+  </div>
 </header>
