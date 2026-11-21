@@ -9,23 +9,12 @@ const fiches = await toutesLesFiches();
 const nombreFiches = fiches.filter((fiche) => fiche.data.categorie !== 'agenda').length;
 const sousTitre = appliquerNombre(site.sous_titre, nombreFiches);
 const ici = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
-const rubriques = [
-  { href: withBase('/communes/'), label: 'Communes', id: 'communes', animations: false },
-  ...listeCategories().map((categorie) => ({
-    href: withBase(`/${categorie.id}/`),
-    label: categorie.titre,
-    id: categorie.id,
-    animations: categorie.id === 'agenda',
-  })),
-];
-const liens = [
-  { href: withBase('/'), label: 'Accueil', classe: 'lien-accueil' },
-  { href: withBase('/communes/'), label: 'Communes', classe: 'lien-minimal' },
-  { href: withBase('/qu-est-ce-que-ce-site/'), label: 'Qu’est-ce que ce site ?' },
-  { href: withBase('/carte/'), label: 'Carte des fiches' },
-  { href: withBase('/associations/'), label: 'Annuaire' },
-  { href: withBase('/recherche/'), label: 'Recherche' },
-];
+const rubriques = listeCategories().map((categorie) => ({
+  href: withBase(`/${categorie.id}/`),
+  label: categorie.titre,
+  id: categorie.id,
+  animations: categorie.id === 'agenda',
+}));
 
 function estIci(href: string): boolean {
   return ici === href || ici.startsWith(href);
@@ -34,12 +23,7 @@ function estIci(href: string): boolean {
 
 <header class="entete" data-pagefind-ignore>
   <div class="entete-haut">
-    <p class="marque marque-revue">Cahier documentaire · Indre-et-Loire</p>
-    <p class="marque marque-carnet">Carnet de voyage</p>
-    <p class="marque marque-musee">Parcours musée</p>
-    <p class="marque marque-contemporain">Contemporain</p>
     <a class="nom-site" href={withBase('/')}>{site.titre}</a>
-    <a class="nom-site nom-site-marine" href={withBase('/')}>Patrimoine du Sud-Touraine</a>
     <p class="sous-titre">{sousTitre}</p>
   </div>
   <div class="barre-menu">
@@ -67,34 +51,5 @@ function estIci(href: string): boolean {
         </svg>
       </button>
     </form>
-    <details class="menu">
-      <summary>Menu</summary>
-      <nav class="nav-principal" aria-label="Navigation principale">
-        {liens.map((lien) => (
-          <a class:list={[lien.classe]} href={lien.href} aria-current={ici === lien.href ? 'page' : undefined}>
-            {lien.label}
-          </a>
-        ))}
-      </nav>
-    </details>
   </div>
-  <nav class="barre-bas" aria-label="Navigation du téléphone">
-    <a href={withBase('/')}>Accueil</a>
-    <a href={withBase('/communes/')}>Communes</a>
-    <a href={withBase('/carte/')}>Carte</a>
-    <a href="#recherche-menu">Recherche</a>
-    <a class="barre-bas-accent" href={withBase('/agenda/')}>Animations</a>
-  </nav>
 </header>
-
-<script>
-  const menu = document.querySelector<HTMLDetailsElement>('.menu');
-  const large = window.matchMedia('(min-width: 64rem)');
-  const ajuster = () => {
-    if (!menu) return;
-    const minimal = document.documentElement.dataset.design === 'minimal';
-    if (large.matches || minimal) menu.open = true;
-  };
-  ajuster();
-  large.addEventListener('change', ajuster);
-</script>

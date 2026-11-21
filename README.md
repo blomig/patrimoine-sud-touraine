@@ -15,7 +15,7 @@ La démonstration est prévue le 11 décembre 2026. Le corpus actuel est un jeu 
 - Administration [Sveltia CMS](https://github.com/sveltia/sveltia-cms), édition directe dans le dépôt GitHub
 - Publication par GitHub Actions (`actions/deploy-pages`)
 
-Les trois apparences (revue savante, carnet de voyage, musée) sont le même site. Un seul réglage choisit celle qui est publiée.
+Le site a une seule apparence : fond crème, caractères de revue, bleu marine.
 
 ## Arborescence
 
@@ -98,20 +98,6 @@ Pour une animation, le dossier est `contenu/agenda/`, la catégorie `agenda`, et
 `contenu/categories.yml` donne l’image d’illustration de chaque rubrique (légende, fichier, page Wikimedia, auteur, licence). On la change dans l’administration, fichier « Illustrations des rubriques », sans toucher au code. L’image apparaît sur l’accueil et en tête de la rubrique.
 
 La page Communes affiche les contours des 67 communes (EPCI 200071587), stockés dans `public/data/communes-loches-sud-touraine.geojson`. Le fichier vient de geo.api.gouv.fr et a été simplifié pour l’affichage : le site ne rappelle pas l’API à chaque visite.
-
-## Changer de design
-
-Le design publié est la valeur `design` de `contenu/site.yml` :
-
-- `revue` — revue savante, empattements, tuffeau et ardoise
-- `carnet` — carnet de voyage, papier chaud, cartes
-- `musee` — salle claire, grands titres sans empattement
-- `minimal` — fond blanc, JetBrains Mono, noir, gris et surlignage jaune
-- `revue-marine` — la revue savante, en bleu marine
-
-C’est le seul réglage. On peut le modifier dans le fichier ou dans l’administration, rubrique « Design publié ».
-
-La page [Quatre designs](https://blomig.github.io/patrimoine-sud-touraine/designs/) montre les quatre côte à côte. « Parcourir le site avec ce design » ne change que le navigateur de la personne qui clique. Les autres visiteurs continuent de voir la valeur de `site.yml`. « Revenir au design publié » efface ce choix local.
 
 ## Administration
 

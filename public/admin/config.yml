@@ -787,7 +787,7 @@ collections:
   - name: reglages
     label: Réglages et listes
     files:
-      - label: Design publié
+      - label: Titre du site
         name: site
         file: contenu/site.yml
         fields:
@@ -798,23 +798,6 @@ collections:
             name: sous_titre
             widget: string
             hint: "Garder {n} : il est remplacé à chaque construction par le nombre de fiches (hors agenda). Ne pas écrire le nombre à la main."
-          - label: Design
-            name: design
-            widget: select
-            hint: Le seul réglage de l'apparence publiée. Comparer les six sur la page Designs.
-            options:
-              - label: Revue savante
-                value: revue
-              - label: Carnet de voyage
-                value: carnet
-              - label: Musée
-                value: musee
-              - label: Contemporain
-                value: contemporain
-              - label: Minimal
-                value: minimal
-              - label: Revue marine
-                value: revue-marine
       - label: Illustrations des rubriques
         name: categories
         file: contenu/categories.yml

@@ -32,7 +32,6 @@ const siteSchema = z.object({
     .refine((texte) => texte.includes('{n}'), {
       message: 'Le sous-titre doit contenir {n} : ce jeton est remplacé par le nombre de fiches à chaque construction.',
     }),
-  design: z.enum(['revue', 'carnet', 'musee', 'contemporain', 'minimal', 'revue-marine']),
 });
 
 const associationSchema = z.object({
