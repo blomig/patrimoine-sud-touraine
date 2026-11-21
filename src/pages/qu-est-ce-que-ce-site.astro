@@ -1,0 +1,57 @@
+---
+import Fil from '../components/Fil.astro';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/urls';
+---
+
+<Base
+  titre="Qu’est-ce que ce site ?"
+  description="Présentation du cahier documentaire sur le patrimoine de Loches Sud Touraine."
+>
+  <Fil crumbs={[{ label: 'Qu’est-ce que ce site ?' }]} />
+  <header class="entete-page">
+    <h1>Qu’est-ce que ce site ?</h1>
+    <p class="chapo">
+      Un cahier public pour rassembler, commune par commune, ce que l’on sait du patrimoine
+      du Sud Touraine : bâtiments, personnes, événements, et les rendez-vous à venir.
+    </p>
+  </header>
+  <div class="texte page-simple">
+    <p>
+      La communauté de communes Loches Sud Touraine réunit 67 communes du sud-est de
+      l’Indre-et-Loire. Elle a été créée le 1<sup>er</sup> janvier 2017 par la fusion des
+      communautés de communes du Grand Ligueillois, de Loches Développement, de Montrésor
+      et de la Touraine du Sud. Son siège est à Loches, 12 avenue de la Liberté.
+    </p>
+    <p>
+      Le territoire va, entre autres, de Cormery et Loches à Descartes, Ligueil,
+      Preuilly-sur-Claise, Montrésor et Le Grand-Pressigny. Le contrat de relance et de
+      transition écologique signé pour 2021-2026 indique une superficie de 1&nbsp;809&nbsp;km².
+    </p>
+    <p>
+      Cette version s’appuie sur un corpus pilote, surtout pour cinq communes : Loches,
+      La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves. Les fiches
+      portent le badge «&nbsp;à vérifier&nbsp;». Les animations encore «&nbsp;à valider&nbsp;»
+      sont visibles, avec la mention «&nbsp;en attente de validation&nbsp;».
+    </p>
+    <p>
+      Ce site n’est pas le site officiel de la communauté de communes. Le détail est sur la
+      page <a href={withBase('/a-propos/')}>À propos</a>.
+    </p>
+    <h2>Sources de cette présentation</h2>
+    <ul>
+      <li>
+        <a href="https://catalogue.bnf.fr/ark:/12148/cb17752699d">Bibliothèque nationale de France, notice de la collectivité</a>
+      </li>
+      <li>
+        <a href="https://www.lochessudtouraine.com/lorganisation-politique-de-loches-sud-touraine">Loches Sud Touraine, organisation politique</a>
+      </li>
+      <li>
+        <a href="https://www.banatic.interieur.gouv.fr/intercommunalite/200071587-cc-loches-sud-touraine">BANATIC, fiche de l’intercommunalité</a>
+      </li>
+      <li>
+        <a href="https://media.anct.gouv.fr/s3fs-public/2022-04/crte-24-37-6%20CRTE%20Loches%20Sud%20Touraine.pdf">ANCT, contrat de relance et de transition écologique, 2022</a>
+      </li>
+    </ul>
+  </div>
+</Base>

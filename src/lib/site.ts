@@ -75,11 +75,33 @@ export function themesDe(categorie: string): Theme[] {
   return chargerCatalogue()[categorie]?.themes ?? [];
 }
 
+const illustrationSchema = z.object({
+  legende: z.string().min(1),
+  fichier: z.string().optional(),
+  url: z.string().url(),
+  auteur: z.string().min(1),
+  licence: z.string().min(1),
+});
+
+const illustrationsSchema = z.object({
+  categories: z.record(z.string(), illustrationSchema).default({}),
+});
+
+export type Illustration = z.infer<typeof illustrationSchema>;
+
+export function chargerIllustrations(): Record<string, Illustration> {
+  const resultat = illustrationsSchema.safeParse(lireYaml('contenu/categories.yml'));
+  if (!resultat.success) echec('contenu/categories.yml', resultat.error);
+  return resultat.data.categories;
+}
+
 export function listeCategories(): Categorie[] {
   const catalogue = chargerCatalogue();
+  const illustrations = chargerIllustrations();
   return MODELES.map((modele) => ({
     ...modele,
     titre: catalogue[modele.id]?.libelle ?? modele.titre,
+    illustration: illustrations[modele.id],
   }));
 }
 

@@ -15,6 +15,13 @@ export type Categorie = {
   court: string;
   resume: string;
   frise: boolean;
+  illustration?: {
+    legende: string;
+    fichier?: string;
+    url: string;
+    auteur: string;
+    licence: string;
+  };
 };
 
 /** Libellés de repli si themes.yml ne définit plus une catégorie. */

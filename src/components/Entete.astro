@@ -5,6 +5,7 @@ import { withBase } from '../lib/urls';
 const site = chargerSite();
 const liens = [
   { href: withBase('/'), label: 'Accueil' },
+  { href: withBase('/qu-est-ce-que-ce-site/'), label: 'Qu’est-ce que ce site ?' },
   ...listeCategories().map((categorie) => ({
     href: withBase(`/${categorie.id}/`),
     label: categorie.court,

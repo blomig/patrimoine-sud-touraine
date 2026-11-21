@@ -282,11 +282,54 @@ main {
   color: inherit;
 }
 
+.tuile-bloc {
+  border-top: 1px solid var(--regle);
+  padding: 0.9rem 0 1rem;
+}
+
 .tuile {
   display: block;
   text-decoration: none;
-  padding: 1rem 0;
-  border-top: 1px solid var(--regle);
+  padding: 0;
+  border-top: 0;
+}
+
+.tuile-image {
+  display: block;
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.tuile-texte-bloc {
+  display: block;
+}
+
+.credit-tuile {
+  margin: 0.4rem 0 0;
+  color: var(--encre-douce);
+  font-size: 0.95rem;
+}
+
+.illustration {
+  margin: 0 0 1.2rem;
+}
+
+.illustration img {
+  display: block;
+  width: 100%;
+  max-height: 26rem;
+  object-fit: cover;
+  background: #ddd;
+}
+
+.illustration figcaption {
+  display: grid;
+  gap: 0.2rem;
+  margin-top: 0.5rem;
+  color: var(--encre-douce);
+  font-size: 1.02rem;
 }
 
 .tuile:hover .tuile-titre,
@@ -533,6 +576,27 @@ button:hover {
   box-shadow: 0 0 0 1px var(--encre);
 }
 
+.pastille-active {
+  background: #2c5f8a;
+}
+
+.pastille-vide {
+  background: #f6ecdf;
+}
+
+.plan-communes,
+.plan-communes.leaflet-container {
+  background: #efe6d8;
+}
+
+.plan-communes .leaflet-interactive {
+  cursor: pointer;
+}
+
+.commune-documentee span {
+  font-weight: 700;
+}
+
 .marker-pin {
   background: transparent;
   border: 0;
@@ -676,13 +740,49 @@ code {
   padding-left: 1rem;
 }
 
+[data-design="revue"] .tuile {
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  gap: 0.35rem 1rem;
+  align-items: center;
+}
+
+[data-design="revue"] .tuile-image {
+  height: 8.2rem;
+}
+
 [data-design="carnet"] .tuiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: 0.9rem;
 }
 
-[data-design="carnet"] .tuile,
+[data-design="carnet"] .tuile-bloc {
+  border-top: 0;
+  padding: 0;
+  background: var(--carte);
+  border: 1px solid var(--regle);
+  border-radius: 2px 16px 10px 3px;
+  box-shadow: 5px 5px 0 rgb(29 92 76 / 10%);
+  overflow: hidden;
+}
+
+[data-design="carnet"] .tuile {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+}
+
+[data-design="carnet"] .tuile-texte-bloc,
+[data-design="carnet"] .credit-tuile {
+  padding-inline: 1rem;
+}
+
+[data-design="carnet"] .credit-tuile {
+  padding-bottom: 0.85rem;
+}
+
 [data-design="carnet"] .carte-fiche,
 [data-design="carnet"] .liste-agenda li,
 [data-design="carnet"] .liste-associations li {
@@ -733,15 +833,40 @@ code {
   gap: 0.75rem;
 }
 
+[data-design="musee"] .tuile-bloc {
+  border-top: 0;
+  padding: 0;
+  background: #fff;
+}
+
 [data-design="musee"] .tuile {
   background: #fff;
   border: 0;
   border-top: 6px solid var(--accent);
-  min-height: 10.5rem;
-  padding: 1.2rem 1.2rem 1.3rem;
+  min-height: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+
+[data-design="musee"] .tuile-image {
+  height: 12rem;
+}
+
+[data-design="musee"] .tuile-texte-bloc,
+[data-design="musee"] .credit-tuile {
+  padding-inline: 1.1rem;
+}
+
+[data-design="musee"] .tuile-texte-bloc {
+  padding-top: 0.85rem;
+}
+
+[data-design="musee"] .credit-tuile {
+  padding-bottom: 0.9rem;
+  background: #fff;
 }
 
 [data-design="musee"] .tuile-numero {
@@ -782,8 +907,14 @@ code {
     grid-column: 1 / -1;
   }
 
-  [data-design="musee"] .tuiles li:first-child .tuile {
-    min-height: 14rem;
+  [data-design="musee"] .tuiles li:first-child .tuile-image {
+    height: 18rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  [data-design="revue"] .tuile {
+    grid-template-columns: 1fr;
   }
 }
 
