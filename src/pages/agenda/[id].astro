@@ -1,0 +1,108 @@
+---
+import { render } from 'astro:content';
+import Fil from '../../components/Fil.astro';
+import Statut from '../../components/Statut.astro';
+import Base from '../../layouts/Base.astro';
+import { plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
+import { slugifier } from '../../lib/slug';
+import { categorieParId, themesDe } from '../../lib/site';
+import { urlLicence, withBase } from '../../lib/urls';
+
+export async function getStaticPaths() {
+  const fiches = await toutesLesFiches();
+  return fiches
+    .filter((fiche) => fiche.data.categorie === 'agenda')
+    .map((fiche) => ({ params: { id: fiche.data.id } }));
+}
+
+const fiches = await toutesLesFiches();
+const fiche = fiches.find((entree) => entree.data.categorie === 'agenda' && entree.data.id === Astro.params.id);
+if (!fiche) throw new Error('Animation introuvable');
+const { Content } = await render(fiche);
+const categorie = categorieParId('agenda')!;
+const { connus, inconnus } = themesConnus(fiche, themesDe('agenda'));
+const image = fiche.data.image;
+const licenceHref = image ? urlLicence(image.licence) : null;
+---
+
+<Base titre={fiche.data.titre} description={fiche.data.periode}>
+  <Fil
+    crumbs={[
+      { href: withBase('/agenda/'), label: categorie.titre },
+      { label: fiche.data.titre },
+    ]}
+  />
+  <article class="fiche">
+    <header class="entete-fiche">
+      <p class="sur-titre">{categorie.titre}</p>
+      <h1>{fiche.data.titre}</h1>
+      <Statut statut={fiche.data.statut} />
+      <p class="chapo">{fiche.data.periode}</p>
+      <dl class="faits">
+        <div>
+          <dt>Quand</dt>
+          <dd>{plage(fiche)}</dd>
+        </div>
+        {
+          fiche.data.lieu && (
+            <div>
+              <dt>Lieu</dt>
+              <dd>{fiche.data.lieu}</dd>
+            </div>
+          )
+        }
+        <div>
+          <dt>Commune</dt>
+          <dd>
+            <a href={withBase(`/communes/${slugifier(fiche.data.commune)}/`)}>{fiche.data.commune}</a>
+            <span class="carte-lieu"> · INSEE {fiche.data.insee}</span>
+          </dd>
+        </div>
+        {
+          connus.length > 0 && (
+            <div>
+              <dt>Thèmes</dt>
+              <dd>{connus.map((theme) => theme.libelle).join(', ')}</dd>
+            </div>
+          )
+        }
+      </dl>
+      {
+        inconnus.length > 0 && (
+          <p class="theme-inconnu">Thème non répertorié : {inconnus.join(', ')}.</p>
+        )
+      }
+    </header>
+    {
+      image && (
+        <figure class="figure-fiche">
+          <img src={image.url} alt={fiche.data.titre} loading="lazy" decoding="async" />
+          <figcaption>
+            {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+            {image.page_commons && (
+              <>
+                {' '}
+                <a href={image.page_commons}>Wikimedia Commons</a>.
+              </>
+            )}
+          </figcaption>
+        </figure>
+      )
+    }
+    <div class="texte">
+      <Content />
+    </div>
+    <section class="bloc-sources">
+      <h2>Sources</h2>
+      <ol>
+        {
+          fiche.data.sources.map((source) => (
+            <li>
+              <a href={source.url}>{source.titre}</a>
+            </li>
+          ))
+        }
+      </ol>
+    </section>
+  </article>
+</Base>

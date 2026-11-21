@@ -1,0 +1,47 @@
+---
+import Fil from '../../components/Fil.astro';
+import Base from '../../layouts/Base.astro';
+import { communes } from '../../lib/contenu';
+import { withBase } from '../../lib/urls';
+
+const groupes = await communes();
+const pilotes = new Set([
+  'loches',
+  'la-chapelle-blanche-saint-martin',
+  'bournan',
+  'sepmes',
+  'civray-sur-esves',
+]);
+---
+
+<Base
+  titre="Communes"
+  description="Pages des communes citées par au moins une fiche, dont les cinq communes pilotes."
+>
+  <Fil crumbs={[{ label: 'Communes' }]} />
+  <header class="entete-page">
+    <h1>Communes</h1>
+    <p class="chapo">
+      Chaque commune citée par une fiche a sa page. Les cinq communes pilotes sont Loches,
+      La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves. D’autres communes
+      apparaissent lorsqu’une animation du corpus s’y tient.
+    </p>
+  </header>
+  <ul class="liste-communes">
+    {
+      groupes.map((groupe) => (
+        <li>
+          <a href={withBase(`/communes/${groupe.slug}/`)}>
+            <span>
+              {groupe.nom}
+              {pilotes.has(groupe.slug) ? ' · pilote' : ''}
+            </span>
+            <small>
+              {groupe.fiches.length} fiche{groupe.fiches.length > 1 ? 's' : ''}
+            </small>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

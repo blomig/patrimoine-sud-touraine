@@ -1,0 +1,58 @@
+---
+import Fil from '../components/Fil.astro';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/urls';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Base
+  titre="Recherche"
+  description="Recherche dans le texte des fiches, des communes et des pages du site."
+>
+  <Fil crumbs={[{ label: 'Recherche' }]} />
+  <header class="entete-page">
+    <h1>Recherche</h1>
+    <p class="chapo">
+      La recherche parcourt les pages déjà publiées, dans votre navigateur. Elle ne demande
+      aucun compte. Si le module ne se charge pas, les catégories restent accessibles par le menu.
+    </p>
+  </header>
+  <div id="recherche"></div>
+  <p id="recherche-attente" hidden>
+    Le moteur de recherche est prêt après la construction du site. En attendant, ouvrez les
+    <a href={withBase('/batiments-anciens-existants/')}>bâtiments existants</a>,
+    les <a href={withBase('/personnes/')}>personnes</a>
+    ou la <a href={withBase('/carte/')}>carte</a>.
+  </p>
+  <noscript>
+    <p>La recherche a besoin de JavaScript. Les rubriques du menu restent utilisables sans lui.</p>
+  </noscript>
+  <script is:inline define:vars={{ base }}>
+    const attente = document.getElementById('recherche-attente');
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = base + 'pagefind/pagefind-ui.css';
+    document.head.appendChild(style);
+    const script = document.createElement('script');
+    script.src = base + 'pagefind/pagefind-ui.js';
+    script.onload = function () {
+      const ui = window.PagefindUI;
+      if (!ui) {
+        if (attente) attente.hidden = false;
+        return;
+      }
+      new ui({
+        element: '#recherche',
+        bundlePath: base + 'pagefind/',
+        language: 'fr',
+        showImages: false,
+        showSubResults: true,
+      });
+    };
+    script.onerror = function () {
+      if (attente) attente.hidden = false;
+    };
+    document.body.appendChild(script);
+  </script>
+</Base>

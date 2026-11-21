@@ -1,0 +1,19 @@
+---
+import { withBase } from '../lib/urls';
+
+type Crumb = { href?: string; label: string };
+const { crumbs } = Astro.props as { crumbs: Crumb[] };
+---
+
+<nav class="fil" aria-label="Fil d’Ariane">
+  <ol>
+    <li><a href={withBase('/')}>Accueil</a></li>
+    {
+      crumbs.map((crumb, index) => (
+        <li>
+          {crumb.href && index < crumbs.length - 1 ? <a href={crumb.href}>{crumb.label}</a> : <span aria-current="page">{crumb.label}</span>}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

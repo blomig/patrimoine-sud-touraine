@@ -1,0 +1,40 @@
+---
+import { chargerSite, listeCategories } from '../lib/site';
+import { withBase } from '../lib/urls';
+
+const site = chargerSite();
+const liens = [
+  { href: withBase('/'), label: 'Accueil' },
+  ...listeCategories().map((categorie) => ({
+    href: withBase(`/${categorie.id}/`),
+    label: categorie.court,
+    titre: categorie.titre,
+  })),
+  { href: withBase('/carte/'), label: 'Carte' },
+  { href: withBase('/associations/'), label: 'Annuaire' },
+  { href: withBase('/communes/'), label: 'Communes' },
+  { href: withBase('/recherche/'), label: 'Recherche' },
+];
+---
+
+<header class="entete" data-pagefind-ignore>
+  <div class="entete-haut">
+    <p class="marque marque-revue">Cahier documentaire · Indre-et-Loire</p>
+    <p class="marque marque-carnet">Carnet de voyage</p>
+    <p class="marque marque-musee">Parcours musée</p>
+    <a class="nom-site" href={withBase('/')}>{site.titre}</a>
+    <p class="sous-titre">Communauté de communes Loches Sud Touraine</p>
+  </div>
+  <details class="menu">
+    <summary>Menu</summary>
+    <nav class="nav-principal" aria-label="Navigation principale">
+      {
+        liens.map((lien) => (
+          <a href={lien.href} title={'titre' in lien ? lien.titre : undefined}>
+            {lien.label}
+          </a>
+        ))
+      }
+    </nav>
+  </details>
+</header>

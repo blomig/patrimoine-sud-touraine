@@ -1,0 +1,55 @@
+---
+import Fil from '../../components/Fil.astro';
+import ListeFiches from '../../components/ListeFiches.astro';
+import Base from '../../layouts/Base.astro';
+import { agendaVisibleSi } from '../../lib/agenda';
+import { periodeTerminee } from '../../lib/dates';
+import { communes } from '../../lib/contenu';
+import { listeCategories } from '../../lib/site';
+import { withBase } from '../../lib/urls';
+
+export async function getStaticPaths() {
+  const groupes = await communes();
+  return groupes.map((groupe) => ({ params: { slug: groupe.slug } }));
+}
+
+const groupes = await communes();
+const groupe = groupes.find((entree) => entree.slug === Astro.params.slug);
+if (!groupe) throw new Error('Commune introuvable');
+const categories = listeCategories();
+---
+
+<Base titre={groupe.nom} description={`Fiches liées à ${groupe.nom}, code INSEE ${groupe.insee}.`}>
+  <Fil
+    crumbs={[
+      { href: withBase('/communes/'), label: 'Communes' },
+      { label: groupe.nom },
+    ]}
+  />
+  <header class="entete-page">
+    <h1>{groupe.nom}</h1>
+    <p class="chapo">
+      Code INSEE {groupe.insee}. {groupe.fiches.length} fiche{groupe.fiches.length > 1 ? 's' : ''}{' '}
+      citent cette commune. Les animations passées ne sont pas reprises.
+    </p>
+  </header>
+  {
+    categories.map((categorie) => {
+      const fiches = groupe.fiches.filter((fiche) => {
+        if (fiche.data.categorie !== categorie.id) return false;
+        if (categorie.id !== 'agenda') return true;
+        return agendaVisibleSi(
+          fiche.data.statut,
+          periodeTerminee(fiche.data.date_fin, fiche.data.date_debut),
+        );
+      });
+      if (fiches.length === 0) return null;
+      return (
+        <section class="bloc">
+          <h2>{categorie.titre}</h2>
+          <ListeFiches fiches={fiches} />
+        </section>
+      );
+    })
+  }
+</Base>

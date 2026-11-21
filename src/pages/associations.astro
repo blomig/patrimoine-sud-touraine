@@ -1,0 +1,49 @@
+---
+import Fil from '../components/Fil.astro';
+import Base from '../layouts/Base.astro';
+import { chargerAssociations } from '../lib/site';
+
+const associations = chargerAssociations();
+---
+
+<Base
+  titre="Annuaire des associations"
+  description="Associations patrimoniales repérées sur le territoire de Loches Sud Touraine. Les champs laissés vides ne sont pas devinés."
+>
+  <Fil crumbs={[{ label: 'Annuaire des associations' }]} />
+  <header class="entete-page">
+    <h1>Annuaire des associations</h1>
+    <p class="chapo">
+      Associations repérées dans des sources publiques. Quand le site officiel n’a pas été
+      identifié, le champ reste vide plutôt que d’être inventé. Certaines ont leur siège hors
+      des cinq communes pilotes, ou même hors de la communauté de communes : la notice le dit.
+    </p>
+  </header>
+  <ul class="liste-associations">
+    {
+      associations.map((association) => (
+        <li>
+          <h2>{association.nom}</h2>
+          <p class="carte-lieu">
+            {association.commune}
+            {association.insee ? ` · INSEE ${association.insee}` : ''}
+          </p>
+          <p class="notes">{association.notes}</p>
+          {association.site && (
+            <p>
+              <strong>Site.</strong> <a href={association.site}>{association.site}</a>
+            </p>
+          )}
+          <h3>Sources</h3>
+          <ul>
+            {association.sources.map((url) => (
+              <li>
+                <a href={url}>{url}</a>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

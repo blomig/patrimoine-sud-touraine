@@ -1,0 +1,131 @@
+---
+import Fil from '../components/Fil.astro';
+import Base from '../layouts/Base.astro';
+import { agendaVisibleMaintenant, pointsCarte, toutesLesFiches } from '../lib/contenu';
+import { categorieParId } from '../lib/site';
+import { withBase } from '../lib/urls';
+import 'leaflet/dist/leaflet.css';
+
+const patrimoine = (await toutesLesFiches()).filter((fiche) => fiche.data.categorie !== 'agenda');
+const animations = await agendaVisibleMaintenant();
+const fiches = [...patrimoine, ...animations];
+const points = pointsCarte(fiches).map((point) => ({
+  ...point,
+  href: withBase(point.href),
+  categorieLabel: categorieParId(point.categorie)?.titre ?? point.categorie,
+}));
+const sansPoint = fiches.filter((fiche) => fiche.data.latitude == null || fiche.data.longitude == null);
+const couleurs: Record<string, string> = {
+  'batiments-anciens-disparus': '#6b2d3c',
+  'batiments-anciens-existants': '#1f4e79',
+  personnes: '#1f5c4d',
+  'evenements-historiques': '#8a4b08',
+  agenda: '#5c3d8a',
+};
+---
+
+<Base
+  titre="Carte"
+  description="Carte des fiches géolocalisées du Sud Touraine, sur un fond OpenStreetMap."
+>
+  <Fil crumbs={[{ label: 'Carte' }]} />
+  <header class="entete-page">
+    <h1>Carte</h1>
+    <p class="chapo">
+      Chaque point reprend les coordonnées indiquées dans la fiche. Le fond de carte est celui
+      d’OpenStreetMap. La liste sous la carte reste lisible si le plan ne s’affiche pas.
+    </p>
+  </header>
+
+  <ul class="legende-carte">
+    {
+      Object.entries(couleurs).map(([id, couleur]) => (
+        <li>
+          <span class="pastille" style={`background:${couleur}`} />
+          {categorieParId(id)?.titre}
+        </li>
+      ))
+    }
+  </ul>
+
+  <div id="carte" class="plan" role="region" aria-label="Carte interactive"></div>
+  <script type="application/json" id="points-carte" set:html={JSON.stringify({ points, couleurs })} />
+
+  <h2>Fiches sur la carte</h2>
+  <ul class="liste-points">
+    {
+      points.map((point) => (
+        <li>
+          <a href={point.href}>{point.titre}</a>
+          <span>
+            {point.commune} · {point.categorieLabel}
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+
+  {
+    sansPoint.length > 0 && (
+      <>
+        <h2>Fiches sans coordonnées</h2>
+        <ul class="liste-points">
+          {sansPoint.map((fiche) => (
+            <li>
+              <a href={withBase(`/${fiche.data.categorie}/${fiche.data.id}/`)}>{fiche.data.titre}</a>
+              <span>{fiche.data.commune}</span>
+            </li>
+          ))}
+        </ul>
+      </>
+    )
+  }
+
+  <script>
+    import L from 'leaflet';
+
+    const brut = document.getElementById('points-carte')?.textContent ?? '{"points":[],"couleurs":{}}';
+    const { points, couleurs } = JSON.parse(brut) as {
+      points: { titre: string; href: string; lat: number; lon: number; commune: string; categorie: string; categorieLabel: string }[];
+      couleurs: Record<string, string>;
+    };
+    const conteneur = document.getElementById('carte');
+    if (conteneur) {
+      const plan = L.map(conteneur);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; contributeurs OpenStreetMap',
+        maxZoom: 18,
+      }).addTo(plan);
+
+      const echapper = (valeur: string) =>
+        valeur.replace(/[&<>"']/g, (caractere) => {
+          const table: Record<string, string> = {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#39;',
+          };
+          return table[caractere] ?? caractere;
+        });
+      const marques = points.map((point) => {
+        const icone = L.divIcon({
+          className: 'marker-pin',
+          html: `<span style="background:${couleurs[point.categorie] ?? '#1c2430'}"></span>`,
+          iconSize: [22, 22],
+          iconAnchor: [11, 11],
+        });
+        return L.marker([point.lat, point.lon], { icon: icone }).bindPopup(
+          `<p><a href="${echapper(point.href)}">${echapper(point.titre)}</a></p><p>${echapper(point.commune)}<br>${echapper(point.categorieLabel)}</p>`,
+        );
+      });
+
+      if (marques.length > 0) {
+        const groupe = L.featureGroup(marques).addTo(plan);
+        plan.fitBounds(groupe.getBounds().pad(0.15));
+      } else {
+        plan.setView([47.12, 1.02], 10);
+      }
+    }
+  </script>
+</Base>
