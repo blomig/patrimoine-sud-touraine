@@ -1,13 +1,11 @@
 # Illustrations des cinq rubriques. François peut changer l'image, la légende,
 # l'auteur et la licence depuis l'administration. Le fichier local est servi
-# par le site ; l'adresse Wikimedia reste le crédit.
+# par le site. L'adresse Wikimedia, si elle est indiquée, sert de crédit.
 categories:
   batiments-anciens-disparus:
-    legende: "Chartreuse du Liget, à Chemillé-sur-Indrois : ruines de l'église et bâtiments plus tardifs."
-    fichier: /media/categories/chartreuse-liget.jpg
-    url: https://commons.wikimedia.org/wiki/File:Chartreuse_panorama.jpg
-    auteur: Joël Thibault
-    licence: CC BY-SA 4.0
+    legende: Château de Sepmes
+    fichier: /media/categories/chateau-sepmes.jpg
+    auteur: Collection François Unger
   batiments-anciens-existants:
     legende: Le donjon de Loches.
     fichier: /media/categories/donjon-loches.jpg
@@ -21,14 +19,10 @@ categories:
     auteur: Frans Hals
     licence: Domaine public
   evenements-historiques:
-    legende: La cité royale de Loches, donjon et enceinte.
-    fichier: /media/categories/cite-royale.jpg
-    url: https://commons.wikimedia.org/wiki/File:Loches_Cit%C3%A9_Royale_Donjon_1.jpg
-    auteur: Zairon
-    licence: CC BY-SA 4.0
+    legende: Sainte-Maure
+    fichier: /media/categories/sainte-maure.jpg
+    auteur: Collection François Unger
   agenda:
-    legende: Char du comice rural de Saint-Nicolas-de-Bourgueil, en 2016, sur le thème des vendanges à l'ancienne.
-    fichier: /media/categories/comice-saint-nicolas.jpg
-    url: https://commons.wikimedia.org/wiki/File:Comice_agricole_Char.jpg
-    auteur: SNB Communication Garcia
-    licence: CC BY-SA 4.0
+    legende: Grillemont
+    fichier: /media/categories/grillemont.jpg
+    auteur: Collection François Unger

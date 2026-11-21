@@ -41,14 +41,14 @@ const evenements = await agendaVisibleMaintenant();
       {
         categories.map((categorie, index) => {
           const image = categorie.illustration;
-          const licence = image ? urlLicence(image.licence) : null;
+          const licence = image?.licence ? urlLicence(image.licence) : null;
           return (
             <li class="tuile-bloc">
               <a class="tuile" href={withBase(`/${categorie.id}/`)}>
                 {image && (
                   <img
                     class="tuile-image"
-                    src={image.fichier ? withBase(image.fichier) : image.url}
+                    src={image.fichier ? withBase(image.fichier) : image.url!}
                     alt={image.legende}
                     loading="lazy"
                     decoding="async"
@@ -62,8 +62,20 @@ const evenements = await agendaVisibleMaintenant();
               </a>
               {image && (
                 <p class="credit-tuile">
-                  {image.auteur}. {licence ? <a href={licence}>{image.licence}</a> : image.licence}.{' '}
-                  <a href={image.url}>Wikimedia Commons</a>.
+                  {image.auteur}
+                  {image.licence ? (
+                    <>
+                      . {licence ? <a href={licence}>{image.licence}</a> : image.licence}
+                    </>
+                  ) : null}
+                  {image.url ? (
+                    <>
+                      .{' '}
+                      <a href={image.url}>Wikimedia Commons</a>.
+                    </>
+                  ) : (
+                    '.'
+                  )}
                 </p>
               )}
             </li>

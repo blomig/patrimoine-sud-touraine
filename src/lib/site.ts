@@ -75,12 +75,19 @@ export function themesDe(categorie: string): Theme[] {
   return chargerCatalogue()[categorie]?.themes ?? [];
 }
 
+const texteOptionnel = z
+  .string()
+  .trim()
+  .optional()
+  .or(z.literal(''))
+  .transform((valeur) => (valeur ? valeur : undefined));
+
 const illustrationSchema = z.object({
   legende: z.string().min(1),
   fichier: z.string().optional(),
-  url: z.string().url(),
+  url: texteOptionnel.pipe(z.string().url().optional()),
   auteur: z.string().min(1),
-  licence: z.string().min(1),
+  licence: texteOptionnel,
 });
 
 const illustrationsSchema = z.object({
