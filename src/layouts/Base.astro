@@ -36,6 +36,7 @@ const { titre, description = '' } = Astro.props;
 const site = chargerSite();
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const titreComplet = titre === site.titre ? titre : `${titre} — ${site.titre}`;
+const estAccueil = Astro.url.pathname === import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
@@ -49,7 +50,7 @@ const titreComplet = titre === site.titre ? titre : `${titre} — ${site.titre}`
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <script is:inline>
       (function () {
-        var allowed = { revue: 1, carnet: 1, musee: 1, contemporain: 1, minimal: 1 };
+        var allowed = { revue: 1, carnet: 1, musee: 1, contemporain: 1, minimal: 1, 'revue-marine': 1 };
         var apercu = new URLSearchParams(location.search).get('apercu');
         var stored = null;
         try {
@@ -63,7 +64,7 @@ const titreComplet = titre === site.titre ? titre : `${titre} — ${site.titre}`
   <body>
     <a class="eviter" href="#contenu">Aller au contenu</a>
     <Entete />
-    <main id="contenu" data-pagefind-body>
+    <main id="contenu" class:list={[{ accueil: estAccueil }]} data-pagefind-body>
       <slot />
     </main>
     <Pied />

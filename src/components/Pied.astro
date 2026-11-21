@@ -7,8 +7,12 @@ import { withBase } from '../lib/urls';
     Site documentaire indépendant. Ce n’est pas le site officiel de la <a href="https://www.lochessudtouraine.com/">communauté de communes Loches Sud Touraine</a>.
   </p>
   <nav aria-label="Pied de page">
+    <a class="pied-marine" href={withBase('/')}>Accueil</a>
+    <a class="pied-marine" href={withBase('/communes/')}>Communes</a>
+    <a class="pied-marine" href={withBase('/qu-est-ce-que-ce-site/')}>Qu’est-ce que ce site ?</a>
     <a href={withBase('/a-propos/')}>À propos</a>
     <a href={withBase('/designs/')}>Comparer les designs</a>
+    <a class="pied-marine" href={withBase('/associations/')}>Annuaire</a>
     <a href={withBase('/carte/')}>Carte</a>
     <a href={withBase('/recherche/')}>Recherche</a>
   </nav>
