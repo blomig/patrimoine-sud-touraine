@@ -1,0 +1,81 @@
+---
+import Fil from '../components/Fil.astro';
+import FriseTemporelle from '../components/FriseTemporelle.astro';
+import ListeFiches from '../components/ListeFiches.astro';
+import Base from '../layouts/Base.astro';
+import { MODELES } from '../lib/categories';
+import { extrait, hrefFiche, toutesLesFiches, comparerTitre } from '../lib/contenu';
+import { anneeDecimale, formatPlage } from '../lib/dates';
+import { withBase } from '../lib/urls';
+
+const couleurs: Record<string, string> = {
+  'batiments-anciens-disparus': '#6b2d3c',
+  'batiments-anciens-existants': '#1f4e79',
+  personnes: '#1f5c4d',
+  'evenements-historiques': '#8a4b08',
+  agenda: '#5c3d8a',
+};
+
+const fiches = await toutesLesFiches();
+const sansDate = [];
+const reperes = [];
+for (const fiche of fiches) {
+  const debut = anneeDecimale(fiche.data.date_debut, false);
+  if (debut == null) {
+    sansDate.push(fiche);
+    continue;
+  }
+  const finBrute = fiche.data.date_fin ? anneeDecimale(fiche.data.date_fin, true) : null;
+  const fin = finBrute != null && finBrute > debut ? finBrute : null;
+  const rubrique = MODELES.find((modele) => modele.id === fiche.data.categorie);
+  reperes.push({
+    id: fiche.data.id,
+    titre: fiche.data.titre,
+    categorie: fiche.data.categorie,
+    rubrique: rubrique?.titre ?? fiche.data.categorie,
+    couleur: couleurs[fiche.data.categorie] ?? '#1c2430',
+    commune: fiche.data.commune,
+    debut,
+    fin,
+    plage: formatPlage(fiche.data.date_debut, fiche.data.date_fin),
+    extrait: extrait(fiche.body, 140),
+    href: withBase(hrefFiche(fiche)),
+  });
+}
+sansDate.sort(comparerTitre);
+
+const rubriques = MODELES.map((modele) => ({
+  id: modele.id,
+  titre: modele.titre,
+  couleur: couleurs[modele.id],
+}));
+const communes = [...new Set(reperes.map((repere) => repere.commune))].sort((a, b) =>
+  a.localeCompare(b, 'fr'),
+);
+---
+
+<Base
+  titre="Frise chronologique"
+  description="Frise du patrimoine de Loches Sud Touraine, de la préhistoire à aujourd’hui. Zoomez, filtrez, survolez une fiche."
+>
+  <Fil crumbs={[{ label: 'Frise chronologique' }]} />
+  <header class="entete-page">
+    <h1>Frise chronologique</h1>
+    <p class="chapo">
+      Chaque fiche datée est un repère. Une période avec une date de fin devient une barre. La
+      molette, le pincement ou les boutons + et − zooment ; glissez pour vous déplacer.
+      Sur un écran tactile, un toucher affiche la fiche, un second l’ouvre.
+    </p>
+  </header>
+
+  <FriseTemporelle reperes={reperes} rubriques={rubriques} communes={communes} />
+
+  <h2>Fiches sans date</h2>
+  {
+    sansDate.length === 0 ? (
+      <p class="vide">Toutes les fiches ont une date de début.</p>
+    ) : (
+      <ListeFiches fiches={sansDate} />
+    )
+  }
+</Base>

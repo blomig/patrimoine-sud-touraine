@@ -1,0 +1,439 @@
+---
+type Repere = {
+  id: string;
+  titre: string;
+  categorie: string;
+  rubrique: string;
+  couleur: string;
+  commune: string;
+  debut: number;
+  fin: number | null;
+  plage: string;
+  extrait: string;
+  href: string;
+};
+
+type Rubrique = { id: string; titre: string; couleur: string };
+
+const { reperes, rubriques, communes } = Astro.props as {
+  reperes: Repere[];
+  rubriques: Rubrique[];
+  communes: string[];
+};
+const charge = JSON.stringify({ reperes, rubriques });
+---
+
+<div class="frise-temps" data-frise>
+  <div class="frise-outils">
+    <fieldset class="frise-filtres">
+      <legend>Rubriques</legend>
+      {
+        rubriques.map((rubrique) => (
+          <label class="frise-filtre">
+            <input type="checkbox" checked data-rubrique={rubrique.id} />
+            <span class="frise-pastille" style={`background:${rubrique.couleur}`} />
+            {rubrique.titre}
+          </label>
+        ))
+      }
+    </fieldset>
+    <label class="frise-commune">
+      Commune
+      <select data-commune>
+        <option value="">Toutes</option>
+        {communes.map((commune) => <option value={commune}>{commune}</option>)}
+      </select>
+    </label>
+    <div class="frise-commandes">
+      <button type="button" data-zoom="moins" aria-label="Dézoomer">−</button>
+      <button type="button" data-zoom="plus" aria-label="Zoomer">+</button>
+      <button type="button" data-zoom="tout">Toute la période</button>
+    </div>
+  </div>
+  <p class="frise-compte" data-compte></p>
+  <div class="frise-scene" tabindex="0" role="application" aria-label="Frise chronologique, glisser pour déplacer, molette pour zoomer">
+    <div class="frise-piste" data-piste></div>
+    <div class="frise-axe" data-axe></div>
+  </div>
+  <p class="frise-aide">Dézoomé, l’échelle est en siècles. En zoomant, elle passe aux années. La préhistoire, s’il y en a, est comprimée pour laisser voir le reste.</p>
+  <div class="frise-infobulle" data-infobulle hidden></div>
+  <script type="application/json" data-charge set:html={charge} />
+</div>
+
+<script>
+  const SEUIL = 500;
+  const LARGEUR_PREHISTOIRE = 480;
+
+  type Repere = {
+    id: string;
+    titre: string;
+    categorie: string;
+    rubrique: string;
+    couleur: string;
+    commune: string;
+    debut: number;
+    fin: number | null;
+    plage: string;
+    extrait: string;
+    href: string;
+  };
+
+  const racine = document.querySelector<HTMLElement>('[data-frise]');
+  if (racine) {
+    const charge = JSON.parse(racine.querySelector('[data-charge]')?.textContent || '{"reperes":[]}') as {
+      reperes: Repere[];
+    };
+    const reperes = charge.reperes;
+    const piste = racine.querySelector<HTMLElement>('[data-piste]')!;
+    const axe = racine.querySelector<HTMLElement>('[data-axe]')!;
+    const scene = racine.querySelector<HTMLElement>('.frise-scene')!;
+    const compte = racine.querySelector<HTMLElement>('[data-compte]')!;
+    const infobulle = racine.querySelector<HTMLElement>('[data-infobulle]')!;
+    const selectCommune = racine.querySelector<HTMLSelectElement>('[data-commune]')!;
+
+    const annees = reperes.flatMap((repere) => (repere.fin == null ? [repere.debut] : [repere.debut, repere.fin]));
+    const minAnnee = annees.length ? Math.min(...annees) : 800;
+    const maxAnnee = annees.length ? Math.max(...annees, new Date().getFullYear()) : 2026;
+    const comprimer = minAnnee < SEUIL;
+    const origine = comprimer ? SEUIL : minAnnee;
+    const denomi = comprimer ? Math.log1p(SEUIL - minAnnee) : 1;
+
+    function espace(annee: number): number {
+      if (!comprimer || annee >= SEUIL) return (comprimer ? LARGEUR_PREHISTOIRE : 0) + (annee - origine);
+      const ratio = Math.log1p(SEUIL - annee) / denomi;
+      return LARGEUR_PREHISTOIRE * (1 - ratio);
+    }
+
+    function anneeDe(valeur: number): number {
+      const bande = comprimer ? LARGEUR_PREHISTOIRE : 0;
+      if (!comprimer || valeur >= bande) return origine + (valeur - bande);
+      const ratio = 1 - valeur / LARGEUR_PREHISTOIRE;
+      return SEUIL - Math.expm1(denomi * ratio);
+    }
+
+    const espaceMin = espace(minAnnee);
+    const espaceMax = espace(maxAnnee + 8);
+    const etenduePleine = Math.max(8, espaceMax - espaceMin);
+    const vue = { debut: espaceMin - etenduePleine * 0.04, etendue: etenduePleine * 1.1 };
+    const etendueMin = 1.4;
+    const etendueMax = etenduePleine * 1.25;
+
+    function rubriquesCochees(): Set<string> {
+      const coches = new Set<string>();
+      racine.querySelectorAll<HTMLInputElement>('[data-rubrique]').forEach((case_) => {
+        if (case_.checked) coches.add(case_.dataset.rubrique || '');
+      });
+      return coches;
+    }
+
+    function visibles(): Repere[] {
+      const coches = rubriquesCochees();
+      const commune = selectCommune.value;
+      return reperes.filter(
+        (repere) => coches.has(repere.categorie) && (commune === '' || repere.commune === commune),
+      );
+    }
+
+    function largeur(): number {
+      return Math.max(320, scene.clientWidth);
+    }
+
+    function xDe(annee: number): number {
+      return ((espace(annee) - vue.debut) / vue.etendue) * largeur();
+    }
+
+    function bornes(repere: Repere): { gauche: number; droite: number; visuel: number; barre: boolean } {
+      const x0 = xDe(repere.debut);
+      const barre = repere.fin != null;
+      const x1 = barre ? xDe(repere.fin as number) : x0;
+      const gauche = Math.min(x0, x1);
+      const visuel = Math.max(barre ? 28 : 16, Math.abs(x1 - x0));
+      return { gauche, droite: gauche + visuel, visuel, barre };
+    }
+
+    type Boite = ReturnType<typeof bornes> & { repere: Repere; voie: number };
+
+    function empiler(liste: Repere[]): { boites: Boite[]; voies: number } {
+      const triees = liste
+        .map((repere) => ({ ...bornes(repere), repere, voie: 0 }))
+        .sort((a, b) => a.gauche - b.gauche || a.droite - b.droite);
+      const fins: number[] = [];
+      for (const boite of triees) {
+        let voie = fins.findIndex((fin) => fin + 10 <= boite.gauche);
+        if (voie < 0) {
+          voie = fins.length;
+          fins.push(boite.droite);
+        } else {
+          fins[voie] = boite.droite;
+        }
+        boite.voie = voie;
+      }
+      return { boites: triees, voies: Math.max(1, fins.length) };
+    }
+
+    const noeuds = new Map<string, HTMLAnchorElement>();
+
+    function assurer(repere: Repere): HTMLAnchorElement {
+      let noeud = noeuds.get(repere.id);
+      if (noeud) return noeud;
+      noeud = document.createElement('a');
+      noeud.className = 'frise-repere';
+      noeud.href = repere.href;
+      noeud.dataset.id = repere.id;
+      noeud.style.background = repere.couleur;
+      const nom = document.createElement('span');
+      nom.className = 'frise-nom';
+      nom.textContent = repere.titre;
+      noeud.append(nom);
+      noeud.setAttribute('aria-label', `${repere.titre}, ${repere.plage}, ${repere.commune}`);
+      piste.append(noeud);
+      noeuds.set(repere.id, noeud);
+      return noeud;
+    }
+
+    function etiquette(annee: number): string {
+      const arrondi = Math.round(annee);
+      if (arrondi < 0) return `${Math.abs(arrondi)} av. J.-C.`;
+      return String(arrondi);
+    }
+
+    function pas(span: number): number {
+      if (span > 220) return 100;
+      if (span > 70) return 10;
+      if (span > 18) return 5;
+      return 1;
+    }
+
+    function dessiner(animer = false) {
+      scene.classList.toggle('frise-anime', animer);
+      const liste = visibles();
+      const { boites, voies } = empiler(liste);
+      const ids = new Set(liste.map((repere) => repere.id));
+      for (const [id, noeud] of noeuds) {
+        if (!ids.has(id)) noeud.hidden = true;
+      }
+      piste.style.height = `${voies * 46 + 12}px`;
+      for (const boite of boites) {
+        const noeud = assurer(boite.repere);
+        noeud.hidden = false;
+        noeud.style.left = `${boite.gauche}px`;
+        noeud.style.width = `${boite.visuel}px`;
+        noeud.style.top = `${10 + boite.voie * 46}px`;
+        noeud.classList.toggle('frise-barre', boite.barre);
+        const nom = noeud.querySelector('.frise-nom');
+        if (nom instanceof HTMLElement) nom.hidden = boite.visuel < 96;
+      }
+      const anneeGauche = anneeDe(vue.debut);
+      const anneeDroite = anneeDe(vue.debut + vue.etendue);
+      const span = Math.abs(anneeDroite - anneeGauche);
+      const intervalle = pas(span);
+      const premier = Math.floor(anneeGauche / intervalle) * intervalle;
+      axe.replaceChildren();
+      let precedent = -Infinity;
+      for (let annee = premier; annee <= anneeDroite + intervalle; annee += intervalle) {
+        const x = xDe(annee);
+        if (x < -20 || x > largeur() + 20) continue;
+        if (x - precedent < 64) continue;
+        precedent = x;
+        const graduation = document.createElement('span');
+        graduation.className = 'frise-graduation';
+        graduation.style.left = `${x}px`;
+        graduation.textContent = etiquette(annee);
+        axe.append(graduation);
+      }
+      const mot = liste.length > 1 ? 'fiches' : 'fiche';
+      compte.textContent = `${liste.length} ${mot} sur la frise`;
+    }
+
+    function cadrer(animer = false) {
+      vue.debut = espaceMin - etenduePleine * 0.04;
+      vue.etendue = etenduePleine * 1.1;
+      dessiner(animer);
+    }
+
+    function limiter() {
+      vue.etendue = Math.min(etendueMax, Math.max(etendueMin, vue.etendue));
+      const marge = vue.etendue * 0.15;
+      if (vue.debut < espaceMin - marge) vue.debut = espaceMin - marge;
+      if (vue.debut + vue.etendue > espaceMax + marge) vue.debut = espaceMax + marge - vue.etendue;
+    }
+
+    function zoomer(pixel: number, facteur: number, animer = false) {
+      const ratio = Math.min(1, Math.max(0, pixel / largeur()));
+      const ancre = vue.debut + ratio * vue.etendue;
+      vue.etendue /= facteur;
+      vue.debut = ancre - ratio * vue.etendue;
+      limiter();
+      dessiner(animer);
+      cacher();
+    }
+
+    let arme: string | null = null;
+    let timer: number | undefined;
+    let ignorerClic = false;
+    let dernierPointeur = 'mouse';
+
+    function montrer(noeud: HTMLAnchorElement) {
+      const id = noeud.dataset.id;
+      const repere = reperes.find((candidat) => candidat.id === id);
+      if (!repere) return;
+      infobulle.replaceChildren();
+      const titre = document.createElement('strong');
+      titre.textContent = repere.titre;
+      const meta = document.createElement('span');
+      meta.textContent = `${repere.plage} · ${repere.commune}`;
+      infobulle.append(titre, meta);
+      if (repere.extrait) {
+        const resume = document.createElement('span');
+        resume.textContent = repere.extrait;
+        infobulle.append(resume);
+      }
+      infobulle.hidden = false;
+      const repereBoite = noeud.getBoundingClientRect();
+      const boite = infobulle.getBoundingClientRect();
+      let gauche = repereBoite.left + repereBoite.width / 2 - boite.width / 2;
+      let haut = repereBoite.top - boite.height - 12;
+      if (haut < 8) haut = repereBoite.bottom + 12;
+      gauche = Math.max(8, Math.min(gauche, window.innerWidth - boite.width - 8));
+      infobulle.style.left = `${gauche}px`;
+      infobulle.style.top = `${haut}px`;
+    }
+
+    function cacher() {
+      infobulle.hidden = true;
+    }
+
+    piste.addEventListener('pointerover', (evenement) => {
+      if (evenement.pointerType !== 'mouse') return;
+      const lien = (evenement.target as Element).closest<HTMLAnchorElement>('a.frise-repere');
+      if (!lien) return;
+      window.clearTimeout(timer);
+      montrer(lien);
+    });
+
+    piste.addEventListener('pointerout', (evenement) => {
+      if (evenement.pointerType !== 'mouse') return;
+      const lien = (evenement.target as Element).closest('a.frise-repere');
+      const suivant = (evenement.relatedTarget as Element | null)?.closest?.('a.frise-repere');
+      if (lien && lien === suivant) return;
+      timer = window.setTimeout(cacher, 160);
+    });
+
+    scene.addEventListener('click', (evenement) => {
+      const lien = (evenement.target as Element).closest<HTMLAnchorElement>('a.frise-repere');
+      if (ignorerClic) {
+        ignorerClic = false;
+        evenement.preventDefault();
+        return;
+      }
+      if (!lien) {
+        arme = null;
+        cacher();
+        return;
+      }
+      const tactile = dernierPointeur === 'touch' || window.matchMedia('(pointer: coarse)').matches;
+      if (tactile && arme !== lien.dataset.id) {
+        evenement.preventDefault();
+        arme = lien.dataset.id || null;
+        montrer(lien);
+      }
+    });
+
+    let glisser: { x: number; debut: number; bouge: boolean } | null = null;
+    const doigts = new Map<number, { x: number; y: number }>();
+    let pince: { distance: number; etendue: number; ancre: number; ratio: number } | null = null;
+
+    function distanceDoigts(): number {
+      const [a, b] = [...doigts.values()];
+      if (!a || !b) return 0;
+      return Math.hypot(a.x - b.x, a.y - b.y);
+    }
+
+    scene.addEventListener('pointerdown', (evenement) => {
+      dernierPointeur = evenement.pointerType;
+      scene.setPointerCapture(evenement.pointerId);
+      doigts.set(evenement.pointerId, { x: evenement.clientX, y: evenement.clientY });
+      if (doigts.size === 1) {
+        glisser = { x: evenement.clientX, debut: vue.debut, bouge: false };
+        pince = null;
+      } else if (doigts.size === 2) {
+        glisser = null;
+        const rect = scene.getBoundingClientRect();
+        const xs = [...doigts.values()].map((point) => point.x);
+        const milieu = (xs[0] + xs[1]) / 2 - rect.left;
+        const ratio = milieu / largeur();
+        pince = {
+          distance: Math.max(24, distanceDoigts()),
+          etendue: vue.etendue,
+          ancre: vue.debut + ratio * vue.etendue,
+          ratio,
+        };
+      }
+    });
+
+    scene.addEventListener('pointermove', (evenement) => {
+      if (!doigts.has(evenement.pointerId)) return;
+      doigts.set(evenement.pointerId, { x: evenement.clientX, y: evenement.clientY });
+      if (doigts.size >= 2 && pince) {
+        const facteur = Math.max(0.2, distanceDoigts() / pince.distance);
+        vue.etendue = pince.etendue / facteur;
+        vue.debut = pince.ancre - pince.ratio * vue.etendue;
+        limiter();
+        dessiner(false);
+        return;
+      }
+      if (!glisser) return;
+      const dx = evenement.clientX - glisser.x;
+      if (Math.abs(dx) > 6) glisser.bouge = true;
+      if (!glisser.bouge) return;
+      vue.debut = glisser.debut - (dx / largeur()) * vue.etendue;
+      limiter();
+      dessiner(false);
+      cacher();
+    });
+
+    function relacher(evenement: PointerEvent) {
+      doigts.delete(evenement.pointerId);
+      if (glisser?.bouge) ignorerClic = true;
+      glisser = null;
+      if (doigts.size < 2) pince = null;
+    }
+    scene.addEventListener('pointerup', relacher);
+    scene.addEventListener('pointercancel', relacher);
+
+    scene.addEventListener('wheel', (evenement) => {
+      evenement.preventDefault();
+      const rect = scene.getBoundingClientRect();
+      const facteur = Math.exp(-evenement.deltaY * 0.0014);
+      zoomer(evenement.clientX - rect.left, facteur, false);
+    }, { passive: false });
+
+    racine.querySelectorAll<HTMLButtonElement>('[data-zoom]').forEach((bouton) => {
+      bouton.addEventListener('click', () => {
+        const action = bouton.dataset.zoom;
+        if (action === 'tout') cadrer(true);
+        else zoomer(largeur() / 2, action === 'plus' ? 1.55 : 1 / 1.55, true);
+      });
+    });
+
+    racine.querySelectorAll<HTMLInputElement>('[data-rubrique]').forEach((case_) => {
+      case_.addEventListener('change', () => dessiner(true));
+    });
+    selectCommune.addEventListener('change', () => dessiner(true));
+
+    scene.addEventListener('keydown', (evenement) => {
+      if (evenement.key === 'ArrowLeft') vue.debut -= vue.etendue * 0.15;
+      else if (evenement.key === 'ArrowRight') vue.debut += vue.etendue * 0.15;
+      else if (evenement.key === '+' || evenement.key === '=') zoomer(largeur() / 2, 1.4, true);
+      else if (evenement.key === '-' || evenement.key === '_') zoomer(largeur() / 2, 1 / 1.4, true);
+      else if (evenement.key === 'Home') cadrer(true);
+      else return;
+      evenement.preventDefault();
+      limiter();
+      dessiner(true);
+    });
+
+    window.addEventListener('resize', () => dessiner(false));
+    cadrer(false);
+  }
+</script>
