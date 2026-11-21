@@ -17,33 +17,36 @@ const rubriques = listeCategories().map((categorie) => ({
 }));
 const principales = rubriques.filter((rubrique) => !rubrique.animations);
 const animations = rubriques.find((rubrique) => rubrique.animations);
+const estAccueil = Astro.url.pathname === import.meta.env.BASE_URL;
 
 function estIci(href: string): boolean {
   return ici === href || ici.startsWith(href);
 }
 ---
 
-<header class="entete" data-pagefind-ignore>
+<header class:list={['entete', estAccueil && 'entete-accueil']} data-pagefind-ignore>
   <div class="entete-bloc">
     <div class="entete-haut">
       <a class="nom-site" href={withBase('/')}>{site.titre}</a>
       <p class="sous-titre">{sousTitre}</p>
     </div>
     <div class="barre-menu">
-      <nav class="nav-rubriques" aria-label="Rubriques">
-        {
-          principales.map((rubrique) => (
-            <a
-              class="nav-pastille"
-              data-rubrique={rubrique.id}
-              href={rubrique.href}
-              aria-current={estIci(rubrique.href) ? 'page' : undefined}
-            >
-              {rubrique.label}
-            </a>
-          ))
-        }
-      </nav>
+      {
+        !estAccueil && (
+          <nav class="nav-rubriques" aria-label="Rubriques">
+            {principales.map((rubrique) => (
+              <a
+                class="nav-pastille"
+                data-rubrique={rubrique.id}
+                href={rubrique.href}
+                aria-current={estIci(rubrique.href) ? 'page' : undefined}
+              >
+                {rubrique.label}
+              </a>
+            ))}
+          </nav>
+        )
+      }
       <div class="ligne-animations">
         {
           animations && (
