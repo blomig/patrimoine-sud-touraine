@@ -38,6 +38,8 @@ const fiches = defineCollection({
         'personnes',
         'evenements-historiques',
         'agenda',
+        'vie-economique',
+        'documents',
       ]),
       themes: z.array(z.string()).default([]),
       commune: z.string().min(1),
@@ -50,6 +52,33 @@ const fiches = defineCollection({
       lieu: z.string().nullable().optional(),
       merimee: z.string().nullable().optional(),
       statut: z.enum(['à vérifier', 'à valider', 'validé', 'publié']),
+      type_document: z
+        .union([
+          z.enum(['cadastre', 'carte', 'plan', 'photo', 'carte postale', 'archive', 'autre']),
+          z.literal(''),
+          z.null(),
+        ])
+        .optional()
+        .transform((valeur) => (valeur ? valeur : null)),
+      date_document: dateChamp,
+      cote: z
+        .union([z.string(), z.null()])
+        .optional()
+        .transform((valeur) => (typeof valeur === 'string' && valeur.trim() ? valeur.trim() : null)),
+      fonds: z
+        .union([z.string(), z.null()])
+        .optional()
+        .transform((valeur) => (typeof valeur === 'string' && valeur.trim() ? valeur.trim() : null)),
+      images: z
+        .array(
+          z.object({
+            src: z.string().min(1),
+            legende: z.string().min(1),
+            credit: z.string().min(1),
+          }),
+        )
+        .optional()
+        .default([]),
       sources: z
         .array(
           z.object({

@@ -83,6 +83,7 @@ const texteOptionnel = z
   .transform((valeur) => (valeur ? valeur : undefined));
 
 const illustrationSchema = z.object({
+  titre: texteOptionnel,
   legende: z.string().min(1),
   fichier: z.string().optional(),
   url: texteOptionnel.pipe(z.string().url().optional()),
@@ -105,11 +106,14 @@ export function chargerIllustrations(): Record<string, Illustration> {
 export function listeCategories(): Categorie[] {
   const catalogue = chargerCatalogue();
   const illustrations = chargerIllustrations();
-  return MODELES.map((modele) => ({
-    ...modele,
-    titre: catalogue[modele.id]?.libelle ?? modele.titre,
-    illustration: illustrations[modele.id],
-  }));
+  return MODELES.map((modele) => {
+    const illustration = illustrations[modele.id];
+    return {
+      ...modele,
+      titre: illustration?.titre ?? catalogue[modele.id]?.libelle ?? modele.titre,
+      illustration,
+    };
+  });
 }
 
 export function categorieParId(id: string): Categorie | undefined {

@@ -29,6 +29,8 @@ contenu/
   personnes/
   evenements-historiques/
   agenda/
+  vie-economique/           même schéma que les fiches de patrimoine
+  documents/                fiches, plus type_document, date_document, cote, fonds, images
 public/admin/                   Sveltia CMS (config.yml + index.html)
 src/                            pages, styles, schéma
 .github/workflows/pages.yml     construction et publication
@@ -138,7 +140,7 @@ Le mode d’emploi du worker est celui de Sveltia CMS (« GitHub backend » / OA
 
 ## Pages
 
-- Accueil : territoire, cinq rubriques, communes pilotes, prochaines animations
+- Accueil : territoire, les rubriques, communes, prochaines animations
 - Liste, thèmes et frise pour chaque rubrique hors agenda
 - Fiche : sources et crédit d’image. Le statut reste dans le fichier, il n’est pas affiché.
 - Une page par commune citée

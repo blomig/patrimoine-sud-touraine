@@ -14,7 +14,7 @@ Le site public est https://blomig.github.io/patrimoine-sud-touraine/. Ce n’est
 
 ## Objectif
 
-Cahier documentaire, en français, sur le patrimoine de la communauté de communes Loches Sud Touraine (Indre-et-Loire, EPCI SIREN 200071587, 67 communes). Cinq rubriques : Bâtiments disparus, Bâtiments existants, Personnages, Événements, Animations. Une page par commune, une carte du territoire, une recherche plein texte.
+Cahier documentaire, en français, sur le patrimoine de la communauté de communes Loches Sud Touraine (Indre-et-Loire, EPCI SIREN 200071587, 67 communes). Sept rubriques : Bâtiments disparus, Bâtiments existants, Personnages, Événements, Animations, Vie économique, Documents. Une page par commune, une carte du territoire, une recherche plein texte.
 
 Une fiche = un fichier Markdown. Le texte ne dit que ce que les sources permettent de dire.
 
@@ -41,13 +41,15 @@ npm run preview
 contenu/
   site.yml                  design publié : revue, carnet ou musee
   themes.yml                libellés des rubriques et thèmes
-  categories.yml            image d’illustration de chaque rubrique
+  categories.yml            image de chaque rubrique, et nom affiché (champ titre)
   associations.yml          annuaire
   batiments-anciens-disparus/*.md
   batiments-anciens-existants/*.md
   personnes/*.md
   evenements-historiques/*.md
   agenda/*.md
+  vie-economique/*.md       même schéma que les fiches patrimoine
+  documents/*.md            fiches + type_document, date_document, cote, fonds, images
 public/data/
   communes-loches-sud-touraine.geojson   67 communes
   indre-et-loire.geojson                 contour du département
@@ -119,6 +121,24 @@ Si une date ou un nom manque, l’écrire, ne pas le combler.
 ```
 
 Pour une animation, `categorie` vaut `agenda`, le fichier est dans `contenu/agenda/`, et `statut` vaut `à valider`.
+
+### Vie économique
+
+Dossier `contenu/vie-economique/`. `categorie: "vie-economique"`. Même champs que les fiches de patrimoine. Le nom public se change dans `contenu/categories.yml`, champ `titre` de la clé `vie-economique` (aujourd’hui « Vie économique »). Ne pas renommer le dossier ni l’identifiant.
+
+### Documents
+
+Dossier `contenu/documents/`. `categorie: "documents"`. Même champs que les fiches, plus :
+
+| Champ | Contenu |
+| --- | --- |
+| `type_document` | Optionnel. Une de ces valeurs exactes : `cadastre`, `carte`, `plan`, `photo`, `carte postale`, `archive`, `autre`. |
+| `date_document` | Optionnel. Même forme que `date_debut` : `1832`, `1832-04` ou `1832-04-12`. `null` si inconnue. |
+| `cote` | Optionnel. Cote d’archives, ou `null`. |
+| `fonds` | Optionnel. Nom du fonds, ou `null`. |
+| `images` | Galerie. Liste de `{ src, legende, credit }`. `src` est un chemin du dépôt (`/media/documents/fichier.jpg`) ou une adresse web. Liste vide ou absente s’il n’y a pas de galerie. |
+
+Le champ `image` reste l’image d’en-tête, facultative. `images` est la galerie affichée sur la fiche.
 
 ## Ajouter du contenu
 
