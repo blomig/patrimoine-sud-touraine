@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { agendaVisibleSi } from '../src/lib/agenda.ts';
 import { cleDebut, cleFin, formatDateSouple, formatPlage, periodeTerminee } from '../src/lib/dates.ts';
+import { appliquerNombre, nombreFrancais } from '../src/lib/nombres.ts';
 import { slugifier } from '../src/lib/slug.ts';
 import { resoudreThemes } from '../src/lib/themes.ts';
 
@@ -64,6 +65,13 @@ test('le territoire compte 67 communes aux codes uniques', () => {
   assert.equal(new Set(codes).size, 67);
   assert.ok(codes.includes('37132'));
   assert.ok(codes.includes('37057'));
+});
+
+test('le nombre de fiches s’écrit avec une espace insécable', () => {
+  assert.equal(nombreFrancais(143), '143');
+  assert.equal(nombreFrancais(1000), '1\u00A0000');
+  assert.equal(nombreFrancais(1234567), '1\u00A0234\u00A0567');
+  assert.equal(appliquerNombre('{n} fiches sur le Sud Touraine', 143), '143 fiches sur le Sud Touraine');
 });
 
 test('les noms de communes pilotes deviennent des adresses stables', () => {

@@ -1,8 +1,13 @@
 ---
+import { toutesLesFiches } from '../lib/contenu';
+import { appliquerNombre } from '../lib/nombres';
 import { chargerSite, listeCategories } from '../lib/site';
 import { withBase } from '../lib/urls';
 
 const site = chargerSite();
+const fiches = await toutesLesFiches();
+const nombreFiches = fiches.filter((fiche) => fiche.data.categorie !== 'agenda').length;
+const sousTitre = appliquerNombre(site.sous_titre, nombreFiches);
 const ici = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const rubriques = [
   { href: withBase('/communes/'), label: 'Communes', animations: false },
@@ -32,7 +37,7 @@ function estIci(href: string): boolean {
     <p class="marque marque-musee">Parcours musée</p>
     <p class="marque marque-contemporain">Contemporain</p>
     <a class="nom-site" href={withBase('/')}>{site.titre}</a>
-    <p class="sous-titre">Communauté de communes Loches Sud Touraine</p>
+    <p class="sous-titre">{sousTitre}</p>
   </div>
   <div class="barre-menu">
     <nav class="nav-rubriques" aria-label="Communes et rubriques">
