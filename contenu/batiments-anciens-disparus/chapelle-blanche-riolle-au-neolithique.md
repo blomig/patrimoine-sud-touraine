@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/04/Fig1.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 valleedelariolle.fr (7 mai 2023) rappelle que le Néolithique, dernière période de la préhistoire avant l'écriture, se situe en Touraine, d'après l'article, entre 4800 et 2500 avant notre ère, avec les premiers villages, les cultures de céréales et l'élevage, et l'abandon du nomadisme au profit de sociétés paysannes. Le sud-Touraine est réputé pour la qualité de ses silex et le savoir-faire des artisans qui produisirent haches, pointes de flèches, poignards, lames, grattoirs, tranchets et perçoirs, objets « exportés jusqu'en Hollande ». Les grandes lames tirées des « livres de beurre » locales sont signalées, ainsi que le rôle du musée de la Préhistoire du Grand-Pressigny, à la création duquel contribuèrent, au XIXe siècle, notamment M. Lecointre, de La Chapelle-Blanche-Saint-Martin, et Jacques-Marie Rougé, de Ligueil, qui s'intéressaient aux silex ramassés dans les champs. La présente fiche est classée parmi les bâtiments disparus, conformément à l'arbitrage reçu : l'article n'identifie cependant aucun édifice précis, seulement l'existence de premiers villages, aujourd'hui disparus, et un objet mobilier.

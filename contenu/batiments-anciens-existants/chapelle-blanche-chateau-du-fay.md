@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/07/fig3-facace-sud.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le domaine du Fay se trouve à cheval sur les communes de La Chapelle-Blanche-Saint-Martin et de Bossée (code INSEE 37029), d'après valleedelariolle.fr (18 juillet 2023). L'article rattache le toponyme à un bois de hêtres. Le fief, qui relevait de l'abbaye de Cormery et possédait les droits de haute, moyenne et basse justice, est devenu une dépendance du château de Grillemont. De l'ancienne maison seigneuriale, il ne reste que de maigres bâtiments, au milieu de douves pratiquement asséchées, auxquels on accède entre deux pavillons bas disposés en équerre, dont l'un appartenait à l'ensemble primitif. La commune exacte d'implantation des vestiges bâtis devra être confirmée ; cette fiche les rattache provisoirement à La Chapelle-Blanche-Saint-Martin, en raison du lien historique avec Grillemont.

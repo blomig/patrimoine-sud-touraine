@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2022/03/Fig2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 La Pierre Levée est un mégalithe situé à Civray-sur-Esves, sur le flanc sud-ouest de la colline des champs Bergeons (sommet à 94 m, pierre vers 82 m), près du moulin de Ménard, entre Ligoire et Esves, d'après valleedelariolle.fr. L'article l'attribue au Néolithique (entre 4800 et 3500 avant notre ère) ; ces bornes, comme l'absence de numéro Mérimée dans le texte, restent à vérifier. Le monument se trouve dans des parcelles cultivées, sur le territoire de l'ancienne ferme fortifiée de La Pierre. Jacques Lemaistre, cité pour 2019, le décrit comme une dalle brisée affleurant le sol.

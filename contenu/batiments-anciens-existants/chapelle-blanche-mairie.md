@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/04/Fig-3-epicerie-saulquin2.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 La mairie actuelle de La Chapelle-Blanche-Saint-Martin occupe un ancien bâtiment commercial créé par Jules Saulquin (né en 1846), à l'angle de la place Jasnin et de la rue d'Angé d'Orsay, d'après valleedelariolle.fr (23 avril 2023). Au début du XXe siècle, lors de la construction de l'école, un local y avait été adjoint pour y transférer l'ancienne mairie. Ce n'est qu'au début des années 1960 que la municipalité s'est installée dans l'immeuble actuel.

@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/12/Fig2-croix-berthault3.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 valleedelariolle.fr (16 janvier 2022) recense à La Chapelle-Blanche-Saint-Martin une dizaine de croix stationnales, plus deux croix hosannières dans le cimetière. Sept de ces croix seraient encore visibles. L'article, qui s'appuie sur les vestiges, le registre paroissial, les lieux-dits et la mémoire locale, rappelle que des croix ont disparu à la Révolution. Contrairement à Sepmes, où les croix sont plutôt en pierre ou en métal, celles de La Chapelle-Blanche sont plus volontiers en bois.

@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/04/Fig2-batiments-restants.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le lieu-dit Moulin de Saint-Paul, à Bournan, se trouve sur la Ligoire. valleedelariolle.fr (16 avril 2023) indique qu'un moulin y a fonctionné jusqu'à la fin du XIXe siècle. Selon Carré de Busserolle, une chapelle dédiée à saint Paul existait tout près, avant la Révolution ; cette chapelle n'est pas identifiée ici comme un édifice encore en élévation. Il n'y a pas, d'après le même blog, de moulin sur la Riolle elle-même. Du moulin de Saint-Paul, « ne subsistent que quelques bâtiments et des élargissements de la rivière. Mais le moulin en lui-même [a] disparu ».

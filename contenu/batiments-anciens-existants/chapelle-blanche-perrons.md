@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/02/4-chap4NB.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Les anciennes photographies de La Chapelle-Blanche-Saint-Martin montrent, d'après valleedelariolle.fr (25 février 2024), un nombre important de perrons devant les maisons du bourg, notamment au carrefour de la route de Bournan (bas-bourg) et dans la rue de la Poste. Un perron est défini dans l'article comme un petit escalier extérieur se terminant par une plateforme et donnant accès à la porte principale d'une maison. Plusieurs ont été détruits ou réduits, notamment pour faciliter le passage des véhicules ou à la suite de rehaussements de voirie.

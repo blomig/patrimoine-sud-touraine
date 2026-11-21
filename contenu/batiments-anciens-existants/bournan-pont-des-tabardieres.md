@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/pont-4-vers-nord.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le pont des Tabardières, quatrième pont officiel sur la Riolle, se trouve à Bournan, sur le chemin vicinal n° 1 qui part du bourg (par la Lantonnière et la Besnardière) en direction de Sepmes, d'après valleedelariolle.fr. Il surplombe le cours d'eau de plus d'un mètre, avec des bas-côtés en pierre, des main-courantes métalliques tenues par des plots de calcaire sculptés, et un tablier trop étroit pour que des véhicules s'y croisent en toute sécurité. En amont, à l'est, un chemin le long de la Riolle relie ce pont à celui des Aigremonts, utilisé par des engins agricoles et par un itinéraire de randonnée communal. Ce chemin ne se poursuit pas en aval. L'article sur les gués indique qu'au cadastre napoléonien, vers 1830, c'était, hors le Puits Bérault, le seul pont identifié sur la Riolle, les autres franchissements se faisant alors à gué. La date du pont actuel n'est pas précisée.

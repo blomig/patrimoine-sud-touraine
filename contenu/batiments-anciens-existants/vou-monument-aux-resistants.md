@@ -23,7 +23,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2022/02/Fig-5-1.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 valleedelariolle.fr signale, à l'entrée de Vou sur la route de La Chapelle-Blanche-Saint-Martin, un petit mémorial de la ligne de démarcation, qui rappelle des faits de guerre et nomme des personnes déportées pour avoir aidé des fuyards. Un monument à la mémoire des patriotes résistants de Vou se trouve également sur la route de Dolus-le-Sec. L'article le relie notamment à Émile Maurice, croix de guerre et médaille militaire de 1914-1918, déporté à Oranienburg où il mourut l'année suivante, à sa fille Germaine Maurice, 24 ans, déportée à Auschwitz et exterminée en 1943, et à Joseph Pouponneau. La famille Maurice, agriculteurs de la ferme du Jardin, à la limite de Vou, réceptionnait des fuyards guidés depuis La Chapelle-Blanche, jusqu'à leur arrestation sur dénonciation, le 10 septembre 1942.

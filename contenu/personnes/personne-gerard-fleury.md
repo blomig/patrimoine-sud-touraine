@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/01/gerard-Fleury.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Gérard Fleury, né à Tours, fut agrégé de mathématiques et exerça au lycée Alfred-de-Vigny à Loches. Passionné d'art religieux du Moyen Âge, il s'était fait connaître, d'après valleedelariolle.fr, comme spécialiste de l'architecture et de la sculpture romanes. Le même article lui attribue une cinquantaine d'études sur des monuments et quatre livres publiés aux éditions Hugues de Chivré.

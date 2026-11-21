@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2022/08/Fig7.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Un bélier hydraulique remarquable a été installé à Civray-sur-Esves par la société Bollée du Mans, d'après valleedelariolle.fr (2 octobre 2022). De 1900 à 1979, il a servi à remonter l'eau du ruisseau de la Roche, avant sa confluence avec l'Esves, depuis le moulin de Ménard jusqu'au château d'Allet, distant de deux kilomètres et perché près de quarante mètres plus haut, par un réseau de canalisations enterrées aboutissant à un réservoir, sans apport d'énergie extérieure. Un second bélier se trouve à l'arrière du mécanisme principal. Une plaque de l'entreprise Bollée est encore visible. L'article rappelle que cette famille, d'abord fondeurs de cloches, est aussi à l'origine d'un brevet de bélier (1857).

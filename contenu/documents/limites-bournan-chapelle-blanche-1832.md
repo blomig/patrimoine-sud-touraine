@@ -23,19 +23,19 @@ fonds: "Cadastre d'Indre-et-Loire, délimitation de la commune de Bournan ; ordo
 images:
   - src: "/media/documents/limites-bournan-pv-1830.jpg"
     legende: "Procès-verbal de délimitation du territoire de la commune de Bournan, 10 février 1830. Cadastre d'Indre-et-Loire, arrondissement de Loches, canton de Ligueil, n° 9. Géomètre de première classe Pierre-Émile Vié ; maire de Bournan, Charles Roy, accompagné d'indicateurs nommés par lui ; maires et indicateurs des communes limitrophes convoqués pour constater contradictoirement la délimitation."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
   - src: "/media/documents/limites-bournan-plan-1830.jpg"
     legende: "Plan intitulé « Difficulté entre Bournan et la Chapelle-Blanche », dressé par le géomètre délimitateur le 10 février 1830. On y voit les polygones A et B, les hameaux concernés (notamment les Termelleries, la Durelière, la Davière, le moulin de Gruteau) et la mention d'une approbation du 8 mars 1832."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
   - src: "/media/documents/limites-bournan-plan-annexe-1832.jpg"
     legende: "Autre état ou extrait du même plan, annoté « Vu pour être annexé à l'ordonnance royale du 8 mars 1832 ». Il détaille surtout la zone d'échange à l'est, entre Bournan et La Chapelle-Blanche."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
   - src: "/media/documents/limites-bournan-ordonnance-1832.jpg"
     legende: "Extrait de l'ordonnance royale reproduite par le blog : « Louis Philippe, Roi des Français… » L'article date l'acte du 8 mars 1832, donné au palais des Tuileries ; sur le document tel qu'il est publié, le haut de page paraît porter « Paris le 8 Mars 1822 ». Louis-Philippe n'était pas roi en 1822 : la lecture 1822, si elle est confirmée sur l'original, serait une erreur de plume ou de copie, à vérifier sur le document d'archives."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
   - src: "/media/documents/limites-indre-et-loire-citeres-2008.jpg"
     legende: "Carte des limites communales actuelles d'Indre-et-Loire, reproduite par le blog pour situer les communes ayant fait l'objet d'une modification de limites. Source indiquée sur le document : CITERES, UMR 6173 — LAT, Université de Tours — CNRS, 2008."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
 sources:
   - titre: "Bournan / La Chapelle: modification des limites communales (1) (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/bournan-la-chapelle-modification-des-limites-communales-1/"
@@ -45,7 +45,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/08/fig-3-1.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Cette fiche réunit les deux articles de valleedelariolle.fr (17 et 24 octobre 2021) sur le même dossier : l'échange de territoires entre Bournan et La Chapelle-Blanche, instruit en 1830 et tranché par ordonnance royale le 8 mars 1832. Les documents reproduits par le blog — procès-verbal, plans et ordonnance — sont présentés en galerie.

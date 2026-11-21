@@ -23,7 +23,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/03/Fig7-abandonnee-civray.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Après le phylloxéra, la plus grande productivité des nouveaux plants provoque, d'après valleedelariolle.fr (6 avril 2025), une crise de mévente. L'article cite Charles Vavasseur : après la récolte de 1906, les vins blancs de la côte de Vouvray ne se vendent, en 1907, que l'année suivante, à 20 francs la barrique de 250 litres, soit 8 francs l'hectolitre, pour un rendement de 17 hl/ha (revenu brut de 136 francs/ha). De 1907 à 1914, malgré des millésimes réussis, surtout 1908 et 1911, les ventes à la propriété restent peu rémunératrices ; la guerre aggrave ensuite la situation.

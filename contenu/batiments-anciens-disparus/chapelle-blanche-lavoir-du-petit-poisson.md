@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/02/lavoir2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le lavoir du Petit Poisson se trouvait à La Chapelle-Blanche-Saint-Martin, sur la route de Bossée, à environ deux kilomètres du bourg, juste après le mur du château de Grillemont, sur la Riolle, d'après valleedelariolle.fr (12 février 2023). L'article le dit « paraît-il très beau », mais indique qu'il a été détruit et que ses pierres ont été réutilisées par les habitants ; certaines se trouveraient à la fontaine Saint-Martin. La meule de l'ancienne huilerie de la place Jasnin, transférée sur ce site, y serait encore, à peine visible en contrebas de la route (article sur la mairie). Les photographies jointes montrent le lieu tel qu'il se présente aujourd'hui, et non l'édifice disparu.

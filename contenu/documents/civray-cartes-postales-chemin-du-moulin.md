@@ -22,13 +22,13 @@ fonds: "Carte postale ancienne légendée « CIVRAY-sur-ESVES (Indre-et-Loire) /
 images:
   - src: "/media/documents/civray-chemin-du-moulin-cp.jpg"
     legende: "Carte postale ancienne légendée « CIVRAY-sur-ESVES (Indre-et-Loire) / Le Chemin du Moulin ». L'article la date, avec prudence, d'environ un siècle, ou vers 1900. On y voit une femme et un garçon, tous deux en bottes, le clocher, le mur du cimetière, un appentis et des bois débités, un grand arbre à droite et des barriques."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
   - src: "/media/documents/civray-chemin-du-moulin-2021.jpg"
     legende: "Le même endroit en 2021, autant que possible sous le même angle : le chemin a été creusé, le talus est plus raide et nu, une ligne électrique passe au-dessus, des fenêtres de toit ont été ajoutées, un mur d'angle a été réduit, des panneaux indicateurs ont été posés ; les anciennes plaques directionnelles sur la maison ont été conservées."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
   - src: "/media/documents/civray-cimetiere-crucifix-2021.jpg"
     legende: "Cimetière de Civray-sur-Esves en 2021. L'article s'interroge sur lequel des trois crucifix métalliques visibles correspond à celui de la carte postale, la tombe correspondante ne portant plus, d'après le blog, ni nom ni date."
-    credit: "Vallée de la Riolle"
+    credit: "Archives privées"
 sources:
   - titre: "Cartes postales de la Riolle. Civray sur Esves 1 (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/cartes-postales-de-la-riolle-civray-sur-esves-1/"
@@ -36,7 +36,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/06/civray-r%C3%A9f%C3%A9rence-1900.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 valleedelariolle.fr (20 juin 2021) inaugure une série de face-à-face entre cartes postales anciennes de la Riolle et photographies contemporaines des mêmes lieux. Ce premier essai concerne Civray-sur-Esves, vu en venant vers le village par le chemin du Moulin.

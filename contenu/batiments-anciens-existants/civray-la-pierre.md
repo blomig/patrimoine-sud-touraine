@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/06/Fig-9-facade-logis.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le domaine de La Pierre, sur la commune de Civray-sur-Esves, surplombe le confluent du ruisseau de la Roche et d'un bras de l'Esves, d'après valleedelariolle.fr. Carré de Busserolle (1883) en fait un hameau de 21 habitants, près du ruisseau des Fontaines Blanches, et indique qu'en 1505 le fief appartenait à Christophe de Mons, chapelain de la chapelle Saint-Julien de Crissé. Un château y fut construit en 1508. Le cadastre napoléonien de 1832 montre encore, au sud-ouest, une partie d'un grand mur d'enclos flanqué de trois tours, ainsi que le logis et le pigeonnier ; en 1990, d'après André Montoux (*Vieux logis de Touraine*), il ne restait plus guère, de cet enclos, que des restes de muraille sur une vingtaine de mètres. Montoux relie le nom du lieu à la proximité (environ 500 m) de la Pierre Levée.

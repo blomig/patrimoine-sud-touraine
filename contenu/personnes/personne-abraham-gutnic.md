@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/06/gutnic1.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 
 ---
 

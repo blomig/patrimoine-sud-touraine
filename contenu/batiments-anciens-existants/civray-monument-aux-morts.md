@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/DSC_0217.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le monument aux morts de Civray-sur-Esves se trouve, d'après valleedelariolle.fr, sur la place de l'église Saint-Rémi, devant la façade sud qui comporte l'entrée de l'édifice. De même inspiration que ceux de Bournan et de La Chapelle-Blanche-Saint-Martin, il se compose d'une colonne pyramidale à quatre faces, en calcaire dur, posée sur un socle à peu près cubique et une dalle à trois degrés entourée d'un petit enclos de fer forgé. Une palme et une croix de guerre en bronze doré sont fixées sur la face est de la colonne.

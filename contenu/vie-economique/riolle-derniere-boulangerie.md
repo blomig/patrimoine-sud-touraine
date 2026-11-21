@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/02/12-boulang-chapelle-2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Au XVIIIe siècle, d'après valleedelariolle.fr (16 février 2025), les petits bourgs de campagne n'avaient presque jamais de commerces : le pain se cuisait dans les fours de certains hameaux ou au four banal mis à disposition par le seigneur. Dans la vallée de la Riolle, ces fours s'enchâssent souvent entre de petits bâtiments, en saillie plus ou moins arrondie ; on en voit encore à la Ménaudière (La Chapelle-Blanche-Saint-Martin), à l'Ouverdière (Bournan) et en d'autres lieux des quatre communes. La technique est celle de la chauffe directe : la même sole sert à chauffer le four puis, une fois la cendre ôtée, à cuire. Une voûte hémisphérique en briques, bâtie en encorbellement et isolée de terre argileuse ou de sable, restitue la chaleur emmagasinée.

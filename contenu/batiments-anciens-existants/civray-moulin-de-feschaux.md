@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/10/Fig-1-fescheau.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le moulin de Feschaux (aussi écrit Fescheaux ou Fescheau) se trouve à l'ouest de Civray-sur-Esves, dans la zone de confluence de l'Esves, de la Ligoire et de la Riolle, limitrophe de Bournan et de Sepmes, d'après valleedelariolle.fr. L'article le tient pour le plus ancien des moulins des quatre communes et pour celui qui a produit de la farine le plus longtemps. Il aurait été bâti sur l'Esves au XIVe siècle. Le nom est rattaché au latin *fiscalis* (domaine du prince ou du roi) ; G. H. Penet, cité par le blog, y voit un moulin banal. Selon Carré de Busserolle, en 1336, le moulin dépendait du fief de Maulay ; l'article d'ensemble sur les moulins de la Riolle précise qu'Aimery Le Lièvre, seigneur de Maulay, en est alors noté propriétaire dans le cartulaire de l'archevêché de Tours.

@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/09/Fig-1.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Une pierre d'attente, ou pierre des morts, se trouve à Bournan, d'après valleedelariolle.fr (10 septembre 2023). On y déposait les cercueils des défunts avant l'entrée à l'église ou au cimetière. L'article, s'appuyant notamment sur des travaux de 1915 de Marcel Baudouin et sur un inventaire récent des pierres d'attente du Centre-Val de Loire, indique que, sur les 28 « pierres d'attente » encore signalées en Indre-et-Loire, deux se trouvent dans les communes de la Riolle : Bournan et La Chapelle-Blanche-Saint-Martin.

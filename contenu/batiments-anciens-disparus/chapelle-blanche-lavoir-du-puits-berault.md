@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/11/Fig6.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 En amont immédiat du pont du Puits Bérault, à l'extérieur du mur d'enceinte de Grillemont, valleedelariolle.fr décrit une zone en contrebas formant une mare peu profonde, présentée comme les restes d'un lavoir. Ce lavoir, qui jouxtait l'extérieur des murs du château, aurait été le lavoir principal de La Chapelle-Blanche ; le blog rapporte, d'après des souvenirs locaux, qu'il servit aussi de baignade aux enfants accompagnant les lavandières. Le bâtiment qui le protégeait présentait, selon l'article, des pierres de belle facture, dont une partie aurait été réemployée, notamment pour le petit mémorial de la fontaine Saint-Martin, à l'est de la commune. Aucune image ancienne du lavoir n'est connue du blog. La photographie retenue montre les vestiges encore visibles. L'existence du lavoir dès le cadastre de 1830 n'est pas établie dans l'article.

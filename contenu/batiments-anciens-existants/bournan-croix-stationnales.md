@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2022/10/Fig-8-croix-hosannie%CC%80re.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Contrairement aux trois autres communes de la Riolle, Bournan ne conserve pratiquement plus de croix le long des chemins, d'après valleedelariolle.fr (30 octobre 2022), à l'exception de la croix hosannière du cimetière (déplacé dans les années 1970-1980). Le cadastre de 1832 en signale au moins deux.

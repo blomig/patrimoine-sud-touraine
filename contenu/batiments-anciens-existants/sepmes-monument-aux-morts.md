@@ -27,7 +27,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/sepmes2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le monument aux morts de Sepmes se trouve au centre du cimetière communal, d'après valleedelariolle.fr. Il reprend, en un peu plus petit, l'architecture générale des trois autres monuments de la vallée de la Riolle : une colonne pyramidale sur un socle cubique. Il s'en distingue par l'absence d'enclos et par l'emploi du granit, matériau qui, selon l'article, ne provient pas de la région. Une palme et une croix de guerre en bronze ornent le monument ; la colonne est rehaussée d'un mât portant un écusson tricolore.

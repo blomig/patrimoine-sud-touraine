@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/05/Recto-julienne-bistre-.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Léon Julienne est né à Sepmes le 29 novembre 1832, où son père était menuisier, d'après la série publiée sur valleedelariolle.fr. L'article indique qu'il aurait quitté Sepmes à douze ans, puis qu'il fut embauché à Nantes dans la maison A. Grignon, entreprise d'import-export, comme représentant ou voyageur de commerce dès les années 1850 (courriers attestés d'octobre 1857 aux années 1880), notamment dans le commerce des bois de teinture. Il se maria en 1863 ; le couple divorça par la suite. Une sœur, Julie, née en 1839, est mentionnée ; après le décès de son mari en 1870, Léon lui confia un commerce de négoce d'engrais qu'il avait fondé et qui marqua La Chapelle-Blanche-Saint-Martin.

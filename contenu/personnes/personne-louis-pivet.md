@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2025/02/louis-Pivet.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Louis Pivet, d'après valleedelariolle.fr, est né le 10 février 1887 à Henrichemont (Cher). Ordonné prêtre le 10 juin 1912, il fut d'abord professeur au petit séminaire. Pendant la Première Guerre mondiale, il servit à l'ambulance du 2e corps, puis parmi les brancardiers de la 60e division et dans plusieurs régiments d'infanterie (124e, 324e, 164e). Blessé en 1916 et en juin 1918, il reçut la croix de guerre, avec une citation pour sa conduite comme agent de liaison le 10 juin 1918. Après la guerre, il reprit l'enseignement, prépara une licence de lettres et de philosophie, fut nommé au collège Saint-Maurice le 1er octobre 1922, puis curé de Sepmes le 9 avril 1927. Il y demeura près de quarante ans, jusqu'à sa retraite, demandée en 1966. Une impasse de Sepmes, de l'ancien presbytère au château, porte son nom.

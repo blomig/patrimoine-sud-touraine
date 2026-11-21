@@ -23,7 +23,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/03/st-gratien-sepmes.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 La tradition rapportée par valleedelariolle.fr, d'après un office de saint Gratien contenu dans un bréviaire du XIIIe siècle attribué à l'abbaye de Noyers et commenté par Marcel Baudot en 1955, fait de Gratien un évêque breton, revenant d'un pèlerinage à Rome, qui aurait succombé avec des compagnons dans l'épilogue de la bataille dite de Poitiers. Baudot date ce combat du 14 octobre 733 et propose une inhumation « aux abords de la Riolle », sur le territoire de la paroisse de Sepmes, à près de deux milles de l'église de Civray-sur-Esves et non loin de celle de Bournan, avant un transfert au cimetière de Sepmes. Bernard Danquigny cherche plutôt les abords du hameau de la Tour-Sybille. Ces localisations et cette datation relèvent d'une tradition et d'hypothèses érudites, non d'un fait établi.

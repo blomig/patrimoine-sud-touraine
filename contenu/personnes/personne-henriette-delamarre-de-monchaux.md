@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/03/Fig-1.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Henriette Delamarre de Monchaux, épouse Lecointre (1854-1911), est présentée par valleedelariolle.fr, qui s'appuie notamment sur Sylvie Pouliquen (*Les Dames de Touraine*) et sur un article de Daniel Schweitz (BSAT, 2015), comme l'une des personnalités liées au château de Grillemont. Fille du peintre Théodore Delamarre et de Mathilde Lyautey (elle-même fille du général Hubert-Joseph Lyautey, 1789-1867), elle épousa à Paris, le 25 août 1875, Pierre Lecointre, l'un des dix-sept enfants de Gérasime Lecointre (1809-1888), acquéreur du château en 1850. Le couple s'installa à Grillemont et eut trois enfants : Marie (1881), Mathilde (1882) et Georges (1888).

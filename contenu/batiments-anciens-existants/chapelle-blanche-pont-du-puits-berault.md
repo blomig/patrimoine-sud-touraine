@@ -22,7 +22,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/11/Fig2.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le pont du Puits Bérault, second pont officiel sur la Riolle, se trouve à l'angle sud-ouest du domaine de Grillemont, sur la route de La Chapelle-Blanche-Saint-Martin à Bossée, dans un virage que valleedelariolle.fr décrit comme dangereux, en partie masqué par la végétation. Il ne présente pas d'ouvrage d'art ni de rambarde : une canalisation permet à l'eau de passer sous la chaussée, très peu en surplomb. Des panneaux indiquent le cours d'eau. L'altitude du pont est d'environ 89 m.

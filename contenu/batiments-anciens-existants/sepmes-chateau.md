@@ -28,7 +28,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/04/fig6.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le château de Sepmes, ancienne châtellenie relevant de Sainte-Maure, est protégé au titre des monuments historiques (classement et inscription). Il a été construit pour Jean de Taix, gouverneur de Loches et ambassadeur à Rome, grand maître de l'artillerie en 1546, mort au siège de Hesdin en 1553. La date 1546 est celle de cette charge, pas nécessairement celle de l'achèvement du château.

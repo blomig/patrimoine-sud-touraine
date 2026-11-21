@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/04/Fig-4-gare-cote-sortie-passagers.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Des quatre communes de la Riolle, seule La Chapelle-Blanche-Saint-Martin fut raccordée au chemin de fer, d'après valleedelariolle.fr, qui s'appuie notamment sur les documents réunis par Raymonde Janvier. La gare, encore visible, et l'hôtel-café de la gare, établi à proximité immédiate sur la route de Vou, à peu près au niveau de l'actuel terrain de sport, furent construits pour la ligne Esvres–Le Grand-Pressigny (52 km), exploitée par la compagnie des chemins de fer départementaux et ouverte en 1889. Les gares desservies allaient de Saint-Branchs au Grand-Pressigny, via Manthelan, La Chapelle-Blanche et Ligueil. Une autre ligne Ligueil–Montrésor (61 km), prolongée vers Écueillé en 1907, faisait de Ligueil une « étoile » du réseau. La ligne Paris–Orléans avait atteint Tours en 1846 et Loches en 1878.

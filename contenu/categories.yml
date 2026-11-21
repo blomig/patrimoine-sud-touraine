@@ -7,7 +7,7 @@ categories:
   batiments-anciens-disparus:
     legende: Château de Sepmes
     fichier: /media/categories/chateau-sepmes.jpg
-    auteur: Vallée de la Riolle
+    auteur: Archives privées
   batiments-anciens-existants:
     legende: Le donjon de Loches.
     fichier: /media/categories/donjon-loches.jpg
@@ -23,18 +23,18 @@ categories:
   evenements-historiques:
     legende: Sainte-Maure
     fichier: /media/categories/sainte-maure.jpg
-    auteur: Vallée de la Riolle
+    auteur: Archives privées
   agenda:
     legende: Grillemont
     fichier: /media/categories/grillemont.jpg
-    auteur: Vallée de la Riolle
+    auteur: Archives privées
   vie-economique:
     titre: Vie économique
     legende: Café de la Paix
     fichier: /media/categories/vie-economique.jpg
-    auteur: Vallée de la Riolle
+    auteur: Archives privées
   documents:
     titre: Documents
     legende: La Chapelle-Blanche
     fichier: /media/categories/documents.jpg
-    auteur: Vallée de la Riolle
+    auteur: Archives privées

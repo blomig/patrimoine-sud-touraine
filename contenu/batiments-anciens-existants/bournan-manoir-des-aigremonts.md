@@ -21,7 +21,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2023/12/Fig3.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 Le manoir des Aigremonts est perché au sommet du coteau de la rive droite de la Riolle, face au village de Bournan, d'après valleedelariolle.fr (4 décembre 2023). L'article ne nomme pas explicitement la commune d'assiette ; cette fiche le rattache provisoirement à Bournan, sous réserve d'une confirmation cadastrale. Trois bâtiments constituent l'ensemble, dans un parc clos. Le logis, orienté nord-sud, donc perpendiculaire à la Riolle, est prolongé au nord par un pavillon en légère saillie. La façade principale, visible notamment depuis Les Roches, présente aujourd'hui des fenêtres à meneaux.

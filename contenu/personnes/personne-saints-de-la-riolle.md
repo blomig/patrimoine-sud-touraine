@@ -20,7 +20,7 @@ image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/08/Fig-21.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
 ---
 
 valleedelariolle.fr (5 septembre 2021) dresse un aperçu des saints et saintes que l'histoire religieuse locale associe au territoire de la Riolle : Maure et ses neuf enfants (dont saint Épain et saint Branchs), Britte, Aventin, et surtout Martin et Gratien, « que les histoires personnelles, pour partie, inscrivent vraisemblablement dans le cadre de la Riolle ». L'article souligne que, sur les notices biographiques ordinaires, on ne trouve pas trace des deux légendes locales rappelées ci-dessous, et qu'il ne faut ni les tenir pour des vérités historiques, ni les écarter sans les confronter aux faits vérifiables. La présente fiche reprend cet inventaire et ces précautions ; elle ne tranche pas.
