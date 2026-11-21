@@ -30,13 +30,11 @@ categories:
     auteur: Vallée de la Riolle
   vie-economique:
     titre: Vie économique
-    legende: Vie économique
-    fichier: /media/categories/vie-economique.svg
-    auteur: Patrimoine du Sud Touraine
-    licence: Placeholder
+    legende: Café de la Paix
+    fichier: /media/categories/vie-economique.jpg
+    auteur: Vallée de la Riolle
   documents:
     titre: Documents
-    legende: Documents
-    fichier: /media/categories/documents.svg
-    auteur: Patrimoine du Sud Touraine
-    licence: Placeholder
+    legende: La Chapelle-Blanche
+    fichier: /media/categories/documents.jpg
+    auteur: Vallée de la Riolle
