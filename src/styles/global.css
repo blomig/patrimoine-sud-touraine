@@ -844,7 +844,7 @@ code {
 @media (min-width: 52rem) {
   .choix-designs,
   .comparaison {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .faits {
@@ -1105,6 +1105,310 @@ code {
 @media (max-width: 40rem) {
   [data-design="revue"] .tuile {
     grid-template-columns: 1fr;
+  }
+}
+
+.edition,
+.mini-carte-bloc,
+.voisines,
+.barre-bas {
+  display: none;
+}
+
+[data-design="contemporain"] {
+  --fond: #f6f3ec;
+  --encre: #2c3540;
+  --encre-douce: #5c6b7a;
+  --lien: #2c3540;
+  --regle: #e6e1d8;
+  --carte: #fffcf8;
+  --accent: #2c3540;
+  --titre: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --texte: "Bricolage Grotesque", "Segoe UI", sans-serif;
+  --mesure: 68rem;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  [data-design="contemporain"] {
+    --fond: #1b232c;
+    --encre: #f3efe6;
+    --encre-douce: #c5ced6;
+    --lien: #f3efe6;
+    --regle: #31404e;
+    --carte: #24303b;
+    --accent: #e7e2d8;
+    color-scheme: dark;
+  }
+
+  [data-design="contemporain"] .recherche-menu input::placeholder {
+    color: #b7c3cc;
+  }
+}
+
+[data-design="contemporain"] body {
+  background: var(--fond);
+  font-family: var(--texte);
+}
+
+[data-design="contemporain"] .entete,
+[data-design="contemporain"] .pied,
+[data-design="contemporain"] .tuile-bloc,
+[data-design="contemporain"] .liste-communes a,
+[data-design="contemporain"] .bloc-sources,
+[data-design="contemporain"] .choix-designs li {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+[data-design="contemporain"] .marque-contemporain {
+  display: block;
+  letter-spacing: 0.14em;
+  color: #c62828;
+}
+
+[data-design="contemporain"] h1,
+[data-design="contemporain"] h2 {
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+  font-weight: 700;
+}
+
+[data-design="contemporain"] h1 {
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  margin-bottom: 1rem;
+}
+
+[data-design="contemporain"] .hero-court .chapo {
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  max-width: 36rem;
+  letter-spacing: -0.03em;
+}
+
+[data-design="contemporain"] a.nav-pastille {
+  background: var(--accent);
+  color: var(--fond);
+}
+
+[data-design="contemporain"] a.nav-pastille-animations,
+[data-design="contemporain"] .barre-bas-accent {
+  background: #c62828;
+  color: #ffffff;
+}
+
+[data-design="contemporain"] main a:hover {
+  color: #c62828;
+}
+
+[data-design="contemporain"] .tuiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.75rem 1.25rem;
+}
+
+[data-design="contemporain"] .tuile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  background: transparent;
+  transition: transform 0.35s ease;
+}
+
+[data-design="contemporain"] .tuile:hover {
+  transform: translateY(-4px);
+}
+
+[data-design="contemporain"] .tuile-image {
+  height: 9.5rem;
+  border-radius: 1.1rem;
+}
+
+[data-design="contemporain"] .tuile-numero,
+[data-design="contemporain"] .tuile-texte {
+  display: none;
+}
+
+[data-design="contemporain"] .tuile-titre {
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+}
+
+[data-design="contemporain"] .plan,
+[data-design="contemporain"] .mini-carte {
+  border: 0;
+  border-radius: 1.15rem;
+  overflow: hidden;
+}
+
+[data-design="contemporain"] .fiche {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+[data-design="contemporain"] .edition {
+  display: contents;
+}
+
+[data-design="contemporain"] .edition-image { order: 0; }
+[data-design="contemporain"] .entete-fiche { order: 1; }
+[data-design="contemporain"] .edition-phrase { order: 2; }
+[data-design="contemporain"] .en-bref { order: 3; }
+[data-design="contemporain"] .texte { order: 4; }
+[data-design="contemporain"] .bloc-sources { order: 5; }
+[data-design="contemporain"] .mini-carte-bloc { order: 6; display: block; }
+[data-design="contemporain"] .voisines { order: 7; display: block; }
+[data-design="contemporain"] .lien-suite { order: 8; }
+
+[data-design="contemporain"] .fiche .figure-fiche,
+[data-design="contemporain"] .fiche .faits,
+[data-design="contemporain"] .fiche .chapo {
+  display: none;
+}
+
+[data-design="contemporain"] .edition-image img {
+  width: 100%;
+  max-height: 22rem;
+  object-fit: cover;
+  border-radius: 1.25rem;
+}
+
+[data-design="contemporain"] .edition-phrase {
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  max-width: 38rem;
+  margin: 0;
+}
+
+[data-design="contemporain"] .en-bref {
+  display: block;
+  background: var(--carte);
+  border-radius: 1.1rem;
+  padding: 1.1rem 1.3rem 1.2rem;
+}
+
+[data-design="contemporain"] .en-bref h2 {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c62828;
+  margin: 0 0 0.8rem;
+}
+
+[data-design="contemporain"] .en-bref dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: 0.8rem 1.2rem;
+  margin: 0;
+}
+
+[data-design="contemporain"] .en-bref dt {
+  font-size: 0.85rem;
+  color: var(--encre-douce);
+}
+
+[data-design="contemporain"] .en-bref dd {
+  margin: 0.15rem 0 0;
+  font-weight: 600;
+}
+
+[data-design="contemporain"] .mini-carte {
+  height: 16rem;
+}
+
+[data-design="contemporain"] .voisines ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+[data-design="contemporain"] .voisines a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 48px;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+[data-design="contemporain"] .voisines span {
+  color: var(--encre-douce);
+  font-weight: 400;
+}
+
+[data-design="contemporain"] .illustration img {
+  max-height: 16rem;
+  border-radius: 1.15rem;
+  object-fit: cover;
+}
+
+@media (max-width: 48rem) {
+  [data-design="contemporain"] .barre-bas {
+    display: flex;
+    position: fixed;
+    z-index: 25;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: space-around;
+    gap: 0.2rem;
+    padding: 0.35rem 0.4rem calc(0.35rem + env(safe-area-inset-bottom));
+    background: color-mix(in srgb, var(--fond) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--regle);
+  }
+
+  [data-design="contemporain"] .barre-bas a {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    line-height: 1.1;
+    padding: 0.2rem;
+    border-radius: 999px;
+    color: var(--encre);
+  }
+
+  [data-design="contemporain"] .barre-bas-accent {
+    background: transparent;
+    color: #c62828;
+  }
+
+  [data-design="contemporain"] body {
+    padding-bottom: 5.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-design="contemporain"] .tuile-bloc,
+  [data-design="contemporain"] .bloc-carte,
+  [data-design="contemporain"] .edition-phrase,
+  [data-design="contemporain"] .en-bref {
+    animation: monter 0.7s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+}
+
+@keyframes monter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 

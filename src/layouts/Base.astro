@@ -12,7 +12,14 @@ import '@fontsource/nunito-sans/700.css';
 import '@fontsource/outfit/400.css';
 import '@fontsource/outfit/500.css';
 import '@fontsource/outfit/700.css';
+import '@fontsource/bricolage-grotesque/latin-400.css';
+import '@fontsource/bricolage-grotesque/latin-ext-400.css';
+import '@fontsource/bricolage-grotesque/latin-600.css';
+import '@fontsource/bricolage-grotesque/latin-ext-600.css';
+import '@fontsource/bricolage-grotesque/latin-700.css';
+import '@fontsource/bricolage-grotesque/latin-ext-700.css';
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 import Entete from '../components/Entete.astro';
 import Pied from '../components/Pied.astro';
 import { chargerSite } from '../lib/site';
@@ -37,9 +44,10 @@ const titreComplet = titre === site.titre ? titre : `${titre} — ${site.titre}`
     <title>{titreComplet}</title>
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <ClientRouter />
     <script is:inline>
       (function () {
-        var allowed = { revue: 1, carnet: 1, musee: 1 };
+        var allowed = { revue: 1, carnet: 1, musee: 1, contemporain: 1 };
         var apercu = new URLSearchParams(location.search).get('apercu');
         var stored = null;
         try {

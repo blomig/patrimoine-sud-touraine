@@ -26,7 +26,7 @@ const themesSchema = z
 
 const siteSchema = z.object({
   titre: z.string().min(1),
-  design: z.enum(['revue', 'carnet', 'musee']),
+  design: z.enum(['revue', 'carnet', 'musee', 'contemporain']),
 });
 
 const associationSchema = z.object({

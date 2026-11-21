@@ -1,10 +1,11 @@
 ---
 import { render } from 'astro:content';
 import Fil from '../../components/Fil.astro';
+import MiniCarte from '../../components/MiniCarte.astro';
 import Statut from '../../components/Statut.astro';
 import Base from '../../layouts/Base.astro';
 import { estCategorieFiche } from '../../lib/categories';
-import { plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
+import { extrait, hrefFiche, plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
 import { slugifier } from '../../lib/slug';
 import { categorieParId, themesDe } from '../../lib/site';
 import { urlLicence, withBase } from '../../lib/urls';
@@ -32,6 +33,19 @@ const licenceHref = image ? urlLicence(image.licence) : null;
 const noticeMerimee = fiche.data.merimee
   ? `https://www.pop.culture.gouv.fr/notice/merimee/${fiche.data.merimee}`
   : null;
+const brut = extrait(fiche.body, 320);
+const coupure = brut.search(/[.!?…]/);
+const phrase =
+  coupure >= 40 && coupure <= 220
+    ? brut.slice(0, coupure + 1)
+    : fiche.data.periode.trim() || brut;
+const autres = fiches.filter((entree) => entree.data.id !== fiche.data.id);
+const memeCommune = autres.filter((entree) => entree.data.commune === fiche.data.commune);
+const voisines = (memeCommune.length > 0
+  ? memeCommune
+  : autres.filter((entree) => entree.data.categorie === fiche.data.categorie)
+).slice(0, 4);
+const aCoordonnees = typeof fiche.data.latitude === 'number' && typeof fiche.data.longitude === 'number';
 ---
 
 <Base titre={fiche.data.titre} description={fiche.data.periode}>
@@ -94,6 +108,39 @@ const noticeMerimee = fiche.data.merimee
       }
     </header>
 
+    <div class="edition">
+      {
+        image && (
+          <figure class="edition-image">
+            <img src={image.url} alt={fiche.data.titre} loading="lazy" decoding="async" />
+            <figcaption>
+              {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+            </figcaption>
+          </figure>
+        )
+      }
+      {phrase && <p class="edition-phrase">{phrase}</p>}
+      <aside class="en-bref">
+        <h2>En bref</h2>
+        <dl>
+          <div>
+            <dt>Dates</dt>
+            <dd>{plage(fiche)}</dd>
+          </div>
+          <div>
+            <dt>Commune</dt>
+            <dd><a href={communeHref}>{fiche.data.commune}</a></dd>
+          </div>
+          <div>
+            <dt>Protection</dt>
+            <dd>
+              {noticeMerimee ? <a href={noticeMerimee}>{fiche.data.merimee}</a> : 'Non indiquée'}
+            </dd>
+          </div>
+        </dl>
+      </aside>
+    </div>
+
     {
       image && (
         <figure class="figure-fiche">
@@ -130,6 +177,35 @@ const noticeMerimee = fiche.data.merimee
         }
       </ol>
     </section>
+
+    {
+      aCoordonnees && (
+        <section class="mini-carte-bloc" aria-labelledby="titre-mini-carte">
+          <h2 id="titre-mini-carte">Situation</h2>
+          <MiniCarte
+            latitude={fiche.data.latitude as number}
+            longitude={fiche.data.longitude as number}
+            identifiant={fiche.data.id}
+          />
+        </section>
+      )
+    }
+
+    {
+      voisines.length > 0 && (
+        <section class="voisines" aria-labelledby="titre-voisines">
+          <h2 id="titre-voisines">Fiches voisines</h2>
+          <ul>
+            {voisines.map((voisine) => (
+              <li>
+                <a href={withBase(hrefFiche(voisine))}>{voisine.data.titre}</a>
+                <span>{voisine.data.commune}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
 
     <p class="lien-suite">
       <a href={withBase(`/${fiche.data.categorie}/frise/`)}>Voir cette catégorie sur la frise</a>
