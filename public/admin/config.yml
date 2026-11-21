@@ -432,7 +432,7 @@ collections:
         widget: markdown
 
   - name: agenda
-    label: Animations
+    label: Prochaines animations
     label_singular: Animation
     folder: contenu/agenda
     create: true
@@ -848,7 +848,7 @@ collections:
                 name: evenements-historiques
                 widget: object
                 fields: *image_rubrique
-              - label: Animations
+              - label: Prochaines animations
                 name: agenda
                 widget: object
                 fields: *image_rubrique
@@ -944,7 +944,7 @@ collections:
                     - label: Libellé
                       name: libelle
                       widget: string
-            - label: Animations
+            - label: Prochaines animations
               name: agenda
               widget: object
               fields:

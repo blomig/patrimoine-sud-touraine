@@ -60,8 +60,8 @@ export const MODELES: Categorie[] = [
   },
   {
     id: 'agenda',
-    titre: 'Animations',
-    court: 'Animations',
+    titre: 'Prochaines animations',
+    court: 'Prochaines animations',
     resume: 'Visites, ateliers et rendez-vous. Une animation dont la date est passée ne s’affiche plus.',
     frise: false,
   },

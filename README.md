@@ -83,7 +83,7 @@ Champs utiles :
 | `image` | Un seul objet (`url`, `page_commons`, `licence`, `auteur`) ou `null`. Uniquement une image libre. |
 | `sources` | Liste de `{ titre, url }`. |
 | `statut` | `à vérifier` ou `validé` pour une fiche. `à valider` ou `publié` pour une animation. |
-| `lieu` | Animations seulement. |
+| `lieu` | Prochaines animations seulement. |
 
 Le corps du fichier, sous les `---`, est le texte de la fiche. Il ne faut pas le réécrire à la légère : c’est le corpus.
 
