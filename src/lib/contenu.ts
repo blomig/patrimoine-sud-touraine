@@ -4,6 +4,7 @@ import { estCategorie, type CategorieId } from './categories';
 import { cleDebut, formatPlage, periodeTerminee } from './dates';
 import { slugifier } from './slug';
 import { themesDe } from './site';
+import { communesDuTerritoire, type CommuneTerritoire } from './territoire';
 import { resoudreThemes, type Theme } from './themes';
 
 export type Fiche = CollectionEntry<'fiches'>;
@@ -109,6 +110,23 @@ export async function communes(): Promise<CommuneGroupe[]> {
   return [...groupes.values()]
     .map((groupe) => ({ ...groupe, fiches: groupe.fiches.sort(comparerTitre) }))
     .sort((a, b) => a.nom.localeCompare(b.nom, 'fr'));
+}
+
+export type CommuneComplete = CommuneTerritoire & { fiches: Fiche[] };
+
+/** Les 67 communes, avec les fiches rattachées par code INSEE. */
+export async function communesCompletes(): Promise<CommuneComplete[]> {
+  const fiches = await toutesLesFiches();
+  const parCode = new Map<string, Fiche[]>();
+  for (const fiche of fiches) {
+    const liste = parCode.get(fiche.data.insee) ?? [];
+    liste.push(fiche);
+    parCode.set(fiche.data.insee, liste);
+  }
+  return communesDuTerritoire().map((commune) => ({
+    ...commune,
+    fiches: (parCode.get(commune.code) ?? []).sort(comparerTitre),
+  }));
 }
 
 export async function agendaVisibleMaintenant(now: Date = new Date()): Promise<Fiche[]> {

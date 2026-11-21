@@ -93,6 +93,10 @@ Pour une animation, le dossier est `contenu/agenda/`, la catégorie `agenda`, et
 
 `contenu/associations.yml` est l’annuaire. Les champs vides restent `null` plutôt que d’être inventés. Les sources y sont de simples adresses web.
 
+`contenu/categories.yml` donne l’image d’illustration de chaque rubrique (légende, fichier, page Wikimedia, auteur, licence). On la change dans l’administration, fichier « Illustrations des rubriques », sans toucher au code. L’image apparaît sur l’accueil et en tête de la rubrique.
+
+La page Communes affiche les contours des 67 communes (EPCI 200071587), stockés dans `public/data/communes-loches-sud-touraine.geojson`. Le fichier vient de geo.api.gouv.fr et a été simplifié pour l’affichage : le site ne rappelle pas l’API à chaque visite.
+
 ## Changer de design
 
 Le design publié est la valeur `design` de `contenu/site.yml` :

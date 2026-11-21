@@ -3,23 +3,27 @@ import Fil from '../../components/Fil.astro';
 import ListeFiches from '../../components/ListeFiches.astro';
 import Base from '../../layouts/Base.astro';
 import { agendaVisibleSi } from '../../lib/agenda';
+import { communesCompletes } from '../../lib/contenu';
 import { periodeTerminee } from '../../lib/dates';
-import { communes } from '../../lib/contenu';
 import { listeCategories } from '../../lib/site';
 import { withBase } from '../../lib/urls';
 
 export async function getStaticPaths() {
-  const groupes = await communes();
+  const groupes = await communesCompletes();
   return groupes.map((groupe) => ({ params: { slug: groupe.slug } }));
 }
 
-const groupes = await communes();
+const groupes = await communesCompletes();
 const groupe = groupes.find((entree) => entree.slug === Astro.params.slug);
 if (!groupe) throw new Error('Commune introuvable');
 const categories = listeCategories();
+const visibles = groupe.fiches.filter((fiche) => {
+  if (fiche.data.categorie !== 'agenda') return true;
+  return agendaVisibleSi(fiche.data.statut, periodeTerminee(fiche.data.date_fin, fiche.data.date_debut));
+});
 ---
 
-<Base titre={groupe.nom} description={`Fiches liées à ${groupe.nom}, code INSEE ${groupe.insee}.`}>
+<Base titre={groupe.nom} description={`Commune de ${groupe.nom}, code INSEE ${groupe.code}, Loches Sud Touraine.`}>
   <Fil
     crumbs={[
       { href: withBase('/communes/'), label: 'Communes' },
@@ -29,27 +33,23 @@ const categories = listeCategories();
   <header class="entete-page">
     <h1>{groupe.nom}</h1>
     <p class="chapo">
-      Code INSEE {groupe.insee}. {groupe.fiches.length} fiche{groupe.fiches.length > 1 ? 's' : ''}{' '}
-      citent cette commune. Les animations passées ne sont pas reprises.
+      Code INSEE {groupe.code}. Commune de la communauté de communes Loches Sud Touraine.
     </p>
   </header>
   {
-    categories.map((categorie) => {
-      const fiches = groupe.fiches.filter((fiche) => {
-        if (fiche.data.categorie !== categorie.id) return false;
-        if (categorie.id !== 'agenda') return true;
-        return agendaVisibleSi(
-          fiche.data.statut,
-          periodeTerminee(fiche.data.date_fin, fiche.data.date_debut),
+    visibles.length === 0 ? (
+      <p class="vide">Fiches à venir.</p>
+    ) : (
+      categories.map((categorie) => {
+        const fiches = visibles.filter((fiche) => fiche.data.categorie === categorie.id);
+        if (fiches.length === 0) return null;
+        return (
+          <section class="bloc">
+            <h2>{categorie.titre}</h2>
+            <ListeFiches fiches={fiches} />
+          </section>
         );
-      });
-      if (fiches.length === 0) return null;
-      return (
-        <section class="bloc">
-          <h2>{categorie.titre}</h2>
-          <ListeFiches fiches={fiches} />
-        </section>
-      );
-    })
+      })
+    )
   }
 </Base>

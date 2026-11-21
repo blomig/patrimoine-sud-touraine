@@ -1,43 +1,121 @@
 ---
 import Fil from '../../components/Fil.astro';
 import Base from '../../layouts/Base.astro';
-import { communes } from '../../lib/contenu';
+import { communesCompletes } from '../../lib/contenu';
 import { withBase } from '../../lib/urls';
+import 'leaflet/dist/leaflet.css';
 
-const groupes = await communes();
-const pilotes = new Set([
-  'loches',
-  'la-chapelle-blanche-saint-martin',
-  'bournan',
-  'sepmes',
-  'civray-sur-esves',
-]);
+const groupes = await communesCompletes();
+const meta = Object.fromEntries(
+  groupes.map((commune) => [
+    commune.code,
+    {
+      href: withBase(`/communes/${commune.slug}/`),
+      count: commune.fiches.length,
+      nom: commune.nom,
+    },
+  ]),
+);
+const geojson = withBase('/data/communes-loches-sud-touraine.geojson');
 ---
 
 <Base
   titre="Communes"
-  description="Pages des communes citées par au moins une fiche, dont les cinq communes pilotes."
+  description="Carte des 67 communes de Loches Sud Touraine. Le survol affiche le nom, le clic ouvre la page de la commune."
 >
   <Fil crumbs={[{ label: 'Communes' }]} />
   <header class="entete-page">
     <h1>Communes</h1>
     <p class="chapo">
-      Chaque commune citée par une fiche a sa page. Les cinq communes pilotes sont Loches,
-      La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves. D’autres communes
-      apparaissent lorsqu’une animation du corpus s’y tient.
+      Les 67 communes de la communauté de communes Loches Sud Touraine. Survolez un contour
+      pour lire le nom, cliquez pour ouvrir la page. Les communes déjà documentées sont en
+      bleu. Les autres ont quand même une page, avec la mention «&nbsp;fiches à venir&nbsp;».
     </p>
   </header>
+
+  <ul class="legende-carte">
+    <li><span class="pastille pastille-active"></span> Commune avec des fiches</li>
+    <li><span class="pastille pastille-vide"></span> Fiches à venir</li>
+  </ul>
+  <div id="carte-communes" class="plan plan-communes" role="region" aria-label="Carte des communes"></div>
+  <p class="mention-carte">
+    Contours simplifiés issus de geo.api.gouv.fr pour l’EPCI 200071587, conservés dans le dépôt.
+    La liste qui suit reste utilisable si la carte ne s’affiche pas.
+  </p>
+  <script type="application/json" id="communes-meta" set:html={JSON.stringify({ geojson, meta })} />
+  <script>
+    import L from 'leaflet';
+
+    const brut = document.getElementById('communes-meta')?.textContent ?? '{}';
+    const { geojson, meta } = JSON.parse(brut) as {
+      geojson: string;
+      meta: Record<string, { href: string; count: number; nom: string }>;
+    };
+    const conteneur = document.getElementById('carte-communes');
+
+    function echapper(valeur: string): string {
+      return valeur.replace(/[&<>"']/g, (caractere) => {
+        const table: Record<string, string> = {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+        };
+        return table[caractere] ?? caractere;
+      });
+    }
+
+    if (conteneur) {
+      const plan = L.map(conteneur, { scrollWheelZoom: true });
+      plan.attributionControl.addAttribution(
+        'Contours : <a href="https://geo.api.gouv.fr/epcis/200071587">geo.api.gouv.fr</a>, EPCI 200071587',
+      );
+      const reponse = await fetch(geojson);
+      const donnees = await reponse.json();
+      const couche = L.geoJSON(donnees, {
+        style: (feature) => {
+          const code = feature?.properties?.code as string;
+          const actif = (meta[code]?.count ?? 0) > 0;
+          return {
+            color: actif ? '#1a365d' : '#7c6b5a',
+            weight: actif ? 2.2 : 1,
+            fillColor: actif ? '#2c5f8a' : '#f6ecdf',
+            fillOpacity: actif ? 0.78 : 0.92,
+          };
+        },
+        onEachFeature: (feature, layer) => {
+          const code = feature.properties.code as string;
+          const info = meta[code];
+          if (!info) return;
+          const detail = info.count > 0 ? `${info.count} fiche${info.count > 1 ? 's' : ''}` : 'Fiches à venir';
+          layer.bindTooltip(`${echapper(info.nom)} — ${detail}`, { sticky: true, direction: 'top' });
+          layer.on('mouseover', () => {
+            layer.setStyle({ weight: 3.5, color: '#102a43' });
+          });
+          layer.on('mouseout', () => {
+            couche.resetStyle(layer);
+          });
+          layer.on('click', () => {
+            window.location.href = info.href;
+          });
+        },
+      }).addTo(plan);
+      plan.fitBounds(couche.getBounds(), { padding: [16, 16] });
+    }
+  </script>
+
+  <h2>Les 67 communes</h2>
   <ul class="liste-communes">
     {
-      groupes.map((groupe) => (
+      groupes.map((commune) => (
         <li>
-          <a href={withBase(`/communes/${groupe.slug}/`)}>
-            <span>
-              {groupe.nom}
-              {pilotes.has(groupe.slug) ? ' · pilote' : ''}
-            </span>
+          <a href={withBase(`/communes/${commune.slug}/`)} class:list={[commune.fiches.length > 0 && 'commune-documentee']}>
+            <span>{commune.nom}</span>
             <small>
-              {groupe.fiches.length} fiche{groupe.fiches.length > 1 ? 's' : ''}
+              {commune.fiches.length > 0
+                ? `${commune.fiches.length} fiche${commune.fiches.length > 1 ? 's' : ''}`
+                : 'Fiches à venir'}
             </small>
           </a>
         </li>

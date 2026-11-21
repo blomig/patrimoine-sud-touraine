@@ -1,96 +1,65 @@
 ---
 import Base from '../layouts/Base.astro';
+import Statut from '../components/Statut.astro';
 import { agendaVisibleMaintenant, extrait, hrefFiche } from '../lib/contenu';
 import { formatPlage } from '../lib/dates';
-import { slugifier } from '../lib/slug';
 import { chargerSite, listeCategories } from '../lib/site';
-import { withBase } from '../lib/urls';
-import Statut from '../components/Statut.astro';
+import { urlLicence, withBase } from '../lib/urls';
 
 const site = chargerSite();
 const categories = listeCategories();
 const evenements = await agendaVisibleMaintenant();
-const pilotes = [
-  'Loches',
-  'La Chapelle-Blanche-Saint-Martin',
-  'Bournan',
-  'Sepmes',
-  'Civray-sur-Esves',
-];
-const description =
-  'Cahier documentaire sur le patrimoine de Loches Sud Touraine. Fiches des communes pilotes, carte et agenda.';
 ---
 
-<Base titre={site.titre} description={description}>
-  <section class="hero">
+<Base
+  titre={site.titre}
+  description="Patrimoine de Loches Sud Touraine : cinq rubriques, les communes du territoire et les prochaines animations."
+>
+  <section class="hero hero-court">
     <p class="chapo">
-      Un cahier public pour rassembler, commune par commune, ce que l’on sait du patrimoine
-      du Sud Touraine : bâtiments, personnes, événements, et les rendez-vous à venir.
+      Un cahier public du patrimoine de Loches Sud Touraine : bâtiments, personnes, événements
+      et rendez-vous à venir.
     </p>
-    <div class="hero-texte">
-      <p>
-        La communauté de communes Loches Sud Touraine réunit 67 communes du sud-est de
-        l’Indre-et-Loire. Elle a été créée le 1<sup>er</sup> janvier 2017 par la fusion des
-        communautés de communes du Grand Ligueillois, de Loches Développement, de Montrésor
-        et de la Touraine du Sud. Son siège est à Loches, 12 avenue de la Liberté.
-      </p>
-      <p>
-        Le territoire va, entre autres, de Cormery et Loches à Descartes, Ligueil,
-        Preuilly-sur-Claise, Montrésor et Le Grand-Pressigny. Le contrat de relance et de
-        transition écologique signé pour 2021-2026 indique une superficie de 1&nbsp;809&nbsp;km².
-      </p>
-      <p>
-        Cette version s’appuie sur un corpus pilote, surtout pour cinq communes : Loches,
-        La Chapelle-Blanche-Saint-Martin, Bournan, Sepmes et Civray-sur-Esves. Les fiches
-        portent le badge «&nbsp;à vérifier&nbsp;». Les animations encore «&nbsp;à valider&nbsp;»
-        sont visibles, avec la mention «&nbsp;en attente de validation&nbsp;».
-      </p>
-    </div>
-    <details class="sources-intro">
-      <summary>Sources de cette présentation</summary>
-      <ul>
-        <li>
-          <a href="https://catalogue.bnf.fr/ark:/12148/cb17752699d">Bibliothèque nationale de France, notice de la collectivité</a>
-        </li>
-        <li>
-          <a href="https://www.lochessudtouraine.com/lorganisation-politique-de-loches-sud-touraine">Loches Sud Touraine, organisation politique</a>
-        </li>
-        <li>
-          <a href="https://www.banatic.interieur.gouv.fr/intercommunalite/200071587-cc-loches-sud-touraine">BANATIC, fiche de l’intercommunalité</a>
-        </li>
-        <li>
-          <a href="https://media.anct.gouv.fr/s3fs-public/2022-04/crte-24-37-6%20CRTE%20Loches%20Sud%20Touraine.pdf">ANCT, contrat de relance et de transition écologique, 2022</a>
-        </li>
-      </ul>
-    </details>
-  </section>
-
-  <section class="bloc" aria-labelledby="titre-pilotes">
-    <h2 id="titre-pilotes">Communes du corpus</h2>
-    <ul class="liens-larges">
-      {
-        pilotes.map((nom) => (
-          <li>
-            <a href={withBase(`/communes/${slugifier(nom)}/`)}>{nom}</a>
-          </li>
-        ))
-      }
-    </ul>
+    <p>
+      On entre par une rubrique, par la carte des communes, ou par les animations du moment.{' '}
+      <a href={withBase('/qu-est-ce-que-ce-site/')}>Qu’est-ce que ce site ?</a>
+    </p>
   </section>
 
   <section class="bloc" aria-labelledby="titre-categories">
     <h2 id="titre-categories">Cinq entrées</h2>
     <ul class="tuiles">
       {
-        categories.map((categorie, index) => (
-          <li>
-            <a class="tuile" href={withBase(`/${categorie.id}/`)}>
-              <span class="tuile-numero">{String(index + 1).padStart(2, '0')}</span>
-              <span class="tuile-titre">{categorie.titre}</span>
-              <span class="tuile-texte">{categorie.resume}</span>
-            </a>
-          </li>
-        ))
+        categories.map((categorie, index) => {
+          const image = categorie.illustration;
+          const licence = image ? urlLicence(image.licence) : null;
+          return (
+            <li class="tuile-bloc">
+              <a class="tuile" href={withBase(`/${categorie.id}/`)}>
+                {image && (
+                  <img
+                    class="tuile-image"
+                    src={image.fichier ? withBase(image.fichier) : image.url}
+                    alt={image.legende}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
+                <span class="tuile-texte-bloc">
+                  <span class="tuile-numero">{String(index + 1).padStart(2, '0')}</span>
+                  <span class="tuile-titre">{categorie.titre}</span>
+                  <span class="tuile-texte">{categorie.resume}</span>
+                </span>
+              </a>
+              {image && (
+                <p class="credit-tuile">
+                  {image.auteur}. {licence ? <a href={licence}>{image.licence}</a> : image.licence}.{' '}
+                  <a href={image.url}>Wikimedia Commons</a>.
+                </p>
+              )}
+            </li>
+          );
+        })
       }
     </ul>
   </section>
@@ -119,15 +88,5 @@ const description =
       )
     }
     <p><a class="lien-suite" href={withBase('/agenda/')}>Ouvrir l’agenda</a></p>
-  </section>
-
-  <section class="bloc raccourcis">
-    <h2>Aller plus loin</h2>
-    <ul class="liens-larges">
-      <li><a href={withBase('/carte/')}>Carte des fiches géolocalisées</a></li>
-      <li><a href={withBase('/recherche/')}>Recherche dans les textes</a></li>
-      <li><a href={withBase('/associations/')}>Annuaire des associations</a></li>
-      <li><a href={withBase('/a-propos/')}>À propos de ce site</a></li>
-    </ul>
   </section>
 </Base>

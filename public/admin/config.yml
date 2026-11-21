@@ -551,6 +551,52 @@ collections:
                 value: carnet
               - label: Musée
                 value: musee
+      - label: Illustrations des rubriques
+        name: categories
+        file: contenu/categories.yml
+        fields:
+          - label: Rubriques
+            name: categories
+            widget: object
+            fields:
+              - label: Bâtiments anciens disparus
+                name: batiments-anciens-disparus
+                widget: object
+                fields: &image_rubrique
+                  - label: Légende
+                    name: legende
+                    widget: string
+                  - label: Fichier dans le dépôt
+                    name: fichier
+                    widget: string
+                    required: false
+                    hint: Par exemple /media/categories/photo.jpg. Laisser vide pour afficher directement l'adresse ci-dessous.
+                  - label: Page Wikimedia Commons
+                    name: url
+                    widget: string
+                  - label: Auteur
+                    name: auteur
+                    widget: string
+                  - label: Licence
+                    name: licence
+                    widget: string
+                    hint: Par exemple CC BY-SA 4.0 ou Domaine public.
+              - label: Bâtiments anciens encore existants
+                name: batiments-anciens-existants
+                widget: object
+                fields: *image_rubrique
+              - label: Personnes
+                name: personnes
+                widget: object
+                fields: *image_rubrique
+              - label: Événements historiques
+                name: evenements-historiques
+                widget: object
+                fields: *image_rubrique
+              - label: Agenda
+                name: agenda
+                widget: object
+                fields: *image_rubrique
       - label: Thèmes
         name: themes
         file: contenu/themes.yml

@@ -1,5 +1,6 @@
 ---
 import Fil from '../../components/Fil.astro';
+import Illustration from '../../components/Illustration.astro';
 import ListeFiches from '../../components/ListeFiches.astro';
 import Base from '../../layouts/Base.astro';
 import { agendaVisibleMaintenant } from '../../lib/contenu';
@@ -12,6 +13,7 @@ const evenements = await agendaVisibleMaintenant();
 <Base titre={categorie.titre} description={categorie.resume}>
   <Fil crumbs={[{ label: categorie.titre }]} />
   <header class="entete-page">
+    {categorie.illustration && <Illustration image={categorie.illustration} />}
     <h1>{categorie.titre}</h1>
     <p class="chapo">{categorie.resume}</p>
   </header>

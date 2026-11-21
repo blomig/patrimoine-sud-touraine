@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { agendaVisibleSi } from '../src/lib/agenda.ts';
 import { cleDebut, cleFin, formatDateSouple, formatPlage, periodeTerminee } from '../src/lib/dates.ts';
@@ -47,6 +48,15 @@ test('l’agenda montre « à valider » tant que la date n’est pas passée', 
   assert.equal(visible('validé', '2026-12-13', '2026-12-06'), false);
   assert.equal(periodeTerminee('2026-11-21', null, maintenant), false);
   assert.equal(periodeTerminee('2026-11-20', null, maintenant), true);
+});
+
+test('le territoire compte 67 communes aux codes uniques', () => {
+  const data = JSON.parse(readFileSync('public/data/communes-loches-sud-touraine.geojson', 'utf8'));
+  assert.equal(data.features.length, 67);
+  const codes = data.features.map((feature) => feature.properties.code);
+  assert.equal(new Set(codes).size, 67);
+  assert.ok(codes.includes('37132'));
+  assert.ok(codes.includes('37057'));
 });
 
 test('les noms de communes pilotes deviennent des adresses stables', () => {

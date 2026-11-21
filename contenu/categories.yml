@@ -1,0 +1,34 @@
+# Illustrations des cinq rubriques. François peut changer l'image, la légende,
+# l'auteur et la licence depuis l'administration. Le fichier local est servi
+# par le site ; l'adresse Wikimedia reste le crédit.
+categories:
+  batiments-anciens-disparus:
+    legende: "Chartreuse du Liget, à Chemillé-sur-Indrois : ruines de l'église et bâtiments plus tardifs."
+    fichier: /media/categories/chartreuse-liget.jpg
+    url: https://commons.wikimedia.org/wiki/File:Chartreuse_panorama.jpg
+    auteur: Joël Thibault
+    licence: CC BY-SA 4.0
+  batiments-anciens-existants:
+    legende: Le donjon de Loches.
+    fichier: /media/categories/donjon-loches.jpg
+    url: https://commons.wikimedia.org/wiki/File:Donjon_Loches.jpg
+    auteur: Christophe Finot (Wikimedia Commons, Christophe.Finot)
+    licence: CC BY-SA 2.5
+  personnes:
+    legende: Le logis royal de Loches.
+    fichier: /media/categories/logis-royal.jpg
+    url: https://commons.wikimedia.org/wiki/File:Logis_royal_Loches.jpg
+    auteur: Christophe Finot (Wikimedia Commons, Christophe.Finot)
+    licence: CC BY-SA 2.5
+  evenements-historiques:
+    legende: La cité royale de Loches, donjon et enceinte.
+    fichier: /media/categories/cite-royale.jpg
+    url: https://commons.wikimedia.org/wiki/File:Loches_Cit%C3%A9_Royale_Donjon_1.jpg
+    auteur: Zairon
+    licence: CC BY-SA 4.0
+  agenda:
+    legende: Le château de Montrésor.
+    fichier: /media/categories/chateau-montresor.jpg
+    url: https://commons.wikimedia.org/wiki/File:Castle_of_Montresor_10.jpg
+    auteur: Krzysztof Golik
+    licence: CC BY-SA 4.0
