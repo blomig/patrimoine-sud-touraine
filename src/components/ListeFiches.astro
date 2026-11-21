@@ -23,7 +23,6 @@ const { fiches } = Astro.props as { fiches: Fiche[] };
               commune={fiche.data.commune}
               periode={fiche.data.periode}
               plage={plage(fiche)}
-              statut={fiche.data.statut}
               themes={connus.map((theme) => theme.libelle)}
             />
           </li>

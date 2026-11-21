@@ -526,23 +526,6 @@ a.nav-pastille[aria-current="page"] {
   color: inherit;
 }
 
-.badge-statut {
-  margin: 0.45rem 0 0;
-}
-
-.badge-statut span {
-  display: inline-block;
-  border: 1px solid var(--encre-douce);
-  color: var(--encre-douce);
-  border-radius: 999px;
-  padding: 0.05rem 0.6rem;
-  font-size: 0.95rem;
-}
-
-.badge-attente span {
-  border-style: dashed;
-}
-
 .nav-themes a {
   display: block;
   text-decoration: none;
