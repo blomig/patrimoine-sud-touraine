@@ -17,6 +17,8 @@ statut: "à vérifier"
 sources:
   - titre: "Les monuments aux morts de la Riolle (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/les-monuments-aux-morts-de-la-riolle/"
+  - titre: "Les 47 combattants de La Chapelle Blanche St Martin (1) (valleedelariolle.fr)"
+    url: "https://valleedelariolle.fr/les-47-combattants-de-la-chapelle-blanche-st-martin-1/"
 image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2021/04/la-chapelle-blanche2.jpg"
   page_commons: null
@@ -29,3 +31,5 @@ Le monument aux morts de La Chapelle-Blanche-Saint-Martin a été érigé en 192
 Les dates portées sur le monument sont 1914-1919, ce qui, selon l'article, prend en compte des décès constatés après l'armistice. L'inscription du socle, sur la face sud, est : « A la mémoire glorieuse des enfants de la Chapelle Blanche morts pour la France ». Au bas du monument, une plaque de marbre honore François Piard, mort en 1918, sans autre précision sur ce choix. La face nord porte la liste des disparus de 1914-1918 (45 noms) et ceux de la Seconde Guerre mondiale (6 noms, dont l'article distingue trois « morts au champ d'honneur », deux « victimes civiles » et un nom sans mention). L'article s'appuie sur le dépouillement de Raymonde Janvier, publié en 1991 dans le bulletin communal n° 14, et détaille la chronologie des pertes de 1914-1918 (onze morts dès 1914, six en 1915, neuf en 1916 dont vraisemblablement six à Verdun, cinq en 1917, neuf en 1918 dont quatre après l'armistice, deux encore en 1919-1920, trois disparus sans date ni lieu). Plusieurs familles sont particulièrement éprouvées (Gentilhomme, Vuillaumé, Dalloneau, Naulet). La face est porte une vitrine protégeant un panneau émaillé de dix-sept portraits de poilus.
 
 Le recensement de 1911 donne 909 habitants, celui de 1921, 836. L'article évalue à environ 4,95 % de la population totale la part des décès imputables à la guerre de 1914-1918, la plus élevée des quatre communes de la Riolle. Les photographies anciennes de poilus conservées dans la vitrine n'ont pas été reprises comme illustration.
+
+Un article ultérieur du même blog (14 mai 2023) présente l'ouvrage de Jean-Claude Chaumont consacré aux combattants de la commune morts du fait de la guerre de 1914-1918. Le titre parle de 47 noms, alors que le dépouillement repris ci-dessus, d'après Raymonde Janvier, en compte 45 sur le monument du cimetière, avec des graphies parfois différentes. La liste, les écarts de décompte et le détail des recherches de matricules sont traités dans la fiche d'événement « Les combattants de La Chapelle-Blanche-Saint-Martin (1914-1920) ».
