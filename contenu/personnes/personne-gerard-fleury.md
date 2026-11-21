@@ -17,7 +17,11 @@ statut: "à vérifier"
 sources:
   - titre: "Notre-Dame de Sepmes (1) : le travail de Gérard Fleury (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/notre-dame-de-sepmes-1-le-travail-de-gerard-fleury/"
-image: null
+image:
+  url: "https://valleedelariolle.fr/wp-content/uploads/2024/01/gerard-Fleury.png"
+  page_commons: null
+  licence: "Autorisation de l'auteur pour ce site"
+  auteur: "Vallée de la Riolle"
 ---
 
 Gérard Fleury, né à Tours, fut agrégé de mathématiques et exerça au lycée Alfred-de-Vigny à Loches. Passionné d'art religieux du Moyen Âge, il s'était fait connaître, d'après valleedelariolle.fr, comme spécialiste de l'architecture et de la sculpture romanes. Le même article lui attribue une cinquantaine d'études sur des monuments et quatre livres publiés aux éditions Hugues de Chivré.
@@ -25,3 +29,5 @@ Gérard Fleury, né à Tours, fut agrégé de mathématiques et exerça au lycé
 Il fut membre des Amis du pays lochois, de la Société archéologique de Touraine et de la Société française d'archéologie, et un temps de la Société pour la sauvegarde du cadre ligolien, devenue l'association Mémoire et Patrimoine en Ligueillois, avec laquelle il participa à l'édition d'une plaquette sur l'église Notre-Dame de Sepmes. Il écrivit sur cette église un texte de référence et contribua, selon le blog, à la faire classer (l'église est inscrite depuis le 30 avril 2010).
 
 *La Nouvelle République* a annoncé sa disparition le 14 novembre 2023. La date exacte du décès et l'année de naissance n'ont pas été reprises dans l'article source. Cette fiche ne développe pas d'autres éléments de vie privée.
+
+Le portrait retenu est celui publié par valleedelariolle.fr pour présenter son travail sur Notre-Dame de Sepmes.
