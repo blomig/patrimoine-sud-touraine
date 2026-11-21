@@ -1808,7 +1808,14 @@ code {
 [data-design="revue-marine"] [data-rubrique="batiments-anciens-disparus"] { order: 1; }
 [data-design="revue-marine"] [data-rubrique="batiments-anciens-existants"] { order: 2; }
 [data-design="revue-marine"] [data-rubrique="personnes"] { order: 3; }
-[data-design="revue-marine"] [data-rubrique="evenements-historiques"] { order: 4; }
+[data-design="revue-marine"] [data-rubrique="evenements-historiques"] {
+  order: 4;
+  max-width: 9.2rem;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.15;
+  justify-content: center;
+}
 [data-design="revue-marine"] [data-rubrique="vie-economique"] { order: 5; }
 [data-design="revue-marine"] [data-rubrique="documents"] { order: 6; }
 

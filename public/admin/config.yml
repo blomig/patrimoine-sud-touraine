@@ -328,8 +328,8 @@ collections:
         widget: markdown
 
   - name: evenements-historiques
-    label: Événements
-    label_singular: Événement
+    label: Événements historiques
+    label_singular: Événement historique
     folder: contenu/evenements-historiques
     create: true
     extension: md
@@ -861,7 +861,7 @@ collections:
                 name: personnes
                 widget: object
                 fields: *image_rubrique
-              - label: Événements
+              - label: Événements historiques
                 name: evenements-historiques
                 widget: object
                 fields: *image_rubrique
@@ -942,7 +942,7 @@ collections:
                     - label: Libellé
                       name: libelle
                       widget: string
-            - label: Événements
+            - label: Événements historiques
               name: evenements-historiques
               widget: object
               fields:

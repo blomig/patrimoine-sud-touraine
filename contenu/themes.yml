@@ -53,7 +53,7 @@ categories:
         libelle: Figures locales de Descartes
 
   evenements-historiques:
-    libelle: Événements
+    libelle: Événements historiques
     themes:
       - id: moyen-age-et-plantegenets
         libelle: Moyen Âge et Plantagenêts
