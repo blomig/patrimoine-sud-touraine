@@ -801,7 +801,7 @@ collections:
           - label: Design
             name: design
             widget: select
-            hint: Le seul réglage de l'apparence publiée. Comparer les quatre sur la page Designs.
+            hint: Le seul réglage de l'apparence publiée. Comparer les cinq sur la page Designs.
             options:
               - label: Revue savante
                 value: revue
@@ -811,6 +811,8 @@ collections:
                 value: musee
               - label: Contemporain
                 value: contemporain
+              - label: Minimal
+                value: minimal
       - label: Illustrations des rubriques
         name: categories
         file: contenu/categories.yml

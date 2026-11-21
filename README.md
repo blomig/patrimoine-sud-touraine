@@ -106,6 +106,7 @@ Le design publié est la valeur `design` de `contenu/site.yml` :
 - `revue` — revue savante, empattements, tuffeau et ardoise
 - `carnet` — carnet de voyage, papier chaud, cartes
 - `musee` — salle claire, grands titres sans empattement
+- `minimal` — fond blanc, JetBrains Mono, noir, gris et surlignage jaune
 
 C’est le seul réglage. On peut le modifier dans le fichier ou dans l’administration, rubrique « Design publié ».
 

@@ -1,6 +1,6 @@
 # Réglage unique du design publié.
-# Valeurs possibles : revue, carnet, musee, contemporain.
-# La page /designs/ permet de comparer les quatre sans modifier ce fichier.
+# Valeurs possibles : revue, carnet, musee, contemporain, minimal.
+# La page /designs/ permet de comparer les cinq sans modifier ce fichier.
 design: revue
 titre: Patrimoine du Sud Touraine
 # {n} est recalculé à chaque construction : nombre de fiches hors agenda.

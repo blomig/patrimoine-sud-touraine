@@ -18,7 +18,8 @@ const rubriques = [
   })),
 ];
 const liens = [
-  { href: withBase('/'), label: 'Accueil' },
+  { href: withBase('/'), label: 'Accueil', classe: 'lien-accueil' },
+  { href: withBase('/communes/'), label: 'Communes', classe: 'lien-minimal' },
   { href: withBase('/qu-est-ce-que-ce-site/'), label: 'Qu’est-ce que ce site ?' },
   { href: withBase('/carte/'), label: 'Carte des fiches' },
   { href: withBase('/associations/'), label: 'Annuaire' },
@@ -67,7 +68,7 @@ function estIci(href: string): boolean {
       <summary>Menu</summary>
       <nav class="nav-principal" aria-label="Navigation principale">
         {liens.map((lien) => (
-          <a href={lien.href} aria-current={ici === lien.href ? 'page' : undefined}>
+          <a class:list={[lien.classe]} href={lien.href} aria-current={ici === lien.href ? 'page' : undefined}>
             {lien.label}
           </a>
         ))}
@@ -88,7 +89,8 @@ function estIci(href: string): boolean {
   const large = window.matchMedia('(min-width: 64rem)');
   const ajuster = () => {
     if (!menu) return;
-    if (large.matches) menu.open = true;
+    const minimal = document.documentElement.dataset.design === 'minimal';
+    if (large.matches || minimal) menu.open = true;
   };
   ajuster();
   large.addEventListener('change', ajuster);
