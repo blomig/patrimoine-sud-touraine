@@ -10,10 +10,11 @@ const nombreFiches = fiches.filter((fiche) => fiche.data.categorie !== 'agenda')
 const sousTitre = appliquerNombre(site.sous_titre, nombreFiches);
 const ici = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 const rubriques = [
-  { href: withBase('/communes/'), label: 'Communes', animations: false },
+  { href: withBase('/communes/'), label: 'Communes', id: 'communes', animations: false },
   ...listeCategories().map((categorie) => ({
     href: withBase(`/${categorie.id}/`),
     label: categorie.titre,
+    id: categorie.id,
     animations: categorie.id === 'agenda',
   })),
 ];
@@ -38,6 +39,7 @@ function estIci(href: string): boolean {
     <p class="marque marque-musee">Parcours musée</p>
     <p class="marque marque-contemporain">Contemporain</p>
     <a class="nom-site" href={withBase('/')}>{site.titre}</a>
+    <a class="nom-site nom-site-marine" href={withBase('/')}>Patrimoine du Sud-Touraine</a>
     <p class="sous-titre">{sousTitre}</p>
   </div>
   <div class="barre-menu">
@@ -46,6 +48,7 @@ function estIci(href: string): boolean {
         rubriques.map((rubrique) => (
           <a
             class:list={['nav-pastille', rubrique.animations && 'nav-pastille-animations']}
+            data-rubrique={rubrique.id}
             href={rubrique.href}
             aria-current={estIci(rubrique.href) ? 'page' : undefined}
           >

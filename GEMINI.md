@@ -56,7 +56,7 @@ public/data/
 public/media/categories/    images d’illustration déjà téléchargées
 public/admin/               CMS (config.yml, index.html)
 src/pages/                  pages du site
-src/styles/global.css       les cinq designs
+src/styles/global.css       les six designs
 src/content.config.ts       schéma Zod des fiches
 astro.config.mjs            site et chemin de base
 .github/workflows/pages.yml build, tests, déploiement
@@ -192,9 +192,9 @@ Ajouter un bloc dans `contenu/associations.yml` sans réécrire les autres :
 
 ## Design et styles
 
-Le design publié est la clé `design` de `contenu/site.yml` : `revue`, `carnet`, `musee`, `contemporain` ou `minimal`. C’est le seul réglage. La page `/designs/` permet de comparer sans changer le fichier. Le publié par défaut reste `revue`.
+Le design publié est la clé `design` de `contenu/site.yml` : `revue`, `carnet`, `musee`, `contemporain`, `minimal` ou `revue-marine`. C’est le seul réglage. La page `/designs/` permet de comparer sans changer le fichier. Le publié par défaut reste `revue`.
 
-Les cinq apparences sont dans `src/styles/global.css`, sous `[data-design="…"]`. Les polices sont importées dans `src/layouts/Base.astro` (JetBrains Mono pour `minimal`, auto-hébergée). Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas créer un sixième design sans demande.
+Les six apparences sont dans `src/styles/global.css`, sous `[data-design="…"]`. `revue-marine` reprend la revue sans modifier l’original. Les polices sont importées dans `src/layouts/Base.astro`. Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas créer un autre design sans demande.
 
 ## Règles imposées
 

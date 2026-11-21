@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import CarteTerritoire from '../components/CarteTerritoire.astro';
+import Illustration from '../components/Illustration.astro';
 import ListeAgenda from '../components/ListeAgenda.astro';
 import { agendaVisibleMaintenant } from '../lib/contenu';
 import { chargerSite, listeCategories } from '../lib/site';
@@ -8,6 +9,7 @@ import { urlLicence, withBase } from '../lib/urls';
 
 const site = chargerSite();
 const categories = listeCategories();
+const agenda = categories.find((categorie) => categorie.id === 'agenda');
 const evenements = await agendaVisibleMaintenant();
 ---
 
@@ -16,15 +18,15 @@ const evenements = await agendaVisibleMaintenant();
   description="Patrimoine de Loches Sud Touraine : les rubriques, les communes du territoire et les prochaines animations."
 >
   <section class="bloc bloc-carte" aria-labelledby="titre-carte-accueil">
-    <h2 id="titre-carte-accueil">Les communes</h2>
-    <p>
+    <h2 class="accueil-carte-titre" id="titre-carte-accueil">Les communes</h2>
+    <p class="accueil-carte-texte">
       Loches Sud Touraine dans l’Indre-et-Loire. Survolez une commune, cliquez pour ouvrir sa page.
     </p>
     <CarteTerritoire identifiant="accueil" />
     <p><a class="lien-suite nav-communes" href={withBase('/communes/')}>Toutes les communes</a></p>
   </section>
 
-  <section class="bloc" aria-labelledby="titre-categories">
+  <section class="bloc accueil-rubriques" aria-labelledby="titre-categories">
     <h2 id="titre-categories">Les rubriques</h2>
     <ul class="tuiles">
       {
@@ -75,6 +77,11 @@ const evenements = await agendaVisibleMaintenant();
   </section>
 
   <section class="bloc accueil-agenda" aria-labelledby="titre-agenda">
+    {agenda?.illustration && (
+      <div class="accueil-agenda-visuel">
+        <Illustration image={agenda.illustration} />
+      </div>
+    )}
     <h2 id="titre-agenda">Prochaines animations</h2>
     <ListeAgenda evenements={evenements} />
     <p><a class="lien-suite" href={withBase('/agenda/')}>Ouvrir l’agenda</a></p>
