@@ -16,6 +16,8 @@ statut: "à vérifier"
 sources:
   - titre: "La Fontaine Saint-Martin (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/la-fontaine-saint-martin/"
+  - titre: "Le pont du Puits Bérault (valleedelariolle.fr)"
+    url: "https://valleedelariolle.fr/le-pont-du-puits-berault/"
 image:
   url: "https://valleedelariolle.fr/wp-content/uploads/2024/11/fig2-site-global3.jpg"
   page_commons: null
@@ -28,3 +30,5 @@ La fontaine Saint-Martin se trouve aujourd'hui, d'après valleedelariolle.fr (1e
 La tradition locale présente cette source comme celle où saint Martin aurait lavé ses plaies après une attaque de muletiers, vers 370-380, et l'appelle aussi « fontaine rouge », l'eau étant dite rougie par le sang du saint. Ces récits relèvent de la légende, non d'un fait établi ; l'article rappelle d'ailleurs que la réalité d'un passage de Martin à Montfouet a été contestée. Un vitrail du chevet de l'église paroissiale illustre cette tradition.
 
 L'eau a été considérée comme miraculeuse. Des pèlerinages y eurent encore lieu dans les années 1950 : le pèlerinage se tenait le premier dimanche de juillet jusqu'en 1940, puis, après la guerre, en septembre, après la coupe des foins. L'article signale aussi des traces d'occupation dès le paléolithique inférieur et évoque, comme hypothèse de circulation ancienne, un « chemin de Louis XI » qui aurait repris une voie romaine passant par Manthelan et Le Louroux (référence citée : Jean-Mary Couderc, *La Touraine insolite*, 1989).
+
+Un article ultérieur du blog, consacré au pont du Puits Bérault, indique que des pierres de l'ancien lavoir situé à l'angle de l'enceinte de Grillemont auraient été réemployées, en particulier pour édifier le petit mémorial de la fontaine Saint-Martin.
