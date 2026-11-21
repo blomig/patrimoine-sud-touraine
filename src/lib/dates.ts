@@ -38,16 +38,6 @@ function joursDansMois(annee: number, mois: number): number {
   return new Date(Date.UTC(annee, mois, 0)).getUTCDate();
 }
 
-/** Année décimale. `fin` place une date partielle en fin de mois ou d’année. */
-export function anneeDecimale(valeur: string | null | undefined, fin = false): number | null {
-  if (!valeur) return null;
-  const date = decomposerDate(valeur);
-  if (!date) return null;
-  const mois = date.mois ?? (fin ? 12 : 1);
-  const jour = date.jour ?? (fin ? 28 : 1);
-  return date.annee + (mois - 1) / 12 + (Math.min(jour, 28) - 1) / 365.25;
-}
-
 /** Clé de tri : début de la période (jour 1 si le jour manque). */
 export function cleDebut(valeur: string | null | undefined): number {
   if (!valeur) return Number.POSITIVE_INFINITY;
