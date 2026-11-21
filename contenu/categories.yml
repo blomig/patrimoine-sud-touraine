@@ -1,6 +1,8 @@
-# Illustrations des cinq rubriques. François peut changer l'image, la légende,
+# Illustrations des rubriques. François peut changer l'image, la légende,
 # l'auteur et la licence depuis l'administration. Le fichier local est servi
 # par le site. L'adresse Wikimedia, si elle est indiquée, sert de crédit.
+# Le champ titre, s'il est rempli, est le nom affiché de la rubrique
+# (menu, accueil, pages). C'est ainsi que l'on renomme « Vie économique ».
 categories:
   batiments-anciens-disparus:
     legende: Château de Sepmes
@@ -26,3 +28,15 @@ categories:
     legende: Grillemont
     fichier: /media/categories/grillemont.jpg
     auteur: Vallée de la Riolle
+  vie-economique:
+    titre: Vie économique
+    legende: Vie économique
+    fichier: /media/categories/vie-economique.svg
+    auteur: Patrimoine du Sud Touraine
+    licence: Placeholder
+  documents:
+    titre: Documents
+    legende: Documents
+    fichier: /media/categories/documents.svg
+    auteur: Patrimoine du Sud Touraine
+    licence: Placeholder

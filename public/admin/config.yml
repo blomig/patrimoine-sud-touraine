@@ -530,6 +530,260 @@ collections:
         name: body
         widget: markdown
 
+  - name: vie-economique
+    label: Vie économique
+    label_singular: Fiche
+    folder: contenu/vie-economique
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{commune}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: vie-economique
+      - label: Identifiant
+        name: id
+        widget: string
+        hint: Minuscules et tirets, sans accent. Sert de nom de fichier.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        hint: Identifiants présents dans themes.yml. Un identifiant inconnu n'empêche pas la construction du site.
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        required: false
+        hint: "Année (973 ou -2400), année et mois (1429-05) ou date complète (2026-12-12). Laisser vide si inconnue."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à vérifier"
+          - "validé"
+        default: "à vérifier"
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        hint: Une seule image, libre de droits. Laisser vide s'il n'y en a pas.
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
+  - name: documents
+    label: Documents
+    label_singular: Document
+    folder: contenu/documents
+    create: true
+    extension: md
+    format: frontmatter
+    identifier_field: titre
+    slug: "{{fields.id}}"
+    summary: "{{titre}} — {{commune}}"
+    fields:
+      - label: Catégorie
+        name: categorie
+        widget: hidden
+        default: documents
+      - label: Identifiant
+        name: id
+        widget: string
+        hint: Minuscules et tirets, sans accent. Sert de nom de fichier.
+        pattern: ["^[a-z0-9]+(?:-[a-z0-9]+)*$", "Utilisez seulement des minuscules, des chiffres et des tirets."]
+      - label: Titre
+        name: titre
+        widget: string
+      - label: Thèmes
+        name: themes
+        widget: list
+        hint: Identifiants présents dans themes.yml. Un identifiant inconnu n'empêche pas la construction du site.
+        field:
+          label: Thème
+          name: theme
+          widget: string
+      - label: Commune
+        name: commune
+        widget: string
+      - label: Code INSEE
+        name: insee
+        widget: string
+      - label: Latitude
+        name: latitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Longitude
+        name: longitude
+        widget: number
+        value_type: float
+        required: false
+      - label: Période
+        name: periode
+        widget: string
+      - label: Date de début
+        name: date_debut
+        widget: string
+        required: false
+        hint: "Année (973 ou -2400), année et mois (1429-05) ou date complète (2026-12-12). Laisser vide si inconnue."
+      - label: Date de fin
+        name: date_fin
+        widget: string
+        required: false
+      - label: Type de document
+        name: type_document
+        widget: select
+        required: false
+        options:
+          - label: Cadastre
+            value: cadastre
+          - label: Carte
+            value: carte
+          - label: Plan
+            value: plan
+          - label: Photo
+            value: photo
+          - label: Carte postale
+            value: "carte postale"
+          - label: Archive
+            value: archive
+          - label: Autre
+            value: autre
+      - label: Date du document
+        name: date_document
+        widget: string
+        required: false
+        hint: "Même forme que la date de début : 1832, 1832-04 ou 1832-04-12. Laisser vide si inconnue."
+      - label: Cote
+        name: cote
+        widget: string
+        required: false
+      - label: Fonds
+        name: fonds
+        widget: string
+        required: false
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+      - label: Statut
+        name: statut
+        widget: select
+        options:
+          - "à vérifier"
+          - "validé"
+        default: "à vérifier"
+      - label: Sources
+        name: sources
+        widget: list
+        fields:
+          - label: Titre
+            name: titre
+            widget: string
+          - label: Adresse web
+            name: url
+            widget: string
+      - label: Image
+        name: image
+        widget: object
+        required: false
+        hint: Image d'en-tête, facultative. La galerie se remplit dans le champ Images.
+        fields:
+          - label: Adresse du fichier
+            name: url
+            widget: string
+          - label: Page Wikimedia Commons
+            name: page_commons
+            widget: string
+            required: false
+          - label: Licence
+            name: licence
+            widget: string
+          - label: Auteur
+            name: auteur
+            widget: string
+      - label: Images
+        name: images
+        widget: list
+        required: false
+        summary: "{{legende}}"
+        hint: Galerie affichée sur la fiche. src est un chemin du dépôt (/media/...) ou une adresse web.
+        fields:
+          - label: Fichier
+            name: src
+            widget: string
+          - label: Légende
+            name: legende
+            widget: string
+          - label: Crédit
+            name: credit
+            widget: string
+      - label: Texte
+        name: body
+        widget: markdown
+
   - name: reglages
     label: Réglages et listes
     files:
@@ -565,6 +819,11 @@ collections:
                 name: batiments-anciens-disparus
                 widget: object
                 fields: &image_rubrique
+                  - label: Nom affiché
+                    name: titre
+                    widget: string
+                    required: false
+                    hint: "Si ce champ est rempli, il remplace le libellé du menu et des pages. C'est ici que l'on renomme Vie économique."
                   - label: Légende
                     name: legende
                     widget: string
@@ -600,6 +859,14 @@ collections:
                 fields: *image_rubrique
               - label: Animations
                 name: agenda
+                widget: object
+                fields: *image_rubrique
+              - label: Vie économique
+                name: vie-economique
+                widget: object
+                fields: *image_rubrique
+              - label: Documents
+                name: documents
                 widget: object
                 fields: *image_rubrique
       - label: Thèmes
@@ -688,6 +955,45 @@ collections:
                       widget: string
             - label: Animations
               name: agenda
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+            - label: Vie économique
+              name: vie-economique
+              widget: object
+              fields:
+                - label: Libellé de la rubrique
+                  name: libelle
+                  widget: string
+                  hint: "Le nom affiché du menu se règle plutôt dans categories.yml, champ titre."
+                - label: Thèmes
+                  name: themes
+                  widget: list
+                  summary: "{{libelle}}"
+                  fields:
+                    - label: Identifiant
+                      name: id
+                      widget: string
+                      hint: Minuscules et tirets. Le changer casse le lien avec les fiches qui l'utilisent déjà ; pour renommer, modifiez seulement le libellé.
+                    - label: Libellé
+                      name: libelle
+                      widget: string
+            - label: Documents
+              name: documents
               widget: object
               fields:
                 - label: Libellé de la rubrique

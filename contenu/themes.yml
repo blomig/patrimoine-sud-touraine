@@ -82,3 +82,31 @@ categories:
         libelle: Spectacles et rencontres
       - id: musiques-anciennes-et-patrimoine
         libelle: Musiques anciennes et animations dans le patrimoine
+
+  vie-economique:
+    libelle: Vie économique
+    themes:
+      - id: moulins-et-artisanat
+        libelle: Moulins et artisanat
+      - id: commerces-et-marches
+        libelle: Commerces et marchés
+      - id: agriculture
+        libelle: Agriculture
+      - id: industries
+        libelle: Industries
+      - id: foires-et-transports
+        libelle: Foires et transports
+
+  documents:
+    libelle: Documents
+    themes:
+      - id: cadastres
+        libelle: Cadastres
+      - id: cartes-et-plans
+        libelle: Cartes et plans
+      - id: photos-anciennes
+        libelle: Photos anciennes
+      - id: cartes-postales
+        libelle: Cartes postales
+      - id: archives-et-actes
+        libelle: Archives et actes

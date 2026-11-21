@@ -334,7 +334,9 @@ a.nav-pastille[aria-current="page"] {
   }
 
   .nav-rubriques {
+    flex-wrap: wrap;
     justify-content: safe center;
+    overflow: visible;
   }
 
   .menu > summary {
@@ -608,17 +610,50 @@ button:hover {
 .credit-tuile,
 .illustration figcaption,
 .figure-fiche figcaption,
-.edition-image figcaption {
+.edition-image figcaption,
+.galerie figcaption {
   color: color-mix(in srgb, var(--encre) 70%, var(--fond));
   font-size: 0.7rem;
   font-weight: 400;
   line-height: 1.35;
 }
 
+.galerie {
+  margin: 1.6rem 0 0.4rem;
+}
+
+.galerie ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.6rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.galerie figure {
+  margin: 0;
+}
+
+.galerie figcaption {
+  display: grid;
+  gap: 0.1rem;
+  margin-top: 0.35rem;
+}
+
+.galerie img {
+  display: block;
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  background: #ddd;
+}
+
 .credit-tuile a,
 .illustration figcaption a,
 .figure-fiche figcaption a,
-.edition-image figcaption a {
+.edition-image figcaption a,
+.galerie figcaption a {
   color: inherit;
   text-decoration-thickness: 1px;
 }
@@ -1252,10 +1287,11 @@ code {
 [data-design="contemporain"] .edition-phrase { order: 2; }
 [data-design="contemporain"] .en-bref { order: 3; }
 [data-design="contemporain"] .texte { order: 4; }
-[data-design="contemporain"] .bloc-sources { order: 5; }
-[data-design="contemporain"] .mini-carte-bloc { order: 6; display: block; }
-[data-design="contemporain"] .voisines { order: 7; display: block; }
-[data-design="contemporain"] .lien-suite { order: 8; }
+[data-design="contemporain"] .galerie { order: 5; }
+[data-design="contemporain"] .bloc-sources { order: 6; }
+[data-design="contemporain"] .mini-carte-bloc { order: 7; display: block; }
+[data-design="contemporain"] .voisines { order: 8; display: block; }
+[data-design="contemporain"] .lien-suite { order: 9; }
 
 [data-design="contemporain"] .fiche .figure-fiche,
 [data-design="contemporain"] .fiche .faits,
@@ -1337,7 +1373,8 @@ code {
   font-weight: 400;
 }
 
-[data-design="contemporain"] .illustration img {
+[data-design="contemporain"] .illustration img,
+[data-design="contemporain"] .galerie img {
   max-height: 16rem;
   border-radius: 1.15rem;
   object-fit: cover;
@@ -1376,7 +1413,7 @@ code {
     color: var(--encre);
   }
 
-  [data-design="contemporain"] .barre-bas-accent {
+  [data-design="contemporain"] .barre-bas a.barre-bas-accent {
     background: transparent;
     color: #c62828;
   }

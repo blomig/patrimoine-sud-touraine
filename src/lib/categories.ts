@@ -3,6 +3,8 @@ export const CATEGORIES_FICHES = [
   'batiments-anciens-existants',
   'personnes',
   'evenements-historiques',
+  'vie-economique',
+  'documents',
 ] as const;
 
 export type CategorieFiche = (typeof CATEGORIES_FICHES)[number];
@@ -16,11 +18,12 @@ export type Categorie = {
   resume: string;
   frise: boolean;
   illustration?: {
+    titre?: string;
     legende: string;
     fichier?: string;
-    url: string;
+    url?: string;
     auteur: string;
-    licence: string;
+    licence?: string;
   };
 };
 
@@ -61,6 +64,20 @@ export const MODELES: Categorie[] = [
     court: 'Animations',
     resume: 'Visites, ateliers et rendez-vous. Une animation dont la date est passée ne s’affiche plus.',
     frise: false,
+  },
+  {
+    id: 'vie-economique',
+    titre: 'Vie économique',
+    court: 'Vie économique',
+    resume: 'Moulins, commerces, ateliers, foires et autres activités qui ont fait vivre le territoire.',
+    frise: true,
+  },
+  {
+    id: 'documents',
+    titre: 'Documents',
+    court: 'Documents',
+    resume: 'Cadastres, cartes, plans, photographies anciennes, cartes postales et archives rattachés à une commune.',
+    frise: true,
   },
 ];
 
