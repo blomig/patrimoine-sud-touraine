@@ -18,7 +18,11 @@ statut: "à vérifier"
 sources:
   - titre: "Commerçants et artisans de la Chapelle Blanche (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/commercants-et-artisans-de-la-chapelle-blanche/"
-image: null
+image:
+  url: "https://valleedelariolle.fr/wp-content/uploads/2022/06/entete.png"
+  page_commons: null
+  licence: "Autorisation de l'auteur pour ce site"
+  auteur: "Archives privées"
 ---
 
 valleedelariolle.fr (19 juin 2022) localise, sur un plan du bourg, les commerces et ateliers de La Chapelle-Blanche-Saint-Martin entre 1861 et les années 1960. L'article s'appuie sur le travail de Raymonde Janvier et Marcelle Saulquin, disponible sur le site de la commune, jusqu'en 1921 ; sur un annuaire départemental de 1928 ; et sur les souvenirs de Marcelle Saulquin, remerciée pour ce témoignage d'histoire locale. Les orthographes des noms propres, parfois divergentes, ont été conservées telles que l'article les a trouvées, sans rectification.
@@ -27,4 +31,4 @@ La première boucherie (Armand Croué) et la première épicerie (L. Guimpier) a
 
 En 1921, le boucher est encore un Croué (André), avec un abattoir proche de la boutique ; le boulanger Penneret est seul ; cinq épiceries restent tenues surtout par des femmes (Mme Chrétien, aussi tabac et presse ; Mme Granger-Boireau ; Mme Guimpier ; Mme Saulquin ; Mme Cathelin-Biziou, aussi mercerie). Gabriel Saulquin commerce en grains, engrais et huile. M. Naullet tient l'hôtel du Commerce, Mme Guimpier-Roullet l'hôtel Bellevue. Des auberges sont associées aux hôtels ou tiennent café : André Croué à l'hôtel du Commerce, Mme Gaultier à la gare, Mme Guimpier-Roullet au Bellevue, M. Jouteux au café du Centre, Ernest Martinaud au café Martinaud. Journaux chez Granger, Lussault et Saulquin ; tabac chez M. Neau ; lingères Mmes Dubois et Doucet ; huit couturières à façon ; Déchères, ébéniste chez les clients ; Bodier et Moreau, cordonniers ; Lussault et Rossignol, sabotiers ; Saulnier, coiffeur ; Arsène Sauvé, horloger ; une scierie Martineau dans le bas-bourg, route de Bournan ; Ondet, charron ; Guimpier et Martineau, maréchaux-ferrants (Guimpier s'occupe aussi des machines agricoles) ; charpentiers Berlault, Abel Martineau et Ondet.
 
-L'annuaire de 1928 confirme cette densité et signale des maçons (les frères Ernest et Gaston Signolet, MM. Arnault, Saulnier et Sybilleau) ainsi que des distillateurs : Bourreau père et fils, au bas-bourg, avant la rue du Paradis ; Caillau puis Cathelin, en sortie de bourg sur la route de Ligueil, face à la ferme Naullet. Un plan numéroté de l'article localise 33 emplacements, de la boucherie Croué à l'épicerie-presse de Mme Chrétien et aux distillateurs. Les cartes postales et le plan, documents d'édition, n'ont pas été repris en illustration principale. L'hôtel Bellevue fait l'objet d'une fiche distincte.
+L'annuaire de 1928 confirme cette densité et signale des maçons (les frères Ernest et Gaston Signolet, MM. Arnault, Saulnier et Sybilleau) ainsi que des distillateurs : Bourreau père et fils, au bas-bourg, avant la rue du Paradis ; Caillau puis Cathelin, en sortie de bourg sur la route de Ligueil, face à la ferme Naullet. Un plan numéroté de l'article localise 33 emplacements, de la boucherie Croué à l'épicerie-presse de Mme Chrétien et aux distillateurs. L'image principale est une carte postale ancienne du bourg, publiée par le blog, où l'on voit notamment l'enseigne de l'hôtel Bellevue et des attelages le long de la rue. L'hôtel Bellevue fait l'objet d'une fiche distincte.

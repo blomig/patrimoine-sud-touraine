@@ -17,11 +17,16 @@ statut: "à vérifier"
 sources:
   - titre: "Sepmes au temps des Docks du Centre (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/sepmes-au-temps-des-docks-du-centre/"
+images:
+  - src: "/media/blog/sepmes-docks-du-centre.jpg"
+    legende: "Le même endroit en 2021. Ancienne image principale de la fiche, conservée en galerie."
+    credit: "Archives privées"
 image:
-  url: "https://valleedelariolle.fr/wp-content/uploads/2021/11/sepmes222.jpg"
+  url: "https://valleedelariolle.fr/wp-content/uploads/2021/11/Fig1.png"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
+
 ---
 
 valleedelariolle.fr (28 novembre 2021) commente une carte postale de Sepmes, vraisemblablement de l'entre-deux-guerres (vers 1925-1930), intitulée « La route de La Haye-Descartes ». L'article rappelle que le village natal de Descartes s'appelait La Haye, puis La Haye-Descartes, avant que l'usage courant ne retienne « Descartes ».
@@ -30,4 +35,4 @@ Sur la carte, la perspective descend vers la campagne. Une photographie prise en
 
 « Dock », mot d'origine anglaise, a pris le sens de vastes magasins de stockage, plus nécessairement portuaires. Les Docks du Centre sont une société créée à Tours en 1904 par MM. Toulouse et Picart ; elle a absorbé d'autres sociétés, est devenue « Les Docks de France » après-guerre, puis a fait l'objet d'une OPA d'Auchan en 1996. L'article s'interroge sur l'ampleur de l'activité d'une telle boutique dans un village qui en comportait souvent plusieurs du même type. Appuyées sur la façade, au moins trois charrues et peut-être un vélo : l'une d'elles pourrait être une charrue vigneronne du type de celles que Louis Renault, de Sainte-Maure, rendit célèbres vers 1860 ; d'autres charrues semblent déposées à l'arrière, où l'on devine des hommes au travail. Sur la maison voisine, un panneau « BYRRH » pourrait signaler un bar (la légende de l'article écrit aussi « BYHRR »).
 
-À environ quatre-vingt-dix ans d'écart, un haut mur à l'est des Docks a disparu, à l'emplacement de l'actuelle bibliothèque de Sepmes ; un bâtiment à chien-assis, à droite de la femme isolée, semble avoir disparu également, de même que des cheminées. Les bâtiments en remontant, à partir de la maison où la femme s'appuie, ont été conservés et rénovés, ainsi qu'une petite porte en haut de quatre marches, parallèle à la rue. Des volets ont été ajoutés aux fenêtres de l'étage des Docks. L'urbanisme d'ensemble n'a pas été bouleversé. La photographie retenue est la vue de 2021. La carte postale, document d'édition, n'a pas été reprise en illustration principale.
+À environ quatre-vingt-dix ans d'écart, un haut mur à l'est des Docks a disparu, à l'emplacement de l'actuelle bibliothèque de Sepmes ; un bâtiment à chien-assis, à droite de la femme isolée, semble avoir disparu également, de même que des cheminées. Les bâtiments en remontant, à partir de la maison où la femme s'appuie, ont été conservés et rénovés, ainsi qu'une petite porte en haut de quatre marches, parallèle à la rue. Des volets ont été ajoutés aux fenêtres de l'étage des Docks. L'urbanisme d'ensemble n'a pas été bouleversé. L'image principale est la carte postale ancienne, légendée « SEPMES (I.-et-L.) — Route de La Haye-Descartes », qui montre le commerce « Produits des Docks du Centre » (édit. Fleury). La vue de 2021, ancienne image principale, est conservée en galerie.

@@ -17,11 +17,16 @@ statut: "à vérifier"
 sources:
   - titre: "La vigne et la Riolle (1) : avant le phylloxéra (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/la-vigne-et-la-riolle-avant-le-phylloxera/"
+images:
+  - src: "/media/blog/vigne-riolle-avant-phylloxera.jpg"
+    legende: "Façade sud de l'ancien « château » Rabault à Sepmes, devenu la mairie en 1954. Ancienne image principale de la fiche, conservée en galerie."
+    credit: "Archives privées"
 image:
-  url: "https://valleedelariolle.fr/wp-content/uploads/2025/03/Fig12-maison-rabault-sud.jpg"
+  url: "https://valleedelariolle.fr/wp-content/uploads/2025/03/entete1.jpg"
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Vallée de la Riolle"
+  auteur: "Archives privées"
+
 ---
 
 valleedelariolle.fr (23 mars 2025) rappelle que la vigne fut longtemps une culture majeure de la région. Au XIXe siècle, en Touraine, les surfaces plantées passent, entre 1860 et 1882, de 26 700 à 63 250 hectares (contre environ 9 400 hectares en Indre-et-Loire en 2023, d'après l'article). La proximité de Paris favorise alors des vignobles renommés. En 1840, à Esvres, le comte Charles Odart (1800-1879) réunit une collection de près de 500 plants, dont 300 disponibles en pépinière.
@@ -32,4 +37,4 @@ Jules Guyot (1807-1872), chargé par le ministre de l'Agriculture d'inventorier 
 
 L'activité viticole entraîne celle des charrons, présents dans toutes les communes, et la fabrication d'outils. À Sainte-Maure, Louis Renault, né en 1828, reprenant en 1853 la forge de son père, 38 Grande Rue, conçoit des charrues vigneronnes adaptées à la plantation en lignes palissées, qui permettent la traction animale entre les rangs, alors que l'on conduisait auparavant la vigne sur échalas, en foule ou à un mètre. Il obtient plus de 200 médailles d'or, dont au concours général de Paris en 1860 ; en 1872, il emploie cinq ouvriers spécialisés. Dans presque toutes les exploitations, quelques rangs de vignes et souvent un pressoir ; à la Grenière, à Bournan, un petit bâtiment conserve encore un foudre d'une ou deux tonnes.
 
-À Sepmes, Alfred Rabault (1843-1909) dispose, au temps fort de cette culture, de plus de 100 hectares. La fortune familiale lui permet d'acquérir les fermes de Picardie, de Beauregard, des Maisons-Rouges, le Grand et le Petit Relais, outre la ferme du château. Il avance à la commune une partie de la somme due aux Prussiens en 1870. En 1885, il fait construire un grand chai, de cinq pressoirs, autour d'un « château » de son invention, face à l'église : bâtisse carrée décorée de sculptures de Bacchus, avec caves en sous-sol, qui est depuis 1954 la mairie de Sepmes (à distinguer du château Renaissance, objet d'une fiche distincte). Une canalisation souterraine aurait, « paraît-il », conduit le jus vers les caves. La famille quitte Sepmes en 1900, à la suite de la crise du phylloxéra. La photographie retenue montre la façade sud de cet ancien « château » Rabault. Les extraits de cadastre, l'illustration des chaintres tirée de l'ouvrage d'A. Vias (1876) et les documents publicitaires Renault-Gouin n'ont pas été repris en illustration principale.
+À Sepmes, Alfred Rabault (1843-1909) dispose, au temps fort de cette culture, de plus de 100 hectares. La fortune familiale lui permet d'acquérir les fermes de Picardie, de Beauregard, des Maisons-Rouges, le Grand et le Petit Relais, outre la ferme du château. Il avance à la commune une partie de la somme due aux Prussiens en 1870. En 1885, il fait construire un grand chai, de cinq pressoirs, autour d'un « château » de son invention, face à l'église : bâtisse carrée décorée de sculptures de Bacchus, avec caves en sous-sol, qui est depuis 1954 la mairie de Sepmes (à distinguer du château Renaissance, objet d'une fiche distincte). Une canalisation souterraine aurait, « paraît-il », conduit le jus vers les caves. La famille quitte Sepmes en 1900, à la suite de la crise du phylloxéra. La photographie retenue est celle de raisins et de feuilles de vigne, publiée en en-tête de l'article. L'ancienne image principale, la façade sud de l'ancien « château » Rabault, est conservée en galerie. Les extraits de cadastre, l'illustration des chaintres tirée de l'ouvrage d'A. Vias (1876) et les documents publicitaires Renault-Gouin n'ont pas été repris en illustration principale.
