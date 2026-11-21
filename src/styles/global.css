@@ -1211,12 +1211,6 @@ code {
   margin-bottom: 1rem;
 }
 
-[data-design="contemporain"] .hero-court .chapo {
-  font-size: clamp(1.35rem, 2vw, 1.7rem);
-  max-width: 36rem;
-  letter-spacing: -0.03em;
-}
-
 [data-design="contemporain"] a.nav-pastille {
   background: var(--accent);
   color: var(--fond);
