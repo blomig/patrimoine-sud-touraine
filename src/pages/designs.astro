@@ -26,21 +26,26 @@ const designs = [
     titre: 'Contemporain',
     texte: 'Page aérée, une seule typographie, vignettes sobres. Pas de grande image. Accent rouge, clair ou sombre selon l’écran.',
   },
+  {
+    id: 'minimal',
+    titre: 'Minimal',
+    texte: 'Fond blanc, JetBrains Mono, noir et gris. Le jaune sert de surlignage. Sept vignettes, une recherche, pas de carte sur l’accueil.',
+  },
 ];
 const accueil = withBase('/');
 ---
 
 <Base
-  titre="Quatre designs"
-  description="Comparer les quatre directions visuelles du site et choisir celle qui sera publiée."
+  titre="Cinq designs"
+  description="Comparer les cinq directions visuelles du site et choisir celle qui sera publiée."
 >
-  <Fil crumbs={[{ label: 'Quatre designs' }]} />
+  <Fil crumbs={[{ label: 'Cinq designs' }]} />
   <header class="entete-page">
-    <h1>Quatre designs</h1>
+    <h1>Cinq designs</h1>
     <p class="chapo">
       Le site publié utilise une seule valeur, <code>design</code>, dans le fichier
       <code>contenu/site.yml</code>. Aujourd’hui&nbsp;: <strong>{site.design}</strong>.
-      On peut feuilleter les quatre présentations sans modifier ce fichier. Le choix
+      On peut feuilleter les cinq présentations sans modifier ce fichier. Le choix
       «&nbsp;parcourir avec ce design&nbsp;» est gardé dans ce navigateur seulement.
     </p>
   </header>
@@ -68,7 +73,7 @@ const accueil = withBase('/');
   </p>
 
   <h2>Côte à côte</h2>
-  <p>Les quatre aperçus montrent la page d’accueil. Sur un petit écran, ils se suivent.</p>
+  <p>Les cinq aperçus montrent la page d’accueil. Sur un petit écran, ils se suivent.</p>
   <div class="comparaison">
     {
       designs.map((design) => (

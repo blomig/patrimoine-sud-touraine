@@ -190,6 +190,10 @@ main {
   font-weight: 700;
 }
 
+.lien-minimal {
+  display: none;
+}
+
 .barre-menu {
   display: flex;
   flex-direction: column;
@@ -1443,6 +1447,291 @@ code {
    le document complet, donc les feuilles de style restent en place. */
 @view-transition {
   navigation: auto;
+}
+
+/* Minimal : blanc, JetBrains Mono, noir et gris, jaune en surlignage. */
+[data-design="minimal"] {
+  --fond: #ffffff;
+  --encre: #161616;
+  --encre-douce: #595959;
+  --lien: #161616;
+  --regle: #e6e6e6;
+  --carte: #ffffff;
+  --accent: #161616;
+  --titre: "JetBrains Mono", ui-monospace, monospace;
+  --texte: "JetBrains Mono", ui-monospace, monospace;
+  --mesure: 72rem;
+  --jaune: #ffe14a;
+}
+
+[data-design="minimal"] body {
+  background: #ffffff;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+[data-design="minimal"] .entete,
+[data-design="minimal"] main,
+[data-design="minimal"] .pied {
+  max-width: 72rem;
+}
+
+[data-design="minimal"] .entete {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1.5rem;
+  row-gap: 0.3rem;
+  border-bottom: 0;
+  padding-top: 1.1rem;
+}
+
+[data-design="minimal"] .entete-haut,
+[data-design="minimal"] .barre-menu {
+  display: contents;
+}
+
+[data-design="minimal"] .marque,
+[data-design="minimal"] .nav-rubriques,
+[data-design="minimal"] .lien-accueil,
+[data-design="minimal"] .bloc-carte,
+[data-design="minimal"] .accueil-agenda,
+[data-design="minimal"] #titre-categories {
+  display: none;
+}
+
+[data-design="minimal"] .nom-site {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+[data-design="minimal"] .sous-titre {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+  font-size: 0.75rem;
+  color: #595959;
+}
+
+[data-design="minimal"] .menu {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  justify-self: end;
+  align-self: center;
+}
+
+[data-design="minimal"] .menu > summary {
+  display: none;
+}
+
+[data-design="minimal"] .menu > .nav-principal {
+  display: flex !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.15rem 0.9rem;
+  padding: 0;
+}
+
+[data-design="minimal"] .nav-principal a:not(.lien-accueil) {
+  display: inline-flex;
+  min-height: 44px;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #3a3a3a;
+}
+
+[data-design="minimal"] .recherche-menu {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  width: 100%;
+  max-width: none;
+  margin: 0.7rem 0 0;
+  border: 2px solid #161616;
+  border-radius: 2px;
+  background: #ffffff;
+}
+
+[data-design="minimal"] .recherche-menu input {
+  font-size: 1rem;
+  min-height: 52px;
+}
+
+[data-design="minimal"] .recherche-menu input::placeholder {
+  color: #595959;
+}
+
+[data-design="minimal"] .recherche-menu:focus-within {
+  outline: 3px solid #161616;
+  outline-offset: 3px;
+}
+
+[data-design="minimal"] .recherche-menu button:hover,
+[data-design="minimal"] .recherche-menu button:focus-visible {
+  background: var(--jaune);
+  color: #161616;
+}
+
+[data-design="minimal"] a {
+  color: #161616;
+  text-decoration-line: underline;
+  text-decoration-color: #161616;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+[data-design="minimal"] a:hover,
+[data-design="minimal"] a:focus-visible {
+  background: var(--jaune);
+  text-decoration-color: #161616;
+}
+
+[data-design="minimal"] :focus-visible {
+  outline: 3px solid #161616;
+  outline-offset: 2px;
+}
+
+[data-design="minimal"] h1 {
+  font-size: clamp(1.55rem, 3vw, 2.3rem);
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+}
+
+[data-design="minimal"] h2 {
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+[data-design="minimal"] .tuiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 1.4rem 1rem;
+  margin-top: 1.4rem;
+}
+
+[data-design="minimal"] .tuile-bloc {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+[data-design="minimal"] .tuile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  min-height: 0;
+}
+
+[data-design="minimal"] .tuile-image {
+  width: 100%;
+  height: 10.5rem;
+  object-fit: cover;
+  background: #f2f2f2;
+}
+
+[data-design="minimal"] .tuile-numero,
+[data-design="minimal"] .tuile-texte {
+  display: none;
+}
+
+[data-design="minimal"] .tuile-titre {
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+[data-design="minimal"] .tuile-bloc[data-categorie="agenda"] .tuile-titre {
+  text-decoration: underline;
+  text-decoration-color: #c62828;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+}
+
+[data-design="minimal"] .credit-tuile,
+[data-design="minimal"] .illustration figcaption,
+[data-design="minimal"] .figure-fiche figcaption,
+[data-design="minimal"] .edition-image figcaption,
+[data-design="minimal"] .galerie figcaption {
+  color: #595959;
+}
+
+[data-design="minimal"] .illustration img,
+[data-design="minimal"] .figure-fiche img,
+[data-design="minimal"] .galerie img {
+  max-height: 20rem;
+  width: 100%;
+  object-fit: cover;
+}
+
+[data-design="minimal"] .pied {
+  border-top: 0;
+  font-size: 0.75rem;
+  color: #595959;
+  padding-top: 0.4rem;
+}
+
+[data-design="minimal"] .pied p a {
+  display: inline;
+  min-height: 0;
+}
+
+[data-design="minimal"] .pied a {
+  color: #595959;
+  min-height: 44px;
+}
+
+[data-design="minimal"] .pied a:hover,
+[data-design="minimal"] .pied a:focus-visible {
+  color: #161616;
+  background: var(--jaune);
+}
+
+[data-design="minimal"] .mention-carte {
+  font-size: 0.75rem;
+  color: #595959;
+}
+
+[data-design="minimal"] .liste-communes a,
+[data-design="minimal"] .carte-fiche,
+[data-design="minimal"] .bloc-sources,
+[data-design="minimal"] .choix-designs li {
+  border-color: #e6e6e6;
+  box-shadow: none;
+  background: transparent;
+}
+
+@media (max-width: 52rem) {
+  [data-design="minimal"] .entete {
+    grid-template-columns: 1fr;
+  }
+
+  [data-design="minimal"] .menu {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+  }
+
+  [data-design="minimal"] .menu > .nav-principal {
+    justify-content: flex-start;
+  }
+
+  [data-design="minimal"] .recherche-menu {
+    grid-row: 4;
+  }
+
+  [data-design="minimal"] .tuiles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  [data-design="minimal"] .tuile-image {
+    height: 8rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

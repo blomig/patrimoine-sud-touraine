@@ -32,7 +32,7 @@ const evenements = await agendaVisibleMaintenant();
           const image = categorie.illustration;
           const licence = image?.licence ? urlLicence(image.licence) : null;
           return (
-            <li class="tuile-bloc">
+            <li class="tuile-bloc" data-categorie={categorie.id}>
               <a class="tuile" href={withBase(`/${categorie.id}/`)}>
                 {image && (
                   <img
@@ -74,7 +74,7 @@ const evenements = await agendaVisibleMaintenant();
     </ul>
   </section>
 
-  <section class="bloc" aria-labelledby="titre-agenda">
+  <section class="bloc accueil-agenda" aria-labelledby="titre-agenda">
     <h2 id="titre-agenda">Prochaines animations</h2>
     <ListeAgenda evenements={evenements} />
     <p><a class="lien-suite" href={withBase('/agenda/')}>Ouvrir l’agenda</a></p>
