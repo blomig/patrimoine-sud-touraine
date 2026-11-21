@@ -65,6 +65,20 @@ export function aujourdhuiISO(now: Date = new Date()): string {
   }).format(now);
 }
 
+export function nomMois(mois: number): string {
+  return MOIS[mois - 1] ?? '';
+}
+
+/** Heures citées dans le champ période, sans inventer ce qui n’y figure pas. */
+export function extraireHoraire(periode: string | null | undefined): string | null {
+  if (!periode) return null;
+  const motif =
+    /de\s+\d+\s*h(?:\s+\d+)?\s+à\s+\d+\s*h(?:\s+\d+)?|à partir de\s+\d+\s*h(?:\s+\d+)?|jusqu['’]à\s+\d+\s*h(?:\s+\d+)?|aux horaires d['’]ouverture|à\s+\d+\s*h(?:\s+\d+)?/gi;
+  const morceaux = periode.match(motif);
+  if (!morceaux || morceaux.length === 0) return null;
+  return morceaux.join(', ');
+}
+
 export function formatDateSouple(valeur: string | null | undefined): string {
   if (!valeur) return 'non précisée';
   const date = decomposerDate(valeur);
