@@ -560,10 +560,38 @@ button:hover {
   font-weight: 700;
 }
 
-.liste-agenda li,
 .liste-associations li {
   padding: 1rem 0;
   border-top: 1px solid var(--regle);
+}
+
+.liste-agenda li {
+  border-top: 1px solid var(--regle);
+  padding: 0;
+}
+
+.ligne-agenda {
+  display: grid;
+  gap: 0.12rem;
+  padding: 0.7rem 0;
+  color: inherit;
+  text-decoration: none;
+  min-height: 44px;
+}
+
+.ligne-agenda-titre {
+  font-family: var(--titre);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.ligne-agenda-lieu {
+  color: var(--encre-douce);
+}
+
+.ligne-agenda:hover .ligne-agenda-titre {
+  text-decoration: underline;
 }
 
 .liste-communes a {

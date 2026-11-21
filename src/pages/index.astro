@@ -1,9 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
 import CarteTerritoire from '../components/CarteTerritoire.astro';
-import Statut from '../components/Statut.astro';
-import { agendaVisibleMaintenant, extrait, hrefFiche } from '../lib/contenu';
-import { formatPlage } from '../lib/dates';
+import ListeAgenda from '../components/ListeAgenda.astro';
+import { agendaVisibleMaintenant } from '../lib/contenu';
 import { chargerSite, listeCategories } from '../lib/site';
 import { urlLicence, withBase } from '../lib/urls';
 
@@ -76,27 +75,7 @@ const evenements = await agendaVisibleMaintenant();
 
   <section class="bloc" aria-labelledby="titre-agenda">
     <h2 id="titre-agenda">Prochaines animations</h2>
-    {
-      evenements.length === 0 ? (
-        <p class="vide">Aucune animation à venir.</p>
-      ) : (
-        <ul class="liste-agenda">
-          {evenements.map((evenement) => (
-            <li>
-              <p class="carte-plage">{formatPlage(evenement.data.date_debut, evenement.data.date_fin)}</p>
-              <h3>
-                <a href={withBase(hrefFiche(evenement))}>{evenement.data.titre}</a>
-              </h3>
-              <p>
-                {evenement.data.lieu} · {evenement.data.commune}
-              </p>
-              <p>{extrait(evenement.body, 180)}</p>
-              <Statut statut={evenement.data.statut} />
-            </li>
-          ))}
-        </ul>
-      )
-    }
+    <ListeAgenda evenements={evenements} />
     <p><a class="lien-suite" href={withBase('/agenda/')}>Ouvrir l’agenda</a></p>
   </section>
 </Base>
