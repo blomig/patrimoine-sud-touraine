@@ -190,6 +190,38 @@ main {
   font-weight: 700;
 }
 
+.barre-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+a.nav-communes {
+  background: var(--accent);
+  color: #f7f4ee;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+a.nav-communes:hover {
+  text-decoration: underline;
+}
+
+.nav-communes-mobile {
+  display: inline-flex;
+}
+
+@media (min-width: 64rem) {
+  .nav-communes-mobile {
+    display: none;
+  }
+}
+
 .nav-principal a:hover {
   text-decoration: underline;
 }
@@ -810,6 +842,11 @@ code {
 [data-design="musee"] .sous-titre,
 [data-design="musee"] .menu summary {
   color: #f7f6f3;
+}
+
+[data-design="musee"] .entete a.nav-communes {
+  background: #f3d48a;
+  color: #102a43;
 }
 
 [data-design="musee"] .marque-musee {

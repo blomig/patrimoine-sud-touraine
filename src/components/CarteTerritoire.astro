@@ -1,0 +1,134 @@
+---
+import { communesCompletes } from '../lib/contenu';
+import { withBase } from '../lib/urls';
+import 'leaflet/dist/leaflet.css';
+
+const { identifiant = 'territoire' } = Astro.props as { identifiant?: string };
+const groupes = await communesCompletes();
+const meta = Object.fromEntries(
+  groupes.map((commune) => [
+    commune.code,
+    {
+      href: withBase(`/communes/${commune.slug}/`),
+      count: commune.fiches.length,
+      nom: commune.nom,
+    },
+  ]),
+);
+const donnees = {
+  communes: withBase('/data/communes-loches-sud-touraine.geojson'),
+  departement: withBase('/data/indre-et-loire.geojson'),
+  meta,
+};
+const sourceId = `donnees-carte-${identifiant}`;
+const conteneurId = `carte-${identifiant}`;
+---
+
+<ul class="legende-carte">
+  <li><span class="pastille pastille-departement"></span> Indre-et-Loire</li>
+  <li><span class="pastille pastille-active"></span> Commune avec des fiches</li>
+  <li><span class="pastille pastille-vide"></span> Fiches à venir</li>
+</ul>
+<div
+  id={conteneurId}
+  class="plan plan-communes"
+  role="region"
+  aria-label="Carte des communes de Loches Sud Touraine, dans l’Indre-et-Loire"
+  data-source={sourceId}
+></div>
+<p class="mention-carte">
+  Fond : Indre-et-Loire et tuiles OpenStreetMap. Contours des 67 communes simplifiés, issus de
+  geo.api.gouv.fr (EPCI 200071587), conservés dans le dépôt.
+</p>
+<script type="application/json" id={sourceId} set:html={JSON.stringify(donnees)} />
+
+<script>
+  import L from 'leaflet';
+
+  function echapper(valeur: string): string {
+    return valeur.replace(/[&<>"']/g, (caractere) => {
+      const table: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+      };
+      return table[caractere] ?? caractere;
+    });
+  }
+
+  const blocs = document.querySelectorAll<HTMLElement>('.plan-communes[data-source]');
+  for (const conteneur of blocs) {
+    const source = document.getElementById(conteneur.dataset.source ?? '');
+    if (!source?.textContent) continue;
+    const { communes, departement, meta } = JSON.parse(source.textContent) as {
+      communes: string;
+      departement: string;
+      meta: Record<string, { href: string; count: number; nom: string }>;
+    };
+    const plan = L.map(conteneur, { scrollWheelZoom: true });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    }).addTo(plan);
+    plan.attributionControl.addAttribution(
+      'Contours : <a href="https://geo.api.gouv.fr/">geo.api.gouv.fr</a>',
+    );
+
+    const [reponseDepartement, reponseCommunes] = await Promise.all([fetch(departement), fetch(communes)]);
+    if (!reponseDepartement.ok || !reponseCommunes.ok) {
+      conteneur.insertAdjacentHTML(
+        'beforeend',
+        '<p class="carte-erreur">La carte n’a pas pu être chargée.</p>',
+      );
+      continue;
+    }
+    const [donneesDepartement, donneesCommunes] = await Promise.all([
+      reponseDepartement.json(),
+      reponseCommunes.json(),
+    ]);
+
+    L.geoJSON(donneesDepartement, {
+      interactive: false,
+      style: {
+        color: '#4e4944',
+        weight: 1.6,
+        fillColor: '#9a948c',
+        fillOpacity: 0.45,
+      },
+    }).addTo(plan);
+
+    const couche = L.geoJSON(donneesCommunes, {
+      style: (feature) => {
+        const code = String(feature?.properties?.code ?? '');
+        const actif = (meta[code]?.count ?? 0) > 0;
+        return {
+          color: actif ? '#14324f' : '#6d6256',
+          weight: actif ? 2 : 1,
+          fillColor: actif ? '#1f4e79' : '#f7f1e8',
+          fillOpacity: actif ? 0.82 : 0.9,
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        const code = String(feature.properties?.code ?? '');
+        const info = meta[code];
+        if (!info) return;
+        const detail = info.count > 0 ? `${info.count} fiche${info.count > 1 ? 's' : ''}` : 'Fiches à venir';
+        layer.bindTooltip(`${echapper(info.nom)} — ${detail}`, { sticky: true, direction: 'top' });
+        layer.on('mouseover', () => {
+          layer.setStyle({ weight: 3.5, color: '#102a43' });
+        });
+        layer.on('mouseout', () => {
+          couche.resetStyle(layer);
+        });
+        layer.on('click', () => {
+          window.location.href = info.href;
+        });
+      },
+    }).addTo(plan);
+
+    plan.fitBounds(couche.getBounds().pad(0.18));
+    requestAnimationFrame(() => plan.invalidateSize());
+  }
+</script>

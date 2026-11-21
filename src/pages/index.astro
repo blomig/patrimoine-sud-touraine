@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import CarteTerritoire from '../components/CarteTerritoire.astro';
 import Statut from '../components/Statut.astro';
 import { agendaVisibleMaintenant, extrait, hrefFiche } from '../lib/contenu';
 import { formatPlage } from '../lib/dates';
@@ -24,6 +25,15 @@ const evenements = await agendaVisibleMaintenant();
       On entre par une rubrique, par la carte des communes, ou par les animations du moment.{' '}
       <a href={withBase('/qu-est-ce-que-ce-site/')}>Qu’est-ce que ce site ?</a>
     </p>
+  </section>
+
+  <section class="bloc bloc-carte" aria-labelledby="titre-carte-accueil">
+    <h2 id="titre-carte-accueil">Les communes</h2>
+    <p>
+      Loches Sud Touraine dans l’Indre-et-Loire. Survolez une commune, cliquez pour ouvrir sa page.
+    </p>
+    <CarteTerritoire identifiant="accueil" />
+    <p><a class="lien-suite nav-communes" href={withBase('/communes/')}>Toutes les communes</a></p>
   </section>
 
   <section class="bloc" aria-labelledby="titre-categories">
