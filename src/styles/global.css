@@ -231,7 +231,8 @@ a.nav-pastille {
 }
 
 a.nav-pastille-animations {
-  background: #1f4e79;
+  background: #c62828;
+  color: #ffffff;
 }
 
 a.nav-communes:hover,
@@ -910,20 +911,16 @@ code {
   color: #f7f6f3;
 }
 
-[data-design="carnet"] a.nav-pastille-animations {
-  background: #7a2e12;
-  color: #fff8f0;
-}
-
 [data-design="musee"] .entete a.nav-communes,
 [data-design="musee"] .entete a.nav-pastille {
   background: #f3d48a;
   color: #102a43;
 }
 
+[data-design="carnet"] a.nav-pastille-animations,
 [data-design="musee"] .entete a.nav-pastille-animations {
-  background: #d6e8f8;
-  color: #102a43;
+  background: #c62828;
+  color: #ffffff;
 }
 
 [data-design="musee"] .marque-musee {
