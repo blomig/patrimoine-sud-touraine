@@ -107,7 +107,7 @@ Le design publié est la valeur `design` de `contenu/site.yml` :
 
 C’est le seul réglage. On peut le modifier dans le fichier ou dans l’administration, rubrique « Design publié ».
 
-La page [Trois designs](https://blomig.github.io/patrimoine-sud-touraine/designs/) montre les trois côte à côte. « Parcourir le site avec ce design » ne change que le navigateur de la personne qui clique. Les autres visiteurs continuent de voir la valeur de `site.yml`. « Revenir au design publié » efface ce choix local.
+La page [Quatre designs](https://blomig.github.io/patrimoine-sud-touraine/designs/) montre les quatre côte à côte. « Parcourir le site avec ce design » ne change que le navigateur de la personne qui clique. Les autres visiteurs continuent de voir la valeur de `site.yml`. « Revenir au design publié » efface ce choix local.
 
 ## Administration
 

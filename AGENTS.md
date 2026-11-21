@@ -46,7 +46,7 @@ public/data/
 public/media/categories/    images d’illustration déjà téléchargées
 public/admin/               CMS (config.yml, index.html)
 src/pages/                  pages du site
-src/styles/global.css       les trois designs
+src/styles/global.css       les quatre designs
 src/content.config.ts       schéma Zod des fiches
 astro.config.mjs            site et chemin de base
 .github/workflows/pages.yml build, tests, déploiement
