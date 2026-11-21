@@ -198,6 +198,84 @@ main {
   min-width: 0;
 }
 
+.masque {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Champ du menu : envoie vers /recherche/?q=… */
+.recherche-menu {
+  display: flex;
+  align-items: stretch;
+  width: min(28rem, 100%);
+  margin: 0.1rem auto 0.55rem;
+  border: 1px solid var(--regle);
+  border-radius: 999px;
+  background: var(--carte);
+  overflow: hidden;
+}
+
+.recherche-menu input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--encre);
+  font: inherit;
+  font-size: 1.05rem;
+  padding: 0.4rem 0.15rem 0.4rem 1rem;
+  min-height: 44px;
+}
+
+.recherche-menu input::placeholder {
+  color: #5c5348;
+  opacity: 1;
+}
+
+.recherche-menu input:focus {
+  outline: none;
+}
+
+.recherche-menu:focus-within {
+  outline: 3px solid var(--lien);
+  outline-offset: 2px;
+}
+
+.recherche-menu button {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--encre);
+  cursor: pointer;
+}
+
+.recherche-menu button:hover {
+  background: var(--accent);
+  color: #f7f4ee;
+  border-color: transparent;
+}
+
+.recherche-menu svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: block;
+}
+
 .nav-rubriques {
   display: flex;
   flex-wrap: nowrap;
