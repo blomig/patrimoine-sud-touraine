@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { agendaVisibleSi } from '../src/lib/agenda.ts';
-import { cleDebut, cleFin, formatDateSouple, formatPlage, periodeTerminee } from '../src/lib/dates.ts';
+import { cleDebut, cleFin, extraireHoraire, formatDateSouple, formatPlage, periodeTerminee } from '../src/lib/dates.ts';
 import { appliquerNombre, nombreFrancais } from '../src/lib/nombres.ts';
 import { slugifier } from '../src/lib/slug.ts';
 import { resoudreThemes } from '../src/lib/themes.ts';
@@ -19,6 +19,19 @@ test('les dates partielles et négatives restent lisibles', () => {
   assert.equal(formatDateSouple('-2400'), '2400 av. J.-C.');
   assert.equal(formatPlage('1429-05', '1429-05'), 'mai 1429');
   assert.equal(formatPlage('1358', '1359'), '1358 – 1359');
+});
+
+test('l’horaire d’une animation est repris tel qu’il est écrit, ou omis', () => {
+  assert.equal(extraireHoraire('Samedi 16 janvier 2027, de 20 h 30 à 23 h 30, Le Forum'), 'de 20 h 30 à 23 h 30');
+  assert.equal(extraireHoraire('Vendredi 27 novembre 2026, à 20 h, bibliothèque de Perrusson'), 'à 20 h');
+  assert.equal(extraireHoraire('26 novembre 2026, à partir de 18 h'), 'à partir de 18 h');
+  assert.equal(extraireHoraire('ouverture en soirée jusqu’à 20 h'), 'jusqu’à 20 h');
+  assert.equal(
+    extraireHoraire('16 janvier 2027, de 10 h 30 à 12 h 30 puis de 14 h 30 à 18 h'),
+    'de 10 h 30 à 12 h 30, de 14 h 30 à 18 h',
+  );
+  assert.equal(extraireHoraire('27 novembre 2026'), null);
+  assert.equal(extraireHoraire(null), null);
 });
 
 test('le tri chronologique place la préhistoire avant le XIe siècle', () => {

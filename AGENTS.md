@@ -184,7 +184,7 @@ Ajouter un bloc dans `contenu/associations.yml` sans réécrire les autres :
 
 ## Design et styles
 
-Le site n’a plus qu’une apparence, dans `src/styles/global.css` : la revue en bleu marine (`#1f3a6b` pour le titre, les pavés et le filet ; Prochaines animations en bleu roi `#1a4fbf`). Les polices Source Serif 4 et Source Sans 3 sont importées dans `src/layouts/Base.astro`. Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas réintroduire un sélecteur de design (`?apercu=`, page `/designs/`) sans demande.
+Le site n’a plus qu’une apparence, dans `src/styles/global.css` : la revue en bleu marine (`#1f3a6b` pour le titre, les pavés et le filet ; Prochaines animations en bleu roi `#1a4fbf` ; cadres de la carte, des rubriques et de l’agenda en orange `--orange`, `#b1460a`). Les polices Source Serif 4 et Source Sans 3 sont importées dans `src/layouts/Base.astro`. Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas réintroduire un sélecteur de design (`?apercu=`, page `/designs/`) sans demande.
 
 ## Règles imposées
 

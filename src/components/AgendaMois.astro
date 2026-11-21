@@ -1,0 +1,195 @@
+---
+import { hrefFiche, type Fiche } from '../lib/contenu';
+import { extraireHoraire } from '../lib/dates';
+import { withBase } from '../lib/urls';
+
+const { evenements } = Astro.props as { evenements: Fiche[] };
+const donnees = {
+  evenements: evenements
+    .filter((evenement) => evenement.data.date_debut)
+    .map((evenement) => ({
+      titre: evenement.data.titre,
+      commune: evenement.data.commune,
+      horaire: extraireHoraire(evenement.data.periode),
+      href: withBase(hrefFiche(evenement)),
+      debut: evenement.data.date_debut,
+      fin: evenement.data.date_fin ?? evenement.data.date_debut,
+    })),
+};
+const json = JSON.stringify(donnees).replace(/</g, '\\u003c');
+---
+
+<div class="agenda-calendrier" data-agenda-calendrier>
+  <div class="agenda-calendrier-barre">
+    <button type="button" data-mois="-1" aria-label="Mois précédent">‹</button>
+    <p class="agenda-mois-titre" data-titre-mois aria-live="polite"></p>
+    <button type="button" data-mois="1" aria-label="Mois suivant">›</button>
+  </div>
+  <div class="agenda-grille" data-grille role="grid"></div>
+  <noscript>
+    <p>Le calendrier se feuillette avec JavaScript. La liste indique les animations à venir.</p>
+  </noscript>
+</div>
+<script type="application/json" id="donnees-agenda-mois" set:html={json} />
+
+<script>
+  import { nomMois } from '../lib/dates';
+
+  const racine = document.querySelector<HTMLElement>('[data-agenda-calendrier]');
+  const source = document.getElementById('donnees-agenda-mois');
+  if (racine && source?.textContent) {
+    const { evenements } = JSON.parse(source.textContent) as {
+      evenements: { titre: string; commune: string; horaire: string | null; href: string; debut: string; fin: string }[];
+    };
+    const jours = ['lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.', 'dim.'];
+    const aujourdhui = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Paris',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(new Date());
+    let annee = Number(aujourdhui.slice(0, 4));
+    let mois = Number(aujourdhui.slice(5, 7));
+    const titre = racine.querySelector<HTMLElement>('[data-titre-mois]')!;
+    const grille = racine.querySelector<HTMLElement>('[data-grille]')!;
+
+    const iso = (a: number, m: number, j: number) =>
+      `${a}-${String(m).padStart(2, '0')}-${String(j).padStart(2, '0')}`;
+
+    const fermer = () => {
+      racine.querySelectorAll('.agenda-jour.ouvert').forEach((cellule) => {
+        cellule.classList.remove('ouvert');
+        cellule.querySelector('button')?.setAttribute('aria-expanded', 'false');
+      });
+    };
+
+    const dessiner = () => {
+      titre.textContent = `${nomMois(mois)} ${annee}`;
+      grille.setAttribute('aria-label', `Calendrier de ${nomMois(mois)} ${annee}`);
+      grille.replaceChildren();
+
+      const entete = document.createElement('div');
+      entete.className = 'agenda-ligne';
+      entete.setAttribute('role', 'row');
+      for (const nom of jours) {
+        const cellule = document.createElement('div');
+        cellule.className = 'agenda-entete-jour';
+        cellule.setAttribute('role', 'columnheader');
+        cellule.textContent = nom;
+        entete.append(cellule);
+      }
+      grille.append(entete);
+
+      const decalage = (new Date(Date.UTC(annee, mois - 1, 1)).getUTCDay() + 6) % 7;
+      const nombre = new Date(Date.UTC(annee, mois, 0)).getUTCDate();
+      let ligne = document.createElement('div');
+      ligne.className = 'agenda-ligne';
+      ligne.setAttribute('role', 'row');
+
+      const ajouter = (cellule: HTMLElement) => {
+        ligne.append(cellule);
+        if (ligne.childElementCount === 7) {
+          grille.append(ligne);
+          ligne = document.createElement('div');
+          ligne.className = 'agenda-ligne';
+          ligne.setAttribute('role', 'row');
+        }
+      };
+
+      for (let i = 0; i < decalage; i += 1) {
+        const vide = document.createElement('div');
+        vide.className = 'agenda-jour agenda-jour-vide';
+        vide.setAttribute('role', 'gridcell');
+        ajouter(vide);
+      }
+
+      for (let jour = 1; jour <= nombre; jour += 1) {
+        const jourIso = iso(annee, mois, jour);
+        const duJour = evenements.filter((evenement) => evenement.debut <= jourIso && jourIso <= evenement.fin);
+        const cellule = document.createElement('div');
+        cellule.className = 'agenda-jour';
+        cellule.setAttribute('role', 'gridcell');
+        cellule.dataset.colonne = String((decalage + jour - 1) % 7);
+        if (jourIso < aujourdhui) cellule.classList.add('passe');
+        if (jourIso === aujourdhui) cellule.classList.add('aujourdhui');
+        if (duJour.length > 0) cellule.classList.add('avec');
+
+        if (duJour.length === 0) {
+          const span = document.createElement('span');
+          span.className = 'agenda-numero';
+          span.textContent = String(jour);
+          cellule.append(span);
+        } else {
+          const bouton = document.createElement('button');
+          bouton.type = 'button';
+          bouton.className = 'agenda-numero';
+          bouton.textContent = String(jour);
+          const compte = duJour.length > 1 ? `${duJour.length} animations` : '1 animation';
+          bouton.setAttribute('aria-label', `${jour} ${nomMois(mois)} ${annee}, ${compte}`);
+          bouton.setAttribute('aria-expanded', 'false');
+          const info = document.createElement('div');
+          info.className = 'agenda-infobulle';
+          info.id = `agenda-info-${jourIso}`;
+          bouton.setAttribute('aria-controls', info.id);
+          const liste = document.createElement('ul');
+          for (const evenement of duJour) {
+            const item = document.createElement('li');
+            const lien = document.createElement('a');
+            lien.href = evenement.href;
+            lien.textContent = evenement.titre;
+            const commune = document.createElement('span');
+            commune.className = 'agenda-infobulle-commune';
+            commune.textContent = evenement.commune;
+            const horaire = document.createElement('span');
+            horaire.className = 'agenda-infobulle-horaire';
+            horaire.textContent = evenement.horaire || 'horaire non précisé';
+            item.append(lien, commune, horaire);
+            liste.append(item);
+          }
+          info.append(liste);
+          bouton.addEventListener('click', () => {
+            const ouvert = cellule.classList.toggle('ouvert');
+            bouton.setAttribute('aria-expanded', ouvert ? 'true' : 'false');
+          });
+          cellule.append(bouton, info);
+        }
+        ajouter(cellule);
+      }
+
+      if (ligne.childElementCount > 0) {
+        while (ligne.childElementCount < 7) {
+          const vide = document.createElement('div');
+          vide.className = 'agenda-jour agenda-jour-vide';
+          vide.setAttribute('role', 'gridcell');
+          ligne.append(vide);
+        }
+        grille.append(ligne);
+      }
+    };
+
+    racine.querySelector('[data-mois="-1"]')?.addEventListener('click', () => {
+      mois -= 1;
+      if (mois < 1) {
+        mois = 12;
+        annee -= 1;
+      }
+      dessiner();
+    });
+    racine.querySelector('[data-mois="1"]')?.addEventListener('click', () => {
+      mois += 1;
+      if (mois > 12) {
+        mois = 1;
+        annee += 1;
+      }
+      dessiner();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') fermer();
+    });
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && racine.contains(event.target)) return;
+      fermer();
+    });
+    dessiner();
+  }
+</script>

@@ -1,7 +1,7 @@
 ---
+import AgendaMois from '../components/AgendaMois.astro';
 import Base from '../layouts/Base.astro';
 import CarteTerritoire from '../components/CarteTerritoire.astro';
-import Illustration from '../components/Illustration.astro';
 import ListeAgenda from '../components/ListeAgenda.astro';
 import { agendaVisibleMaintenant } from '../lib/contenu';
 import { chargerSite, listeCategories } from '../lib/site';
@@ -58,13 +58,28 @@ const evenements = await agendaVisibleMaintenant();
   </section>
 
   <section class="bloc accueil-agenda" aria-labelledby="titre-agenda">
-    {agenda?.illustration && (
-      <div class="accueil-agenda-visuel">
-        <Illustration image={agenda.illustration} />
-      </div>
-    )}
-    <h2 id="titre-agenda">Prochaines animations</h2>
-    <ListeAgenda evenements={evenements} />
-    <p><a class="lien-suite" href={withBase('/agenda/')}>Ouvrir l’agenda</a></p>
+    <div class="accueil-agenda-gauche">
+      {
+        agenda?.illustration && (
+          <figure class="accueil-agenda-visuel">
+            <img
+              src={agenda.illustration.fichier ? withBase(agenda.illustration.fichier) : agenda.illustration.url}
+              alt={agenda.illustration.legende}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption>
+              {agenda.illustration.legende}. {agenda.illustration.auteur}.
+            </figcaption>
+          </figure>
+        )
+      }
+      <AgendaMois evenements={evenements} />
+    </div>
+    <div class="accueil-agenda-droite">
+      <h2 id="titre-agenda">Prochaines animations</h2>
+      <ListeAgenda evenements={evenements} />
+      <p class="lien-agenda"><a class="lien-suite" href={withBase('/agenda/')}>Ouvrir l’agenda</a></p>
+    </div>
   </section>
 </Base>
