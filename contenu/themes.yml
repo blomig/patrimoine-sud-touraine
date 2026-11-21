@@ -70,7 +70,7 @@ categories:
         libelle: Résistance et guerres
 
   agenda:
-    libelle: Animations
+    libelle: Prochaines animations
     themes:
       - id: visites-et-animations-monumentales
         libelle: Visites et animations dans les monuments

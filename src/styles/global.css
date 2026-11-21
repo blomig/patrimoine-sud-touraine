@@ -851,12 +851,27 @@ body {
   padding-block: 0.65rem 0.5rem;
 }
 
+/* Le titre fixe la largeur ; les pavés et la recherche occupent exactement la même boîte. */
+.entete-bloc {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
 .nom-site {
-  display: inline;
-  font-size: clamp(2.45rem, 4.4vw, 3.6rem);
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  font-size: clamp(2.15rem, 4.15vw, 3.45rem);
   font-weight: 600;
   letter-spacing: -0.02em;
+  line-height: 1.05;
   color: #1f3a6b;
+  white-space: nowrap;
 }
 
 .sous-titre {
@@ -865,48 +880,45 @@ body {
 
 .barre-menu {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.4rem 0.45rem;
-  width: fit-content;
-  max-width: 100%;
-  margin-inline: auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  width: 0;
+  min-width: 100%;
+  margin: 0;
   text-align: left;
 }
 
 .nav-rubriques {
-  display: contents;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  gap: 0.45rem;
+  width: 100%;
+  overflow: visible;
+  padding: 0;
 }
 
-[data-rubrique="communes"] {
-  display: none;
-}
-
-[data-rubrique="batiments-anciens-disparus"] { order: 1; }
-[data-rubrique="batiments-anciens-existants"] { order: 2; }
-[data-rubrique="personnes"] { order: 3; }
-[data-rubrique="evenements-historiques"] {
-  order: 4;
-  max-width: 9.2rem;
-  white-space: normal;
-  text-align: center;
-  line-height: 1.15;
+.nav-rubriques a.nav-pastille {
+  flex: 1 1 0;
+  min-width: 0;
   justify-content: center;
-}
-[data-rubrique="vie-economique"] { order: 5; }
-[data-rubrique="documents"] { order: 6; }
-
-.barre-menu::after {
-  content: "";
-  order: 7;
-  flex-basis: 100%;
-  height: 0;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.15;
+  padding: 0.32rem 0.4rem;
 }
 
-[data-rubrique="agenda"] {
-  order: 8;
+.ligne-animations {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.ligne-animations .nav-pastille-animations {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 a.nav-pastille {
@@ -921,11 +933,11 @@ a.nav-pastille-animations {
   color: #ffffff;
 }
 
-.recherche-menu {
-  order: 9;
-  flex: 1 1 14rem;
+.ligne-animations .recherche-menu {
+  flex: 1 1 auto;
   width: auto;
-  max-width: 28rem;
+  max-width: none;
+  min-width: 0;
   margin: 0;
 }
 
@@ -983,6 +995,7 @@ a.nav-pastille-animations {
 
   .plan.plan-communes {
     width: min(100%, calc(100vh - 19.5rem));
+    max-width: calc(100vh - 19.5rem);
     max-height: calc(100vh - 19.5rem);
     margin: 0;
   }
@@ -1069,16 +1082,35 @@ a.nav-pastille-animations {
   }
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 63.99rem) {
+  .entete-bloc,
   .barre-menu {
     width: 100%;
   }
 
-  .recherche-menu {
-    flex-basis: 100%;
-    max-width: none;
+  .nom-site {
+    white-space: normal;
+    width: auto;
   }
 
+  .nav-rubriques {
+    flex-wrap: wrap;
+  }
+
+  .nav-rubriques a.nav-pastille {
+    flex: 1 1 calc(50% - 0.45rem);
+  }
+
+  .ligne-animations {
+    flex-wrap: wrap;
+  }
+
+  .ligne-animations .recherche-menu {
+    flex-basis: 100%;
+  }
+}
+
+@media (max-width: 40rem) {
   .accueil-rubriques .tuile-image {
     max-height: 6.5rem;
   }

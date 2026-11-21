@@ -6,7 +6,7 @@ Le site public est https://blomig.github.io/patrimoine-sud-touraine/. Ce n’est
 
 ## Objectif
 
-Cahier documentaire, en français, sur le patrimoine de la communauté de communes Loches Sud Touraine (Indre-et-Loire, EPCI SIREN 200071587, 67 communes). Sept rubriques : Bâtiments disparus, Bâtiments existants, Personnages, Événements historiques, Animations, Vie économique, Documents. Une page par commune, une carte du territoire, une recherche plein texte.
+Cahier documentaire, en français, sur le patrimoine de la communauté de communes Loches Sud Touraine (Indre-et-Loire, EPCI SIREN 200071587, 67 communes). Sept rubriques : Bâtiments disparus, Bâtiments existants, Personnages, Événements historiques, Prochaines animations, Vie économique, Documents. Une page par commune, une carte du territoire, une recherche plein texte.
 
 Une fiche = un fichier Markdown. Le texte ne dit que ce que les sources permettent de dire.
 
@@ -184,7 +184,7 @@ Ajouter un bloc dans `contenu/associations.yml` sans réécrire les autres :
 
 ## Design et styles
 
-Le site n’a plus qu’une apparence, dans `src/styles/global.css` : la revue en bleu marine (`#1f3a6b` pour le titre, les pavés et le filet ; Animations en bleu roi `#1a4fbf`). Les polices Source Serif 4 et Source Sans 3 sont importées dans `src/layouts/Base.astro`. Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas réintroduire un sélecteur de design (`?apercu=`, page `/designs/`) sans demande.
+Le site n’a plus qu’une apparence, dans `src/styles/global.css` : la revue en bleu marine (`#1f3a6b` pour le titre, les pavés et le filet ; Prochaines animations en bleu roi `#1a4fbf`). Les polices Source Serif 4 et Source Sans 3 sont importées dans `src/layouts/Base.astro`. Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas réintroduire un sélecteur de design (`?apercu=`, page `/designs/`) sans demande.
 
 ## Règles imposées
 
