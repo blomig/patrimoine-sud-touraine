@@ -166,3 +166,19 @@ associations:
       - https://www.assoce.fr/waldec/W373002108/LOISIRS-ET-AMITIE-ENTRE-CLAISE-ET-CREUSE
       - https://www.ville-descartes.fr/medias/Culture/Programme_saison_culturelle_26-27_publi.pdf
 
+  - id: comite-animation-bossee
+    nom: Comité d'Animation de Bossée (CAB)
+    commune: Bossée
+    insee: "37029"
+    site: null
+    notes: >
+      Selon le site de la commune, le CAB est issu de la transformation du comité
+      des fêtes en 2008. Ses manifestations « historiques » sont la fête de la
+      Saint-Vincent, le deuxième samedi de février, et la brocante dans le bourg,
+      le premier dimanche de mai ; s'y sont ajoutés une excursion ouverte à tous
+      en septembre et un karaoké en novembre. Le comité propose aussi des marches
+      sur les chemins de la commune. Ce n'est pas une association patrimoniale au
+      sens strict ; aucune association consacrée au patrimoine de Bossée n'a été
+      trouvée lors de la collecte. Site officiel non identifié.
+    sources:
+      - https://www.bossee.fr/fr/article/associations-6.html
