@@ -78,7 +78,9 @@ Champs utiles :
 | `latitude`, `longitude` | Degrés décimaux, les deux ensemble, ou `null`. Sans coordonnées, la fiche n’est pas sur la carte. |
 | `date_debut`, `date_fin` | Chaînes : année (`973`, `-2400`), année-mois (`1429-05`) ou date (`2026-12-12`). `null` si on ne sait pas. Elles servent à la frise et, pour l’agenda, à masquer ce qui est terminé. |
 | `periode` | Libellé rédigé, affiché tel quel. |
-| `merimee` | Code de notice, par exemple `PA00097821`, ou `null`. Absent pour l’agenda. |
+| `wikidata` | Identifiant `Q12345`, ou `null`. Seulement s’il a été vérifié. |
+| `merimee` | Référence `PA`, `IA` ou `MH`, par exemple `PA00097681`, ou `null`. Seulement si elle a été vérifiée. |
+| `palissy` | Référence `PM37000123`, ou `null`. Seulement si elle a été vérifiée. |
 | `insee` | Code communal, entre guillemets pour garder les zéros. |
 | `image` | Un seul objet (`url`, `page_commons`, `licence`, `auteur`) ou `null`. Uniquement une image libre. |
 | `sources` | Liste de `{ titre, url }`. |

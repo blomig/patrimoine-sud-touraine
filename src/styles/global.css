@@ -628,6 +628,19 @@ button:hover {
   background: #ddd;
 }
 
+.liens-identifiants,
+.mention-licence {
+  margin: 1.2rem 0 0;
+  color: color-mix(in srgb, var(--encre) 70%, var(--fond));
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.liens-identifiants a {
+  color: inherit;
+}
+
 .credit-tuile a,
 .illustration figcaption a,
 .figure-fiche figcaption a,

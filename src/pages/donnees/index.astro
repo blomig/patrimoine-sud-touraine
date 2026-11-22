@@ -1,0 +1,38 @@
+---
+import Fil from '../../components/Fil.astro';
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../lib/urls';
+---
+
+<Base
+  titre="Données ouvertes"
+  description="Export des fiches du patrimoine du Sud-Touraine, en JSON et en CSV."
+>
+  <Fil crumbs={[{ label: 'Données ouvertes' }]} />
+  <header class="entete-page">
+    <h1>Données ouvertes</h1>
+    <p class="chapo">
+      Les fiches publiées sur ce site sont aussi téléchargeables, telles qu’elles sont au moment de
+      la construction du site.
+    </p>
+  </header>
+  <div class="texte">
+    <p>
+      Deux fichiers, même contenu : <a href={withBase('/donnees/fiches.json')}>fiches.json</a> et
+      <a href={withBase('/donnees/fiches.csv')}>fiches.csv</a>. Chaque ligne est une fiche.
+    </p>
+    <ul>
+      <li><code>slug</code>, <code>titre</code>, <code>rubrique</code>, <code>commune</code>, <code>insee</code></li>
+      <li><code>date_debut</code>, <code>date_fin</code>, <code>latitude</code>, <code>longitude</code></li>
+      <li><code>resume</code> : le repère chronologique rédigé sur la fiche</li>
+      <li><code>url</code> : l’adresse canonique de la fiche</li>
+      <li><code>wikidata</code>, <code>merimee</code>, <code>palissy</code> : identifiants externes, vides s’ils n’ont pas été vérifiés</li>
+      <li><code>credit</code>, <code>licence</code> : auteur et licence de l’image principale, s’il y en a une</li>
+    </ul>
+    <p>
+      Le JSON-LD Schema.org de chaque fiche est dans la page HTML, pas dans ces fichiers. Il est
+      produit automatiquement à partir des mêmes champs.
+    </p>
+    <p class="mention-licence">Licence : à définir par l'association.</p>
+  </div>
+</Base>

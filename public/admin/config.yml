@@ -75,10 +75,24 @@ collections:
         name: date_fin
         widget: string
         required: false
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
       - label: Notice Mérimée
         name: merimee
         widget: string
         required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select
@@ -179,10 +193,24 @@ collections:
         name: date_fin
         widget: string
         required: false
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
       - label: Notice Mérimée
         name: merimee
         widget: string
         required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select
@@ -283,10 +311,24 @@ collections:
         name: date_fin
         widget: string
         required: false
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
       - label: Notice Mérimée
         name: merimee
         widget: string
         required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select
@@ -387,10 +429,24 @@ collections:
         name: date_fin
         widget: string
         required: false
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
       - label: Notice Mérimée
         name: merimee
         widget: string
         required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select
@@ -490,6 +546,24 @@ collections:
       - label: Lieu
         name: lieu
         widget: string
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
+      - label: Notice Mérimée
+        name: merimee
+        widget: string
+        required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select
@@ -589,10 +663,24 @@ collections:
         name: date_fin
         widget: string
         required: false
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
       - label: Notice Mérimée
         name: merimee
         widget: string
         required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select
@@ -724,10 +812,24 @@ collections:
         name: fonds
         widget: string
         required: false
+      - label: Wikidata
+        name: wikidata
+        widget: string
+        required: false
+        hint: "Identifiant Wikidata, Q suivi de chiffres, par exemple Q12345. Le vérifier sur wikidata.org. Laisser vide si aucune fiche n’a été vérifiée."
+        pattern: ["^Q[0-9]+$", "Forme attendue : Q suivi de chiffres, par exemple Q12345."]
       - label: Notice Mérimée
         name: merimee
         widget: string
         required: false
+        hint: "Référence Mérimée PA, IA ou MH, par exemple PA00097681. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^(PA|IA|MH)[0-9]+$", "Forme attendue : PA, IA ou MH suivi de chiffres."]
+      - label: Palissy
+        name: palissy
+        widget: string
+        required: false
+        hint: "Référence Palissy, par exemple PM37000123. La vérifier sur la plateforme ouverte du patrimoine. Laisser vide si aucune notice n’a été vérifiée."
+        pattern: ["^PM[0-9]+$", "Forme attendue : PM suivi de chiffres, par exemple PM37000123."]
       - label: Statut
         name: statut
         widget: select

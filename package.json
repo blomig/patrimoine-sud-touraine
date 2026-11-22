@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pagefind --site dist --force-language fr",
+    "build": "astro build && node scripts/verifier-jsonld.mjs && pagefind --site dist --force-language fr",
     "preview": "astro preview --host 0.0.0.0",
     "test": "node --experimental-strip-types --test scripts/contenu.test.mjs"
   },

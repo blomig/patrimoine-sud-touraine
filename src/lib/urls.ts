@@ -1,4 +1,10 @@
 /** Préfixe le chemin de base GitHub Pages (`/patrimoine-sud-touraine/`). */
+/** Adresse absolue publiée, avec le chemin de base GitHub Pages. */
+export function urlPublique(chemin: string): string {
+  const origine = import.meta.env.SITE ?? 'https://blomig.github.io';
+  return new URL(withBase(chemin), origine).href;
+}
+
 export function withBase(chemin: string): string {
   const base = import.meta.env.BASE_URL;
   if (/^https?:\/\//.test(chemin)) return chemin;

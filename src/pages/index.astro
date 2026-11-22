@@ -4,18 +4,25 @@ import Base from '../layouts/Base.astro';
 import CarteTerritoire from '../components/CarteTerritoire.astro';
 import ListeAgenda from '../components/ListeAgenda.astro';
 import { agendaVisibleMaintenant } from '../lib/contenu';
+import { jsonLdSite } from '../lib/jsonld';
 import { chargerSite, listeCategories } from '../lib/site';
-import { withBase } from '../lib/urls';
+import { urlPublique, withBase } from '../lib/urls';
 
 const site = chargerSite();
 const categories = listeCategories();
 const agenda = categories.find((categorie) => categorie.id === 'agenda');
 const evenements = await agendaVisibleMaintenant();
+const accueil = urlPublique('/');
 ---
 
 <Base
   titre={site.titre}
   description="Patrimoine de Loches Sud Touraine : les rubriques, les communes du territoire et les prochaines animations."
+  jsonLd={jsonLdSite({
+    nom: site.titre,
+    url: accueil,
+    recherche: `${accueil}recherche/?q={search_term_string}`,
+  })}
 >
   <section class="bloc bloc-carte" aria-labelledby="titre-carte-accueil">
     <h2 class="accueil-carte-titre" id="titre-carte-accueil">Les communes</h2>

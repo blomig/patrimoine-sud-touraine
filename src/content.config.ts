@@ -1,6 +1,19 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { codeMerimee, codePalissy, codeWikidata } from './lib/identifiants';
+
+function codeOptionnel(valide: (valeur: string) => boolean, message: string) {
+  return z
+    .union([z.string(), z.null()])
+    .optional()
+    .transform((valeur) => {
+      if (typeof valeur !== 'string') return null;
+      const texte = valeur.trim();
+      return texte.length > 0 ? texte : null;
+    })
+    .refine((valeur) => valeur == null || valide(valeur), { message });
+}
 
 const dateChamp = z
   .union([z.string(), z.number(), z.null()])
@@ -50,7 +63,9 @@ const fiches = defineCollection({
       date_debut: dateChamp,
       date_fin: dateChamp,
       lieu: z.string().nullable().optional(),
-      merimee: z.string().nullable().optional(),
+      wikidata: codeOptionnel(codeWikidata, 'Wikidata : Q suivi de chiffres, par exemple Q12345.'),
+      merimee: codeOptionnel(codeMerimee, 'Mérimée : PA, IA ou MH suivi de chiffres, par exemple PA00097681.'),
+      palissy: codeOptionnel(codePalissy, 'Palissy : PM suivi de chiffres, par exemple PM37000123.'),
       statut: z.enum(['à vérifier', 'à valider', 'validé', 'publié']),
       type_document: z
         .union([

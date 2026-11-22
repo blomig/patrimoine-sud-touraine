@@ -1,0 +1,19 @@
+---
+import { liensIdentifiants, type CodesExternes } from '../lib/identifiants';
+
+const codes = Astro.props as CodesExternes;
+const liens = liensIdentifiants(codes);
+---
+
+{
+  liens.length > 0 && (
+    <p class="liens-identifiants">
+      {liens.map((lien, index) => (
+        <>
+          {index > 0 ? ' · ' : ''}
+          <a href={lien.href}>{lien.label}</a>
+        </>
+      ))}
+    </p>
+  )
+}

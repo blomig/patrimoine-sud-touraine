@@ -71,7 +71,9 @@ Champs communs :
 | `latitude`, `longitude` | Degrés décimaux, les deux ensemble, ou `null`. |
 | `periode` | Libellé rédigé, affiché tel quel. |
 | `date_debut`, `date_fin` | Chaîne ou `null`. Formes acceptées : `973`, `-2400`, `1429-05`, `2026-12-12`. |
-| `merimee` | Code de notice (`PA00097821`) ou `null`. Inutile pour l’agenda. |
+| `wikidata` | Facultatif. Identifiant Wikidata `Q` suivi de chiffres (`Q12345`), ou `null`. Le chercher sur [wikidata.org](https://www.wikidata.org/) et ne l’écrire qu’après vérification. Ne jamais le deviner. |
+| `merimee` | Facultatif. Référence Mérimée `PA`, `IA` ou `MH` suivie de chiffres (`PA00097681`), ou `null`. La vérifier sur la [plateforme ouverte du patrimoine](https://www.pop.culture.gouv.fr/). Ne jamais la deviner. |
+| `palissy` | Facultatif. Référence Palissy `PM` suivie de chiffres (`PM37000123`), ou `null`. Même plateforme, notice Palissy. Ne jamais la deviner. |
 | `lieu` | Surtout pour l’agenda. `null` si on ne le connaît pas. |
 | `sources` | Liste de `{ titre, url }`. Au moins une source réelle. |
 | `image` | `null`, ou `{ url, page_commons, auteur, licence }`. `url` est la page du fichier (Wikimedia ou autre source libre). |
@@ -100,7 +102,9 @@ longitude: null
 periode: "XIXe siècle"
 date_debut: "1850"
 date_fin: null
+wikidata: null
 merimee: null
+palissy: null
 statut: "à vérifier"
 sources:
   - titre: "Titre exact de la source"
@@ -113,6 +117,14 @@ Si une date ou un nom manque, l’écrire, ne pas le combler.
 ```
 
 Pour une animation, `categorie` vaut `agenda`, le fichier est dans `contenu/agenda/`, et `statut` vaut `à valider`.
+
+## Données structurées
+
+Chaque page de fiche reçoit, à la construction, un JSON-LD Schema.org et des balises Dublin Core (`DC.title`, `DC.date`, `DC.source`, `DC.rights`, `DC.creator`, `DC.language`, `DC.coverage`) tirés des champs déjà remplis. L’accueil reçoit un `WebSite` avec une `SearchAction` vers `/recherche/?q=`. Rien de tout cela ne se rédige à la main.
+
+Si `wikidata`, `merimee` ou `palissy` sont remplis, ils deviennent des `sameAs` et de petits liens en bas de fiche. S’ils sont vides, on ne les invente pas.
+
+L’export `/donnees/fiches.json` et `/donnees/fiches.csv` est aussi produit au build, à partir des mêmes fiches. La page `/donnees/` le décrit. La licence de cet export n’est pas choisie ici : la page dit « Licence : à définir par l'association ».
 
 ### Vie économique
 
