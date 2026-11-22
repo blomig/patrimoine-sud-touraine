@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 import { agendaVisibleSi } from '../src/lib/agenda.ts';
+import { codeMerimee, codePalissy, codeWikidata, liensIdentifiants } from '../src/lib/identifiants.ts';
+import { jsonLdFiche, jsonLdSite, typeSchema } from '../src/lib/jsonld.ts';
+import { versCsv, ligneOuverte } from '../src/lib/export-ouvert.ts';
 import { cleDebut, cleFin, extraireHoraire, formatDateSouple, formatPlage, periodeTerminee } from '../src/lib/dates.ts';
 import { appliquerNombre, nombreFrancais } from '../src/lib/nombres.ts';
 import { slugifier } from '../src/lib/slug.ts';
@@ -94,6 +97,71 @@ test('le retour arrière ne passe pas par le routeur de transitions', () => {
   assert.equal(base.includes('astro:transitions'), false);
   assert.match(css, /@view-transition\s*\{\s*navigation:\s*auto;/);
   assert.match(css, /@media \(prefers-reduced-motion:\s*reduce\)\s*\{\s*@view-transition\s*\{\s*navigation:\s*none;/);
+});
+
+test('le JSON-LD d’une fiche est un JSON valide et typé', () => {
+  const fiche = {
+    categorie: 'batiments-anciens-disparus',
+    id: 'exemple-disparu',
+    titre: 'Tour disparue',
+    periode: 'XIIe siècle',
+    commune: 'Loches',
+    insee: '37132',
+    latitude: 47.12,
+    longitude: 0.99,
+    date_debut: '1100',
+    date_fin: null,
+    wikidata: 'Q1',
+    merimee: 'PA00097681',
+    palissy: null,
+    image: { url: 'https://exemple.fr/tour.jpg', auteur: 'Auteur', licence: 'CC BY-SA 4.0' },
+    sources: [{ titre: 'Source', url: 'https://exemple.fr/source' }],
+  };
+  const contexte = {
+    origine: 'https://blomig.github.io',
+    base: '/patrimoine-sud-touraine/',
+    nomSite: 'Patrimoine du Sud-Touraine',
+    urlFiche: 'https://blomig.github.io/patrimoine-sud-touraine/batiments-anciens-disparus/exemple-disparu/',
+    urlCommune: 'https://blomig.github.io/patrimoine-sud-touraine/communes/loches/',
+    urlRubrique: 'https://blomig.github.io/patrimoine-sud-touraine/batiments-anciens-disparus/',
+    nomRubrique: 'Bâtiments disparus',
+  };
+  const blocs = JSON.parse(JSON.stringify(jsonLdFiche(fiche, contexte)));
+  assert.equal(blocs[0]['@type'], 'LandmarksOrHistoricalBuildings');
+  assert.match(blocs[0].description, /disparu/);
+  assert.equal(blocs[0].additionalProperty.value, 'bâtiment disparu');
+  assert.deepEqual(blocs[0].sameAs, [
+    'https://www.wikidata.org/wiki/Q1',
+    'https://www.pop.culture.gouv.fr/notice/merimee/PA00097681',
+  ]);
+  assert.equal(blocs[0].image.creditText, 'Auteur');
+  assert.equal(blocs[1]['@type'], 'BreadcrumbList');
+  assert.equal(typeSchema({ ...fiche, categorie: 'personnes' }), 'Person');
+  assert.equal(typeSchema({ ...fiche, categorie: 'evenements-historiques' }), 'Event');
+  assert.equal(typeSchema({ ...fiche, categorie: 'agenda' }), 'Event');
+  assert.equal(typeSchema({ ...fiche, categorie: 'vie-economique' }), 'Organization');
+  assert.equal(typeSchema({ ...fiche, categorie: 'documents', type_document: 'archive' }), 'ArchiveComponent');
+  assert.equal(typeSchema({ ...fiche, categorie: 'documents', type_document: null }), 'CreativeWork');
+  assert.equal(typeSchema({ ...fiche, categorie: 'batiments-anciens-existants' }), 'LandmarksOrHistoricalBuildings');
+  assert.deepEqual(liensIdentifiants({ wikidata: null, merimee: 'PA00097681', palissy: 'PM37000123' }).map((lien) => lien.label), [
+    'Mérimée (POP)',
+    'Palissy (POP)',
+  ]);
+  assert.equal(codeWikidata('Q42'), true);
+  assert.equal(codeWikidata('tour'), false);
+  assert.equal(codeMerimee('PA37000028'), true);
+  assert.equal(codeMerimee('notice'), false);
+  assert.equal(codePalissy('PM37000123'), true);
+  const site = JSON.parse(JSON.stringify(jsonLdSite({
+    nom: 'Patrimoine du Sud-Touraine',
+    url: 'https://blomig.github.io/patrimoine-sud-touraine/',
+    recherche: 'https://blomig.github.io/patrimoine-sud-touraine/recherche/?q={search_term_string}',
+  })));
+  assert.equal(site['@type'], 'WebSite');
+  assert.equal(site.potentialAction['@type'], 'SearchAction');
+  const csv = versCsv([ligneOuverte(fiche, contexte.urlFiche)]);
+  assert.match(csv, /^slug,titre,rubrique,/);
+  assert.match(csv, /exemple-disparu/);
 });
 
 test('les noms de communes pilotes deviennent des adresses stables', () => {

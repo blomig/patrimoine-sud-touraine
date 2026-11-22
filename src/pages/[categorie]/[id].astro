@@ -2,7 +2,9 @@
 import { render } from 'astro:content';
 import Fil from '../../components/Fil.astro';
 import Galerie from '../../components/Galerie.astro';
+import LiensIdentifiants from '../../components/LiensIdentifiants.astro';
 import Base from '../../layouts/Base.astro';
+import { publicationFiche } from '../../lib/publication';
 import { estCategorieFiche } from '../../lib/categories';
 import { plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
 import { formatDateSouple } from '../../lib/dates';
@@ -34,11 +36,12 @@ const licenceHref = image ? urlLicence(image.licence) : null;
 const noticeMerimee = fiche.data.merimee
   ? `https://www.pop.culture.gouv.fr/notice/merimee/${fiche.data.merimee}`
   : null;
+const publication = publicationFiche(fiche, categorie.titre);
 const typeDocument = libelleTypeDocument(fiche.data.type_document);
 const dateDocument = fiche.data.date_document ? formatDateSouple(fiche.data.date_document) : null;
 ---
 
-<Base titre={fiche.data.titre} description={fiche.data.periode}>
+<Base titre={fiche.data.titre} description={fiche.data.periode} jsonLd={publication.jsonLd} dublinCore={publication.dublinCore}>
   <Fil
     crumbs={[
       { href: withBase(`/${fiche.data.categorie}/`), label: categorie.titre },
@@ -167,6 +170,8 @@ const dateDocument = fiche.data.date_document ? formatDateSouple(fiche.data.date
         }
       </ol>
     </section>
+
+    <LiensIdentifiants wikidata={fiche.data.wikidata} merimee={fiche.data.merimee} palissy={fiche.data.palissy} />
 
     <p class="lien-suite">
       <a href={withBase(`/${fiche.data.categorie}/frise/`)}>Voir cette catégorie sur la frise</a>

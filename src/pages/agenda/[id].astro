@@ -1,7 +1,9 @@
 ---
 import { render } from 'astro:content';
 import Fil from '../../components/Fil.astro';
+import LiensIdentifiants from '../../components/LiensIdentifiants.astro';
 import Base from '../../layouts/Base.astro';
+import { publicationFiche } from '../../lib/publication';
 import { plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
 import { slugifier } from '../../lib/slug';
 import { categorieParId, themesDe } from '../../lib/site';
@@ -20,11 +22,12 @@ if (!fiche) throw new Error('Animation introuvable');
 const { Content } = await render(fiche);
 const categorie = categorieParId('agenda')!;
 const { connus, inconnus } = themesConnus(fiche, themesDe('agenda'));
+const publication = publicationFiche(fiche, categorie.titre);
 const image = fiche.data.image;
 const licenceHref = image ? urlLicence(image.licence) : null;
 ---
 
-<Base titre={fiche.data.titre} description={fiche.data.periode}>
+<Base titre={fiche.data.titre} description={fiche.data.periode} jsonLd={publication.jsonLd} dublinCore={publication.dublinCore}>
   <Fil
     crumbs={[
       { href: withBase('/agenda/'), label: categorie.titre },
@@ -102,5 +105,6 @@ const licenceHref = image ? urlLicence(image.licence) : null;
         }
       </ol>
     </section>
+    <LiensIdentifiants wikidata={fiche.data.wikidata} merimee={fiche.data.merimee} palissy={fiche.data.palissy} />
   </article>
 </Base>

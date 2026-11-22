@@ -11,11 +11,23 @@ import Pied from '../components/Pied.astro';
 import { chargerSite } from '../lib/site';
 import { withBase } from '../lib/urls';
 
+type Dublin = {
+  title: string;
+  date?: string;
+  sources?: string[];
+  rights?: string;
+  creator?: string;
+  coverage?: string;
+};
+
 type Props = {
   titre: string;
   description?: string;
+  jsonLd?: unknown;
+  dublinCore?: Dublin | null;
 };
-const { titre, description = '' } = Astro.props;
+const { titre, description = '', jsonLd = null, dublinCore = null } = Astro.props;
+const jsonLdTexte = jsonLd ? JSON.stringify(jsonLd).replaceAll('<', '\\u003c') : '';
 const site = chargerSite();
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const titreComplet = titre === site.titre ? titre : `${titre} — ${site.titre}`;
@@ -31,6 +43,21 @@ const estAccueil = Astro.url.pathname === import.meta.env.BASE_URL;
     <title>{titreComplet}</title>
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    {
+      dublinCore && (
+        <>
+          <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+          <meta name="DC.title" content={dublinCore.title} />
+          <meta name="DC.language" content="fr" />
+          {dublinCore.date && <meta name="DC.date" content={dublinCore.date} />}
+          {dublinCore.coverage && <meta name="DC.coverage" content={dublinCore.coverage} />}
+          {dublinCore.creator && <meta name="DC.creator" content={dublinCore.creator} />}
+          {dublinCore.rights && <meta name="DC.rights" content={dublinCore.rights} />}
+          {dublinCore.sources?.map((source) => <meta name="DC.source" content={source} />)}
+        </>
+      )
+    }
+    {jsonLdTexte && <script type="application/ld+json" set:html={jsonLdTexte} />}
   </head>
   <body>
     <a class="eviter" href="#contenu">Aller au contenu</a>
