@@ -182,3 +182,62 @@ associations:
       trouvée lors de la collecte. Site officiel non identifié.
     sources:
       - https://www.bossee.fr/fr/article/associations-6.html
+
+  - id: amis-maison-du-carnaval-manthelan
+    nom: Les Amis de la Maison du Carnaval
+    commune: Manthelan
+    insee: "37143"
+    site: null
+    notes: >
+      Selon le site de la commune, l'association a pour but de réunir les
+      passionnés du carnaval, de rassembler documents (écrits, photographies,
+      cartes postales, revues) et objets (costumes, masques) liés au carnaval
+      et à la vie de Manthelan, et d'organiser des expositions. Elle anime la
+      Maison du Carnaval, installée dans l'ancien café Branger, ouverte le jour
+      du carnaval, lors de la brocante, pendant les Journées européennes du
+      patrimoine et sur rendez-vous ; ses pages des bulletins municipaux
+      publient des notes d'histoire locale tirées de ses archives. Site
+      officiel non identifié.
+    sources:
+      - https://www.manthelan.fr/les-amis-de-la-maison-du-carnaval-article-7-0-73.html
+      - https://loches-valdeloire.com/patrimoine/carnaval-de-manthelan-plus-dun-siecle-de-tradition-au-pays-des-bons-enfants/
+      - https://www.manthelan.fr/medias/VIE_MUNICIPALE/Mairie/BULLETINS_MUNICIPAUX/2026/BM_Manthelan_2026_BD.pdf
+
+  - id: comite-fetes-carnaval-manthelan
+    nom: Comité des fêtes du carnaval de Manthelan
+    commune: Manthelan
+    insee: "37143"
+    site: "https://www.carnavaldemanthelan.fr/"
+    notes: >
+      Association loi 1901 créée en 1959, indépendante de la mairie selon
+      l'office de tourisme, qui organise le carnaval de Manthelan, né en 1869 et
+      inscrit à l'Inventaire du patrimoine culturel immatériel en France. Ses
+      bénévoles construisent et restaurent une dizaine de chars géants dans
+      leur atelier, route de Loches. Elle organise aussi les portes ouvertes de
+      l'atelier, la soirée choucroute avec élection de Miss Carnaval, le
+      carnaval des enfants et un vide-grenier. Ce n'est pas une association
+      patrimoniale au sens strict, mais elle fait vivre une pratique festive
+      reconnue comme patrimoine immatériel.
+    sources:
+      - https://www.manthelan.fr/comite-des-fetes-du-carnaval-article-7-0-63.html
+      - https://loches-valdeloire.com/patrimoine/carnaval-de-manthelan-plus-dun-siecle-de-tradition-au-pays-des-bons-enfants/
+      - https://www.helloasso.com/associations/comite-des-fetes-du-carnaval
+
+  - id: unc-manthelan
+    nom: Union nationale des combattants (UNC-AFN), section de Manthelan
+    commune: Manthelan
+    insee: "37143"
+    site: null
+    notes: >
+      Section locale de l'Union nationale des combattants. D'après le site de la
+      commune et les bulletins municipaux, elle organise les cérémonies
+      patriotiques (8 Mai, 11 Novembre, hommage aux morts en AFN le 5 décembre)
+      et la commémoration annuelle, vers le 20 août, de la fusillade de
+      Kerleroux (1944) ; elle a aussi présenté une exposition sur Manthelan
+      sous l'occupation allemande et publie des articles de « devoir de
+      mémoire » (monument aux morts, place des AC-AFN). Association de
+      mémoire plutôt que patrimoniale au sens strict. Site officiel non
+      identifié.
+    sources:
+      - https://www.manthelan.fr/union-nationale-des-combattants-article-7-0-79.html
+      - https://www.manthelan.fr/medias/VIE_MUNICIPALE/Mairie/BULLETINS_MUNICIPAUX/2022/BM%20Manthelan%202022_BD.pdf
