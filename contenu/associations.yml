@@ -241,3 +241,24 @@ associations:
     sources:
       - https://www.manthelan.fr/union-nationale-des-combattants-article-7-0-79.html
       - https://www.manthelan.fr/medias/VIE_MUNICIPALE/Mairie/BULLETINS_MUNICIPAUX/2022/BM%20Manthelan%202022_BD.pdf
+
+  - id: comite-des-fetes-ciran
+    nom: Comité des fêtes de Ciran
+    commune: Ciran
+    insee: "37078"
+    site: null
+    notes: >
+      Association déclarée, créée le 28 mai 1973 (RNA W373000614), ayant son
+      siège à la mairie de Ciran. Son objet déclaré est l'organisation de
+      représentations théâtrales, artistiques et musicales, de fêtes, de bals et
+      de manifestations sportives. D'après le bulletin municipal de juillet 2024,
+      elle organise un loto, le vide-grenier de la rue principale et surtout la
+      Scénoféerie, spectacle nocturne son, eau et lumière joué sur le plan d'eau
+      communal (« Nos nuits étoilées », 2024 et 2026, avec plus d'une centaine de
+      bénévoles). Ce n'est pas une association patrimoniale au sens strict ;
+      aucune association d'histoire ou de patrimoine propre à Ciran n'a été
+      trouvée. Site officiel non identifié (page Facebook « Comité des fêtes
+      Ciran »).
+    sources:
+      - https://www.assoce.fr/waldec/W373000614/COMITE-DES-FETES-DE-CIRAN
+      - https://annuaire-des-collectivites-production-storage.s3.fr-par.scw.cloud/Numero_18_juillet_2024_compressed_dbc1ebe6fb.pdf
