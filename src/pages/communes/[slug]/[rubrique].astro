@@ -1,0 +1,62 @@
+---
+import Fil from '../../../components/Fil.astro';
+import ListeFiches from '../../../components/ListeFiches.astro';
+import Base from '../../../layouts/Base.astro';
+import { lienTouteLaRubrique, slugRubrique } from '../../../lib/categories';
+import { communesCompletes, ficheVisibleSurCommune } from '../../../lib/contenu';
+import { listeCategories } from '../../../lib/site';
+import { withBase } from '../../../lib/urls';
+
+export async function getStaticPaths() {
+  const groupes = await communesCompletes();
+  const categories = listeCategories();
+  const slugs = new Map<string, string>();
+  for (const categorie of categories) {
+    const slug = slugRubrique(categorie.titre);
+    const deja = slugs.get(slug);
+    if (deja) throw new Error(`Les rubriques « ${deja} » et « ${categorie.titre} » partagent l’adresse ${slug}.`);
+    slugs.set(slug, categorie.titre);
+  }
+  return groupes.flatMap((groupe) => {
+    const visibles = groupe.fiches.filter((fiche) => ficheVisibleSurCommune(fiche));
+    return categories.flatMap((categorie) => {
+      const nombre = visibles.filter((fiche) => fiche.data.categorie === categorie.id).length;
+      if (nombre === 0) return [];
+      return [{ params: { slug: groupe.slug, rubrique: slugRubrique(categorie.titre) } }];
+    });
+  });
+}
+
+const groupes = await communesCompletes();
+const groupe = groupes.find((entree) => entree.slug === Astro.params.slug);
+const categories = listeCategories();
+const categorie = categories.find((entree) => slugRubrique(entree.titre) === Astro.params.rubrique);
+if (!groupe || !categorie) throw new Error('Page introuvable');
+const fiches = groupe.fiches.filter(
+  (fiche) => fiche.data.categorie === categorie.id && ficheVisibleSurCommune(fiche),
+);
+const titre = `${categorie.titre} à ${groupe.nom}`;
+---
+
+<Base
+  titre={titre}
+  description={`${fiches.length} fiche${fiches.length > 1 ? 's' : ''} « ${categorie.titre} » à ${groupe.nom}.`}
+>
+  <Fil
+    crumbs={[
+      { href: withBase('/communes/'), label: 'Communes' },
+      { href: withBase(`/communes/${groupe.slug}/`), label: groupe.nom },
+      { label: categorie.titre },
+    ]}
+  />
+  <header class="entete-page">
+    <h1>{titre}</h1>
+    <p class="chapo">
+      {fiches.length} fiche{fiches.length > 1 ? 's' : ''} pour {groupe.nom}.
+    </p>
+    <p class="lien-suite">
+      <a href={withBase(`/${categorie.id}/`)}>{lienTouteLaRubrique(categorie.id, categorie.titre)}</a>
+    </p>
+  </header>
+  <ListeFiches fiches={fiches} />
+</Base>

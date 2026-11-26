@@ -1,0 +1,28 @@
+---
+import { withBase } from '../lib/urls';
+
+const { communes, rubrique } = Astro.props as {
+  communes: { nom: string; slug: string; nombre: number }[];
+  rubrique: string;
+};
+---
+
+{
+  communes.length > 0 && (
+    <details class="filtre-commune">
+      <summary>Filtrer par commune</summary>
+      <ul>
+        {communes.map((commune) => (
+          <li>
+            <a href={withBase(`/communes/${commune.slug}/${rubrique}/`)}>
+              {commune.nom}
+              <span>
+                {commune.nombre} fiche{commune.nombre > 1 ? 's' : ''}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  )
+}

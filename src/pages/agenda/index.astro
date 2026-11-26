@@ -1,13 +1,16 @@
 ---
 import Fil from '../../components/Fil.astro';
+import FiltreCommune from '../../components/FiltreCommune.astro';
 import Illustration from '../../components/Illustration.astro';
 import ListeAgenda from '../../components/ListeAgenda.astro';
 import Base from '../../layouts/Base.astro';
-import { agendaVisibleMaintenant } from '../../lib/contenu';
+import { slugRubrique } from '../../lib/categories';
+import { agendaVisibleMaintenant, communesDeRubrique } from '../../lib/contenu';
 import { categorieParId } from '../../lib/site';
 
 const categorie = categorieParId('agenda')!;
 const evenements = await agendaVisibleMaintenant();
+const communesRubrique = await communesDeRubrique('agenda');
 ---
 
 <Base titre={categorie.titre} description={categorie.resume}>
@@ -17,5 +20,6 @@ const evenements = await agendaVisibleMaintenant();
     <h1>{categorie.titre}</h1>
     <p class="chapo">{categorie.resume}</p>
   </header>
+  <FiltreCommune communes={communesRubrique} rubrique={slugRubrique(categorie.titre)} />
   <ListeAgenda evenements={evenements} />
 </Base>

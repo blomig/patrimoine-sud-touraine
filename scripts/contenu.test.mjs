@@ -7,6 +7,7 @@ import { jsonLdFiche, jsonLdSite, typeSchema } from '../src/lib/jsonld.ts';
 import { versCsv, ligneOuverte } from '../src/lib/export-ouvert.ts';
 import { cleDebut, cleFin, extraireHoraire, formatDateSouple, formatPlage, periodeTerminee } from '../src/lib/dates.ts';
 import { appliquerNombre, nombreFrancais } from '../src/lib/nombres.ts';
+import { lienTouteLaRubrique, slugRubrique } from '../src/lib/categories.ts';
 import { slugifier } from '../src/lib/slug.ts';
 import { resoudreThemes } from '../src/lib/themes.ts';
 
@@ -162,6 +163,18 @@ test('le JSON-LD d’une fiche est un JSON valide et typé', () => {
   const csv = versCsv([ligneOuverte(fiche, contexte.urlFiche)]);
   assert.match(csv, /^slug,titre,rubrique,/);
   assert.match(csv, /exemple-disparu/);
+});
+
+test('une rubrique de commune s’adresse par le titre public', () => {
+  assert.equal(slugRubrique('Personnages'), 'personnages');
+  assert.equal(slugRubrique('Bâtiments disparus'), 'batiments-disparus');
+  assert.equal(slugRubrique('Prochaines animations'), 'prochaines-animations');
+  assert.equal(lienTouteLaRubrique('personnes', 'Personnages'), 'Voir tous les personnages du Sud-Touraine');
+  assert.equal(
+    lienTouteLaRubrique('agenda', 'Prochaines animations'),
+    'Voir toutes les prochaines animations du Sud-Touraine',
+  );
+  assert.equal(slugifier('Bournan'), 'bournan');
 });
 
 test('les noms de communes pilotes deviennent des adresses stables', () => {

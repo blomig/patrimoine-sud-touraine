@@ -1,3 +1,5 @@
+import { slugifier } from './slug.ts';
+
 export const CATEGORIES_FICHES = [
   'batiments-anciens-disparus',
   'batiments-anciens-existants',
@@ -87,4 +89,16 @@ export function estCategorieFiche(id: string): id is CategorieFiche {
 
 export function estCategorie(id: string): id is CategorieId {
   return MODELES.some((categorie) => categorie.id === id);
+}
+
+/** Segment d’URL public, dérivé du titre affiché (« Personnages » → personnages). */
+export function slugRubrique(titre: string): string {
+  return slugifier(titre);
+}
+
+export function lienTouteLaRubrique(id: CategorieId, titre: string): string {
+  if (id === 'agenda') return 'Voir toutes les prochaines animations du Sud-Touraine';
+  if (id === 'vie-economique') return 'Voir toute la vie économique du Sud-Touraine';
+  const libelle = titre.charAt(0).toLowerCase() + titre.slice(1);
+  return `Voir tous les ${libelle} du Sud-Touraine`;
 }

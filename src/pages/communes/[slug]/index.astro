@@ -1,12 +1,11 @@
 ---
-import Fil from '../../components/Fil.astro';
-import ListeFiches from '../../components/ListeFiches.astro';
-import Base from '../../layouts/Base.astro';
-import { agendaVisibleSi } from '../../lib/agenda';
-import { communesCompletes } from '../../lib/contenu';
-import { periodeTerminee } from '../../lib/dates';
-import { listeCategories } from '../../lib/site';
-import { withBase } from '../../lib/urls';
+import Fil from '../../../components/Fil.astro';
+import ListeFiches from '../../../components/ListeFiches.astro';
+import Base from '../../../layouts/Base.astro';
+import { slugRubrique } from '../../../lib/categories';
+import { communesCompletes, ficheVisibleSurCommune } from '../../../lib/contenu';
+import { listeCategories } from '../../../lib/site';
+import { withBase } from '../../../lib/urls';
 
 export async function getStaticPaths() {
   const groupes = await communesCompletes();
@@ -17,10 +16,7 @@ const groupes = await communesCompletes();
 const groupe = groupes.find((entree) => entree.slug === Astro.params.slug);
 if (!groupe) throw new Error('Commune introuvable');
 const categories = listeCategories();
-const visibles = groupe.fiches.filter((fiche) => {
-  if (fiche.data.categorie !== 'agenda') return true;
-  return agendaVisibleSi(fiche.data.statut, periodeTerminee(fiche.data.date_fin, fiche.data.date_debut));
-});
+const visibles = groupe.fiches.filter((fiche) => ficheVisibleSurCommune(fiche));
 ---
 
 <Base titre={groupe.nom} description={`Commune de ${groupe.nom}, code INSEE ${groupe.code}, Loches Sud Touraine.`}>
@@ -43,9 +39,15 @@ const visibles = groupe.fiches.filter((fiche) => {
       categories.map((categorie) => {
         const fiches = visibles.filter((fiche) => fiche.data.categorie === categorie.id);
         if (fiches.length === 0) return null;
+        const href = withBase(`/communes/${groupe.slug}/${slugRubrique(categorie.titre)}/`);
         return (
-          <section class="bloc">
-            <h2>{categorie.titre}</h2>
+          <section class="bloc rubrique-commune">
+            <h2>
+              <a href={href}>
+                {categorie.titre}
+                <span class="compte-rubrique">({fiches.length})</span>
+              </a>
+            </h2>
             <ListeFiches fiches={fiches} />
           </section>
         );
