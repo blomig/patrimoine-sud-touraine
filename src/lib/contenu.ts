@@ -129,6 +129,28 @@ export async function communesCompletes(): Promise<CommuneComplete[]> {
   }));
 }
 
+/** Les animations passées ne figurent pas sur la page d’une commune. */
+export function ficheVisibleSurCommune(fiche: Fiche, now: Date = new Date()): boolean {
+  if (fiche.data.categorie !== 'agenda') return true;
+  return agendaVisibleSi(fiche.data.statut, periodeTerminee(fiche.data.date_fin, fiche.data.date_debut, now));
+}
+
+export async function communesDeRubrique(
+  categorieId: CategorieId,
+): Promise<{ nom: string; slug: string; nombre: number }[]> {
+  const groupes = await communesCompletes();
+  return groupes
+    .map((groupe) => ({
+      nom: groupe.nom,
+      slug: groupe.slug,
+      nombre: groupe.fiches.filter(
+        (fiche) => fiche.data.categorie === categorieId && ficheVisibleSurCommune(fiche),
+      ).length,
+    }))
+    .filter((groupe) => groupe.nombre > 0)
+    .sort((a, b) => a.nom.localeCompare(b.nom, 'fr'));
+}
+
 export async function agendaVisibleMaintenant(now: Date = new Date()): Promise<Fiche[]> {
   const fiches = await fichesDe('agenda');
   return fiches

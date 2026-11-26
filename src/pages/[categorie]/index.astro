@@ -1,10 +1,11 @@
 ---
 import Fil from '../../components/Fil.astro';
+import FiltreCommune from '../../components/FiltreCommune.astro';
 import Illustration from '../../components/Illustration.astro';
 import ListeFiches from '../../components/ListeFiches.astro';
 import Base from '../../layouts/Base.astro';
-import { CATEGORIES_FICHES, estCategorieFiche } from '../../lib/categories';
-import { fichesDe, themesConnus } from '../../lib/contenu';
+import { CATEGORIES_FICHES, estCategorieFiche, slugRubrique } from '../../lib/categories';
+import { communesDeRubrique, fichesDe, themesConnus } from '../../lib/contenu';
 import { categorieParId, themesDe } from '../../lib/site';
 import { withBase } from '../../lib/urls';
 
@@ -20,6 +21,7 @@ const themes = themesDe(id);
 const themesInconnus = [
   ...new Set(fiches.flatMap((fiche) => themesConnus(fiche, themes).inconnus)),
 ];
+const communesRubrique = await communesDeRubrique(id);
 ---
 
 <Base titre={categorie.titre} description={categorie.resume}>
@@ -33,6 +35,8 @@ const themesInconnus = [
   <div class="barre-tri">
     <a href={withBase(`/${id}/frise/`)}>Voir la frise chronologique</a>
   </div>
+
+  <FiltreCommune communes={communesRubrique} rubrique={slugRubrique(categorie.titre)} />
 
   <nav class="nav-themes" aria-label="Thèmes">
     <h2>Thèmes</h2>
