@@ -138,7 +138,14 @@ const dateDocument = fiche.data.date_document ? formatDateSouple(fiche.data.date
           <img src={srcImageFiche(image)} alt={fiche.data.titre} loading="lazy" decoding="async" />
           <figcaption>
             <span>
-              {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+              {image.auteur}
+              {image.auteur === 'Collections privées' ? (
+                '.'
+              ) : (
+                <>
+                  . {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+                </>
+              )}
             </span>
             {
               image.page_commons && (

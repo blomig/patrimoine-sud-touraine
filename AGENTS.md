@@ -140,9 +140,13 @@ Dossier `contenu/documents/`. `categorie: "documents"`. Même champs que les fic
 | `date_document` | Optionnel. Même forme que `date_debut` : `1832`, `1832-04` ou `1832-04-12`. `null` si inconnue. |
 | `cote` | Optionnel. Cote d’archives, ou `null`. |
 | `fonds` | Optionnel. Nom du fonds, ou `null`. |
-| `images` | Galerie. Liste de `{ src, legende, credit }`. `src` est un chemin du dépôt (`/media/documents/fichier.jpg`) ou une adresse web. Liste vide ou absente s’il n’y a pas de galerie. |
+| `images` | Galerie. Liste de `{ src, credit, legende }`. `src` est un chemin du dépôt (`/media/documents/fichier.jpg`) ou une adresse web. `legende` est facultative. Liste vide ou absente s’il n’y a pas de galerie. |
 
-Le champ `image` reste l’image d’en-tête, facultative. `images` est la galerie affichée sur la fiche.
+Le champ `image` reste l’image d’en-tête, facultative. `images` est la galerie affichée sur la fiche. Pour les cartes postales d’une commune, `legende` est omise ; le crédit est « Collections privées ».
+
+### Cartes postales d’une commune
+
+Fichier `contenu/documents/<slug-commune>-cartes-postales.md`, titre « Cartes postales de <Commune> ». L’image principale est une vue représentative du bourg. La galerie contient toutes les cartes de cette commune, sans `legende`, avec `credit: "Collections privées"`. Le texte se limite à une phrase neutre, par exemple : « Cartes postales anciennes de la commune, collection enrichie au fil des apports. » Créer la fiche si elle n’existe pas encore, puis y ajouter les apports suivants.
 
 ## Ajouter du contenu
 
@@ -206,6 +210,7 @@ Le site n’a plus qu’une apparence, dans `src/styles/global.css` : la revue e
 - Statut par défaut : `à vérifier` pour le patrimoine, `à valider` pour l’agenda. Ne pas passer à `validé` ou `publié` sans l’accord de François. Le champ reste dans le schéma et le CMS. Il n’apparaît pas sur le site public.
 - Images : uniquement des fichiers libres (Wikimedia Commons ou équivalent), avec auteur et licence, ou des photos prises par François avec son accord explicite. Télécharger une copie de taille raisonnable dans `public/media/` et garder l’URL d’origine. Pas d’image dont les droits sont inconnus.
 - Photos et documents provenant du blog valleedelariolle.fr : le crédit d’image (`auteur` de l’image principale, `credit` des éléments de galerie, et les mêmes champs dans `categories.yml` ou ailleurs) est exactement « Archives privées ». Ne pas écrire « Vallée de la Riolle » comme crédit d’image. Une mention du blog comme source textuelle d’une fiche (lien vers l’article) reste inchangée, de même que les mentions géographiques de la vallée de la Riolle.
+- Cartes postales envoyées par l’administrateur : les verser dans la fiche Documents « Cartes postales de <commune> » (créer cette fiche si elle n’existe pas encore). Une fiche par commune. La galerie rassemble les cartes, sans légende ni commentaire, avec le crédit exactement « Collections privées ». Ne jamais inscrire le nom d’un collectionneur sur le site public (crédits, textes, attributs alt, noms de fichiers publiés). Si une de ces images illustre directement le titre d’une autre fiche, elle peut aussi en être l’image principale, avec le même crédit et sans légende ajoutée.
 - Quand le titre d’une fiche désigne quelque chose qui est illustré dans l’article source, l’image principale (`image`) doit montrer ce sujet. Si l’article ou la galerie contient une image plus directement liée au titre, la promouvoir en image principale et conserver l’ancienne dans la galerie `images`. Pour les fiches Personnages, la règle du portrait reste prioritaire : l’image principale est de préférence un portrait de la personne (photographie, gravure), et non un lieu.
 - Pas d’information personnelle sur une personne vivante (adresse, téléphone, état de santé, vie privée). Un nom public d’association ou d’organisateur cité par la source peut rester. En cas de doute, ne pas l’écrire.
 - Ne pas présenter le site comme le site de la communauté de communes, d’une mairie ou d’une association. La page « À propos » le dit déjà.

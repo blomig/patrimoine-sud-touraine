@@ -79,7 +79,14 @@ const licenceHref = image ? urlLicence(image.licence) : null;
         <figure class="figure-fiche">
           <img src={srcImageFiche(image)} alt={fiche.data.titre} loading="lazy" decoding="async" />
           <figcaption>
-            {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+            {image.auteur}
+            {image.auteur === 'Collections privées' ? (
+              '.'
+            ) : (
+              <>
+                . {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
+              </>
+            )}
             {image.page_commons && (
               <>
                 {' '}

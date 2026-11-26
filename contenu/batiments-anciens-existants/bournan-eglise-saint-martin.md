@@ -24,14 +24,6 @@ sources:
     url: "https://valleedelariolle.fr/les-tresors-de-la-riolle-le-patrimoine-historique-de-bournan/"
   - titre: "A la recherche de Saint Gratien – 1 (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/a-la-recherche-de-saint-gratien/"
-images:
-  - src: "/media/archives-privees/bournan-eglise-aigret.jpg"
-    legende: "Carte postale « BOURNAN (I.-et-L.) — L'Église », cliché C. Aigret, La Haye-Descartes. Un monument précédé d'une grille est visible devant l'édifice ; son identification précise reste à confirmer."
-    credit: "Archives privées — coll. François Unger"
-  - src: "/media/archives-privees/bournan-eglise-cote-sud.jpg"
-    legende: "Carte postale « 17 BOURNAN (I. et L.) - L'Eglise, côté Sud », « Reprod. interdite - C. Algret » (graphie de l'éditeur, pour C. Aigret). L'église est vue depuis une parcelle plantée en vigne."
-    credit: "Archives privées — coll. François Unger"
-
 image:
   url: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Bournan_%C3%A9glise.jpg"
   page_commons: "https://commons.wikimedia.org/wiki/File:Bournan_%C3%A9glise.jpg"
@@ -45,4 +37,4 @@ Les murs de la nef ont conservé un petit appareil qui pourrait être du Xe siè
 
 L'article décrit une nef couverte d'un plafond de bois, éclairée par trois fenêtres au sud ; l'abside, de forme arrondie, est éclairée par trois fenêtres en plein cintre, dont la centrale porte un vitrail de saint Martin, tandis que les absidioles sont polygonales. Une rangée de tuileaux limite la remontée d'humidité dans ces murs orientaux. L'auteur notait en 2021 des fissures à la voûte du transept sud, sous le clocher, et un état de la flèche qui lui paraissait nécessiter des réparations ; cet état devra être revu sur place. Plusieurs objets mobiliers protégés (base Palissy) y sont rattachés.
 
-L'inventaire « trésors » du blog précise que l'église, propriété de la commune, est classée depuis le 19 septembre 1966, et que le premier document la mentionnant date de 1139. Une statue de saint Gratien et de saint Aventin y est signalée dans l'article consacré à saint Gratien. Le même inventaire énumère douze objets mobiliers protégés, d'après les notices de la Plateforme ouverte du patrimoine ; le détail n'est pas recopié ici. Deux cartes postales anciennes de C. Aigret, issues d'une collection privée, sont reproduites en galerie.
+L'inventaire « trésors » du blog précise que l'église, propriété de la commune, est classée depuis le 19 septembre 1966, et que le premier document la mentionnant date de 1139. Une statue de saint Gratien et de saint Aventin y est signalée dans l'article consacré à saint Gratien. Le même inventaire énumère douze objets mobiliers protégés, d'après les notices de la Plateforme ouverte du patrimoine ; le détail n'est pas recopié ici.

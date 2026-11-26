@@ -92,7 +92,7 @@ const fiches = defineCollection({
         .array(
           z.object({
             src: z.string().min(1),
-            legende: z.string().min(1),
+            legende: z.string().optional().default(''),
             credit: z.string().min(1),
           }),
         )

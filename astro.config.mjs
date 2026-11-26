@@ -10,4 +10,9 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  redirects: {
+    '/documents/bournan-cartes-postales-bourg/': '/patrimoine-sud-touraine/documents/bournan-cartes-postales/',
+    '/documents/bournan-carte-postale-forges-bonnefoy/': '/patrimoine-sud-touraine/documents/bournan-cartes-postales/',
+    '/documents/bossee-carte-postale-hotel-du-commerce/': '/patrimoine-sud-touraine/documents/bossee-cartes-postales/',
+  },
 });

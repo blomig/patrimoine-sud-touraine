@@ -2,7 +2,7 @@
 import { withBase } from '../lib/urls';
 
 const { images } = Astro.props as {
-  images: { src: string; legende: string; credit: string }[];
+  images: { src: string; legende?: string; credit: string }[];
 };
 
 function adresse(src: string): string {
@@ -19,9 +19,9 @@ function adresse(src: string): string {
         {images.map((image) => (
           <li>
             <figure>
-              <img src={adresse(image.src)} alt={image.legende} loading="lazy" decoding="async" />
+              <img src={adresse(image.src)} alt={image.legende || 'Carte postale ancienne'} loading="lazy" decoding="async" />
               <figcaption>
-                <span>{image.legende}</span>
+                {image.legende ? <span>{image.legende}</span> : null}
                 <span>{image.credit}</span>
               </figcaption>
             </figure>

@@ -20,29 +20,18 @@ sources:
     url: "https://valleedelariolle.fr/les-tresors-de-la-riolle-le-patrimoine-historique-de-bournan/"
   - titre: "Grandes manoeuvres dans la Riolle (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/grandes-manoeuvres-dans-la-riolle/"
-images:
-  - src: "/media/archives-privees/bournan-chateau-bagneux-1905.jpg"
-    legende: "Carte postale « Château de BAGNEUX, par LIGUEIL (I.-et-L.) (XVe siècle) », timbrée et annotée « Bournan. 27.10.05 »."
-    credit: "Archives privées — coll. François Unger"
-  - src: "/media/archives-privees/bournan-chateau-bagneux-lecointre-louis.jpg"
-    legende: "Même vue du château, avec la dédicace manuscrite « au Cte Louis Lecointre ». Ce n'est pas un portrait ; le lien avec Georges Lecointre n'est pas établi ici."
-    credit: "Archives privées — coll. François Unger"
-  - src: "/media/archives-privees/bournan-chateau-bagneux-manoeuvres-1912.jpg"
-    legende: "Carte postale « BOURNAN (I.-et-L.) - Château de Bagneux (XIIe siècle) », cliché C. Aigret, La Haye-Descartes. La légende rappelle que le président Fallières, le grand-duc de Russie et le ministre de la Guerre s'y rendirent pour l'assaut qui termina les grandes manœuvres de l'Ouest de 1912."
-    credit: "Archives privées — coll. François Unger"
-
 image:
   fichier: "/media/archives-privees/bournan-chateau-bagneux-vue-aerienne.jpg"
   url: null
   page_commons: null
   licence: "Autorisation de l'auteur pour ce site"
-  auteur: "Archives privées — coll. François Unger"
+  auteur: "Collections privées"
 ---
 
 Le château de Bagneux, à Bournan, est inscrit au titre des monuments historiques. Il est édifié sur un éperon calcaire qui, selon une tradition rapportée par la notice Mérimée, communiquait par signaux à feu avec Loches ou la tour de Galles. Des quatre tours qui flanquent le quadrilatère surmonté d'un chemin de ronde, deux subsistent, coiffées d'ardoises après le XVe siècle ; les deux autres ont été rasées.
 
 La tour dite « du nord » présente une élévation qui, selon la notice, permettait sans doute de voir jusqu'aux forteresses ou fortins des plateaux voisins. Les mâchicoulis sont conservés en totalité sur les deux tours restantes, et en partie le long du chemin de ronde. Vers 1830, un bel escalier de pierre a été détruit. Vers 1850, la foudre a incendié les greniers. valleedelariolle.fr situe le château de Bagneux dans l'espace compris entre la Riolle et la Ligoire, au nord-ouest du bourg de Civray-sur-Esves, mais sur le territoire communal de Bournan.
 
-Le même inventaire précise que le château, propriété privée, est inscrit par arrêté du 5 novembre 1927. Le premier seigneur connu y est Guillaume de Beygnoux, vivant en 1331. Après de nombreuses mutations, François-Balthazar Dangé d'Orsay en prit possession le 30 janvier 1738, avant de le céder en 1771 à René-Constance-François Dangé d'Orsay, maréchal des camps et armées du roi, lieutenant du roi à Loches. En septembre 1912, les grandes manœuvres de l'Ouest s'achevèrent par la prise de Bagneux ; l'assaut final fut suivi depuis le château, selon l'article, par le président Armand Fallières, le grand-duc Nicolas de Russie et le ministre de la Guerre Alexandre Millerand. Les photographies de G.-W. Lemaire, vers 1910, n'ont pas été reprises comme illustration. L'image d'en-tête est une vue aérienne en couleurs du château et de ses communs, carte postale au monogramme Cim, issue d'une collection privée. D'autres cartes postales de la même collection (dont une exemplaire datée du 27 octobre 1905, une portant la dédicace « au Cte Louis Lecointre », et une légendée au sujet des manœuvres de 1912) sont reproduites en galerie.
+Le même inventaire précise que le château, propriété privée, est inscrit par arrêté du 5 novembre 1927. Le premier seigneur connu y est Guillaume de Beygnoux, vivant en 1331. Après de nombreuses mutations, François-Balthazar Dangé d'Orsay en prit possession le 30 janvier 1738, avant de le céder en 1771 à René-Constance-François Dangé d'Orsay, maréchal des camps et armées du roi, lieutenant du roi à Loches. En septembre 1912, les grandes manœuvres de l'Ouest s'achevèrent par la prise de Bagneux ; l'assaut final fut suivi depuis le château, selon l'article, par le président Armand Fallières, le grand-duc Nicolas de Russie et le ministre de la Guerre Alexandre Millerand. Les photographies de G.-W. Lemaire, vers 1910, n'ont pas été reprises comme illustration.
 
 Un article du même blog, consacré aux grandes manœuvres de 1880 à 1912, précise que le quartier général du grand-duc Nicolas de Russie fut fixé au château lors des manœuvres de septembre 1912 (environ 110 000 hommes, sous la responsabilité du général Joffre). Le déroulement d'ensemble de ces manœuvres fait l'objet d'une fiche d'événement distincte.
