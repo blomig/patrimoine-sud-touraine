@@ -10,7 +10,8 @@ import {
 } from './identifiants.ts';
 
 export type ImageFiche = {
-  url: string;
+  url?: string | null;
+  fichier?: string | null;
   auteur: string;
   licence: string;
 };
@@ -84,10 +85,11 @@ export function typeSchema(fiche: FicheStructurée): string {
   }
 }
 
-function urlImage(url: string, origine: string): string {
+function urlImage(url: string, origine: string, base?: string): string {
   if (/^https?:\/\//.test(url)) return url;
-  const chemin = url.startsWith('/') ? url : `/${url}`;
-  return new URL(chemin, origine).href;
+  const propre = url.startsWith('/') ? url.slice(1) : url;
+  const prefixe = base ?? '';
+  return new URL(`${prefixe}${propre}`, origine).href;
 }
 
 function geo(fiche: FicheStructurée): Record<string, unknown> | undefined {
@@ -116,14 +118,18 @@ function sameAs(fiche: FicheStructurée): string[] {
   return liens;
 }
 
-function image(fiche: FicheStructurée, origine: string): Record<string, unknown> | undefined {
-  if (!fiche.image?.url) return undefined;
+function image(fiche: FicheStructurée, origine: string, base?: string): Record<string, unknown> | undefined {
+  const raw = fiche.image?.fichier || fiche.image?.url;
+  if (!raw) return undefined;
+  const contentUrl = /^https?:\/\//.test(raw)
+    ? raw
+    : urlImage(raw, origine, base);
   return sansVide({
     '@type': 'ImageObject',
-    contentUrl: urlImage(fiche.image.url, origine),
-    creditText: fiche.image.auteur,
-    copyrightNotice: fiche.image.licence,
-    creator: fiche.image.auteur ? { '@type': 'Person', name: fiche.image.auteur } : undefined,
+    contentUrl,
+    creditText: fiche.image?.auteur,
+    copyrightNotice: fiche.image?.licence,
+    creator: fiche.image?.auteur ? { '@type': 'Person', name: fiche.image.auteur } : undefined,
   });
 }
 
@@ -136,7 +142,7 @@ function description(fiche: FicheStructurée): string {
 
 export function entiteSchema(fiche: FicheStructurée, contexte: ContexteSite): Record<string, unknown> {
   const type = typeSchema(fiche);
-  const visuel = image(fiche, contexte.origine);
+  const visuel = image(fiche, contexte.origine, contexte.base);
   const coordonnees = geo(fiche);
   const entite: Record<string, unknown> = {
     '@context': CONTEXTE,
@@ -239,8 +245,13 @@ export function structureFiche(data: FicheStructurée): FicheStructurée {
     wikidata: data.wikidata ?? null,
     merimee: data.merimee ?? null,
     palissy: data.palissy ?? null,
-    image: data.image?.url
-      ? { url: data.image.url, auteur: data.image.auteur, licence: data.image.licence }
+    image: data.image?.url || data.image?.fichier
+      ? {
+          url: data.image.url ?? null,
+          fichier: data.image.fichier ?? null,
+          auteur: data.image.auteur,
+          licence: data.image.licence,
+        }
       : null,
     sources: data.sources ?? [],
     type_document: data.type_document ?? null,

@@ -11,7 +11,7 @@ import { formatDateSouple } from '../../lib/dates';
 import { libelleTypeDocument } from '../../lib/documents';
 import { slugifier } from '../../lib/slug';
 import { categorieParId, themesDe } from '../../lib/site';
-import { urlLicence, withBase } from '../../lib/urls';
+import { srcImageFiche, urlLicence, withBase } from '../../lib/urls';
 
 export async function getStaticPaths() {
   const fiches = await toutesLesFiches();
@@ -135,7 +135,7 @@ const dateDocument = fiche.data.date_document ? formatDateSouple(fiche.data.date
     {
       image && (
         <figure class="figure-fiche">
-          <img src={image.url} alt={fiche.data.titre} loading="lazy" decoding="async" />
+          <img src={srcImageFiche(image)} alt={fiche.data.titre} loading="lazy" decoding="async" />
           <figcaption>
             <span>
               {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.

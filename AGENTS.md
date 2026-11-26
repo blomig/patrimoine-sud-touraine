@@ -76,7 +76,7 @@ Champs communs :
 | `palissy` | Facultatif. Référence Palissy `PM` suivie de chiffres (`PM37000123`), ou `null`. Même plateforme, notice Palissy. Ne jamais la deviner. |
 | `lieu` | Surtout pour l’agenda. `null` si on ne le connaît pas. |
 | `sources` | Liste de `{ titre, url }`. Au moins une source réelle. |
-| `image` | `null`, ou `{ url, page_commons, auteur, licence }`. `url` est la page du fichier (Wikimedia ou autre source libre). |
+| `image` | `null`, ou `{ url, fichier, page_commons, auteur, licence }`. `url` est l'adresse d'origine (Wikimedia ou autre). `fichier` est le chemin local dans `public/` (par exemple `/media/archives-privees/photo.jpg`) ; s'il est rempli, c'est lui qui s'affiche. Il faut au moins `url` ou `fichier`. |
 | `statut` | Voir plus bas. |
 
 Le corps Markdown, sous le second `---`, est le texte. Pas de champ `resume` : les listes de fiches utilisent le début du texte. Les listes d’agenda, elles, n’affichent que la date, le titre et le lieu. Le reste est sur la page de l’animation.

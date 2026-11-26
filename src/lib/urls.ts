@@ -23,3 +23,10 @@ export function urlLicence(licence: string): string | null {
   };
   return table[cle] ?? null;
 }
+
+/** Adresse d'affichage d'une image de fiche : fichier local d'abord, sinon url. */
+export function srcImageFiche(image: { fichier?: string | null; url?: string | null }): string | undefined {
+  if (image.fichier) return withBase(image.fichier);
+  if (image.url) return image.url;
+  return undefined;
+}

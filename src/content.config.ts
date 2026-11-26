@@ -28,10 +28,14 @@ const dateChamp = z
 
 const imageSchema = z
   .object({
-    url: z.string().url(),
+    url: z.string().url().nullable().optional(),
+    fichier: z.string().min(1).nullable().optional(),
     page_commons: z.string().url().nullable().optional(),
     licence: z.string().min(1),
     auteur: z.string().min(1),
+  })
+  .refine((image) => Boolean(image.url || image.fichier), {
+    message: "Indiquez une adresse (url) ou un chemin local (fichier).",
   })
   .nullable()
   .optional();

@@ -119,6 +119,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string
@@ -237,6 +244,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string
@@ -355,6 +369,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string
@@ -473,6 +494,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string
@@ -590,6 +618,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string
@@ -707,6 +742,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string
@@ -856,6 +898,13 @@ collections:
           - label: Adresse du fichier
             name: url
             widget: string
+            required: false
+            hint: Adresse web du fichier (Wikimedia ou autre). Laisser vide si un fichier local est indiqué ci-dessous.
+          - label: Fichier local
+            name: fichier
+            widget: string
+            required: false
+            hint: Chemin dans public/, par exemple /media/archives-privees/photo.jpg. Prioritaire sur l'adresse web s'il est rempli.
           - label: Page Wikimedia Commons
             name: page_commons
             widget: string

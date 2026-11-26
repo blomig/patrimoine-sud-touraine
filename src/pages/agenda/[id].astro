@@ -7,7 +7,7 @@ import { publicationFiche } from '../../lib/publication';
 import { plage, themesConnus, toutesLesFiches } from '../../lib/contenu';
 import { slugifier } from '../../lib/slug';
 import { categorieParId, themesDe } from '../../lib/site';
-import { urlLicence, withBase } from '../../lib/urls';
+import { srcImageFiche, urlLicence, withBase } from '../../lib/urls';
 
 export async function getStaticPaths() {
   const fiches = await toutesLesFiches();
@@ -77,7 +77,7 @@ const licenceHref = image ? urlLicence(image.licence) : null;
     {
       image && (
         <figure class="figure-fiche">
-          <img src={image.url} alt={fiche.data.titre} loading="lazy" decoding="async" />
+          <img src={srcImageFiche(image)} alt={fiche.data.titre} loading="lazy" decoding="async" />
           <figcaption>
             {image.auteur}. {licenceHref ? <a href={licenceHref}>{image.licence}</a> : image.licence}.
             {image.page_commons && (
