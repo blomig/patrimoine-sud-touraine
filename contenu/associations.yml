@@ -262,3 +262,39 @@ associations:
     sources:
       - https://www.assoce.fr/waldec/W373000614/COMITE-DES-FETES-DE-CIRAN
       - https://annuaire-des-collectivites-production-storage.s3.fr-par.scw.cloud/Numero_18_juillet_2024_compressed_dbc1ebe6fb.pdf
+
+  - id: inventaire-sauvegarde-patrimoine-cussay
+    nom: Association pour l'inventaire et la sauvegarde du patrimoine de Cussay
+    commune: Cussay
+    insee: "37094"
+    site: null
+    notes: >
+      Association déclarée le 26 septembre 2018 (RNA W373002428, publication au
+      Journal officiel le 20 octobre 2018), dont le siège est rue Jean-Michaud,
+      à la mairie de Cussay. Son objet déclaré est de faire l'inventaire du
+      patrimoine historique de Cussay et, si nécessaire, de mettre en place des
+      moyens pour le sauvegarder. Les sources consultées ne disent rien de ses
+      activités depuis sa création ; le site de la commune ne la cite pas parmi
+      les associations. Site officiel non identifié.
+    sources:
+      - https://www.assoce.fr/waldec/W373002428/
+      - https://www.net1901.org/annuaire-association/ville/Cussay,37094.html
+
+  - id: comite-des-fetes-cussay
+    nom: Comité des fêtes de Cussay
+    commune: Cussay
+    insee: "37094"
+    site: null
+    notes: >
+      Association déclarée (RNA W373000520), dont la création est datée du
+      16 décembre 1947 par l'annuaire assoce.fr ; siège rue Armand-Béranger,
+      à Cussay (salle Serge-Brunet selon net1901.org). D'après le bulletin
+      municipal de décembre 2025, elle organise la fête du 13 juillet avec
+      retraite aux flambeaux, la journée « fête du pain et brocante » d'août,
+      qui utilise le four à pain des Prés-Carrés, un loto et, depuis 2026, la
+      reprise de la fête du monde rural. Ce n'est pas une association
+      patrimoniale au sens strict. Site officiel non identifié.
+    sources:
+      - https://www.assoce.fr/waldec/W373000520/
+      - https://www.cussay.fr/medias/bulletin_cussay_info_2025_version_au_08_12_2025_definitif.pdf
+      - https://www.cussay.fr/calendrier-des-fetes-article-5-0-30.html
