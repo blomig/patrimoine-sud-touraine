@@ -298,3 +298,36 @@ associations:
       - https://www.assoce.fr/waldec/W373000520/
       - https://www.cussay.fr/medias/bulletin_cussay_info_2025_version_au_08_12_2025_definitif.pdf
       - https://www.cussay.fr/calendrier-des-fetes-article-5-0-30.html
+
+  - id: comite-des-fetes-drache
+    nom: Comité des fêtes de Draché
+    commune: Draché
+    insee: "37098"
+    site: null
+    notes: >
+      Association déclarée (RNA W373000473), créée le 3 mai 1969 (publication
+      au Journal officiel le 21 juin 1969), dont le siège est place de la
+      Mairie, à Draché. Son objet déclaré est d'organiser des fêtes et des
+      spectacles dans la commune, pour venir en aide aux organisations locales
+      à caractère éducatif, sportif et social. Les sources consultées ne
+      détaillent pas ses activités récentes. Ce n'est pas une association
+      patrimoniale au sens strict. Site officiel non identifié.
+    sources:
+      - http://assoce.fr/waldec/W373000473/COMITE-DES-FETES-DE-DRACHE
+      - https://www.net1901.org/annuaire-association/ville/Drache,37098.html
+
+  - id: comite-protection-coteaux-sainte-maure-drache-sepmes
+    nom: Comité pour la protection des coteaux de Sainte-Maure, Draché, Sepmes
+    commune: Draché
+    insee: "37098"
+    site: null
+    notes: >
+      Association déclarée le 10 décembre 1998 (RNA W373000991, dernière
+      déclaration en 2012), dont le siège est à Draché. Son objet déclaré est
+      la protection et la défense du patrimoine naturel, public et privé, des
+      coteaux de Sainte-Maure, Draché et Sepmes, ainsi que l'animation de la
+      vallée. Les sources consultées ne disent rien de ses activités actuelles.
+      Site officiel non identifié.
+    sources:
+      - https://assoce.fr/waldec/W373000991/COMITE-POUR-LA-PROTECTION-DES-COTEAUX-DE-SAINTE-MAURE-DRACHE-SEPMES
+      - https://www.net1901.org/annuaire-association/ville/Drache,37098.html

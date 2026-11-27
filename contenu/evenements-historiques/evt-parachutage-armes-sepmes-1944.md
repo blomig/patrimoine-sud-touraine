@@ -16,6 +16,8 @@ statut: "à vérifier"
 sources:
   - titre: "Le puits du château de Sepmes (valleedelariolle.fr)"
     url: "https://valleedelariolle.fr/le-puits-du-chateau-de-sepmes/"
+  - titre: "Henri Péan (Wikipédia)"
+    url: "https://fr.wikipedia.org/wiki/Henri_P%C3%A9an"
 image: null
 ---
 
@@ -24,3 +26,5 @@ Le 2 janvier 1944, d'après valleedelariolle.fr qui cite l'ouvrage *La vicomtess
 L'article nomme parmi les participants Cellier, Pierre Renard, Alphonse Cathelin, Robert Marquant, Mesdames de Poix et Simon, qui furent déportés ; François-Xavier Schmidt, Pascal Rentien et Marius Saint-Aubin, qui parvinrent à s'échapper ; l'abbé Péan, torturé et exécuté à Tours. Le matériel récupéré fut distribué ou caché : au château de La Roche-Ploquin, dans une maison voisine de celle de Marius Saint-Aubin, dans une cave à l'entrée de Sepmes, et en d'autres lieux dont certains tenus secrets par l'abbé Péan. L'ouvrage cité mentionne encore qu'une caisse de pistolets-mitrailleurs américains, encore dans leur papier gras, a été vue dans un grenier du centre de Draché dans les années 1990.
 
 Le 16 février, les Allemands découvrirent la cave où certaines armes avaient été cachées. Pour éviter d'autres découvertes, Raoul Bourgueil, propriétaire du château de Sepmes, jeta dans le puits de la cour deux pistolets-mitrailleurs, des cartouches et un poste émetteur. L'émetteur, écrasé au fond, fut hors service ; les armes furent reprises, au moment du débarquement de Normandie, par André Fauvel, qui descendit au fond du puits avec l'aide de la propriétaire. Ce témoignage, tel que le relaye l'article, suggère qu'il n'y avait alors pas d'eau au fond du puits. Les éléments biographiques plus complets sur Marie-Thérèse de Poix figurent dans sa fiche personnelle.
+
+L'abbé Henri Péan, qui dirigeait le groupe, était curé de Draché et de La Celle-Saint-Avant depuis 1930. D'après Wikipédia, il fut chargé en mars 1943 d'organiser des parachutages sur un terrain appartenant à Marie-Thérèse de Poix, avec l'aide de la famille Goupille et d'Abel Sellier, postier à La Celle-Saint-Avant ; les premiers largages eurent lieu à partir de l'été 1943. On lui en attribue 46 au total. Il fut arrêté le 13 février 1944, trois jours avant la découverte de la cave de Sepmes, et mourut sous la torture à Tours le 28 février. Son parcours et celui des résistants de Draché font l'objet de fiches propres (« L'abbé Henri Péan, curé de Draché et résistant », « Draché dans la Résistance, autour de l'abbé Péan »).
