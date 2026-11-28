@@ -19,4 +19,4 @@ sources:
 image: null
 ---
 
-Marché de Noël annoncé le dimanche 29 novembre 2026, de 10 h à 19 h, dans la « grange classique » du prieuré du Louroux. L'agenda mentionne la présence d'artisans, d'artistes et de producteurs locaux, ainsi qu'un manège pour enfants. Le site n'a pas encore de fiche sur le prieuré.
+Marché de Noël annoncé le dimanche 29 novembre 2026, de 10 h à 19 h, dans la « grange classique » du prieuré du Louroux. L'agenda mentionne la présence d'artisans, d'artistes et de producteurs locaux, ainsi qu'un manège pour enfants. Voir aussi la fiche sur le prieuré du Louroux.

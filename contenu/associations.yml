@@ -331,3 +331,19 @@ associations:
     sources:
       - https://assoce.fr/waldec/W373000991/COMITE-POUR-LA-PROTECTION-DES-COTEAUX-DE-SAINTE-MAURE-DRACHE-SEPMES
       - https://www.net1901.org/annuaire-association/ville/Drache,37098.html
+
+  - id: vie-et-village-le-louroux
+    nom: Vie et village
+    commune: Le Louroux
+    insee: "37136"
+    site: null
+    notes: >
+      Association du Louroux citée parmi les associations du village sur le site de la commune.
+      Selon une fiche d'annuaire reprenant le répertoire national des associations
+      (RNA W373001202), son objet déclaré est d'« animer le village et sa campagne par la
+      mise en valeur du patrimoine local (économique, architectural, écologique et humain) ».
+      Date de publication indiquée : 26 février 1992 ; dernière modification : 5 mars 2015.
+      Site officiel non identifié.
+    sources:
+      - https://www.lelouroux.com/vie-locale/les-associations/
+      - https://www.gralon.net/mairies-france/indre-et-loire/association-association-vie-et-village-le-louroux_W373001202.htm
