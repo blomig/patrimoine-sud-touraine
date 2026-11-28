@@ -1,5 +1,6 @@
 ---
-import { toutesLesFiches } from '../lib/contenu';
+import { slugRubrique } from '../lib/categories';
+import { communesCompletes, ficheVisibleSurCommune, toutesLesFiches } from '../lib/contenu';
 import { appliquerNombre } from '../lib/nombres';
 import { chargerSite, listeCategories } from '../lib/site';
 import { withBase } from '../lib/urls';
@@ -18,9 +19,42 @@ const rubriques = listeCategories().map((categorie) => ({
 const principales = rubriques.filter((rubrique) => !rubrique.animations);
 const animations = rubriques.find((rubrique) => rubrique.animations);
 const estAccueil = Astro.url.pathname === import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL;
+const relatif = ici.startsWith(base) ? ici.slice(base.length) : ici.replace(/^\//, '');
+const morceaux = relatif.split('/').filter(Boolean);
+const slugUrl = morceaux[0] === 'communes' && morceaux.length >= 2 ? morceaux[1] : null;
+const rubriqueUrl = slugUrl && morceaux[2] ? morceaux[2] : null;
+let contexteCommune: { nom: string; slug: string; comptes: Map<string, number> } | null = null;
+if (slugUrl) {
+  const groupes = await communesCompletes();
+  const groupe = groupes.find((entree) => entree.slug === slugUrl);
+  if (groupe) {
+    const visibles = groupe.fiches.filter((fiche) => ficheVisibleSurCommune(fiche));
+    contexteCommune = {
+      nom: groupe.nom,
+      slug: groupe.slug,
+      comptes: new Map(
+        listeCategories().map((categorie) => [
+          categorie.id,
+          visibles.filter((fiche) => fiche.data.categorie === categorie.id).length,
+        ]),
+      ),
+    };
+  }
+}
 
 function estIci(href: string): boolean {
   return ici === href || ici.startsWith(href);
+}
+
+function hrefRubrique(id: string, titre: string, hrefGeneral: string): string | null {
+  if (!contexteCommune) return hrefGeneral;
+  if ((contexteCommune.comptes.get(id) ?? 0) === 0) return null;
+  return withBase(`/communes/${contexteCommune.slug}/${slugRubrique(titre)}/`);
+}
+
+function rubriqueActive(titre: string): boolean {
+  return Boolean(contexteCommune && rubriqueUrl === slugRubrique(titre));
 }
 ---
 
@@ -32,33 +66,74 @@ function estIci(href: string): boolean {
     </div>
     <div class="barre-menu">
       {
+        contexteCommune && (
+          <p class="contexte-commune">
+            <a class="contexte-commune-nom" href={withBase(`/communes/${contexteCommune.slug}/`)}>
+              {contexteCommune.nom} :
+            </a>
+            <span class="contexte-commune-liens">
+              <a href={withBase('/')}>Tout le site</a>
+              <a href={withBase('/communes/')}>Toutes les communes</a>
+            </span>
+          </p>
+        )
+      }
+      {
         !estAccueil && (
           <nav class="nav-rubriques" aria-label="Rubriques">
-            {principales.map((rubrique) => (
-              <a
-                class="nav-pastille"
-                data-rubrique={rubrique.id}
-                href={rubrique.href}
-                aria-current={estIci(rubrique.href) ? 'page' : undefined}
-              >
-                {rubrique.label}
-              </a>
-            ))}
+            {principales.map((rubrique) => {
+              const href = hrefRubrique(rubrique.id, rubrique.label, rubrique.href);
+              if (!href) {
+                return (
+                  <span class="nav-pastille nav-pastille-vide" data-rubrique={rubrique.id} aria-disabled="true">
+                    {rubrique.label}
+                  </span>
+                );
+              }
+              return (
+                <a
+                  class="nav-pastille"
+                  data-rubrique={rubrique.id}
+                  href={href}
+                  aria-current={contexteCommune ? (rubriqueActive(rubrique.label) ? 'page' : undefined) : estIci(rubrique.href) ? 'page' : undefined}
+                >
+                  {rubrique.label}
+                </a>
+              );
+            })}
           </nav>
         )
       }
       <div class="ligne-animations">
         {
-          animations && (
-            <a
-              class="nav-pastille nav-pastille-animations"
-              data-rubrique={animations.id}
-              href={animations.href}
-              aria-current={estIci(animations.href) ? 'page' : undefined}
-            >
-              {animations.label}
-            </a>
-          )
+          animations && (() => {
+            const href = hrefRubrique(animations.id, animations.label, animations.href);
+            if (!href) {
+              return (
+                <span class="nav-pastille nav-pastille-vide" data-rubrique={animations.id} aria-disabled="true">
+                  {animations.label}
+                </span>
+              );
+            }
+            return (
+              <a
+                class="nav-pastille nav-pastille-animations"
+                data-rubrique={animations.id}
+                href={href}
+                aria-current={
+                  contexteCommune
+                    ? rubriqueActive(animations.label)
+                      ? 'page'
+                      : undefined
+                    : estIci(animations.href)
+                      ? 'page'
+                      : undefined
+                }
+              >
+                {animations.label}
+              </a>
+            );
+          })()
         }
         <form class="recherche-menu" role="search" action={withBase('/recherche/')} method="get">
           <label class="masque" for="recherche-menu">Rechercher dans le site</label>

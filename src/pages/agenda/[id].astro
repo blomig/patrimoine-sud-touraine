@@ -23,6 +23,7 @@ const { Content } = await render(fiche);
 const categorie = categorieParId('agenda')!;
 const { connus, inconnus } = themesConnus(fiche, themesDe('agenda'));
 const publication = publicationFiche(fiche, categorie.titre);
+const communeHref = withBase(`/communes/${slugifier(fiche.data.commune)}/`);
 const image = fiche.data.image;
 const licenceHref = image ? urlLicence(image.licence) : null;
 ---
@@ -34,6 +35,9 @@ const licenceHref = image ? urlLicence(image.licence) : null;
       { label: fiche.data.titre },
     ]}
   />
+  <p class="lien-retour">
+    <a href={communeHref}>Retour à {fiche.data.commune}</a>
+  </p>
   <article class="fiche">
     <header class="entete-fiche">
       <p class="sur-titre">{categorie.titre}</p>
@@ -55,7 +59,7 @@ const licenceHref = image ? urlLicence(image.licence) : null;
         <div>
           <dt>Commune</dt>
           <dd>
-            <a href={withBase(`/communes/${slugifier(fiche.data.commune)}/`)}>{fiche.data.commune}</a>
+            <a href={communeHref}>{fiche.data.commune}</a>
             <span class="carte-lieu"> · INSEE {fiche.data.insee}</span>
           </dd>
         </div>

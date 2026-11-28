@@ -48,6 +48,9 @@ const dateDocument = fiche.data.date_document ? formatDateSouple(fiche.data.date
       { label: fiche.data.titre },
     ]}
   />
+  <p class="lien-retour">
+    <a href={communeHref}>Retour à {fiche.data.commune}</a>
+  </p>
   <article class="fiche">
     <header class="entete-fiche">
       <p class="sur-titre">{categorie.titre}</p>
