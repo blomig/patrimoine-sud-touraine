@@ -1,6 +1,7 @@
 ---
 import Fil from '../../../components/Fil.astro';
 import ListeFiches from '../../../components/ListeFiches.astro';
+import RaccourcisCommune from '../../../components/RaccourcisCommune.astro';
 import Base from '../../../layouts/Base.astro';
 import { slugRubrique } from '../../../lib/categories';
 import { communesCompletes, ficheVisibleSurCommune } from '../../../lib/contenu';
@@ -31,6 +32,14 @@ const visibles = groupe.fiches.filter((fiche) => ficheVisibleSurCommune(fiche));
     <p class="chapo">
       Code INSEE {groupe.code}. Commune de la communauté de communes Loches Sud Touraine.
     </p>
+    <RaccourcisCommune
+      slug={groupe.slug}
+      categories={categories.map((categorie) => ({
+        id: categorie.id,
+        titre: categorie.titre,
+        nombre: visibles.filter((fiche) => fiche.data.categorie === categorie.id).length,
+      }))}
+    />
   </header>
   {
     visibles.length === 0 ? (

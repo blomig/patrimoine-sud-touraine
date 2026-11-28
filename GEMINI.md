@@ -210,6 +210,10 @@ Ajouter un bloc dans `contenu/associations.yml` sans réécrire les autres :
 
 Le site n’a plus qu’une apparence, dans `src/styles/global.css` : la revue en bleu marine (`#1f3a6b` pour le titre, les pavés et le filet ; Prochaines animations en bleu roi `#1a4fbf` ; cadres de la carte, des rubriques et de l’agenda en orange `--orange`, `#b1460a`). Les polices Source Serif 4 et Source Sans 3 sont importées dans `src/layouts/Base.astro`. Ne pas ajouter de routeur de transitions : le retour arrière doit recharger la page. Ne pas réintroduire un sélecteur de design (`?apercu=`, page `/designs/`) sans demande.
 
+## Navigation d’une commune
+
+Sur `/communes/<slug>/` et `/communes/<slug>/<rubrique>/`, les pavés du bandeau ouvrent les rubriques de cette commune (`/communes/ligueil/documents/`, le segment venant du titre public). Une rubrique sans fiche est un pavé grisé, pas un lien. Le bandeau indique le nom de la commune, avec « Tout le site » et « Toutes les communes ». Sous le titre, une rangée de boutons liste les rubriques non vides et leur nombre. Ailleurs, les pavés restent les pages générales. Une fiche a un lien « Retour à <commune> ».
+
 ## Règles imposées
 
 - Ne jamais inventer un fait, une date, un lieu, un nom ou un chiffre. Si la source est muette, l’écrire (« non précisé dans la source ») ou laisser le champ `null`.

@@ -1,0 +1,26 @@
+---
+import { slugRubrique } from '../lib/categories';
+import { withBase } from '../lib/urls';
+
+const { slug, categories, courant } = Astro.props as {
+  slug: string;
+  courant?: string;
+  categories: { id: string; titre: string; nombre: number }[];
+};
+const liens = categories.filter((categorie) => categorie.nombre > 0);
+---
+
+{
+  liens.length > 0 && (
+    <nav class="raccourcis-commune" aria-label="Rubriques de cette commune">
+      {liens.map((categorie) => (
+        <a
+          href={withBase(`/communes/${slug}/${slugRubrique(categorie.titre)}/`)}
+          aria-current={courant === slugRubrique(categorie.titre) ? 'page' : undefined}
+        >
+          {categorie.titre} ({categorie.nombre})
+        </a>
+      ))}
+    </nav>
+  )
+}
